@@ -8,5 +8,6 @@ deploy:
 	git add .
 	git commit -am "Deploiement d'une nouvelle version"
 	git push 
+	git checkout develop
 	
 	
