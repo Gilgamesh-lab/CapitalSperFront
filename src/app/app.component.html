@@ -12,6 +12,7 @@
             <div class="card-content">
                 <p>{{personnage.name}}</p>
                 <p><small>Camps : {{personnage.camps}}</small></p>
+                <p><small>Date de création : {{personnage.created | date}}</small></p>
                 <img [src]="personnage.pictureCarte" alt="image" style="height:100px;"/>
             </div>
           </div>
