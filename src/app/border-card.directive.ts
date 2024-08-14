@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener , Input} from '@angular/core';
 
 @Directive({
-  selector: '[BorderCardDirective]',
+  selector: '[PersoCardDirective]',
   standalone: true,
 })
 export class BorderCardDirective {
@@ -10,7 +10,7 @@ export class BorderCardDirective {
   private defaultHeight: number = 180;
 
   constructor(private el: ElementRef) { 
-    console.log('ok')
+    
     this.setHeight(this.defaultHeight);
     this.setBorder(this.couleurInitial);
   }
@@ -21,10 +21,12 @@ export class BorderCardDirective {
 
 
   @HostListener('mouseenter') onMouseEnter(){
+    console.log('enter');
     this.setBorder(this.borderColor || this.couleurParDefaut);
   }
 
   @HostListener('mouseleave') onMouseLeave(){
+    console.log('leave');
     this.setBorder(this.couleurInitial);
   }
 

@@ -6,4 +6,5 @@ export class Personnage {
     pictureCarte: string;
     typesPouvoir: Array<string>;
     created: Date;
+    description: string;
   }

@@ -3,48 +3,53 @@ import { Personnage } from './personnage';
 export const Personnages: Personnage[] = [
     {
         idDeRole: 1,
-        name: "Simple-villageois",
+        name: "Les Simples-villageois",
         picture: "assets/images/Simple-villageois.png",
         pictureCarte:  "assets/images/sv.jpg",
         camps: "Village",
         typesPouvoir: [],
-        created: new Date()
+        created: new Date(),
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
     },
     {
         idDeRole: 2,
-        name: "Loup-garou",
+        name: "Les Simples Loup-garou",
        picture: "assets/images/Loup-garou.png",
        pictureCarte:  "assets/images/ww.jpg",
        camps: "Loups-Garous",
        typesPouvoir: ["Mort"],
-        created: new Date()
+        created: new Date(),
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
     },
     {
         idDeRole: 3,
-        name: "Voyante",
+        name: "La Voyante",
         picture: "assets/images/Voyante.png",
         pictureCarte:  "assets/images/vovo.jpg",
         camps: "Village",
         typesPouvoir: ["Voyance"],
-        created: new Date()
+        created: new Date(),
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
     },
     {
         idDeRole: 4,
-        name: "Sorcière",
+        name: "La Sorcière",
        picture: "assets/images/Sorciere.png",
        pictureCarte:  "assets/images/soso.jpg",
        camps: "Village",
        typesPouvoir: ["Vie", "Mort", "Voyance"],
-        created: new Date()
+        created: new Date(),
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
     },
     {
         idDeRole: 5,
-        name: "Chasseur",
+        name: "Le Chasseur",
         picture: "assets/images/Chasseur.png",
         pictureCarte:  "assets/images/chasseur.jpg",
         camps: "Village",
         typesPouvoir: ["Mort"],
-        created: new Date()
+        created: new Date(),
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
     },
     {
         idDeRole: 6,
@@ -53,7 +58,8 @@ export const Personnages: Personnage[] = [
         pictureCarte:  "assets/images/cupidon.jpg",
         camps: "Village",
         typesPouvoir: ["Mort", "Voyance"],
-        created: new Date()
+        created: new Date(),
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
     }
     ,
 ];

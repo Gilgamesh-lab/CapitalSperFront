@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "capitalsperfront",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:test": "node dist/test/server/server.mjs"
+    "serve:ssr:CapitalSperFront": "node dist/CapitalSperFront/server/server.mjs"
   },
   "private": true,
   "dependencies": {

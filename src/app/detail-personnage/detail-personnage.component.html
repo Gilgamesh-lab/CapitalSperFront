@@ -1,0 +1,49 @@
+<div *ngIf="personnage" class="row">
+    <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{ personnage.name }}</h2>
+    <div class="card vertical hoverable">
+      <div class="card-image" style="display: flex;justify-content: center;">
+        <img [src]="personnage.picture" style="width: 20%;">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <table class="bordered striped">
+            <tbody>
+              <tr>
+                <td>Nom</td>
+                <td><strong>{{ personnage.name }}</strong></td>
+              </tr>
+              <tr>
+                <td>Camp</td>
+                <td><strong><span [ngClass]="personnage.camps | PersonnageCampColorPipe">{{personnage.camps}}</span></strong></td>
+              </tr>
+              <tr>
+                <td>Carte</td>
+                <td><strong>
+                    <img [src]="personnage.pictureCarte" style="width: 20%;" alt="image" />
+                </strong></td>
+              </tr>
+              <tr>
+                <td>Types de pouvoirs</td>
+                <td>
+                  <span *ngFor='let type of personnage.typesPouvoir' class="{{ type | PersonnagePouvoirColorPipe }}">{{ type }}</span>
+                </td>
+              </tr>
+              <!--<tr>
+                <td>Date de création</td>
+                <td><em>{{ personnage.created | date:"dd/MM/yyyy" }}</em></td>
+              </tr>-->
+                <tr>
+                <td>Description</td>
+                <td><em>{{ personnage.description}}</em></td>
+              </tr>
+          </table>
+        </div>
+        <div class="card-action">
+          <a (click)="goMenu()">Retour</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <h4 *ngIf='!personnage' class="center">Aucun personnage à afficher !</h4>

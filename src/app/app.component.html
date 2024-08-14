@@ -1,24 +1,13 @@
-<h1 class="center">Bienvenue</h1>
-
-
-<div class='container'>
-  <div class="row">
-    <div *ngFor='let personnage of ListeDePersonnages' class="col s6 m4">
-      <div class="card horizontal" (click)="selectPersonnage(personnage)" BorderCardDirective>
-          <div class="card-image">
-            <img [src]="personnage.picture" alt="image" style="height:200px;"/>
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-                <p>{{personnage.name}}</p>
-                <p><small>Camps : {{personnage.camps}}</small></p>
-                <img [src]="personnage.pictureCarte" alt="image" style="height:100px;"/>
-            </div>
-          </div>
-      </div>
-    </div>
+<nav>
+  <div class="nav-wrapper teal">
+      <a href="#" class="brand-logo center">
+        Livret des loups-garous du 49
+      </a>
   </div>
-</div>
+</nav>
+
+<router-outlet></router-outlet>
+ 
 
 
 

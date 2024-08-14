@@ -1,0 +1,21 @@
+<div class='container'>
+    <div class="row">
+      <div *ngFor="let personnage of ListeDePersonnages" class="col m4 s6">
+        <div (click)="goToPersonnage(personnage)" class="card horizontal">
+          <div class="card-image">
+            <img [src]="personnage.picture"  alt="image" />
+          </div>
+          <div class="card-stacked"> <!--style="height:200px;"    style="height:200px;width: auto;"-->
+            <div class="card-content">
+              <p>{{personnage.name}}</p>
+              <p>Camp : <span [ngClass]="personnage.camps | PersonnageCampColorPipe">{{personnage.camps}}</span></p>
+              <!--<p><small>Date de création : {{personnage.created | date:"dd/MM/yyyy"}}</small></p>-->
+              <div class="card-image">
+                <img [src]="personnage.pictureCarte" alt="image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
