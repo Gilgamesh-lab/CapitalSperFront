@@ -3,7 +3,7 @@
     <h2 class="header center">{{ personnage.name }}</h2>
     <div class="card horizontal hoverable">
       <div class="card-image">
-        <img [src]="personnage.picture">
+        <img [src]="personnage.picture" style="width: 200%;">
       </div>
       <div class="card-stacked">
         <div class="card-content">
@@ -18,6 +18,12 @@
                 <td><strong><span [ngClass]="personnage.camps | PersonnageCampColorPipe">{{personnage.camps}}</span></strong></td>
               </tr>
               <tr>
+                <td>Carte</td>
+                <td><strong>
+                    <img [src]="personnage.pictureCarte" style="width: 20%;" alt="image" />
+                </strong></td>
+              </tr>
+              <tr>
                 <td>Types de pouvoirs</td>
                 <td>
                   <span *ngFor="let type of personnage.typesPouvoir" >{{ type }} </span>
@@ -27,7 +33,10 @@
                 <td>Date de création</td>
                 <td><em>{{ personnage.created | date:"dd/MM/yyyy" }}</em></td>
               </tr>
-            </tbody>
+                <tr>
+                <td>Description</td>
+                <td><em>{{ personnage.description}}</em></td>
+              </tr>
           </table>
         </div>
         <div class="card-action">
