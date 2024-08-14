@@ -4,11 +4,11 @@
 <div class='container'>
   <div class="row">
     <div *ngFor='let personnage of ListeDePersonnages' class="col s6 m4">
-      <div class="card horizontal" (click)="selectPersonnage(personnage)" BorderCardDirective>
+      <div class="card horizontal"  (click)="selectPersonnage(personnage)" PersoCardDirective>
           <div class="card-image">
-            <img [src]="personnage.picture" alt="image" style="height:200px;"/>
+            <img [src]="personnage.picture"  alt="image" />
           </div>
-          <div class="card-stacked">
+          <div class="card-stacked"> <!--style="height:200px;"-->
             <div class="card-content">
                 <p>{{personnage.name}}</p>
                 <p><small>Camps : {{personnage.camps}}</small></p>
@@ -19,6 +19,4 @@
     </div>
   </div>
 </div>
-
-
 

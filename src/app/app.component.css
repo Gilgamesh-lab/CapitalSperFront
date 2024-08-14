@@ -1,4 +1,10 @@
-.img {
-    width : 1500px;
-    height : 1500px;
+
+
+    img {
+        width: 1000px;
+    }
+    @media (max-width: 1000px) {
+        img {
+            width: 100%;
+        }
     }
