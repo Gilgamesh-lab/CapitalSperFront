@@ -1,7 +1,7 @@
 <div class='container'>
     <div class="row">
       <div *ngFor="let personnage of ListeDePersonnages" class="col m4 s6">
-        <div class="card horizontal" PersoCardDirectivetest>
+        <div (click)="goToPersonnage(personnage)" class="card horizontal">
           <div class="card-image">
             <img [src]="personnage.picture"  alt="image" />
           </div>

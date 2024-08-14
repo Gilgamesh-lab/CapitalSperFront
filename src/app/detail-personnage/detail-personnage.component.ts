@@ -17,7 +17,7 @@ export class DetailPersonnageComponent implements OnInit{
   listePersonnage:  Personnage[];
   personnage: Personnage|undefined;
 
-  constructor(private route: ActivatedRoute){
+  constructor(private route: ActivatedRoute, private router: Router){
   
   }
 
@@ -29,6 +29,10 @@ export class DetailPersonnageComponent implements OnInit{
     }
     
 
+  }
+
+  goMenu(){
+    this.router.navigate(['/personnages']);
   }
 
 }
