@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Personnages} from './mock-personnages-list'
 import { Personnage } from './personnage';
 import { CommonModule } from '@angular/common';  
+import {PersonnageCampColorPipe} from './personnage-camp-color.pipe';
 //import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [CommonModule], // pour ngif et ngfor
+  imports: [CommonModule, PersonnageCampColorPipe], // pour ngif et ngfor
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true
