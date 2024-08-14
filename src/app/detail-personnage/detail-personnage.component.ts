@@ -4,11 +4,12 @@ import { Personnages } from '../mock-personnages-list';
 import { Personnage } from '../personnage';
 import { CommonModule } from '@angular/common';  
 import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
+import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 
 @Component({
   selector: 'app-detail-personnage',
   standalone: true,
-  imports: [CommonModule,PersonnageCampColorPipe],
+  imports: [CommonModule,PersonnageCampColorPipe, PersonnagePouvoirColorPipe],
   templateUrl: './detail-personnage.component.html',
   styleUrl: './detail-personnage.component.css'
 })

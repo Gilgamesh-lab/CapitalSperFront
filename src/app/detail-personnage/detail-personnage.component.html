@@ -26,7 +26,7 @@
               <tr>
                 <td>Types de pouvoirs</td>
                 <td>
-                  <span *ngFor="let type of personnage.typesPouvoir" >{{ type }} </span>
+                  <span *ngFor='let type of personnage.typesPouvoir' class="{{ type | PersonnagePouvoirColorPipe }}">{{ type }}</span>
                 </td>
               </tr>
               <!--<tr>
