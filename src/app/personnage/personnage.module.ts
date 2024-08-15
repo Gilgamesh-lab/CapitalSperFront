@@ -6,7 +6,9 @@ import { BorderCardDirective } from './border-card.directive';
 import { PersonnageCampColorPipe } from './personnage-camp-color.pipe';
 import { PersonnagePouvoirColorPipe } from './personnage-pouvoir-color.pipe';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { PersonnageFormComponent } from './personnage-form/personnage-form.component';
+
 
 export const personnagesRoutes: Routes = [
   {path: 'personnages', component: ListePersonnageComponent},
@@ -23,7 +25,11 @@ export const personnagesRoutes: Routes = [
      PersonnageCampColorPipe,
      PersonnagePouvoirColorPipe,
      RouterModule.forChild(personnagesRoutes),
-     FormsModule
+     FormsModule,
+     PersonnageFormComponent,
+     NgModule,
+     NgForm,
+     NgModel
   ],
   /*providers: [PersonnageService]*/
 })
