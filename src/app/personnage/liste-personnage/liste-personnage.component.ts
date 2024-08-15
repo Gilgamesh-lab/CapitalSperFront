@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Personnage } from '../personnage';
-import { Personnages } from '../mock-personnages-list';
 import {AppComponent} from '../../app.component'
 import { CommonModule } from '@angular/common';  
 import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
 import { Router } from '@angular/router';
+import { PersonnageService } from '../personnage.service';
 
 @Component({
   selector: 'app-liste-personnage',
@@ -13,11 +13,15 @@ import { Router } from '@angular/router';
   templateUrl: './liste-personnage.component.html',
   styleUrl: './liste-personnage.component.css'
 })
-export class ListePersonnageComponent {
-  ListeDePersonnages: Personnage[] = Personnages;
+export class ListePersonnageComponent implements OnInit {
+  ListeDePersonnages: Personnage[];
 
-  constructor(private router: Router){
+  constructor(private router: Router, private personnageService: PersonnageService){
 
+  }
+
+  ngOnInit() : void{
+    this.ListeDePersonnages =  this.personnageService.getPersonnageListe();
   }
 
   goToPersonnage(personnage: Personnage){
