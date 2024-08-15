@@ -1,14 +1,16 @@
 <div *ngIf="personnage" class="row">
     <div class="col s12 m8 offset-m2">
     <h2 class="header center">{{ personnage.name }}</h2>
-    <div class="card vertical hoverable">
+    <div class="card vertical hoverable" >
       <div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
         <img [src]="personnage.picture" style="width: 20%;" [alt]="personnage.name" >
       </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <table class="bordered striped">
-            <tbody style=" display: inline-block;">
+      <div class="card-stacked" >
+        <div class="card-content" >
+          <table class="bordered striped" style="width: auto;table-layout: auto; 
+          border-collapse: collapse;
+          table-layout: fixed;" >
+            <tbody >
               <tr>
                 <td >Nom</td>
                 <td style="text-align:center"><strong >{{ personnage.name }}</strong></td>
@@ -20,11 +22,11 @@
               <tr>
                 <td>Carte</td>
                 <td style="text-align:center"><strong>
-                    <img [src]="personnage.pictureCarte" style="width: 20%;" [alt]="personnage.name" />
+                    <img [src]="personnage.pictureCarte" style="width: 30%;" [alt]="personnage.name" />
                 </strong></td>
               </tr>
               <tr>
-                <td>Types de pouvoirs</td>
+                <td >Types de pouvoirs</td>
                 <td style="text-align:center">
                   <span *ngFor='let type of personnage.typesPouvoir' class="{{ type | PersonnagePouvoirColorPipe }}">{{ type }}</span>
                 </td>
@@ -33,9 +35,10 @@
                 <td>Date de création</td>
                 <td><em>{{ personnage.created | date:"dd/MM/yyyy" }}</em></td>
               </tr>-->
-                <tr>
-                <td>Description</td>
-                <td style="text-align:center"><em>{{ personnage.description}}</em></td>
+              <tr >
+                <td >Description</td>
+                <td style="word-break: break-word;text-align:center;
+                white-space: normal;"><em>{{ personnage.description}}</em></td>
               </tr>
           </table>
         </div>

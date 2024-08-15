@@ -64,7 +64,7 @@ export const Personnages: Personnage[] = [
         camps: "Village",
         typesPouvoir: ["Mort", "Voyance"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavblablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
         estActiver: true
     }
     ,
