@@ -9,17 +9,19 @@ export const Personnages: Personnage[] = [
         camps: "Village",
         typesPouvoir: [],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        estActiver: true
     },
     {
         idDeRole: 2,
-        name: "Les Simples Loup-garou",
+        name: "Les Simples Loups-garous",
        picture: "assets/images/Loup-garou.png",
        pictureCarte:  "assets/images/ww.jpg",
        camps: "Loups-Garous",
        typesPouvoir: ["Mort"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        estActiver: true
     },
     {
         idDeRole: 3,
@@ -29,7 +31,8 @@ export const Personnages: Personnage[] = [
         camps: "Village",
         typesPouvoir: ["Voyance"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        estActiver: true
     },
     {
         idDeRole: 4,
@@ -39,7 +42,8 @@ export const Personnages: Personnage[] = [
        camps: "Village",
        typesPouvoir: ["Vie", "Mort", "Voyance"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        estActiver: true
     },
     {
         idDeRole: 5,
@@ -49,7 +53,8 @@ export const Personnages: Personnage[] = [
         camps: "Village",
         typesPouvoir: ["Mort"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        estActiver: true
     },
     {
         idDeRole: 6,
@@ -59,7 +64,8 @@ export const Personnages: Personnage[] = [
         camps: "Village",
         typesPouvoir: ["Mort", "Voyance"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla"
+        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        estActiver: true
     }
     ,
 ];

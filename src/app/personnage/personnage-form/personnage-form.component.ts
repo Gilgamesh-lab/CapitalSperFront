@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
+import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
 
 @Component({
   selector: 'app-personnage-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, PersonnagePouvoirColorPipe],
+  imports: [FormsModule, CommonModule, PersonnagePouvoirColorPipe,PersonnageCampColorPipe],
   templateUrl: './personnage-form.component.html',
   styleUrls: ['./personnage-form.component.css']
 })
@@ -31,6 +32,10 @@ export class PersonnageFormComponent implements OnInit {
 
   aCeCamp(camp: string) : boolean{
     return this.personnage.camps == camp;
+  }
+
+  getCamps(): string[]{
+    return this.personnageService.getPersonnageCamp();
   }
 
   selectTypePouvoir($event: Event, type: string){
@@ -57,8 +62,36 @@ export class PersonnageFormComponent implements OnInit {
     return true
   }
 
-  selectCamp($event: Event, type: string){
+  estCampValide(camp: string): boolean{
+    /*if(this.personnage.camps.length == 1 && this.aCeCamp(camp)){// pour pas qu'un personnage se retrouve sans type de pouvoir
+      return true;
+    }
 
+    if(this.personnage.typesPouvoir.length > 2 && !this.aCeTypeDePouvoir(typeDePouvoir)){// pour limiter le nombre max assignable
+      return false;
+    }*/
+    
+    return true
+  }
+
+  selectCamp($event: Event, camp: string){
+    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
+    console.log(camp + " : camp");
+    if(isChecked){
+      
+      this.personnage.camps = camp;
+      console.log("marche"+ this.personnage.camps );
+    }
+  }
+
+  selectAffichage($event: Event, mode: boolean){
+    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
+    console.log(mode + " : camp");
+    if(isChecked){
+      
+      this.personnage.estActiver = mode;
+      console.log("marche"+ this.personnage.camps );
+    }
   }
 
   onSubmit(){

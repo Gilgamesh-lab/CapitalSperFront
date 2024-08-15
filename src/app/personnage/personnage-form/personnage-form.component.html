@@ -14,27 +14,50 @@
             <!-- pristine = variable pour savoir la valeur a été modifié -->
             <div [hidden]="name.valid || name.pristine" 
                   class="card-panel red accent-1">
-                  Le nom du personnage est requis d'une taille entre 1 et 25 caractères.
+                  Le nom du personnage requis doit être d'une taille entre 1 et 25 caractères.
             </div>
           </div>
     
           
-          <div class="form-group">
+          <!--<div class="form-group">
             <label for="camps">Camp</label>
             <input type="text" class="form-control" id="camps"
                     required
-                    pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                    pattern="^[a-zA-Z0-9àéèç -]{1,25}$"
                    [(ngModel)]="personnage.camps" name="camps"
                    #camps="ngModel">
                    <div [hidden]="camps.valid || camps.pristine"
                     class="card-panel red accent-1">
                     Le camps du personnage est requis d'une taille entre 1 et 25 caractères.
                   </div>
-             <!--<div [hidden]="camps.valid || camps.pristine"
+             <div [hidden]="camps.valid || camps.pristine"
                    class="card-panel red accent-1">
                    Les points de vie du pokémon sont compris entre 0 et 999.
-             </div>-->
-          </div>
+             </div>
+          </div>-->
+
+          <form class="form-group">
+            <label for="camps">Camp</label>
+            <p *ngFor="let camp of getCamps()">
+              <label>
+                <input type="checkbox"
+                  class="filled-in"
+                  id="{{ camp }}"
+                  [value]="camp"
+                  [checked]="aCeCamp(camp)"
+                  [disabled]="!estCampValide(camp)"
+                  (change)="selectCamp($event, camp)"/>
+                <span [attr.for]="camp">
+                  <div class="{{ camp | PersonnageCampColorPipe }}">
+                    {{ camp }}
+                  </div>
+                </span>
+              </label>
+            </p>
+          </form>
+
+  
+
     
           
           <div class="form-group">
@@ -46,7 +69,7 @@
                    #description="ngModel">
                    <div [hidden]="description.valid || description.pristine"
                     class="card-panel red accent-1">
-                    La description du personnage est requis d'une taille entre 1 et 1000 caractères.
+                    La description du personnage requis doit être d'une taille entre 1 et 1000 caractères.
                   </div>
              <!--<div [hidden]="cp.valid || cp.pristine"
                    class="card-panel red accent-1">

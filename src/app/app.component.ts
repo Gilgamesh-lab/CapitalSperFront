@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 import {PersonnageCampColorPipe} from './personnage/personnage-camp-color.pipe';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PersonnageFormComponent } from './personnage/personnage-form/personnage-form.component';
 
@@ -16,7 +16,13 @@ import { PersonnageFormComponent } from './personnage/personnage-form/personnage
 
 export class AppComponent {
 
+  constructor(private router: Router){
+    
+  }
 
+  goMenu(){
+    this.router.navigate(['/personnages']);
+  }
 
   
 }
