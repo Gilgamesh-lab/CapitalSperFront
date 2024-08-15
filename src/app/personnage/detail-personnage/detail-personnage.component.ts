@@ -36,4 +36,8 @@ export class DetailPersonnageComponent implements OnInit{
     this.router.navigate(['/personnages']);
   }
 
+  goToEdit(personnage: Personnage){
+    this.router.navigate(['/edit/personnage', personnage.idDeRole]);
+  }
+
 }

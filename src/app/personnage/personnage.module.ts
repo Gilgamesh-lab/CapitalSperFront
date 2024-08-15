@@ -8,9 +8,11 @@ import { PersonnagePouvoirColorPipe } from './personnage-pouvoir-color.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { PersonnageFormComponent } from './personnage-form/personnage-form.component';
+import { EditPersonnageComponent } from './edit-personnage/edit-personnage.component';
 
 
 export const personnagesRoutes: Routes = [
+  {path: 'edit/personnage/:id', component: EditPersonnageComponent},
   {path: 'personnages', component: ListePersonnageComponent},
   {path: 'personnages/:id', component: DetailPersonnageComponent}
 ];
