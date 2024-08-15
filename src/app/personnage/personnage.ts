@@ -7,4 +7,5 @@ export class Personnage {
     typesPouvoir: Array<string>;
     created: Date;
     description: string;
+    estActiver: boolean;
   }
