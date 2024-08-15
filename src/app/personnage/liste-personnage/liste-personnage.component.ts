@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Personnage } from '../personnage';
 import { Personnages } from '../mock-personnages-list';
-import {AppComponent} from '../app.component'
+import {AppComponent} from '../../app.component'
 import { CommonModule } from '@angular/common';  
 import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
 import { Router } from '@angular/router';

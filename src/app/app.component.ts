@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';  
-import {PersonnageCampColorPipe} from './personnage-camp-color.pipe';
+import {PersonnageCampColorPipe} from './personnage/personnage-camp-color.pipe';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
