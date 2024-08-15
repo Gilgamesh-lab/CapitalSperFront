@@ -10,21 +10,21 @@
           <table class="bordered striped">
             <tbody>
               <tr>
-                <td>Nom</td>
+                <td>Nom : </td>
                 <td><strong>{{ personnage.name }}</strong></td>
               </tr>
               <tr>
-                <td>Camp</td>
+                <td>Camp : </td>
                 <td><strong><span [ngClass]="personnage.camps | PersonnageCampColorPipe">{{personnage.camps}}</span></strong></td>
               </tr>
               <tr>
-                <td>Carte</td>
+                <td>Carte : </td>
                 <td><strong>
                     <img [src]="personnage.pictureCarte" style="width: 20%;" alt="image" />
                 </strong></td>
               </tr>
               <tr>
-                <td>Types de pouvoirs</td>
+                <td>Types de pouvoirs : </td>
                 <td>
                   <span *ngFor='let type of personnage.typesPouvoir' class="{{ type | PersonnagePouvoirColorPipe }}">{{ type }}</span>
                 </td>
@@ -34,7 +34,7 @@
                 <td><em>{{ personnage.created | date:"dd/MM/yyyy" }}</em></td>
               </tr>-->
                 <tr>
-                <td>Description</td>
+                <td>Description : </td>
                 <td><em>{{ personnage.description}}</em></td>
               </tr>
           </table>
