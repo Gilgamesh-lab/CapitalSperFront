@@ -31,7 +31,7 @@ export const Personnages: Personnage[] = [
         camps: "Village",
         typesPouvoir: ["Voyance"],
         created: new Date(),
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        description: "blabl",
         estActiver: true
     },
     {

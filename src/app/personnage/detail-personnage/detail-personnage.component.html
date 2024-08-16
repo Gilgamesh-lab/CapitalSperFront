@@ -7,9 +7,9 @@
       </div>
       <div class="card-stacked" >
         <div class="card-content" >
-          <table class="bordered striped" style="width: auto;table-layout: auto; 
+          <table class="bordered striped" style="width: 100%;
           border-collapse: collapse;
-          table-layout: fixed;" >
+          table-layout: auto;" >
             <tbody >
               <tr>
                 <td >Nom</td>
@@ -26,7 +26,7 @@
                 </strong></td>
               </tr>
               <tr>
-                <td >Types de pouvoirs</td>
+                <td style="width: 5%;">Types de pouvoirs</td>
                 <td style="text-align:center">
                   <span *ngFor='let type of personnage.typesPouvoir' class="{{ type | PersonnagePouvoirColorPipe }}">{{ type }}</span>
                 </td>
@@ -38,7 +38,7 @@
               <tr >
                 <td >Description</td>
                 <td style="word-break: break-word;text-align:center;
-                white-space: normal;"><em>{{ personnage.description}}</em></td>
+                white-space: normal;width: auto;"><em>{{ personnage.description}}</em></td>
               </tr>
           </table>
         </div>
