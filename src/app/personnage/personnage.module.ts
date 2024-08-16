@@ -38,6 +38,6 @@ export const personnagesRoutes: Routes = [
      NgForm,
      NgModel
   ],
-  /*providers: [PersonnageService]*/
+  providers: [HttpClient]
 })
 export class PersonnageModule { }

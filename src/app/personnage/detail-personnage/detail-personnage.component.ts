@@ -26,7 +26,7 @@ export class DetailPersonnageComponent implements OnInit{
     const personnageId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
 
     if(personnageId){
-      this.personnage = this.personnageService.getPersonnageParId(personnageId);
+      this.personnageService.getPersonnageParId(personnageId).subscribe(personnage2 => this.personnage = personnage2);
     }
     
 

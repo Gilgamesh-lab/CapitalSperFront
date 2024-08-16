@@ -21,7 +21,7 @@ export class ListePersonnageComponent implements OnInit {
   }
 
   ngOnInit() : void{
-    this.ListeDePersonnages =  this.personnageService.getPersonnageListe();
+    this.personnageService.getPersonnageListe().subscribe(listePersonnages => this.ListeDePersonnages = listePersonnages);
   }
 
   goToPersonnage(personnage: Personnage){
