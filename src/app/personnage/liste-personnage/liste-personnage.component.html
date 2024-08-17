@@ -1,5 +1,7 @@
 <div class='container'>
+    <app-search-personnage> </app-search-personnage>
     <div class="row" style="display: flex; flex-wrap: wrap;">
+        
         <div *ngFor="let personnage of ListeDePersonnages" class="col m4 s12 card-container">
             <div (click)="goToPersonnage(personnage)" BorderCardDirective class="card horizontal">
                 <div class="card-image">

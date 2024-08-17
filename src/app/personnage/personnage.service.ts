@@ -59,7 +59,12 @@ export class PersonnageService {
     )
   }
 
-  
+  chercherPersonnage(mot: string): Observable<Personnage[]>{
+    return this.http.get<Personnage[]>(`api/personnnages/?name=${mot}`).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleErreur(error, []))
+    )
+  }
 
   private log(response: any){
     console.table(response);

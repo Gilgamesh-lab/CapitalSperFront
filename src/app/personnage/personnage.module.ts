@@ -17,6 +17,7 @@ import { AppComponent } from '../app.component';
 import { AddPersonnageComponent } from './add-personnage/add-personnage.component';
 
 
+
 export const personnagesRoutes: Routes = [
   {path: 'edit/personnage/:id', component: EditPersonnageComponent},
   {path: 'personnages/add', component:  AddPersonnageComponent},
@@ -41,7 +42,7 @@ export const personnagesRoutes: Routes = [
      PersonnageFormComponent,
      NgModule,
      NgForm,
-     NgModel
+     NgModel,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
