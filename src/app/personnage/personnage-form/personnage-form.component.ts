@@ -95,9 +95,13 @@ export class PersonnageFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('Le formulaire a été envoyé !');
-    this.router.navigate(['/personnages', this.personnage.idDeRole]);
-    
+    this.personnageService.updatePersonnage(this.personnage)
+      .subscribe(() => {
+      if(this.personnage){
+        this.router.navigate(['/personnages', this.personnage.id]);
+      }
+  });
+
   }
 
 }

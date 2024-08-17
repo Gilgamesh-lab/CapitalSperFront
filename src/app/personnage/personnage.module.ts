@@ -9,9 +9,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { PersonnageFormComponent } from './personnage-form/personnage-form.component';
 import { EditPersonnageComponent } from './edit-personnage/edit-personnage.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../in-memory-data.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from '../app.component';
 
 
 export const personnagesRoutes: Routes = [
@@ -30,6 +32,7 @@ export const personnagesRoutes: Routes = [
      PersonnageCampColorPipe,
      PersonnagePouvoirColorPipe,
      RouterModule.forChild(personnagesRoutes),
+     BrowserModule,
      HttpClient,
      HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
      FormsModule,
@@ -38,6 +41,7 @@ export const personnagesRoutes: Routes = [
      NgForm,
      NgModel
   ],
-  providers: [HttpClient]
+  providers: [HttpClient],
+  bootstrap: [AppComponent]
 })
 export class PersonnageModule { }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api'
-import { Personnages } from './personnage/mock-personnages-list';
-import { Personnage } from './personnage/personnage';
+import { PERSONNAGES } from './personnage/mock-personnages-list';
+
 
 
 @Injectable({
@@ -11,7 +11,7 @@ export class InMemoryDataService implements InMemoryDbService{
 
   
   createDb() {
-    const personnages: Personnage[] = Personnages;
+    const personnages = PERSONNAGES;
     console.log("perso = " + personnages);
     return { personnages };
   }

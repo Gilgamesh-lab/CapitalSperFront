@@ -21,7 +21,7 @@ export class EditPersonnageComponent implements OnInit {
   ngOnInit(): void {
     const personnageId: number|null = +this.route.snapshot.paramMap.get('id');
     if(personnageId){
-      this.personnageService.getPersonnageParId(personnageId).subscribe(personnage2 => this.personnage = personnage2);
+      this.personnageService.getPersonnageParId(personnageId).subscribe(personnage => this.personnage = personnage);
     }
     else{
       this.personnage = undefined;

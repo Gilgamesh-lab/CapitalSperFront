@@ -25,7 +25,7 @@ export class ListePersonnageComponent implements OnInit {
   }
 
   goToPersonnage(personnage: Personnage){
-    this.router.navigate(['/personnages', personnage.idDeRole])
+    this.router.navigate(['/personnages', personnage.id])
   }
 
 }

@@ -1,5 +1,5 @@
 export class Personnage {
-    idDeRole: number;
+    id: number; // nom "id" obligatoire pour faire fonctionner InMemoryDataService
     camps: string;
     name: string;
     picture: string;

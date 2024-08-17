@@ -12,11 +12,14 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(withFetch()),
+    
+    
     provideRouter(personnagesRoutes),
      provideRouter(routes),
-      provideClientHydration(), 
-      provideHttpClient(withFetch()),
-     importProvidersFrom(HttpClient, HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService))
+     importProvidersFrom(HttpClient, HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)),
+      provideClientHydration()
+      //
 
   ]
 };// on charge les routes personnages d'abord

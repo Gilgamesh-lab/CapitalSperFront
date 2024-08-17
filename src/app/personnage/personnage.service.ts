@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Personnage } from './personnage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of, tap } from 'rxjs';
+import { PERSONNAGES } from './mock-personnages-list';
 
 
 @Injectable({
@@ -9,9 +10,7 @@ import { Observable, catchError, of, tap } from 'rxjs';
 })
 export class PersonnageService {
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
+  
   
   constructor(private http: HttpClient) { }
 
@@ -27,11 +26,29 @@ export class PersonnageService {
   getPersonnageParId(personnageId: number): Observable<Personnage|undefined>{
     return this.http.get<Personnage>(`api/personnages/${personnageId}`).pipe(
       tap((response) => this.log(response)),
-      catchError((error) => this.handleErreur(error, undefined))
+      catchError((error) => this.handleErreur(error, null))
     );
   }
 
-  private log(response: Personnage|Personnage[]|undefined){
+  updatePersonnage(personnage: Personnage): Observable<null>{
+    const httpOption = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    return this.http.put('api/personnages', personnage, httpOption).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleErreur(error, undefined))
+    )
+  }
+
+  supprimerPersonnageParId(personnageId: number): Observable<null> {
+    return this.http.delete(`api/personnages/${personnageId}`).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleErreur(error, undefined))
+    )
+  }
+
+  private log(response: any){
     console.table(response);
   }
 
