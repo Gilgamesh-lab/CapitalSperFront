@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { PersonnageService } from '../personnage.service';
 import { PersonnageFormComponent } from '../personnage-form/personnage-form.component';
 import { CommonModule, NgIf } from '@angular/common';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-edit-personnage',
   standalone: true,
-  imports: [PersonnageFormComponent, CommonModule,NgIf],
+  imports: [PersonnageFormComponent, CommonModule,NgIf,LoaderComponent],
   templateUrl: './edit-personnage.component.html',
   styleUrl: './edit-personnage.component.css'
 })
@@ -21,7 +22,7 @@ export class EditPersonnageComponent implements OnInit {
   ngOnInit(): void {
     const personnageId: number|null = +this.route.snapshot.paramMap.get('id');
     if(personnageId){
-      this.personnage = this.personnageService.getPersonnageParId(personnageId);
+      this.personnageService.getPersonnageParId(personnageId).subscribe(personnage => this.personnage = personnage);
     }
     else{
       this.personnage = undefined;

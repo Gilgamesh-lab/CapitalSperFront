@@ -5,27 +5,39 @@ import { CommonModule } from '@angular/common';
 import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
 import { Router } from '@angular/router';
 import { PersonnageService } from '../personnage.service';
+import { SearchPersonnageComponent } from "../search-personnage/search-personnage.component";
+import { LoaderComponent } from '../loader/loader.component';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-liste-personnage',
   standalone: true,
-  imports: [AppComponent, CommonModule,PersonnageCampColorPipe],
+  imports: [AppComponent, CommonModule, PersonnageCampColorPipe, SearchPersonnageComponent, LoaderComponent],
   templateUrl: './liste-personnage.component.html',
   styleUrl: './liste-personnage.component.css'
 })
 export class ListePersonnageComponent implements OnInit {
   ListeDePersonnages: Personnage[];
+  
 
-  constructor(private router: Router, private personnageService: PersonnageService){
+  constructor(private router: Router, private personnageService: PersonnageService, private authService: AuthService){
 
   }
 
   ngOnInit() : void{
-    this.ListeDePersonnages =  this.personnageService.getPersonnageListe();
+    this.personnageService.getPersonnageListe().subscribe(listePersonnages => this.ListeDePersonnages = listePersonnages);
   }
 
   goToPersonnage(personnage: Personnage){
-    this.router.navigate(['/personnages', personnage.idDeRole])
+    this.router.navigate(['/personnages', personnage.id])
+  }
+
+  goToAdd(){
+    this.router.navigate(['/personnages/add'])
+  }
+
+  estConnecter(): boolean{
+    return this.authService.isLoggedIn;
   }
 
 }

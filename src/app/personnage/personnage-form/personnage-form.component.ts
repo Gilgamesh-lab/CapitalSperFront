@@ -1,4 +1,4 @@
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PersonnageService } from '../personnage.service';
 import { Personnage } from '../personnage';
 import { Router } from '@angular/router';
@@ -6,17 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-personnage-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, PersonnagePouvoirColorPipe,PersonnageCampColorPipe],
+  imports: [FormsModule, CommonModule, PersonnagePouvoirColorPipe,PersonnageCampColorPipe, LoaderComponent],
   templateUrl: './personnage-form.component.html',
   styleUrls: ['./personnage-form.component.css']
 })
 export class PersonnageFormComponent implements OnInit {
   @Input() personnage: Personnage;
   typesDePouvoirs: string[];
+  isAddForm: boolean;
 
   constructor(private personnageService: PersonnageService, private router: Router){
 
@@ -24,6 +26,7 @@ export class PersonnageFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.typesDePouvoirs = this.personnageService.getPersonnageTypePouvoir();
+    this.isAddForm = this.router.url.includes('add');
   }
 
   aCeTypeDePouvoir(typeDePouvoir: string) : boolean{
@@ -36,6 +39,10 @@ export class PersonnageFormComponent implements OnInit {
 
   getCamps(): string[]{
     return this.personnageService.getPersonnageCamp();
+  }
+
+  getTypePouvoir(): string[]{
+    return this.personnageService.getPersonnageTypePouvoir();
   }
 
   selectTypePouvoir($event: Event, type: string){
@@ -95,9 +102,20 @@ export class PersonnageFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('Le formulaire a été envoyé !');
-    this.router.navigate(['/personnages', this.personnage.idDeRole]);
+    if(this.isAddForm){
+      this.personnageService.ajouterPersonnage(this.personnage)
+        .subscribe((personnage: Personnage) => this.router.navigate(['/personnages', personnage.id]))
+
+    }else{
+      this.personnageService.updatePersonnage(this.personnage)
+      .subscribe(() => {
+      if(this.personnage){
+        this.router.navigate(['/personnages', this.personnage.id]);
+      }});
+    }
     
+  
+
   }
 
 }

@@ -9,10 +9,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { PersonnageFormComponent } from './personnage-form/personnage-form.component';
 import { EditPersonnageComponent } from './edit-personnage/edit-personnage.component';
+import { HttpClient} from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from '../in-memory-data.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from '../app.component';
+import { AddPersonnageComponent } from './add-personnage/add-personnage.component';
+import { authGuard } from '../auth.guard';
+
 
 
 export const personnagesRoutes: Routes = [
-  {path: 'edit/personnage/:id', component: EditPersonnageComponent},
+  {path: 'edit/personnage/:id', component: EditPersonnageComponent, canActivate: [authGuard]},
+  {path: 'personnages/add', component:  AddPersonnageComponent, canActivate: [authGuard]},
   {path: 'personnages', component: ListePersonnageComponent},
   {path: 'personnages/:id', component: DetailPersonnageComponent}
 ];
@@ -27,12 +36,16 @@ export const personnagesRoutes: Routes = [
      PersonnageCampColorPipe,
      PersonnagePouvoirColorPipe,
      RouterModule.forChild(personnagesRoutes),
+     BrowserModule,
+     HttpClient,
+     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
      FormsModule,
      PersonnageFormComponent,
      NgModule,
      NgForm,
-     NgModel
+     NgModel,
   ],
-  /*providers: [PersonnageService]*/
+  providers: [HttpClient],
+  bootstrap: [AppComponent]
 })
 export class PersonnageModule { }
