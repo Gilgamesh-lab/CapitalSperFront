@@ -6,6 +6,7 @@ import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
 import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageService } from '../personnage.service';
 import { LoaderComponent } from '../loader/loader.component';
+import { AuthService } from '../../auth.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class DetailPersonnageComponent implements OnInit{
   listePersonnage:  Personnage[];
   personnage: Personnage|undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService){
+  constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService, private authService: AuthService){
   
   }
 
@@ -47,5 +48,10 @@ export class DetailPersonnageComponent implements OnInit{
   goToEdit(personnage: Personnage){
     this.router.navigate(['/edit/personnage', personnage.id]);
   }
+
+  estConnecter(): boolean{
+    return this.authService.isLoggedIn;
+  }
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PersonnageService } from '../personnage.service';
 import { Personnage } from '../personnage';
 import { Router } from '@angular/router';

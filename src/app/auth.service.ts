@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, delay, of, tap } from 'rxjs';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Observable, delay, of, tap } from 'rxjs';
 })
 export class AuthService {
 
-  constructor() { }
+
 
   isLoggedIn: boolean = false;
   redirectUrl: string;
@@ -22,4 +23,5 @@ export class AuthService {
   logout(){
     this.isLoggedIn = false;
   }
+  
 }

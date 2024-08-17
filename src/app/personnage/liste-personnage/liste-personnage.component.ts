@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { PersonnageService } from '../personnage.service';
 import { SearchPersonnageComponent } from "../search-personnage/search-personnage.component";
 import { LoaderComponent } from '../loader/loader.component';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-liste-personnage',
@@ -17,8 +18,9 @@ import { LoaderComponent } from '../loader/loader.component';
 })
 export class ListePersonnageComponent implements OnInit {
   ListeDePersonnages: Personnage[];
+  
 
-  constructor(private router: Router, private personnageService: PersonnageService){
+  constructor(private router: Router, private personnageService: PersonnageService, private authService: AuthService){
 
   }
 
@@ -32,6 +34,10 @@ export class ListePersonnageComponent implements OnInit {
 
   goToAdd(){
     this.router.navigate(['/personnages/add'])
+  }
+
+  estConnecter(): boolean{
+    return this.authService.isLoggedIn;
   }
 
 }

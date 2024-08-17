@@ -8,7 +8,7 @@
                         (keyup)="search(searchBox.value)"
                         placeholder="Rechercher un personnage"> 
 
-                        <div class="collection">
+                        <div class="collection" style="cursor: pointer;">
                             <a *ngFor="let personnage of personnages$ | async" 
                             (click)="goToDetail(personnage)"
                             class="collection-item"

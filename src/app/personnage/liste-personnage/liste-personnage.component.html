@@ -7,7 +7,7 @@
     <div class="row" style="display: flex; flex-wrap: wrap;">
         
         <div *ngFor="let personnage of ListeDePersonnages" class="col m4 s12 card-container">
-            <div (click)="goToPersonnage(personnage)" BorderCardDirective class="card horizontal">
+            <div (click)="goToPersonnage(personnage)" BorderCardDirective class="card horizontal" style="cursor: pointer;">
                 <div class="card-image">
                     <img [src]="personnage.picture" alt="image" style="width: 100%; height: auto;" />
                 </div>
@@ -26,7 +26,7 @@
 </div>
 
 
-<a 
+<a *ngIf='estConnecter()'
     
     class="btn-floating btn-large waves-effect waves-light red z-depth-3"
     style="position: fixed; bottom: 25px; right: 25x;"

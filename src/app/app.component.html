@@ -1,8 +1,22 @@
+
 <nav>
   <div class="nav-wrapper teal">
-      <a (click)="goMenu()" class="brand-logo center" >
+    
+    <div (click)="goMenu()" >
+      <img src="favicon.ico" alt="image" class=" left circle responsive-img " style="cursor: pointer;"  width="3%" />
+    </div>
+
+    <div>
+
+    
+      <a (click)="goMenu()" class="brand-logo center" style="cursor: pointer;">
         Livret 
       </a>
+    </div>
+
+      <div (click)="goMenuLogin()"  class="right" style="cursor: pointer;" >
+        <i class=" inline-icon material-icons left" style="vertical-align: top;" >account_circle</i>
+      </div>
   </div>
 </nav>
 
