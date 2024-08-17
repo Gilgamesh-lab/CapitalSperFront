@@ -9,11 +9,11 @@
                         placeholder="Rechercher un personnage"> 
 
                         <div class="collection">
-                            <a *ngFor="let personnage of personnages$ | async"> <!-- async = subcribe-->
+                            <a *ngFor="let personnage of personnages$ | async" 
                             (click)="goToDetail(personnage)"
                             class="collection-item"
-                            >
-                            
+                            ><!-- async = subcribe-->
+                            {{personnage.name}}
                             </a>
                         </div>
                         

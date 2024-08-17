@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Personnage } from '../personnage';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { CommonModule} from '@angular/common';
+import {PersonnageService} from '../personnage.service'
+
 
 @Component({
   selector: 'app-search-personnage',
@@ -11,13 +13,26 @@ import { CommonModule} from '@angular/common';
   templateUrl: './search-personnage.component.html',
   styleUrl: './search-personnage.component.css'
 })
-export class SearchPersonnageComponent {
+export class SearchPersonnageComponent implements OnInit{
 
   searchTerms = new Subject<string>();// flux de données dans le temps de l'utilisateur lettre après lettre(= historique champs de recherche)
   personnages$: Observable<Personnage[]>;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private personnageService: PersonnageService){
     
+  }
+
+  ngOnInit(): void {
+    this.personnages$ = this.searchTerms.pipe(
+      //  {..."a"."ab"..."abz"."ab"....abc......}
+      debounceTime(300), // pour éliminer des requêtes dont à pas besoin
+      //  {...."ab"...."ab"....abc......}
+      distinctUntilChanged(),
+      //  {...."ab"........abc......}
+      //map((mot) => this.personnageService.chercherPersonnage(mot));
+      // concatMap / mergeMap / SwitchMap
+      switchMap((mot) => this.personnageService.chercherPersonnage(mot))
+    );
   }
 
 

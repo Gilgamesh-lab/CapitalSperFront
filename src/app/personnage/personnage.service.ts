@@ -60,7 +60,11 @@ export class PersonnageService {
   }
 
   chercherPersonnage(mot: string): Observable<Personnage[]>{
-    return this.http.get<Personnage[]>(`api/personnnages/?name=${mot}`).pipe(
+    if(mot.length < 1){
+      return of([]);
+    }
+
+    return this.http.get<Personnage[]>(`api/personnages/?name=${mot}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleErreur(error, []))
     )
