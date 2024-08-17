@@ -1,5 +1,9 @@
+
 <div class='container'>
     <app-search-personnage> </app-search-personnage>
+    <div *ngIf='!ListeDePersonnages' class="center">
+        <app-loader></app-loader> 
+    </div>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         
         <div *ngFor="let personnage of ListeDePersonnages" class="col m4 s12 card-container">
@@ -20,6 +24,7 @@
         </div>
     </div>
 </div>
+
 
 <a 
     

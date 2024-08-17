@@ -6,11 +6,12 @@ import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
 import { Router } from '@angular/router';
 import { PersonnageService } from '../personnage.service';
 import { SearchPersonnageComponent } from "../search-personnage/search-personnage.component";
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-liste-personnage',
   standalone: true,
-  imports: [AppComponent, CommonModule, PersonnageCampColorPipe, SearchPersonnageComponent],
+  imports: [AppComponent, CommonModule, PersonnageCampColorPipe, SearchPersonnageComponent, LoaderComponent],
   templateUrl: './liste-personnage.component.html',
   styleUrl: './liste-personnage.component.css'
 })

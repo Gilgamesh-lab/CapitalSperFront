@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-personnage-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, PersonnagePouvoirColorPipe,PersonnageCampColorPipe],
+  imports: [FormsModule, CommonModule, PersonnagePouvoirColorPipe,PersonnageCampColorPipe, LoaderComponent],
   templateUrl: './personnage-form.component.html',
   styleUrls: ['./personnage-form.component.css']
 })

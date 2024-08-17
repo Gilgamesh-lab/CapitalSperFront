@@ -5,12 +5,13 @@ import { CommonModule } from '@angular/common';
 import {PersonnageCampColorPipe} from '../personnage-camp-color.pipe';
 import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageService } from '../personnage.service';
-import { Observable } from 'rxjs';
+import { LoaderComponent } from '../loader/loader.component';
+
 
 @Component({
   selector: 'app-detail-personnage',
   standalone: true,
-  imports: [CommonModule,PersonnageCampColorPipe, PersonnagePouvoirColorPipe],
+  imports: [CommonModule,PersonnageCampColorPipe, PersonnagePouvoirColorPipe, LoaderComponent],
   templateUrl: './detail-personnage.component.html',
   styleUrl: './detail-personnage.component.css'
 })

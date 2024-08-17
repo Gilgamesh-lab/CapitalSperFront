@@ -3,7 +3,7 @@ import { Personnage } from './personnage';
 export const PERSONNAGES: Personnage[] = [
     {
         id: 1,
-        name: "Les Simples-villageois",
+        name: "Les Simples Villageois",
         picture: "assets/images/Simple-villageois.png",
         pictureCarte:  "assets/images/sv.jpg",
         camps: "Village",
@@ -14,7 +14,7 @@ export const PERSONNAGES: Personnage[] = [
     },
     {
         id: 2,
-        name: "Les Simples Loups-garous",
+        name: "Les Simples Loups-Garous",
        picture: "assets/images/Loup-garou.png",
        pictureCarte:  "assets/images/ww.jpg",
        camps: "Loups-Garous",

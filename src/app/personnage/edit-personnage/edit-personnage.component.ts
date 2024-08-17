@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { PersonnageService } from '../personnage.service';
 import { PersonnageFormComponent } from '../personnage-form/personnage-form.component';
 import { CommonModule, NgIf } from '@angular/common';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-edit-personnage',
   standalone: true,
-  imports: [PersonnageFormComponent, CommonModule,NgIf],
+  imports: [PersonnageFormComponent, CommonModule,NgIf,LoaderComponent],
   templateUrl: './edit-personnage.component.html',
   styleUrl: './edit-personnage.component.css'
 })
