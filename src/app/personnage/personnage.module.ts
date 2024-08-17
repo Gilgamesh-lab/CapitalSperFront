@@ -15,11 +15,12 @@ import { InMemoryDataService } from '../in-memory-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
 import { AddPersonnageComponent } from './add-personnage/add-personnage.component';
+import { authGuard } from '../auth.guard';
 
 
 
 export const personnagesRoutes: Routes = [
-  {path: 'edit/personnage/:id', component: EditPersonnageComponent},
+  {path: 'edit/personnage/:id', component: EditPersonnageComponent, canActivate: [authGuard]},
   {path: 'personnages/add', component:  AddPersonnageComponent},
   {path: 'personnages', component: ListePersonnageComponent},
   {path: 'personnages/:id', component: DetailPersonnageComponent}

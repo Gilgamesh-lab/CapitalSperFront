@@ -2,9 +2,9 @@
     <div *ngIf='!personnage' class="center">
         <app-loader></app-loader> 
     </div>
-    <h2 class="center">Editer {{personnage.name}}</h2> <!-- ? = aucun personnage est pas définie, on n'affiche rien-->
+    <h2 class="center">Editer {{personnage?.name}}</h2> <!-- ? = aucun personnage est pas définie, on n'affiche rien-->
     <p class="center">
-        <img [src]="personnage.picture">
+        <img [src]="personnage?.picture">
     </p>
     <app-personnage-form *ngIf="personnage" [personnage]="personnage"> </app-personnage-form>
 </div>   
