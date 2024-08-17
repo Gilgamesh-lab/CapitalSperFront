@@ -48,6 +48,19 @@ export class PersonnageService {
     )
   }
 
+  ajouterPersonnage(personnage: Personnage): Observable<null> {
+    const httpOption = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    return this.http.post<Personnage>('api/personnages', personnage, httpOption).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleErreur(error, undefined))
+    )
+  }
+
+  
+
   private log(response: any){
     console.table(response);
   }

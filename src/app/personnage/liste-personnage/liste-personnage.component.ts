@@ -28,4 +28,8 @@ export class ListePersonnageComponent implements OnInit {
     this.router.navigate(['/personnages', personnage.id])
   }
 
+  goToAdd(){
+    this.router.navigate(['/personnages/add'])
+  }
+
 }

@@ -17,6 +17,7 @@ import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
 export class PersonnageFormComponent implements OnInit {
   @Input() personnage: Personnage;
   typesDePouvoirs: string[];
+  isAddForm: boolean;
 
   constructor(private personnageService: PersonnageService, private router: Router){
 
@@ -24,6 +25,7 @@ export class PersonnageFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.typesDePouvoirs = this.personnageService.getPersonnageTypePouvoir();
+    this.isAddForm = this.router.url.includes('add');
   }
 
   aCeTypeDePouvoir(typeDePouvoir: string) : boolean{
@@ -36,6 +38,10 @@ export class PersonnageFormComponent implements OnInit {
 
   getCamps(): string[]{
     return this.personnageService.getPersonnageCamp();
+  }
+
+  getTypePouvoir(): string[]{
+    return this.personnageService.getPersonnageTypePouvoir();
   }
 
   selectTypePouvoir($event: Event, type: string){
@@ -95,12 +101,19 @@ export class PersonnageFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.personnageService.updatePersonnage(this.personnage)
+    if(this.isAddForm){
+      this.personnageService.ajouterPersonnage(this.personnage)
+        .subscribe((personnage: Personnage) => this.router.navigate(['/personnages', personnage.id]))
+
+    }else{
+      this.personnageService.updatePersonnage(this.personnage)
       .subscribe(() => {
       if(this.personnage){
         this.router.navigate(['/personnages', this.personnage.id]);
-      }
-  });
+      }});
+    }
+    
+  
 
   }
 

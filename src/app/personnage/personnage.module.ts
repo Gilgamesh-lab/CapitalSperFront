@@ -14,10 +14,12 @@ import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-me
 import { InMemoryDataService } from '../in-memory-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
+import { AddPersonnageComponent } from './add-personnage/add-personnage.component';
 
 
 export const personnagesRoutes: Routes = [
   {path: 'edit/personnage/:id', component: EditPersonnageComponent},
+  {path: 'personnages/add', component:  AddPersonnageComponent},
   {path: 'personnages', component: ListePersonnageComponent},
   {path: 'personnages/:id', component: DetailPersonnageComponent}
 ];

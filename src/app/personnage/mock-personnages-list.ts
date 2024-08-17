@@ -67,5 +67,5 @@ export const PERSONNAGES: Personnage[] = [
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavblablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
         estActiver: true
     }
-    ,
+    
 ];

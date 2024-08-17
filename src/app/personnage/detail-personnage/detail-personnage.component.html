@@ -2,15 +2,21 @@
     <div class="col s12 m8 offset-m2">
     <h2 class="header center">{{ personnage.name }}</h2>
     <div class="card vertical hoverable" >
-      <div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
+      <!--<div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
         <img [src]="personnage.picture" style="width: 20%;" [alt]="personnage.name" >
-      </div>
+      </div>-->
       <div class="card-stacked" >
         <div class="card-content" >
           <table class="bordered striped" style="width: 100%;
           border-collapse: collapse;
           table-layout: auto;" >
             <tbody >
+              <tr>
+                <td></td>
+                <td style="text-align:center"><strong ><img [src]="personnage.picture" style="width: 30%;" [alt]="personnage.name" >
+                
+                </strong></td>
+              </tr>
               <tr>
                 <td >Nom</td>
                 <td style="text-align:center"><strong >{{ personnage.name }}</strong></td>
