@@ -1,41 +1,51 @@
-import { Directive, ElementRef, HostListener , Input} from '@angular/core';
+import { Directive, ElementRef, HostListener , Input, input} from '@angular/core';
 
 @Directive({
   selector: '[BorderCardDirective]',
   standalone: true,
 })
 export class BorderCardDirective {
-  private couleurInitial: string = '#f5f5f5';
-  private couleurParDefaut: string = '#009688';
-  private defaultHeight: number = 180;
+  personnageCamp = input.required<string>();
+  private initialColor: string;
 
-  constructor(private el: ElementRef) { 
-    
-    this.setHeight(this.defaultHeight);
-    this.setBorder(this.couleurInitial);
+  constructor(private el: ElementRef) {
+    this.initialColor = this.el.nativeElement.style.borderColor;
+    this.el.nativeElement.style.borderWidth = '2px';
   }
 
-  @Input('appBorderCard') borderColor: string;
+  @Input('BorderCardDirective') borderColor: string;
 
 
 
 
-  @HostListener('mouseenter') onMouseEnter(){
+  @HostListener('mouseenter') onMouseEnter() {
     console.log('enter');
-    this.setBorder(this.borderColor || this.couleurParDefaut);
+    const color = this.getBorderColor();
+    this.setBorder(color);
   }
 
-  @HostListener('mouseleave') onMouseLeave(){
+  @HostListener('mouseleave') onMouseLeave() {
     console.log('leave');
-    this.setBorder(this.couleurInitial);
+    const color = this.initialColor;
+    this.setBorder(color);
   }
 
-  private setHeight(height: number){
-    this.el.nativeElement.style.height = '$(height)px';
+  private setBorder(color: string) {
+    this.el.nativeElement.style.borderColor = color;
   }
 
-  private setBorder(color: string){
-    let border = 'solid 4 px ' + color;
-    this.el.nativeElement.style.border = border;
+  private getBorderColor() {
+    return this.getPersonnageColor(this.personnageCamp());
+  }
+
+  getPersonnageColor(type: string) {
+    switch (type) {
+      case 'Loups-Garous':
+        return '#EF5350';
+      case 'Village':
+        return '#42A5F5';
+      default:
+        return '#303030';
+    }
   }
 }

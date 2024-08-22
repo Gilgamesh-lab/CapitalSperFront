@@ -7,15 +7,16 @@
       </div>-->
       <div class="card-stacked" >
         <div class="card-content" >
-          <table class="bordered striped" style="width: 100%;
+          <table  style="width: 100%;
           border-collapse: collapse;
           table-layout: auto;" >
             <tbody >
-              <tr>
+              <tr >
                 <td></td>
-                <td style="text-align:center"><strong ><img [src]="personnage.picture" style="width: 35%;" [alt]="personnage.name" >
-                
-                </strong></td>
+                <td style="text-align:center">
+                    <img [src]="personnage.picture" class="responsive-img" style="width: 40%;padding-top: 20%;height: 100%;" [alt]="personnage.name" >
+                    <img [src]="personnage.lore" class="right responsive-img" style="width: 40%;height: 100%;" [alt]="personnage.name" >
+               </td>
               </tr>
               <tr>
                 <td >Nom</td>

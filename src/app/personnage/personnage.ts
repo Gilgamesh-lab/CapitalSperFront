@@ -6,7 +6,7 @@ export class Personnage {
     picture: string;
     pictureCarte: string;
     typesPouvoir: Array<string>;
-    created: Date;
+    lore: string;
     description: string;
     estActiver: boolean;
 
@@ -18,7 +18,7 @@ export class Personnage {
       description: string = 'Entrer une description',
       typesPouvoir: string[] = ['Vie'],
       estActiver: boolean = true,
-      created: Date = new Date()
+      lore: string = 'Entrer une image'
     ){
 
       this.camps = camps;
@@ -28,6 +28,6 @@ export class Personnage {
       this.description = description;
       this.typesPouvoir = typesPouvoir;
       this.estActiver = estActiver;
-      this.created = created;
+      this.lore = lore;
   }
 }
