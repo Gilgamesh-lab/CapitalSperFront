@@ -15,7 +15,7 @@ export class PageNotFoundComponent {
   
   }
   goMenu(){
-    this.router.navigate(['/personnages']);
+    this.router.navigate(['/']);
   }
 }
 

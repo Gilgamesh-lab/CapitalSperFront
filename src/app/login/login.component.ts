@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
                 // Récupère l'URL de redirection depuis le service d'authentification
                 // Si aucune redirection n'a été définis, redirige l'utilisateur vers la liste des pokemons.
                 console.log(this.authService.redirectUrl);
-                let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/personnages';
+                let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
                 // Redirige l'utilisateur
                 this.router.navigate([redirect]);
             } else {
