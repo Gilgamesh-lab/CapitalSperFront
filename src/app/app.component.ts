@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
   goMenu(){
-    this.router.navigate(['/personnages']);
+    this.router.navigate(['/']);
   }
 
   goMenuLogin(){

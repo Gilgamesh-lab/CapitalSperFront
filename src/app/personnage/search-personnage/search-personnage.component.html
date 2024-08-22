@@ -13,6 +13,7 @@
                             (click)="goToDetail(personnage)"
                             class="collection-item"
                             ><!-- async = subcribe-->
+                            <img [src]="personnage.pictureCarte"  style="height: 100%;width: 6%;" [alt]="personnage.name" >
                             {{personnage.name}}
                             </a>
                         </div>

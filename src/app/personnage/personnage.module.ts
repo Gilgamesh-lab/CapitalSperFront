@@ -22,7 +22,7 @@ import { authGuard } from '../auth.guard';
 export const personnagesRoutes: Routes = [
   {path: 'edit/personnage/:id', component: EditPersonnageComponent, canActivate: [authGuard]},
   {path: 'personnages/add', component:  AddPersonnageComponent, canActivate: [authGuard]},
-  {path: 'personnages', component: ListePersonnageComponent},
+  {path: '', component: ListePersonnageComponent},
   {path: 'personnages/:id', component: DetailPersonnageComponent}
 ];
 
