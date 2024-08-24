@@ -85,15 +85,13 @@ export class PersonnageService {
   }
 
   getPersonnageCamp(): string[]{
-    let tabRetour: string[];
+    let tabRetour: string[] = [];
     let tabCamps: Camp[] = CAMPS;
-
     for(let i = 0; i < tabCamps.length ; i++){
-      if(!tabRetour.includes(tabCamps[i].nom)){
+      if(!tabRetour.includes((tabCamps[i].nom))){
         tabRetour.push(tabCamps[i].nom);
       }
     }
-
     return tabRetour;
   }
 }
