@@ -7,14 +7,14 @@
     <div class="row" style="display: flex; flex-wrap: wrap;">
         
         <div *ngFor="let personnage of ListeDePersonnages" class="col s12 m6 l6 xl4 card-container" > <!--col m4 s12-->
-            <div (click)="goToPersonnage(personnage)"  BorderCardDirective [personnageCamp]="personnage.camps" class="card horizontal" style="cursor: pointer;">
+            <div (click)="goToPersonnage(personnage)"  BorderCardDirective [personnageCamp]="personnage.camps.nom" class="card horizontal" style="cursor: pointer;">
                 <div class="card-image" style="width: auto; height: 100%;">
                     <img [src]="personnage.picture" alt="image" style="padding-top: 20%;" />
                 </div>
                 <div class="card-stacked"  >
                     <div class="card-content" style="height: 100%;" >
                         <p>{{personnage.name}}</p>
-                        <p>Camp : <span [ngClass]="personnage.camps | PersonnageCampColorPipe">{{personnage.camps}}</span></p>
+                        <p>Camp : <span [ngClass]="personnage.camps.nom| PersonnageCampColorPipe">{{personnage.camps.nom}}</span></p>
                         <div class="card-image">
                             <img [src]="personnage.pictureCarte" alt="image" />
                         </div>

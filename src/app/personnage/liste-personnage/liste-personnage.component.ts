@@ -37,6 +37,7 @@ export class ListePersonnageComponent implements OnInit {
     this.router.navigate(['/personnages/add'])
   }
 
+
   estConnecter(): boolean{
     return this.authService.isLoggedIn;
   }

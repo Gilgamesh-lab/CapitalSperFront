@@ -1,12 +1,14 @@
+import { CAMPS } from './mock-camps-list';
 import { Personnage } from './personnage';
-  
+
+
 export const PERSONNAGES: Personnage[] = [
     {
         id: 1,
         name: "Les Simples Villageois",
         picture: "Simple-villageois.png",
         pictureCarte:  "sv.jpg",
-        camps: "Villageois",
+        camps: CAMPS[0],
         typesPouvoir: [],
         lore:  "svLore.png",
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
@@ -17,7 +19,7 @@ export const PERSONNAGES: Personnage[] = [
         name: "Les Simples Loups-Garous",
        picture: "Loup-garou.png",
        pictureCarte:  "ww.jpg",
-       camps: "Loups-Garous",
+       camps: CAMPS[1],
        typesPouvoir: ["Mort"],
         lore:  "wwLore.png",
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
@@ -28,7 +30,7 @@ export const PERSONNAGES: Personnage[] = [
         name: "La Voyante",
         picture: "Voyante.png",
         pictureCarte:  "vovo.jpg",
-        camps: "Villageois",
+        camps: CAMPS[0],
         typesPouvoir: ["Voyance"],
         lore:  "vovoLore.png",
         description: "blabl",
@@ -39,7 +41,7 @@ export const PERSONNAGES: Personnage[] = [
         name: "La Sorcière",
        picture: "Sorciere.png",
        pictureCarte:  "soso.jpg",
-       camps: "Villageois",
+       camps: CAMPS[0],
        typesPouvoir: ["Vie", "Mort", "Voyance"],
        lore:  "sosoLore.png",
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
@@ -50,7 +52,7 @@ export const PERSONNAGES: Personnage[] = [
         name: "Le Chasseur",
         picture: "Chasseur.png",
         pictureCarte:  "chasseur.jpg",
-        camps: "Villageois",
+        camps: CAMPS[0],
         typesPouvoir: ["Mort"],
         lore:  "chasseurLore.png",
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
@@ -61,7 +63,7 @@ export const PERSONNAGES: Personnage[] = [
         name: "Cupidon",
         picture: "Cupidon.png",
         pictureCarte:  "cupidon.jpg",
-        camps: "Villageois",
+        camps: CAMPS[0],
         typesPouvoir: ["Mort", "Voyance"],
         lore:  "cupidonLore.png",
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavblablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",

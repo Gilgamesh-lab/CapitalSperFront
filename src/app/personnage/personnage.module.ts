@@ -16,13 +16,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
 import { AddPersonnageComponent } from './add-personnage/add-personnage.component';
 import { authGuard } from '../auth.guard';
+import { CampsComponent } from './camps/camps.component';
 
 
 export const personnagesRoutes: Routes = [
   {path: 'edit/personnage/:id', component: EditPersonnageComponent, canActivate: [authGuard]},
   {path: 'personnages/add', component:  AddPersonnageComponent, canActivate: [authGuard]},
   {path: '', component: ListePersonnageComponent},
-  {path: 'personnages/:id', component: DetailPersonnageComponent}
+  {path: 'personnages/:id', component: DetailPersonnageComponent},
+  {path: 'camps/:id', component: CampsComponent}
 ];
 
 @NgModule({

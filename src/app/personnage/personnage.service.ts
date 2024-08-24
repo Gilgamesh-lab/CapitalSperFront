@@ -84,12 +84,25 @@ export class PersonnageService {
     return ['Vie', 'Mort', 'Voyance'];
   }
 
-  getPersonnageCamp(): string[]{
+  getPersonnageCampNom(): string[]{
     let tabRetour: string[] = [];
     let tabCamps: Camp[] = CAMPS;
+    
     for(let i = 0; i < tabCamps.length ; i++){
       if(!tabRetour.includes((tabCamps[i].nom))){
         tabRetour.push(tabCamps[i].nom);
+      }
+    }
+    return tabRetour;
+  }
+
+  getPersonnageCamp(): Camp[]{
+    let tabRetour: Camp[] = [];
+    let tabCamps: Camp[] = CAMPS;
+    
+    for(let i = 0; i < tabCamps.length ; i++){
+      if(!tabRetour.includes((tabCamps[i]))){
+        tabRetour.push(tabCamps[i]);
       }
     }
     return tabRetour;

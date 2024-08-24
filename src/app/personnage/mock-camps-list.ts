@@ -8,7 +8,7 @@ export const CAMPS: Camp[] = [
         but: "Tuer les loups-garous",
         illustration:  "Simple-villageois.png",
         description: "balaballazjdkczo,ckio",
-        listePersonnage:  PERSONNAGES,
+        listePersonnage:  [],
     },
     {
         id: 2,
@@ -16,7 +16,6 @@ export const CAMPS: Camp[] = [
         but: "Tuer les villageois",
         illustration:  "Loup-garou.png",
         description: "balaballazjdkczo,ckio",
-        listePersonnage:  PERSONNAGES,
+        listePersonnage:  [],
     }
-    
 ];

@@ -34,11 +34,11 @@ export class PersonnageFormComponent implements OnInit {
   }
 
   aCeCamp(camp: string) : boolean{
-    return this.personnage.camps == camp;
+    return this.personnage.camps.nom == camp;
   }
 
   getCamps(): string[]{
-    return this.personnageService.getPersonnageCamp();
+    return this.personnageService.getPersonnageCampNom();
   }
 
   getTypePouvoir(): string[]{
@@ -86,7 +86,7 @@ export class PersonnageFormComponent implements OnInit {
     console.log(camp + " : camp");
     if(isChecked){
       
-      this.personnage.camps = camp;
+      this.personnage.camps.nom = camp;
       console.log("marche"+ this.personnage.camps );
     }
   }

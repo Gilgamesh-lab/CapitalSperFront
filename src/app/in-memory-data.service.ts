@@ -12,7 +12,7 @@ export class InMemoryDataService implements InMemoryDbService{
   
   createDb() {
     const personnages = PERSONNAGES;
-    console.log("perso = " + personnages);
+    console.log("perso = " + personnages[0].camps);
     return { personnages };
   }
 }

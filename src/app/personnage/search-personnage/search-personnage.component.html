@@ -11,10 +11,9 @@
                         <div class="collection" style="cursor: pointer;">
                             <a *ngFor="let personnage of personnages$ | async" 
                             (click)="goToDetail(personnage)"
-                            class="collection-item"
-                            ><!-- async = subcribe-->
-                            <img [src]="personnage.pictureCarte"  style="height: 100%;width: 6%;" [alt]="personnage.name" >
-                            {{personnage.name}}
+                            class="collection-item"><!-- async = subcribe-->
+                                <img class="responsive-img" [src]="personnage.picture"  style="height: 100%;width: 10%;" [alt]="personnage.name" >
+                                {{personnage.name}}
                             </a>
                         </div>
                         

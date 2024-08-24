@@ -1,7 +1,10 @@
+import { Camp } from "./camp";
+import { CAMPS } from "./mock-camps-list";
+
 export class Personnage {
 
   id: number; // nom "id" obligatoire pour faire fonctionner InMemoryDataService
-    camps: string;
+    camps: Camp;
     name: string;
     picture: string;
     pictureCarte: string;
@@ -11,7 +14,7 @@ export class Personnage {
     estActiver: boolean;
 
     constructor(
-      camps: string = 'Village',
+      camps: Camp = CAMPS[0],
       name: string = 'Entrer un nom',
       picture: string = 'Entrer une image',
       pictureCarte: string = 'Entrer une image',

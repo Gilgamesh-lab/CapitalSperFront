@@ -8,6 +8,7 @@ import { PersonnageService } from '../personnage.service';
 import { LoaderComponent } from '../loader/loader.component';
 import { AuthService } from '../../auth.service';
 import { RouterExtService } from '../router-ext-service.service';
+import { Camp } from '../camp';
 
 
 @Component({
@@ -19,7 +20,6 @@ import { RouterExtService } from '../router-ext-service.service';
 })
 export class DetailPersonnageComponent implements OnInit{
 
-  listePersonnage:  Personnage[];
   personnage: Personnage|undefined;
 
   constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService, private authService: AuthService, private routerExtService: RouterExtService){
@@ -28,7 +28,6 @@ export class DetailPersonnageComponent implements OnInit{
 
   ngOnInit(): void {
     const personnageId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
-    console.log(personnageId);
     if(personnageId){
       this.personnageService.getPersonnageParId(personnageId).subscribe(personnage => this.personnage = personnage);
       //.subscribe(personnage => this.personnage = personnage)
@@ -44,6 +43,10 @@ export class DetailPersonnageComponent implements OnInit{
 
   goMenu(){
     this.router.navigate(['/']);
+  }
+
+  goToCamp(camp: Camp){
+    this.router.navigate(['/camps', camp.id]);
   }
 
   goToEdit(personnage: Personnage){

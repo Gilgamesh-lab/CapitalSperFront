@@ -19,31 +19,35 @@
                </td>
               </tr>
               <tr>
-                <td >Nom</td>
+                <td style="display: inline;">Nom :</td>
                 <td style="text-align:center"><strong >{{ personnage.name }}</strong></td>
               </tr>
               <tr>
-                <td>Camp</td>
-                <td style="text-align:center"><strong><span [ngClass]="personnage.camps | PersonnageCampColorPipe">{{personnage.camps}}</span></strong></td>
+                <td style="display: inline;">Camp :</td>
+                <td (click)="goToCamp(personnage.camps)" style="text-align:center;">
+                  <strong>
+                    <span style="cursor: pointer;" [ngClass]="personnage.camps.nom| PersonnageCampColorPipe">{{personnage.camps.nom}}</span>
+                  </strong>
+                </td>
               </tr>
               <tr>
-                <td>Carte</td>
+                <td style="display: inline;">Carte :</td>
                 <td style="text-align:center"><strong>
                     <img [src]="personnage.pictureCarte" style="width: 30%;" [alt]="personnage.name" />
                 </strong></td>
               </tr>
               <tr>
-                <td style="width: 5%;">Types de pouvoirs</td>
+                <td style="width: 5%;display: inline;">Types de pouvoirs :</td>
                 <td style="text-align:center">
                   <span *ngFor='let type of personnage.typesPouvoir' class="{{ type | PersonnagePouvoirColorPipe }}">{{ type }}</span>
                 </td>
               </tr>
               <!--<tr>
-                <td>Date de création</td>
+                <td>Date de création</td> 
                 <td><em>{{ personnage.created | date:"dd/MM/yyyy" }}</em></td>
               </tr>-->
               <tr >
-                <td >Description</td>
+                <td >Description :</td>
                 <td style="word-break: break-word;text-align:center;
                 white-space: normal;width: auto;"><em>{{ personnage.description}}</em></td>
               </tr>
