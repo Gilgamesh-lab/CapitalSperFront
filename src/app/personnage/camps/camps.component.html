@@ -1,4 +1,57 @@
 <div *ngIf="camp" class="row">
-    <p>Bienvenue dans le camp des {{camp.nom}} </p>
-</div>
-
+    <div class="col s12 m8 offset-m2" >
+    <h2 class="header center">Le camp des {{ camp.nom }}</h2>
+    <div style="text-align:center">
+        <img class="responsive-img center" [src]="camp.illustration"  [alt]="camp.nom" />
+    </div>
+    <div class="card vertical hoverable" >
+      <!--<div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
+        <img [src]="camp.picture" style="width: 20%;" [alt]="camp.nom" >
+      </div>-->
+      <div class="card-stacked"  >
+        <div class="card-content" >
+          <table  style="width: 100%;
+          border-collapse: collapse;
+          table-layout: auto;" >
+            <tbody >
+              <tr>
+                <td >Nom du camp :</td>
+                <td  class="left" ><strong >Les {{ camp.nom }}</strong></td>
+              </tr>
+              <tr>
+                <td  >But du camp :</td>
+                <td class="left">
+                  <strong>
+                    {{camp.but }}
+                  </strong>
+                </td>
+              </tr>
+              <tr >
+                <td >Description du camp :</td>
+                <td class="left" style="word-break: break-word;text-align:center;
+                white-space: normal;width: auto;"><em>{{ camp.description}}</em></td>
+              </tr>
+              <tr >
+                <td> Liste des membres de ce camp :</td>
+                    <td class="center" (click)="goToPersonnage(personnage)" *ngFor="let personnage of getPersonnagesQuiACeCamp(camp)" style="word-break: break-word;text-align:center;
+                    white-space: normal;width: auto; display: inline;cursor: pointer;">
+                        <em >
+                            <img class="responsive-img center" width="15%" [src]="personnage.picture"  [alt]="personnage.name" />
+                            {{ personnage.name}}
+                        </em>
+                    </td>
+              </tr>
+          </table>  
+        </div>
+        <div class="card-action">
+            <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+            <a (click)="goToPrevious()" style="cursor: pointer;">Page précédente</a>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <h3 *ngIf='!camp' class="center">
+      <app-loader></app-loader> 
+    </h3>

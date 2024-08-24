@@ -5,16 +5,16 @@ export const CAMPS: Camp[] = [
     {
         id: 1,
         nom: "Villageois",
-        but: "Tuer les loups-garous",
-        illustration:  "Simple-villageois.png",
-        description: "balaballazjdkczo,ckio",
+        but: "Éliminer les loups-garous",
+        illustration:  "villageois.png",
+        description: "balaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckio",
         listePersonnage:  [],
     },
     {
         id: 2,
         nom: "Loups-Garous",
-        but: "Tuer les villageois",
-        illustration:  "Loup-garou.png",
+        but: "Éliminer les autres habitants du village",
+        illustration:  "meute.webp",
         description: "balaballazjdkczo,ckio",
         listePersonnage:  [],
     }

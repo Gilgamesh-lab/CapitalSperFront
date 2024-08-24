@@ -3,11 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { PersonnageService } from '../personnage.service';
 import { Camp } from '../camp';
 import { CommonModule } from '@angular/common';
+import { LoaderComponent } from '../loader/loader.component';
+import { AppComponent } from '../../app.component';
+import { Personnage } from '../personnage';
+import { PERSONNAGES } from '../mock-personnages-list';
 
 @Component({
   selector: 'app-camps',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LoaderComponent, AppComponent],
   templateUrl: './camps.component.html',
   styleUrl: './camps.component.css'
 })
@@ -15,7 +19,7 @@ export class CampsComponent implements OnInit {
   
   camp: Camp|undefined;
 
-  constructor(private route: ActivatedRoute, private personnageService: PersonnageService){
+  constructor(private route: ActivatedRoute, private personnageService: PersonnageService, private appComponent: AppComponent){
 
   }
 
@@ -24,5 +28,23 @@ export class CampsComponent implements OnInit {
     if(campId){
       this.camp = this.personnageService.getPersonnageCamp()[campId - 1];
     }
+  }
+
+  public getPersonnagesQuiACeCamp(camp: Camp): Personnage[]{
+    return PERSONNAGES.filter((personnage) => personnage.camps.id == camp.id);
+  }
+
+  public goToPrevious(): void {
+    this.appComponent.goToPrevious();
+
+  }
+
+  goToPersonnage(personnage: Personnage){
+    this.appComponent.goToPersonnage(personnage);
+  }
+
+  public goMenu(): void {
+    this.appComponent.goMenu();
+
   }
 }

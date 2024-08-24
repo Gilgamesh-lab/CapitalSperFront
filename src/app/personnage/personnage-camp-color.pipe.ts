@@ -6,16 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PersonnageCampColorPipe implements PipeTransform {
 
-  transform(type: string): string {
+  transform(type: number): string {
   
     let color: string;
   
     switch (type) {
-      case 'Loups-Garous':
-        color = 'red lighten-1';
-        break;
-      case 'Villageois':
+      case 1:
         color = 'blue lighten-1';
+        break;
+      case 2:
+        color = 'red lighten-1';
         break;
       default:
         color = 'grey';

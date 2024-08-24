@@ -12,9 +12,9 @@
                     <img [src]="personnage.picture" alt="image" style="padding-top: 20%;" />
                 </div>
                 <div class="card-stacked"  >
-                    <div class="card-content" style="height: 100%;" >
+                    <div class="card-content" style="height: 100%;width: auto;" >
                         <p>{{personnage.name}}</p>
-                        <p>Camp : <span [ngClass]="personnage.camps.nom| PersonnageCampColorPipe">{{personnage.camps.nom}}</span></p>
+                        <p > Camp : <span  [ngClass]="personnage.camps.id| PersonnageCampColorPipe">{{personnage.camps.nom}}</span> </p>
                         <div class="card-image">
                             <img [src]="personnage.pictureCarte" alt="image" />
                         </div>

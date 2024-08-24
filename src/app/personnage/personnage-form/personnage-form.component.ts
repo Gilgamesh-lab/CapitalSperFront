@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
 import { LoaderComponent } from '../loader/loader.component';
+import { Camp } from '../camp';
 
 @Component({
   selector: 'app-personnage-form',
@@ -37,8 +38,8 @@ export class PersonnageFormComponent implements OnInit {
     return this.personnage.camps.nom == camp;
   }
 
-  getCamps(): string[]{
-    return this.personnageService.getPersonnageCampNom();
+  getCamps(): Camp[]{
+    return this.personnageService.getPersonnageCamp();
   }
 
   getTypePouvoir(): string[]{
