@@ -66,6 +66,6 @@ export const PERSONNAGES: Personnage[] = [
         lore:  "cupidonLore.png",
         description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavblablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
         estActiver: true
-    }
+    },
     
 ];

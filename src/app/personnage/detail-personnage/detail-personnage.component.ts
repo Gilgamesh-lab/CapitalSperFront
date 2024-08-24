@@ -7,6 +7,7 @@ import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageService } from '../personnage.service';
 import { LoaderComponent } from '../loader/loader.component';
 import { AuthService } from '../../auth.service';
+import { RouterExtService } from '../router-ext-service.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class DetailPersonnageComponent implements OnInit{
   listePersonnage:  Personnage[];
   personnage: Personnage|undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService, private authService: AuthService){
+  constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService, private authService: AuthService, private routerExtService: RouterExtService){
   
   }
 
@@ -51,6 +52,17 @@ export class DetailPersonnageComponent implements OnInit{
 
   estConnecter(): boolean{
     return this.authService.isLoggedIn;
+  }
+
+  //Strange name, but it makes sense. Behind the scenes, we are pushing to history the previous url
+  public goToPrevious(): void {
+    let previous = this.routerExtService.getPreviousUrl();
+    if(previous && previous != this.routerExtService.getCurrentUrl() ){
+      this.router.navigateByUrl(previous);
+    }else{
+      this.router.navigateByUrl('/');
+    }
+
   }
 
 

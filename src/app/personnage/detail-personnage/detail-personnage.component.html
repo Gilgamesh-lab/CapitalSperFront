@@ -50,7 +50,7 @@
           </table>
         </div>
         <div class="card-action">
-          <a (click)="goMenu()" style="cursor: pointer;">Retour</a>
+          <a (click)="goToPrevious()" style="cursor: pointer;">Retour</a>
           <a *ngIf='estConnecter()' (click)="goToEdit(personnage)" style="cursor: pointer;">Éditer</a>
           <a *ngIf='estConnecter()' (click)="deletePersonnage(personnage)" style="cursor: pointer;">Supprimer</a>
         </div>

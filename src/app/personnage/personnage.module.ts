@@ -18,7 +18,6 @@ import { AddPersonnageComponent } from './add-personnage/add-personnage.componen
 import { authGuard } from '../auth.guard';
 
 
-
 export const personnagesRoutes: Routes = [
   {path: 'edit/personnage/:id', component: EditPersonnageComponent, canActivate: [authGuard]},
   {path: 'personnages/add', component:  AddPersonnageComponent, canActivate: [authGuard]},
@@ -36,6 +35,7 @@ export const personnagesRoutes: Routes = [
      PersonnageCampColorPipe,
      PersonnagePouvoirColorPipe,
      RouterModule.forChild(personnagesRoutes),
+     RouterModule.forRoot([]),
      BrowserModule,
      HttpClient,
      HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
