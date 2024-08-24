@@ -14,7 +14,7 @@ export class PersonnageCampColorPipe implements PipeTransform {
       case 'Loups-Garous':
         color = 'red lighten-1';
         break;
-      case 'Village':
+      case 'Villageois':
         color = 'blue lighten-1';
         break;
       default:

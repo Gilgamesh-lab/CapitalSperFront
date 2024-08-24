@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Personnage } from './personnage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { PERSONNAGES } from './mock-personnages-list';
+import { CAMPS } from './mock-camps-list';
+import { Camp } from './camp';
 
 
 @Injectable({
@@ -84,6 +85,15 @@ export class PersonnageService {
   }
 
   getPersonnageCamp(): string[]{
-    return ['Village', 'Loups-Garous'];
+    let tabRetour: string[];
+    let tabCamps: Camp[] = CAMPS;
+
+    for(let i = 0; i < tabCamps.length ; i++){
+      if(!tabRetour.includes(tabCamps[i].nom)){
+        tabRetour.push(tabCamps[i].nom);
+      }
+    }
+
+    return tabRetour;
   }
 }
