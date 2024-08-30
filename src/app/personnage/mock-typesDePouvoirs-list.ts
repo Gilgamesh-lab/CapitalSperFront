@@ -1,18 +1,23 @@
-import { Camp } from "./camp";
+import { typesDePouvoirs } from "./typesDePouvoirs";
+
   
-export const CAMPS: Camp[] = [
+export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 1,
-        nom: "Villageois",
-        but: "Éliminer les loups-garous",
-        illustration:  "villageois.png",
+        nom: "Vie",
+        illustration:  "vie.jpg",
         description: "balaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckiobalaballazjdkczo,ckio"
     },
     {
         id: 2,
-        nom: "Loups-Garous",
-        but: "Éliminer les autres habitants du village",
-        illustration:  "meute.webp",
+        nom: "Mort",
+        illustration:  "mort.png",
+        description: "balaballazjdkczo,ckio"
+    },
+    {
+        id: 3,
+        nom: "Voyance",
+        illustration:  "voyance.png",
         description: "balaballazjdkczo,ckio"
     }
 ];

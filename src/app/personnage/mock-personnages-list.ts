@@ -44,7 +44,7 @@ export const PERSONNAGES: Personnage[] = [
        camps: CAMPS[0],
        typesPouvoir: ["Vie", "Mort", "Voyance"],
        lore:  "sosoLore.png",
-        description: "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablavbla",
+        description: "Elle est réveillée par le meneur chaque nuit après les loups garous tant qu’elle a moins une potion. Le meneur lui montre alors la victime des loups garous. La sorcière dispose de deux potions : la potion de « VIE » qui peut lui permet de ressusciter la victime des loups garous, et une potion de « MORT » qui lui permet d’éliminer un joueur. Elle peut utiliser chaque potion une seule fois dans toute la partie. Elle peut très bien ne pas utiliser ses potions pendant une nuit. Elle peut très bien n’utiliser qu’une seule potion durant la nuit, ou bien utiliser les deux la même nuit si elle le souhaite. La sorcière est autorisée à utiliser sa potion de « VIE » sur elle même si les loups garous avaient décider de la dévorer durant leur festin nocturne. Si la sorcière a utilisé sa potion de « VIE », le meneur ne lui montreras pas la victime des loups garous les nuits suivantes.",
         estActiver: true
     },
     {
