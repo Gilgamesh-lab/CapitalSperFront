@@ -8,6 +8,7 @@ import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
 import { LoaderComponent } from '../loader/loader.component';
 import { Camp } from '../camp';
+import { typesDePouvoirs } from '../typesDePouvoirs';
 
 @Component({
   selector: 'app-personnage-form',
@@ -18,7 +19,7 @@ import { Camp } from '../camp';
 })
 export class PersonnageFormComponent implements OnInit {
   @Input() personnage: Personnage;
-  typesDePouvoirs: string[];
+  typesDePouvoirs: typesDePouvoirs[];
   isAddForm: boolean;
 
   constructor(private personnageService: PersonnageService, private router: Router){
@@ -30,7 +31,7 @@ export class PersonnageFormComponent implements OnInit {
     this.isAddForm = this.router.url.includes('add');
   }
 
-  aCeTypeDePouvoir(typeDePouvoir: string) : boolean{
+  aCeTypeDePouvoir(typeDePouvoir: typesDePouvoirs) : boolean{
     return this.personnage.typesPouvoir.includes(typeDePouvoir);
   }
 
@@ -42,11 +43,11 @@ export class PersonnageFormComponent implements OnInit {
     return this.personnageService.getPersonnageCamp();
   }
 
-  getTypePouvoir(): string[]{
+  getTypePouvoir(): typesDePouvoirs[]{
     return this.personnageService.getPersonnageTypePouvoir();
   }
 
-  selectTypePouvoir($event: Event, type: string){
+  selectTypePouvoir($event: Event, type: typesDePouvoirs){
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
 
     if(isChecked){
@@ -58,7 +59,7 @@ export class PersonnageFormComponent implements OnInit {
     }
   }
 
-  estTypeDePouvoirValide(typeDePouvoir: string): boolean{
+  estTypeDePouvoirValide(typeDePouvoir: typesDePouvoirs): boolean{
     if(this.personnage.typesPouvoir.length == 1 && this.aCeTypeDePouvoir(typeDePouvoir)){// pour pas qu'un personnage se retrouve sans type de pouvoir
       return false;
     }

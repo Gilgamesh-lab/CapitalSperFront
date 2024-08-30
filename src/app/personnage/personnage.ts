@@ -1,5 +1,7 @@
 import { Camp } from "./camp";
 import { CAMPS } from "./mock-camps-list";
+import { TYPESDEPOUVOIR } from "./mock-typesDePouvoirs-list";
+import { typesDePouvoirs } from "./typesDePouvoirs";
 
 export class Personnage {
 
@@ -8,7 +10,7 @@ export class Personnage {
     name: string;
     picture: string;
     pictureCarte: string;
-    typesPouvoir: Array<string>;
+    typesPouvoir: Array<typesDePouvoirs>;
     lore: string;
     description: string;
     estActiver: boolean;
@@ -19,7 +21,7 @@ export class Personnage {
       picture: string = 'Entrer une image',
       pictureCarte: string = 'Entrer une image',
       description: string = 'Entrer une description',
-      typesPouvoir: string[] = ['Vie'],
+      typesPouvoir: typesDePouvoirs[] = [TYPESDEPOUVOIR[0]],
       estActiver: boolean = true,
       lore: string = 'Entrer une image'
     ){

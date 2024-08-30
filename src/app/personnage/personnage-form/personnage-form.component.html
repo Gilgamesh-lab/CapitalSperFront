@@ -121,8 +121,8 @@
                   [disabled]="!estTypeDePouvoirValide(type)"
                   (change)="selectTypePouvoir($event, type)"/>
                 <span [attr.for]="type">
-                  <div class="{{ type | PersonnagePouvoirColorPipe }}">
-                    {{ type }}
+                  <div class="{{ type.nom| PersonnagePouvoirColorPipe }}">
+                    {{ type.nom }}
                   </div>
                 </span>
               </label>
