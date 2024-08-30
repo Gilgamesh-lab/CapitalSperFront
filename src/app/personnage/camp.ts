@@ -7,7 +7,6 @@ export class Camp {
     but: string;
     illustration: string;
     description: string
-    listePersonnage: number[]; // pas de Personnage[] pour éviter les dépendances circulaires
     
 
     constructor(
@@ -21,6 +20,5 @@ export class Camp {
     this.but = but;
     this.illustration = illustration;
     this.description = description;
-    this.listePersonnage = [];
 }
   }

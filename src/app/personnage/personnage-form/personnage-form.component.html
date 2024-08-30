@@ -72,14 +72,14 @@
               <label>
                 <input type="checkbox"
                   class="filled-in"
-                  id="{{ camp }}"
-                  [value]="camp"
+                  id="{{ camp.nom }}"
+                  [value]="camp.nom"
                   [checked]="aCeCamp(camp.nom)"
                   [disabled]="!estCampValide(camp.nom)"
-                  (change)="selectCamp($event, camp.nom)"/>
-                <span [attr.for]="camp">
+                  (change)="selectCamp($event, camp)"/>
+                <span [attr.for]="camp.nom">
                   <div class="{{ camp.id| PersonnageCampColorPipe }}">
-                    {{ camp }}
+                    {{ camp.nom }}
                   </div>
                 </span>
               </label>

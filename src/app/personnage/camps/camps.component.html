@@ -16,13 +16,13 @@
             <tbody >
               <tr>
                 <td >Nom du camp :</td>
-                <td  class="left" ><strong >Les {{ camp.nom }}</strong></td>
+                <td  class="left" ><strong >Les {{camp.nom}}</strong></td>
               </tr>
               <tr>
-                <td  >But du camp :</td>
+                <td >But du camp :</td>
                 <td class="left">
                   <strong>
-                    {{camp.but }}
+                    {{camp.but}}
                   </strong>
                 </td>
               </tr>
@@ -37,7 +37,7 @@
                     white-space: normal;width: auto; display: inline;cursor: pointer;">
                         <em >
                             <img class="responsive-img center" width="15%" [src]="personnage.picture"  [alt]="personnage.name" />
-                            {{ personnage.name}}
+                            {{personnage.name}} 
                         </em>
                     </td>
               </tr>
@@ -45,7 +45,6 @@
         </div>
         <div class="card-action">
             <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
-            <a (click)="goToPrevious()" style="cursor: pointer;">Page précédente</a>
           
         </div>
       </div>

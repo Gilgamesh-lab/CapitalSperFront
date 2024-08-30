@@ -24,9 +24,9 @@
               </tr>
               <tr>
                 <td style="display: inline;">Camp :</td>
-                <td (click)="goToCamp(personnage.camps)" style="text-align:center;">
+                <td  style="text-align:center;">
                   <strong>
-                    <span style="cursor: pointer;" [ngClass]="personnage.camps.id| PersonnageCampColorPipe">{{personnage.camps.nom}}</span>
+                    <span (click)="goToCamp(personnage.camps)" style="cursor: pointer;" [ngClass]="personnage.camps.id| PersonnageCampColorPipe">{{personnage.camps.nom}}</span>
                   </strong>
                 </td>
               </tr>
@@ -55,7 +55,6 @@
         </div>
         <div class="card-action">
           <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
-          <a (click)="goToPrevious()" style="cursor: pointer;">Page précédente</a>
           <a *ngIf='estConnecter()' (click)="goToEdit(personnage)" style="cursor: pointer;">Éditer</a>
           <a *ngIf='estConnecter()' (click)="deletePersonnage(personnage)" style="cursor: pointer;">Supprimer</a>
         </div>

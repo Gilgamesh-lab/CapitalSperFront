@@ -82,23 +82,18 @@ export class PersonnageFormComponent implements OnInit {
     return true
   }
 
-  selectCamp($event: Event, camp: string){
+  selectCamp($event: Event, camp: Camp){
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
-    console.log(camp + " : camp");
     if(isChecked){
       
-      this.personnage.camps.nom = camp;
-      console.log("marche"+ this.personnage.camps );
+      this.personnage.camps = camp;
     }
   }
 
   selectAffichage($event: Event, mode: boolean){
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
-    console.log(mode + " : camp");
     if(isChecked){
-      
       this.personnage.estActiver = mode;
-      console.log("marche"+ this.personnage.camps );
     }
   }
 
