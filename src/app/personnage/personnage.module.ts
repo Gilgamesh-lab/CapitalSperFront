@@ -17,6 +17,7 @@ import { AppComponent } from '../app.component';
 import { AddPersonnageComponent } from './add-personnage/add-personnage.component';
 import { authGuard } from '../auth.guard';
 import { CampsComponent } from './camps/camps.component';
+import { TypesDePouvoirsComponent } from './types-de-pouvoirs/types-de-pouvoirs.component';
 
 
 export const personnagesRoutes: Routes = [
@@ -24,7 +25,8 @@ export const personnagesRoutes: Routes = [
   {path: 'personnages/add', component:  AddPersonnageComponent, canActivate: [authGuard]},
   {path: '', component: ListePersonnageComponent},
   {path: 'personnages/:id', component: DetailPersonnageComponent},
-  {path: 'camps/:id', component: CampsComponent}
+  {path: 'camps/:id', component: CampsComponent},
+  {path: 'typesDePouvoirs/:id', component: TypesDePouvoirsComponent}
 ];
 
 @NgModule({

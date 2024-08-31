@@ -1,8 +1,8 @@
-<div *ngIf="camp" class="row">
+<div *ngIf="typesDePouvoirs" class="row">
     <div class="col s12 m8 offset-m2" >
-    <h2 class="header center">Le camp des {{ camp.nom.toLowerCase() }}</h2>
+    <h2 class="header center">Le pouvoir de {{ typesDePouvoirs.nom.toLowerCase() }}</h2>
     <div style="text-align:center">
-        <img class="responsive-img center" [src]="camp.illustration"  [alt]="camp.nom" />
+        <img class="responsive-img center" [src]="typesDePouvoirs.illustration"  [alt]="typesDePouvoirs.nom" />
     </div>
     <div class="card vertical hoverable" >
       <!--<div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
@@ -15,25 +15,21 @@
           table-layout: auto;" >
             <tbody >
               <tr>
-                <td >Nom du camp :</td>
-                <td  class="left" ><strong >Les {{camp.nom.toLowerCase()}}</strong></td>
+                <td >Nom du pouvoir :</td>
+                <td  class="left" ><strong > Pouvoir de {{typesDePouvoirs.nom.toLowerCase()}}</strong></td>
               </tr>
-              <tr>
-                <td >But :</td>
-                <td class="left">
-                  <strong>
-                    {{camp.but}}
-                  </strong>
-                </td>
+              <tr >
+                <td >Nom des utilisateurs de ce pouvoir :</td>
+                <td class="left" style="text-align:center;"><strong>Les {{ typesDePouvoirs.nomMembre}}</strong></td>
               </tr>
               <tr >
                 <td >Description :</td>
                 <td class="left" style="word-break: break-word;text-align:center;
-                white-space: normal;width: auto;"><em>{{ camp.description}}</em></td>
+                white-space: normal;width: auto;"><em>{{ typesDePouvoirs.description}}</em></td>
               </tr>
               <tr >
-                <td> Liste des membres du camp des {{camp.nom.toLowerCase()}} :</td>
-                    <td class="center" (click)="goToPersonnage(personnage)" *ngFor="let personnage of getPersonnagesQuiACeCamp(camp)" style="word-break: break-word;text-align:center;
+                <td> Liste des {{ typesDePouvoirs.nomMembre}}  :</td>
+                    <td class="center" (click)="goToPersonnage(personnage)" *ngFor="let personnage of getPersonnagesQuiACeTypeDePouvoirs(typesDePouvoirs)" style="word-break: break-word;text-align:center;
                     white-space: normal;width: auto; display: inline;cursor: pointer;">
                         <em >
                             <img class="responsive-img center" width="15%" [src]="personnage.picture"  [alt]="personnage.name" />
@@ -51,6 +47,7 @@
     </div>
     </div>
     </div>
-    <h3 *ngIf='!camp' class="center">
+    <h3 *ngIf='!typesDePouvoirs' class="center">
       <app-loader></app-loader> 
     </h3>
+

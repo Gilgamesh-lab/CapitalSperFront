@@ -9,6 +9,7 @@ import { LoaderComponent } from '../loader/loader.component';
 import { AuthService } from '../../auth.service';
 import { RouterExtService } from '../router-ext-service.service';
 import { Camp } from '../camp';
+import { typesDePouvoirs } from '../typesDePouvoirs';
 
 
 @Component({
@@ -47,6 +48,10 @@ export class DetailPersonnageComponent implements OnInit{
 
   goToCamp(camp: Camp){
     this.router.navigate(['/camps', camp.id]);
+  }
+
+  goToPouvoir(pouvoir: typesDePouvoirs){
+    this.router.navigate(['/typesDePouvoirs', pouvoir.id]);
   }
 
   goToEdit(personnage: Personnage){

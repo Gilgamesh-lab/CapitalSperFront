@@ -8,7 +8,7 @@
             <label for="name">Nom</label>
             <input type="text" class="form-control" id="name"
                     required
-                    pattern="^[a-zA-Z0-9àéèç -]{1,25}$"
+                    pattern="^[a-zA-Z0-9àéèç': -]{1,25}$"
                    [(ngModel)]="personnage.name" name="name"
                    #name="ngModel"> <!--on sauvegarde la valeur-->
             <!-- pristine = variable pour savoir la valeur a été modifié -->
@@ -72,14 +72,14 @@
               <label>
                 <input type="checkbox"
                   class="filled-in"
-                  id="{{ camp }}"
-                  [value]="camp"
+                  id="{{ camp.nom }}"
+                  [value]="camp.nom"
                   [checked]="aCeCamp(camp.nom)"
                   [disabled]="!estCampValide(camp.nom)"
-                  (change)="selectCamp($event, camp.nom)"/>
-                <span [attr.for]="camp">
+                  (change)="selectCamp($event, camp)"/>
+                <span [attr.for]="camp.nom">
                   <div class="{{ camp.id| PersonnageCampColorPipe }}">
-                    {{ camp }}
+                    {{ camp.nom }}
                   </div>
                 </span>
               </label>
@@ -94,7 +94,7 @@
             <label for="description">Description</label>
             <input type="text" class="form-control" id="description"
                     required
-                    pattern="^[a-zA-Z0-9àéèç ]{1,1000}$"
+                    pattern="^[a-zA-Z0-9àéèç': -]{1,1000}$"
                    [(ngModel)]="personnage.description" name="description"
                    #description="ngModel">
                    <div [hidden]="description.valid || description.pristine"
@@ -115,14 +115,14 @@
               <label>
                 <input type="checkbox"
                   class="filled-in"
-                  id="{{ type }}"
+                  id="{{ type}}"
                   [value]="type"
                   [checked]="aCeTypeDePouvoir(type)"
                   [disabled]="!estTypeDePouvoirValide(type)"
                   (change)="selectTypePouvoir($event, type)"/>
                 <span [attr.for]="type">
-                  <div class="{{ type | PersonnagePouvoirColorPipe }}">
-                    {{ type }}
+                  <div class="{{ type.id| PersonnagePouvoirColorPipe }}">
+                    {{ type.nom }}
                   </div>
                 </span>
               </label>

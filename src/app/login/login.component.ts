@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     // Informe l'utilisateur sur son authentfication.
     setMessage() {
         this.message = this.authService.isLoggedIn ?
-            'Vous êtes connecté.' : 'Identifiant ou mot de passe incorrect.';
+            'Vous êtes connecté.' : 'Vous êtes déconnecté';
     }
   
     // Connecte l'utilisateur auprès du Guard
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
             if (this.authService.isLoggedIn) {
                 // Récupère l'URL de redirection depuis le service d'authentification
                 // Si aucune redirection n'a été définis, redirige l'utilisateur vers la liste des pokemons.
-                console.log(this.authService.redirectUrl);
                 let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
                 // Redirige l'utilisateur
                 this.router.navigate([redirect]);
@@ -50,5 +49,7 @@ export class LoginComponent implements OnInit {
     logout() {
         this.authService.logout();
         this.setMessage();
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
+        this.router.navigate([redirect]);
     }
 }

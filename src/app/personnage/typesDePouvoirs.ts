@@ -1,24 +1,24 @@
 
 
-export class Camp {
+export class typesDePouvoirs {
 
     id: number; // nom "id" obligatoire pour faire fonctionner InMemoryDataService
     nom: string;
-    but: string;
     illustration: string;
-    description: string
+    description: string;
+    nomMembre: string;
     
 
     constructor(
-    nom: string = 'Village',
-    but: string = 'Entrer un nom',
+    nom: string = 'Vie',
     illustration: string = 'Entrer une image',
     description: string = 'Entrer une image',
+    nomMembre: string = 'Les protecteurs'
     ){
 
     this.nom = nom;
-    this.but = but;
     this.illustration = illustration;
     this.description = description;
+    this.nomMembre = nomMembre;
 }
   }

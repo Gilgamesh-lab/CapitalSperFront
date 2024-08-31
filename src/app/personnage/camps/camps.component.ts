@@ -31,7 +31,7 @@ export class CampsComponent implements OnInit {
   }
 
   public getPersonnagesQuiACeCamp(camp: Camp): Personnage[]{
-    return PERSONNAGES.filter((personnage) => personnage.camps.id == camp.id);
+    return PERSONNAGES.filter((personnage) => personnage.camps.id == camp.id && personnage.estActiver);
   }
 
   public goToPrevious(): void {

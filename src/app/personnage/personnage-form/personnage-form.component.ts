@@ -8,6 +8,7 @@ import { PersonnagePouvoirColorPipe } from '../personnage-pouvoir-color.pipe';
 import { PersonnageCampColorPipe } from '../personnage-camp-color.pipe';
 import { LoaderComponent } from '../loader/loader.component';
 import { Camp } from '../camp';
+import { typesDePouvoirs } from '../typesDePouvoirs';
 
 @Component({
   selector: 'app-personnage-form',
@@ -18,7 +19,6 @@ import { Camp } from '../camp';
 })
 export class PersonnageFormComponent implements OnInit {
   @Input() personnage: Personnage;
-  typesDePouvoirs: string[];
   isAddForm: boolean;
 
   constructor(private personnageService: PersonnageService, private router: Router){
@@ -26,12 +26,12 @@ export class PersonnageFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.typesDePouvoirs = this.personnageService.getPersonnageTypePouvoir();
     this.isAddForm = this.router.url.includes('add');
   }
 
-  aCeTypeDePouvoir(typeDePouvoir: string) : boolean{
-    return this.personnage.typesPouvoir.includes(typeDePouvoir);
+  aCeTypeDePouvoir(typeDePouvoir: typesDePouvoirs) : boolean{
+    console.log("pouvoir : "+ this.personnage.typesPouvoir.includes(typeDePouvoir)  + (this.personnage.typesPouvoir[0].id == typeDePouvoir.id) )
+    return this.personnage.typesPouvoir.filter((pouvoir) => pouvoir.id == typeDePouvoir.id).length > 0;
   }
 
   aCeCamp(camp: string) : boolean{
@@ -42,11 +42,11 @@ export class PersonnageFormComponent implements OnInit {
     return this.personnageService.getPersonnageCamp();
   }
 
-  getTypePouvoir(): string[]{
+  getTypePouvoir(): typesDePouvoirs[]{
     return this.personnageService.getPersonnageTypePouvoir();
   }
 
-  selectTypePouvoir($event: Event, type: string){
+  selectTypePouvoir($event: Event, type: typesDePouvoirs){
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
 
     if(isChecked){
@@ -58,7 +58,7 @@ export class PersonnageFormComponent implements OnInit {
     }
   }
 
-  estTypeDePouvoirValide(typeDePouvoir: string): boolean{
+  estTypeDePouvoirValide(typeDePouvoir: typesDePouvoirs): boolean{
     if(this.personnage.typesPouvoir.length == 1 && this.aCeTypeDePouvoir(typeDePouvoir)){// pour pas qu'un personnage se retrouve sans type de pouvoir
       return false;
     }
@@ -82,23 +82,18 @@ export class PersonnageFormComponent implements OnInit {
     return true
   }
 
-  selectCamp($event: Event, camp: string){
+  selectCamp($event: Event, camp: Camp){
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
-    console.log(camp + " : camp");
     if(isChecked){
       
-      this.personnage.camps.nom = camp;
-      console.log("marche"+ this.personnage.camps );
+      this.personnage.camps = camp;
     }
   }
 
   selectAffichage($event: Event, mode: boolean){
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
-    console.log(mode + " : camp");
     if(isChecked){
-      
       this.personnage.estActiver = mode;
-      console.log("marche"+ this.personnage.camps );
     }
   }
 

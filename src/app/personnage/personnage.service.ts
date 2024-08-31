@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { CAMPS } from './mock-camps-list';
 import { Camp } from './camp';
+import { TYPESDEPOUVOIR } from './mock-typesDePouvoirs-list';
+import { typesDePouvoirs } from './typesDePouvoirs';
 
 
 @Injectable({
@@ -80,8 +82,8 @@ export class PersonnageService {
     return of(erreurValeur);
   }
 
-  getPersonnageTypePouvoir(): string[]{
-    return ['Vie', 'Mort', 'Voyance'];
+  getPersonnageTypePouvoir(): typesDePouvoirs[]{
+    return TYPESDEPOUVOIR;
   }
 
   getPersonnageCampNom(): string[]{
