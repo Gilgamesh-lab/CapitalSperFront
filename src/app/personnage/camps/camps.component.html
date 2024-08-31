@@ -1,6 +1,6 @@
 <div *ngIf="camp" class="row">
     <div class="col s12 m8 offset-m2" >
-    <h2 class="header center">Le camp des {{ camp.nom }}</h2>
+    <h2 class="header center">Le camp des {{ camp.nom.toLowerCase() }}</h2>
     <div style="text-align:center">
         <img class="responsive-img center" [src]="camp.illustration"  [alt]="camp.nom" />
     </div>
@@ -16,7 +16,7 @@
             <tbody >
               <tr>
                 <td >Nom du camp :</td>
-                <td  class="left" ><strong >Les {{camp.nom}}</strong></td>
+                <td  class="left" ><strong >Les {{camp.nom.toLowerCase()}}</strong></td>
               </tr>
               <tr>
                 <td >But du camp :</td>

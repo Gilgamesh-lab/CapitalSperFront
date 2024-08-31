@@ -19,7 +19,6 @@ import { typesDePouvoirs } from '../typesDePouvoirs';
 })
 export class PersonnageFormComponent implements OnInit {
   @Input() personnage: Personnage;
-  typesDePouvoirs: typesDePouvoirs[];
   isAddForm: boolean;
 
   constructor(private personnageService: PersonnageService, private router: Router){
@@ -27,12 +26,12 @@ export class PersonnageFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.typesDePouvoirs = this.personnageService.getPersonnageTypePouvoir();
     this.isAddForm = this.router.url.includes('add');
   }
 
   aCeTypeDePouvoir(typeDePouvoir: typesDePouvoirs) : boolean{
-    return this.personnage.typesPouvoir.includes(typeDePouvoir);
+    console.log("pouvoir : "+ this.personnage.typesPouvoir.includes(typeDePouvoir)  + (this.personnage.typesPouvoir[0].id == typeDePouvoir.id) )
+    return this.personnage.typesPouvoir.filter((pouvoir) => pouvoir.id == typeDePouvoir.id).length > 0;
   }
 
   aCeCamp(camp: string) : boolean{
