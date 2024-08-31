@@ -7,7 +7,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         id: 1,
         nom: "Voyance",
         illustration:  "voyance.png",
-        description: "Le type de pouvoir voyance désigne tout les pouvoirs qui permettent d'obtenir un indice sur l'identité et/ou le but d'un ou plusieurs joueurs.",
+        description: "Le type de pouvoir voyance désigne tout les pouvoirs qui permettent d'obtenir des informations sur un ou plusieurs joueurs.",
         nomMembre: "enquêteurs"
     },
     {

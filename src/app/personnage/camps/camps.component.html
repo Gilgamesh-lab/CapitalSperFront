@@ -19,7 +19,7 @@
                 <td  class="left" ><strong >Les {{camp.nom.toLowerCase()}}</strong></td>
               </tr>
               <tr>
-                <td >But du camp :</td>
+                <td >But :</td>
                 <td class="left">
                   <strong>
                     {{camp.but}}
@@ -27,12 +27,12 @@
                 </td>
               </tr>
               <tr >
-                <td >Description du camp :</td>
+                <td >Description :</td>
                 <td class="left" style="word-break: break-word;text-align:center;
                 white-space: normal;width: auto;"><em>{{ camp.description}}</em></td>
               </tr>
               <tr >
-                <td> Liste des membres de ce camp :</td>
+                <td> Liste des membres du camp des {{camp.nom.toLowerCase()}} :</td>
                     <td class="center" (click)="goToPersonnage(personnage)" *ngFor="let personnage of getPersonnagesQuiACeCamp(camp)" style="word-break: break-word;text-align:center;
                     white-space: normal;width: auto; display: inline;cursor: pointer;">
                         <em >
