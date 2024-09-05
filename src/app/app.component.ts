@@ -27,6 +27,10 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+  goTo404(){
+    this.router.navigate(['/pageNotFound']);
+  }
+
   goMenuLogin(){
     this.auth.redirectUrl = this.router.url;
     this.router.navigate(['/login']);

@@ -28,6 +28,12 @@ export class TypesDePouvoirsComponent {
     const typesDePouvoirsId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDePouvoirsId){
       this.typesDePouvoirs = TYPESDEPOUVOIR[typesDePouvoirsId - 1];
+      if(this.typesDePouvoirs == undefined){
+        this.appComponent.goTo404();
+      }
+    }
+    else{
+      this.appComponent.goTo404();
     }
   }
 

@@ -27,6 +27,12 @@ export class CampsComponent implements OnInit {
     const campId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(campId){
       this.camp = this.personnageService.getPersonnageCamp()[campId - 1];
+      if(this.camp == undefined){
+        this.appComponent.goTo404();
+      }
+    }
+    else{
+      this.appComponent.goTo404();
     }
   }
 

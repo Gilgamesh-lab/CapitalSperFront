@@ -10,6 +10,7 @@ import { AuthService } from '../../auth.service';
 import { RouterExtService } from '../router-ext-service.service';
 import { Camp } from '../camp';
 import { typesDePouvoirs } from '../typesDePouvoirs';
+import { AppComponent } from '../../app.component';
 
 
 @Component({
@@ -23,15 +24,24 @@ export class DetailPersonnageComponent implements OnInit{
 
   personnage: Personnage|undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService, private authService: AuthService, private routerExtService: RouterExtService){
+  constructor(private route: ActivatedRoute, private router: Router, private personnageService: PersonnageService, private appComponent: AppComponent,
+    private authService: AuthService, private routerExtService: RouterExtService){
   
   }
 
   ngOnInit(): void {
     const personnageId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(personnageId){
-      this.personnageService.getPersonnageParId(personnageId).subscribe(personnage => this.personnage = personnage);
-      //.subscribe(personnage => this.personnage = personnage)
+      this.personnageService.getPersonnageParId(personnageId).subscribe((personnage) =>{
+        this.personnage = personnage;
+        if(this.personnage == undefined){
+          this.appComponent.goTo404();
+        }
+      });
+      
+    }
+    else{
+      this.appComponent.goTo404();
     }
     
 
