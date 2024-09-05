@@ -1,0 +1,57 @@
+
+<div class='container'>
+    <app-search-carte> </app-search-carte>
+    <div *ngIf='!ListeDecartes' class="center">
+        <app-loader></app-loader> 
+    </div>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        
+        <div *ngFor="let carte of ListeDecartes" class="col s12 m6 l6 xl4 card-container" > <!--col m4 s12-->
+            <div (click)="goTocarte(carte)"  BorderCardDirective [carteCamp]="carte.camps.nom" class="card horizontal" style="cursor: pointer;margin: 0;padding: 0;">
+                <div class="card-image" style="width: auto; height: 100%;">
+                    <img [src]="carte.illustration" alt="image" style="padding-top: 20%;" />
+                </div>
+                <div class="card-stacked"  >
+                    <div class="card-content" style="height: 100%;width: auto;" >
+                        <p>{{carte.nom}}</p>
+                        <p > Camp : 
+                            <span  [ngClass]="carte.camps.id| carteCampColorPipe">
+                                {{carte.camps.nom}}
+                            </span> 
+                        </p>
+                        <div class="card-image">
+                            <img [src]="carte.imageCarte" alt="image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--1. 
+Mobile (s) : moins de 600px
+Tablette (m) : entre 600px et 992px
+Ordinateur (l) : entre 993px et 1200px
+Grand écran (xl) : plus de 1200px
+Si la largeur de ton navigateur est entre 600px et 992px, alors la classe m6 s'applique, ce qui correspond à deux cartes par ligne.
+
+2. Vérifier les classes CSS
+Assure-toi que tu utilises correctement les classes col s12 m6 l4. Cela signifie :
+
+s12 : Une carte occupe toute la largeur sur un petit écran (mobile).
+m6 : Deux cartes occupent la largeur sur un écran moyen (tablette).
+l4 : Trois cartes occupent la largeur sur un grand écran (ordinateur).-->
+
+<a *ngIf='estConnecter()'
+    
+    class="btn-floating btn-large waves-effect waves-light red z-depth-3"
+    style="position: fixed; bottom: 25px; right: 25x;"
+    (click)="goToAdd()"
+    
+   
+    
+>
+    +
+</a> <!--
+routerLink="/cartes/add"-->

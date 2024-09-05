@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';  
-import {PersonnageCampColorPipe} from './personnage/personnage-camp-color.pipe';
+import {carteCampColorPipe} from './carte/carte-camp-color.pipe';
 import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { PersonnageFormComponent } from './personnage/personnage-form/personnage-form.component';
+import { carteFormComponent } from './carte/carte-form/carte-form.component';
 import { AuthService } from './auth.service';
-import { RouterExtService } from './personnage/router-ext-service.service';
-import { Personnage } from './personnage/personnage';
+import { RouterExtService } from './carte/router-ext-service.service';
+import { Carte } from './carte/carte';
 
 @Component({
-  imports: [CommonModule, PersonnageCampColorPipe, RouterOutlet, FormsModule, PersonnageFormComponent], // pour ngif et ngfor
+  imports: [CommonModule, carteCampColorPipe, RouterOutlet, FormsModule, carteFormComponent], // pour ngif et ngfor
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true
@@ -36,8 +36,8 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  goToPersonnage(personnage: Personnage){
-    this.router.navigate(['/personnages', personnage.id])
+  goTocarte(carte: Carte){
+    this.router.navigate(['/cartes', carte.id])
   }
 
   public goToPrevious(): void {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api'
-import { PERSONNAGES } from './personnage/mock-personnages-list';
-import { Personnage } from './personnage/personnage';
+import { CARTES } from './carte/mock-cartes-list';
+import { Carte } from './carte/carte';
 
 
 
@@ -12,7 +12,7 @@ export class InMemoryDataService implements InMemoryDbService{
 
   
   createDb() {
-    const personnages: Personnage[] = PERSONNAGES.filter((personnage) => personnage.estActiver);
-    return { personnages };
+    const cartes: Carte[] = CARTES.filter((carte) => carte.estActiver);
+    return { cartes };
   }
 }
