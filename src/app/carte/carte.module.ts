@@ -20,6 +20,7 @@ import { CampsComponent } from './camps/camps.component';
 import { TypesDePouvoirsComponent } from './types-de-pouvoirs/types-de-pouvoirs.component';
 import { typesDeCartes } from './typesDeCartes';
 import { TypesDeCartesComponent } from './types-de-cartes/types-de-cartes.component';
+import { ReglesComponent } from '../regles/regles.component';
 
 
 export const cartesRoutes: Routes = [
@@ -29,7 +30,8 @@ export const cartesRoutes: Routes = [
   {path: 'cartes/:id', component: DetailcarteComponent},
   {path: 'camps/:id', component: CampsComponent},
   {path: 'typesDePouvoirs/:id', component: TypesDePouvoirsComponent},
-  {path: 'typesDeCartes/:id', component: TypesDeCartesComponent}
+  {path: 'typesDeCartes/:id', component: TypesDeCartesComponent},
+  {path: 'regles', component: ReglesComponent}
 ];
 
 @NgModule({
