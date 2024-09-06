@@ -1,6 +1,7 @@
 import { CAMPS } from './mock-camps-list';
 import { TYPESDEPOUVOIR } from './mock-typesDePouvoirs-list';
 import { Carte } from './carte';
+import { TYPESDECARTES } from './mock-typesDeCartes-list';
 
 
 export const CARTES: Carte[] = [
@@ -14,6 +15,7 @@ export const CARTES: Carte[] = [
         imageLore:  "svLore.png",
         description: "C’est le villageois de base du jeu, il ne possède aucun pouvoir spécial. " +
         "De ce fait, il peut porter des accusations et se mettre en danger sans pénaliser son camp.",
+        typeDeCarte: TYPESDECARTES[0],
         estActiver: true
     },
     {
@@ -25,6 +27,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "wwLore.png",
         description: "C’est le loup garou de base du jeu.",
+        typeDeCarte: TYPESDECARTES[0],
         estActiver: true
     },
     {
@@ -36,6 +39,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "vovoLore.png",
         description: "Chaque nuit, lorsque le meneur la réveille, elle a la capacité de voir clairement le rôle du joueur de son choix.",
+        typeDeCarte: TYPESDECARTES[0],
         estActiver: true
     },
     {
@@ -53,6 +57,7 @@ export const CARTES: Carte[] = [
         "Elle peut très bien n’utiliser qu’une seule potion durant la nuit, ou bien utiliser les deux la même nuit si elle le souhaite. " +
         "La sorcière est autorisée à utiliser sa potion de  VIE sur elle même si les loups garous avaient décider de la dévorer durant leur festin nocturne. " +
         "Si la sorcière a utilisé sa potion de  VIE , le meneur ne lui montreras pas la victime des loups garous les nuits suivantes.",
+        typeDeCarte: TYPESDECARTES[0],
         estActiver: true
     },
     {
@@ -65,6 +70,7 @@ export const CARTES: Carte[] = [
         imageLore:  "chasseurLore.png",
         description: "Il n'a aucun pouvoir de son vivant. En revanche s’il vient à mourir, peut importe la manière, "+ 
         "la chasseur doit impérativement désigner un autre joueur qu’il va éliminer en lui tirant dessus avec la dernière cartouche de son fusil. ",
+        typeDeCarte: TYPESDECARTES[0],
         estActiver: true
     },
     {
@@ -81,7 +87,20 @@ export const CARTES: Carte[] = [
         "Il est interdit pour un amoureux d’éliminer son aimé, ni même de voter contre lui, ni même d’argumenter contre lui. " +
         "Si les amoureux ne font pas partie du même camps, ils doivent éliminer tout les autres joueurs sinon leurs conditions de victoire ne changent, " +
         "ils gagnent avec leurs camps.",
+        typeDeCarte: TYPESDECARTES[0],
         estActiver: true
     },
-    
+    {
+        id: 7,
+        nom: "Le Capitaine",
+        illustration: "maire.png",
+        imageCarte:  "maireCarte.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "maireLore.png",
+        description: "Le capitaine ou plus communément appelée maire est élue par vote à la majorité relative. " +
+        "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur",
+        typeDeCarte: TYPESDECARTES[1],
+        estActiver: true
+    }
 ];

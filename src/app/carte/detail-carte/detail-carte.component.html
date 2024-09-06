@@ -22,7 +22,7 @@
                 <td style="display: inline;">Nom :</td>
                 <td style="text-align:center"><strong >{{ carte.nom }}</strong></td>
               </tr>
-              <tr>
+              <tr *ngIf="carte.typeDeCarte.id == 1">
                 <td style="display: inline;">Camp :</td>
                 <td  style="text-align:center;">
                   <strong>

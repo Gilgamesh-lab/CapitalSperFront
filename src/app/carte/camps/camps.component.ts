@@ -37,7 +37,7 @@ export class CampsComponent implements OnInit {
   }
 
   public getcartesQuiACeCamp(camp: Camp): Carte[]{
-    return CARTES.filter((carte) => carte.camps.id == camp.id && carte.estActiver);
+    return CARTES.filter((carte) => carte.camps != null && carte.camps.id == camp.id && carte.estActiver);
   }
 
   public goToPrevious(): void {

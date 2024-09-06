@@ -1,6 +1,8 @@
 import { Camp } from "./camp";
 import { CAMPS } from "./mock-camps-list";
+import { TYPESDECARTES } from "./mock-typesDeCartes-list";
 import { TYPESDEPOUVOIR } from "./mock-typesDePouvoirs-list";
+import { typesDeCartes } from "./typesDeCartes";
 import { typesDePouvoirs } from "./typesDePouvoirs";
 
 export class Carte {
@@ -14,6 +16,7 @@ export class Carte {
   imageLore: string;
   description: string;
   estActiver: boolean;
+  typeDeCarte: typesDeCartes
 
   constructor(
     camps: Camp = CAMPS[0],
@@ -23,7 +26,8 @@ export class Carte {
     description: string = 'Entrer une description',
     typesPouvoir: typesDePouvoirs[] = [TYPESDEPOUVOIR[0]],
     estActiver: boolean = true,
-    imageLore: string = 'Entrer une image'
+    imageLore: string = 'Entrer une image',
+    typeDeCarte: typesDeCartes = TYPESDECARTES[0]
   ){
 
     this.camps = camps;
@@ -34,5 +38,6 @@ export class Carte {
     this.typesPouvoir = typesPouvoir;
     this.estActiver = estActiver;
     this.imageLore = imageLore;
+    this.typeDeCarte = typeDeCarte;
   }
 }
