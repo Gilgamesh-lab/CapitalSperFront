@@ -37,6 +37,10 @@ export class ListecarteComponent implements OnInit {
     this.router.navigate(['/cartes/add'])
   }
 
+  goToRegles(){
+    this.router.navigate(['/regles'])
+  }
+
 
   estConnecter(): boolean{
     return this.authService.isLoggedIn;

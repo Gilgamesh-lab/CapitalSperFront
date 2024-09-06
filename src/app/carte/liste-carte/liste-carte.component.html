@@ -1,5 +1,11 @@
 
 <div class='container'>
+    <p class="center blue-text underline ">
+        <strong (click)="goToRegles()" style="text-decoration: underline;cursor: pointer;">
+            Règle du jeu
+        </strong>
+        
+    </p>
     <app-search-carte> </app-search-carte>
     <div *ngIf='!ListeDecartes' class="center">
         <app-loader></app-loader> 
