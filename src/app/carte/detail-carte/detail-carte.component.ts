@@ -11,12 +11,14 @@ import { RouterExtService } from '../router-ext-service.service';
 import { Camp } from '../camp';
 import { typesDePouvoirs } from '../typesDePouvoirs';
 import { AppComponent } from '../../app.component';
+import { typesDeCartes } from '../typesDeCartes';
+import { CarteTypeColorPipe } from '../../carte-type-color.pipe';
 
 
 @Component({
   selector: 'app-detail-carte',
   standalone: true,
-  imports: [CommonModule,carteCampColorPipe, cartePouvoirColorPipe, LoaderComponent],
+  imports: [CommonModule,carteCampColorPipe, cartePouvoirColorPipe, LoaderComponent, CarteTypeColorPipe],
   templateUrl: './detail-carte.component.html',
   styleUrl: './detail-carte.component.css'
 })
@@ -62,6 +64,10 @@ export class DetailcarteComponent implements OnInit{
 
   goToPouvoir(pouvoir: typesDePouvoirs){
     this.router.navigate(['/typesDePouvoirs', pouvoir.id]);
+  }
+
+  goToType(type: typesDeCartes){
+    this.router.navigate(['/typesDeCartes', type.id]);
   }
 
   goToEdit(carte: Carte){

@@ -44,10 +44,14 @@
                   </span>
                 </td>
               </tr>
-              <!--<tr>
-                <td>Date de création</td> 
-                <td><em>{{ carte.created | date:"dd/MM/yyyy" }}</em></td>
-              </tr>-->
+              <tr>
+                <td style="width: 5%;display: inline;">Types de cartes :</td>
+                <td style="text-align:center">
+                  <span (click)="goToType(carte.typeDeCarte)" style="cursor: pointer;"  class="{{ carte.typeDeCarte.id | carteTypeColor }}">
+                    {{ carte.typeDeCarte.nom }}
+                  </span>
+                </td>
+              </tr>
               <tr >
                 <td >Description :</td>
                 <td style="word-break: break-word;text-align:center;
