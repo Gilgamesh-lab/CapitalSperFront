@@ -8,6 +8,7 @@ import { CARTES } from '../mock-cartes-list';
 import { LoaderComponent } from '../loader/loader.component';
 import { CommonModule } from '@angular/common';
 import { TYPESDEPOUVOIR } from '../mock-typesDePouvoirs-list';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-types-de-pouvoirs',
@@ -20,7 +21,7 @@ export class TypesDePouvoirsComponent {
 
   typesDePouvoirs: typesDePouvoirs|undefined;
 
-  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent){
+  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent, private auth: AuthService){
 
   }
 
@@ -28,8 +29,7 @@ export class TypesDePouvoirsComponent {
     const typesDePouvoirsId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDePouvoirsId){
       this.typesDePouvoirs = TYPESDEPOUVOIR[typesDePouvoirsId - 1];
-      console.log(this.typesDePouvoirs.id)
-      if(this.typesDePouvoirs == undefined || this.getcartesQuiACeTypeDePouvoirs(this.typesDePouvoirs).length == 0 ){
+      if(this.typesDePouvoirs == undefined || !this.auth.isLoggedIn &&  this.getcartesQuiACeTypeDePouvoirs(this.typesDePouvoirs).length == 0 ){
         this.appComponent.goTo404();
       }
     }

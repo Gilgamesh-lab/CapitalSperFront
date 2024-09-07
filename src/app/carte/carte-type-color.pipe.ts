@@ -17,6 +17,9 @@ export class CarteTypeColorPipe implements PipeTransform {
       case 2:
         color = 'yellow lighten-1';
         break;
+      case 3:
+        color = 'brown lighten-1';
+        break;
       default:
         color = 'grey';
         break;

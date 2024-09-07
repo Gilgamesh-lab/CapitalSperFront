@@ -8,6 +8,7 @@ import { AppComponent } from '../../app.component';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../loader/loader.component';
 import { carteService } from '../carte.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-types-de-cartes',
@@ -20,7 +21,7 @@ export class TypesDeCartesComponent {
 
   typesDeCartes: typesDeCartes|undefined;
 
-  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent){
+  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent, private auth: AuthService){
 
   }
 
@@ -28,7 +29,7 @@ export class TypesDeCartesComponent {
     const typesDeCartesId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDeCartesId){
       this.typesDeCartes = TYPESDECARTES[typesDeCartesId - 1];
-      if(this.typesDeCartes == undefined || CARTES.filter((carte) => carte.estActiver && carte.typeDeCarte.id == typesDeCartesId).length == 0){
+      if(this.typesDeCartes == undefined || !this.auth.isLoggedIn &&  CARTES.filter((carte) => carte.estActiver && carte.typeDeCarte.id == typesDeCartesId).length == 0){
         this.appComponent.goTo404();
       }
     }

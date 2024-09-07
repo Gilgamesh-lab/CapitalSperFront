@@ -7,6 +7,7 @@ import { LoaderComponent } from '../loader/loader.component';
 import { AppComponent } from '../../app.component';
 import { Carte } from '../carte';
 import { CARTES } from '../mock-cartes-list';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-camps',
@@ -19,7 +20,7 @@ export class CampsComponent implements OnInit {
   
   camp: Camp|undefined;
 
-  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent){
+  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent, private auth:AuthService){
 
   }
 
@@ -27,7 +28,8 @@ export class CampsComponent implements OnInit {
     const campId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(campId){
       this.camp = this.carteService.getcarteCamp()[campId - 1];
-      if(this.camp == undefined || CARTES.filter((carte) => carte.estActiver && carte.camps.id == campId).length == 0){
+      console.log(this.auth.isLoggedIn);
+      if(this.camp == undefined || (!this.auth.isLoggedIn &&  (CARTES.filter((carte) => carte.estActiver && carte.camps != null && carte.camps.id == campId).length == 0 )) ){
         this.appComponent.goTo404();
       }
     }

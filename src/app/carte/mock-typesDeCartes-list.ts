@@ -23,7 +23,7 @@ export const TYPESDECARTES: typesDeCartes[] = [
     {
         id: 3,
         nom: "Bâtiment",
-        illustration:  "fonction.jpeg",
+        illustration:  "batiments.jpeg",
         description: "En plus de leur identité secrète, quelques habitants peuvent recevoir un bâtiment qui leur donne une identité publique. " +
         "Un pouvoir supplémentaire associé à leur bâtiment est utilisable par ces habitants. " +
         "Contrairement aux cartes personnages, les cartes bâtiments sont disposés face visibles à la vue de tous mais sont cumulables avec une carte personnage et une carte fonction. "+

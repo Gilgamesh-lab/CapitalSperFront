@@ -12,7 +12,7 @@ import { Camp } from '../camp';
 import { typesDePouvoirs } from '../typesDePouvoirs';
 import { AppComponent } from '../../app.component';
 import { typesDeCartes } from '../typesDeCartes';
-import { CarteTypeColorPipe } from '../../carte-type-color.pipe';
+import { CarteTypeColorPipe } from '../carte-type-color.pipe';
 
 
 @Component({
