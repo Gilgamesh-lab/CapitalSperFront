@@ -1,0 +1,69 @@
+<h1 class="center"> Plan du site</h1>
+<div class="col s12 m7">
+    <div class="card horizontal">
+        <div class="card-stacked">
+            <div class="card-content center" >
+                <p class="center blue-text ">
+                    <strong (click)="goRegles()" style="text-decoration: underline;cursor: pointer;">
+                        Les règles du jeu
+                    </strong>
+                    
+                </p>
+
+
+                <h2 >Les différentes cartes</h2>
+                    
+                    <div *ngFor="let type of getTypeDeCarte()">
+                        <div *ngIf="typeDeCarteEstActiver(type)" >
+                            <p class="center blue-text " style="cursor: pointer;" (click)="goToType(type)">
+                                <strong style="text-decoration: underline;" >Les cartes {{type.nom}}s : </strong>
+                                <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
+                            </p>
+                            <ul class="collection" *ngFor="let carte of getCartesParType(type)" style="cursor: pointer;" (click)="goTocarte(carte)" >
+                                <li class="collection-item">
+                                <a  >
+                                    {{carte.nom }}
+                                    <img class="responsive-img" width="10%" [src]="carte.illustration"  [alt]="carte.nom" />
+                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                
+                <h2>Les différents camps</h2>
+                    <div *ngFor="let camp of getCamps()">
+                        <div *ngIf="CampsEstActiver(camp)" style="cursor: pointer;"  (click)="goToCamp(camp)" >
+                            <ul class="collection">
+                                <li class="collection-item">
+                                <a class="link">
+                                    Le camp des {{camp.nom.toLowerCase() }}
+                                    <img class="responsive-img" width="20%" [src]="camp.illustration"  [alt]="camp.nom" />
+                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <h2>Les différents pouvoirs</h2>
+                <div *ngFor="let pouvoir of getTypeDePouvoir()" style="cursor: pointer;" (click)="goToPouvoir(pouvoir)">
+                    <div *ngIf="typeDePouvoirsEstActiver(pouvoir)">
+                        <ul class="collection">
+                            <li class="collection-item">
+                            <a  class="link"  >
+                                Le pouvoir de {{pouvoir.nom.toLowerCase() }}  
+                                <img class="responsive-img" width="20%" [src]="pouvoir.illustration"  [alt]="pouvoir.nom" />
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="card-action">
+                <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+            </div>
+        </div>
+    </div>
+</div>
+

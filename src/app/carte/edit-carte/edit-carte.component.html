@@ -1,0 +1,10 @@
+ <div class='container'>
+    <div *ngIf='!carte' class="center">
+        <app-loader></app-loader> 
+    </div>
+    <h2 class="center">Editer {{carte?.nom}}</h2> <!-- ? = aucun carte est pas définie, on n'affiche rien-->
+    <p class="center">
+        <img [src]="carte?.illustration">
+    </p>
+    <app-carte-form *ngIf="carte" [carte]="carte"> </app-carte-form>
+</div>   
