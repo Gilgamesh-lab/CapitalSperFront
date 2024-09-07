@@ -37,15 +37,25 @@
                 </strong></td>
               </tr>
               <tr>
-                <td style="width: 5%;display: inline;">Types de pouvoirs :</td>
+                <td  style="width: 5%;display: inline;">
+                  <span *ngIf="carte.typesPouvoir.length == 1">
+                    Type du pouvoir :
+                  </span>
+                  <span *ngIf="carte.typesPouvoir.length > 1">
+                    Types des pouvoirs :
+                  </span>
+                </td>
                 <td style="text-align:center">
+                  <p *ngIf='carte.typesPouvoir == null'>
+                    Ce personnage n'a aucun pouvoir
+                  </p>
                   <span (click)="goToPouvoir(type)" style="cursor: pointer;" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe }}">
                     {{ type.nom }}
                   </span>
                 </td>
               </tr>
               <tr>
-                <td style="width: 5%;display: inline;">Types de cartes :</td>
+                <td style="width: 5%;display: inline;">Type de la carte :</td>
                 <td style="text-align:center">
                   <span (click)="goToType(carte.typeDeCarte)" style="cursor: pointer;"  class="{{ carte.typeDeCarte.id | carteTypeColor }}">
                     {{ carte.typeDeCarte.nom }}

@@ -16,7 +16,7 @@ export const TYPESDECARTES: typesDeCartes[] = [
         nom: "Fonction",
         illustration:  "fonction.jpeg",
         description: "Les cartes fonctions ou charges honorifiques confèrent à son détenteur un pouvoir spécifique et unique. " +
-        "Contrairement aux cartes personnages, les cartes fonction sont disposés face visibles mais sont cumulables avec une carte personnage. "+
+        "Contrairement aux cartes personnages, les cartes fonction sont disposés face visibles à la vue de tous mais sont cumulables avec une carte personnage. "+
         "Elles ont chacunes leurs propres règles d'attribution et de succession. " + 
         "Le but des joueurs ayant une carte fonction restent celles de leurs cartes personnages mais ils disposent maintenant d'un pouvoir plus grand pour y parvenir."
     }

@@ -11,7 +11,7 @@ export const CARTES: Carte[] = [
         illustration: "Simple-villageois.png",
         imageCarte:  "sv.jpg",
         camps: CAMPS[0],
-        typesPouvoir: [],
+        typesPouvoir: null,
         imageLore:  "svLore.png",
         description: "C’est le villageois de base du jeu, il ne possède aucun pouvoir spécial. " +
         "De ce fait, il peut porter des accusations et se mettre en danger sans pénaliser son camp.",
