@@ -31,6 +31,7 @@ export class PlanDuSiteComponent {
 
   goRegles(){
     this.router.navigate(['regles']);
+    window.top.window.scrollTo(0,0);
   }
 
   goTocarte(carte: Carte){
