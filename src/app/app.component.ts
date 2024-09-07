@@ -33,6 +33,7 @@ export class AppComponent {
 
   goPlanDuSite(){
     this.router.navigate(['/plan-du-site']);
+    window.top.window.scrollTo(0,0);
   }
 
   goMenuLogin(){

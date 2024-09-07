@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carte } from '../carte/carte';
-import { InMemoryDataService } from '../in-memory-data.service';
 import { CARTES } from '../carte/mock-cartes-list';
 import { typesDeCartes } from '../carte/typesDeCartes';
 import { TYPESDECARTES } from '../carte/mock-typesDeCartes-list';
@@ -11,6 +10,7 @@ import { Camp } from '../carte/camp';
 import { typesDePouvoirs } from '../carte/typesDePouvoirs';
 import { TYPESDEPOUVOIR } from '../carte/mock-typesDePouvoirs-list';
 import { AuthService } from '../auth.service';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-plan-du-site',
@@ -31,7 +31,6 @@ export class PlanDuSiteComponent {
 
   goRegles(){
     this.router.navigate(['regles']);
-    window.top.window.scrollTo(0,0);
   }
 
   goTocarte(carte: Carte){
