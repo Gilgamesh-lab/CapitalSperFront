@@ -2,7 +2,7 @@
 <div class='container'>
     <p class="center blue-text ">
         <strong (click)="goToRegles()" style="text-decoration: underline;cursor: pointer;">
-            Règles du jeu
+            Les règles du jeu
         </strong>
         
     </p>
@@ -12,22 +12,27 @@
     </div>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         
-        <div *ngFor="let carte of ListeDecartes" class="col s12 m6 l6 xl4 card-container" > <!--col m4 s12-->
+        <div *ngFor="let carte of ListeDecartes" class="col s12 m6 l6 xl4 card-container"  > <!--col m4 s12-->
             <div (click)="goTocarte(carte)"  class="card horizontal" style="cursor: pointer;margin: 0;padding: 0;">
-                <div class="card-image" style="width: auto; height: 100%;">
+                <div class="card-image" style="width: 40%; height: 100%;">
                     <img [src]="carte.illustration" alt="image" style="padding-top: 20%;" />
                 </div>
-                <div class="card-stacked"  >
+                <div class="card-stacked" style="display: inline-flex;width: 60%;"  >
                     <div class="card-content" style="height: 100%;width: auto;" >
-                        <p>{{carte.nom}}</p>
-                        <p>Carte {{carte.typeDeCarte.nom.toLowerCase()}}</p>
-                        <p *ngIf="carte.typeDeCarte.id == 1"> Camp : 
-                            <span  [ngClass]="carte.camps.id| carteCampColorPipe">
-                                {{carte.camps.nom}}
-                            </span> 
-                        </p>
-                        <div class="card-image">
-                            <img [src]="carte.imageCarte" alt="image" />
+                        <div>
+                            <p>{{carte.nom}}</p>
+                            <p>Carte {{carte.typeDeCarte.nom.toLowerCase()}}</p>
+                            <p *ngIf="carte.typeDeCarte.id == 1"> Camp : 
+                                <span  [ngClass]="carte.camps.id| carteCampColorPipe">
+                                    {{carte.camps.nom}}
+                                </span> 
+                            </p>
+                        </div>
+                        <div class="card-image" style="width: auto; /* S'assure que le conteneur occupe toute la largeur disponible */
+                        max-width: auto; /* Empêche l'image de dépasser la taille du conteneur */
+                        display: flex;
+                        justify-content: space-between;">
+                            <img class="responsive-img" [src]="carte.imageCarte" alt="image" />
                         </div>
                     </div>
                 </div>

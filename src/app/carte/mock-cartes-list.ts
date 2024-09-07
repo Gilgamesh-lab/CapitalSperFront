@@ -102,5 +102,19 @@ export const CARTES: Carte[] = [
         "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur",
         typeDeCarte: TYPESDECARTES[1],
         estActiver: true
+    },
+    {
+        id: 8,
+        nom: "Les Fermiers",
+        illustration: "fer.jpg",
+        imageCarte:  "fermes.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "loreFermiers.png",
+        description: "Dès le deuxième tour, les Fermiers débattent et votent pour désigner parmis eux le Capitaine. "+
+        "S'il est éliminé, le Capitaine désigne son successeur uniquement parmi les Fermiers survivants. "+
+        "Si le dernier Fermier est éliminé, il n'y a plus de Capitaine.",
+        typeDeCarte: TYPESDECARTES[2],
+        estActiver: true
     }
 ];

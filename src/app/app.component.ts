@@ -31,6 +31,10 @@ export class AppComponent {
     this.router.navigate(['/pageNotFound']);
   }
 
+  goPlanDuSite(){
+    this.router.navigate(['/plan-du-site']);
+  }
+
   goMenuLogin(){
     this.auth.redirectUrl = this.router.url;
     this.router.navigate(['/login']);

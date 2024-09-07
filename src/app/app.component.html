@@ -22,11 +22,11 @@
 
 <router-outlet></router-outlet>
 
-<footer class="page-footer teal">
+<footer class="page-footer teal" style="bottom:0;left:0;width:100%;">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <a href="planDuSite" class="grey-text text-lighten-4">Plan du site</a>
+        <span (click)="goPlanDuSite()" class="grey-text text-lighten-4" style="cursor: pointer;">Plan du site</span>
       </div>
     </div>
   </div>
