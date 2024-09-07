@@ -38,10 +38,10 @@
               </tr>
               <tr>
                 <td  style="width: 5%;display: inline;">
-                  <span *ngIf="carte.typesPouvoir.length == 1">
+                  <span *ngIf="carte.typesPouvoir == null  || (carte.typesPouvoir != null && carte.typesPouvoir.length < 2) ">
                     Type du pouvoir :
                   </span>
-                  <span *ngIf="carte.typesPouvoir.length > 1">
+                  <span *ngIf="carte.typesPouvoir != null && carte.typesPouvoir.length >= 2">
                     Types des pouvoirs :
                   </span>
                 </td>

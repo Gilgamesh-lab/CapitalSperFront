@@ -28,7 +28,7 @@ export class TypesDeCartesComponent {
     const typesDeCartesId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDeCartesId){
       this.typesDeCartes = TYPESDECARTES[typesDeCartesId - 1];
-      if(this.typesDeCartes == undefined){
+      if(this.typesDeCartes == undefined || CARTES.filter((carte) => carte.estActiver && carte.typeDeCarte.id == typesDeCartesId).length == 0){
         this.appComponent.goTo404();
       }
     }

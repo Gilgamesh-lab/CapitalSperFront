@@ -27,7 +27,7 @@ export class CampsComponent implements OnInit {
     const campId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(campId){
       this.camp = this.carteService.getcarteCamp()[campId - 1];
-      if(this.camp == undefined){
+      if(this.camp == undefined || CARTES.filter((carte) => carte.estActiver && carte.camps.id == campId).length == 0){
         this.appComponent.goTo404();
       }
     }

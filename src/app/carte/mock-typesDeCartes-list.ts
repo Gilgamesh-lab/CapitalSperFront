@@ -18,7 +18,16 @@ export const TYPESDECARTES: typesDeCartes[] = [
         description: "Les cartes fonctions ou charges honorifiques confèrent à son détenteur un pouvoir spécifique et unique. " +
         "Contrairement aux cartes personnages, les cartes fonction sont disposés face visibles à la vue de tous mais sont cumulables avec une carte personnage. "+
         "Elles ont chacunes leurs propres règles d'attribution et de succession. " + 
-        "Le but des joueurs ayant une carte fonction restent celles de leurs cartes personnages mais ils disposent maintenant d'un pouvoir plus grand pour y parvenir."
+        "Le but de ces joueurs ayant une carte fonction restent celles de leurs cartes personnages mais ils disposent maintenant d'un pouvoir plus grand pour y parvenir."
+    },
+    {
+        id: 3,
+        nom: "Bâtiment",
+        illustration:  "fonction.jpeg",
+        description: "En plus de leur identité secrète, quelques habitants peuvent recevoir un bâtiment qui leur donne une identité publique. " +
+        "Un pouvoir supplémentaire associé à leur bâtiment est utilisable par ces habitants. " +
+        "Contrairement aux cartes personnages, les cartes bâtiments sont disposés face visibles à la vue de tous mais sont cumulables avec une carte personnage et une carte fonction. "+
+        "Le but de ces joueurs ayant une carte bâtiment restent celles de leurs cartes personnages mais ils disposent maintenant d'un pouvoir plus grand pour y parvenir."
     }
     
 ];

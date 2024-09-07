@@ -28,7 +28,8 @@ export class TypesDePouvoirsComponent {
     const typesDePouvoirsId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDePouvoirsId){
       this.typesDePouvoirs = TYPESDEPOUVOIR[typesDePouvoirsId - 1];
-      if(this.typesDePouvoirs == undefined){
+      console.log(this.typesDePouvoirs.id)
+      if(this.typesDePouvoirs == undefined || this.getcartesQuiACeTypeDePouvoirs(this.typesDePouvoirs).length == 0 ){
         this.appComponent.goTo404();
       }
     }
@@ -38,7 +39,7 @@ export class TypesDePouvoirsComponent {
   }
 
   public getcartesQuiACeTypeDePouvoirs(typesDePouvoirs: typesDePouvoirs): Carte[]{
-    return CARTES.filter((carte) => carte.typesPouvoir.includes(typesDePouvoirs) && carte.estActiver);
+    return CARTES.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs) && carte.estActiver);
   }
 
   public goToPrevious(): void {
