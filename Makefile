@@ -20,7 +20,6 @@ deployFireBase:
 	firebase deploy
 	git add .
 	git commit -am "Deploiement d'une nouvelle version sur FireBase"
-	git push 
 	git checkout develop
 	
 	
