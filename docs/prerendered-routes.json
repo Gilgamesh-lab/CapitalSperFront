@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/cartes/add",
+    "/login",
+    "/pageNotFound",
+    "/plan-du-site",
+    "/regles"
+  ]
+}

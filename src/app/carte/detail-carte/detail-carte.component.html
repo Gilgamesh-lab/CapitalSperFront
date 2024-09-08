@@ -30,6 +30,14 @@
                   </strong>
                 </td>
               </tr>
+              <tr *ngIf="carte.typeDeCarte.id == 3">
+                <td style="display: inline;">Nom du bâtiment :</td>
+                <td  style="text-align:center;">
+                  <strong>
+                    {{carte.nomDuBatiment}}
+                  </strong>
+                </td>
+              </tr>
               <tr>
                 <td style="display: inline;">Carte :</td>
                 <td style="text-align:center"><strong>

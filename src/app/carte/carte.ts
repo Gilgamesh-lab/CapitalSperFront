@@ -16,7 +16,8 @@ export class Carte {
   imageLore: string;
   description: string;
   estActiver: boolean;
-  typeDeCarte: typesDeCartes
+  typeDeCarte: typesDeCartes;
+  nomDuBatiment: string;
 
   constructor(
     camps: Camp = CAMPS[0],
@@ -27,7 +28,8 @@ export class Carte {
     typesPouvoir: typesDePouvoirs[] = [TYPESDEPOUVOIR[0]],
     estActiver: boolean = true,
     imageLore: string = 'Entrer une image',
-    typeDeCarte: typesDeCartes = TYPESDECARTES[0]
+    typeDeCarte: typesDeCartes = TYPESDECARTES[0],
+    nomDuBatiment: string = 'Vagabond'
   ){
 
     this.camps = camps;
@@ -39,5 +41,6 @@ export class Carte {
     this.estActiver = estActiver;
     this.imageLore = imageLore;
     this.typeDeCarte = typeDeCarte;
+    this.nomDuBatiment = nomDuBatiment;
   }
 }

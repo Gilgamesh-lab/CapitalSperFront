@@ -15,16 +15,21 @@
                     
                     <div *ngFor="let type of getTypeDeCarte()">
                         <div *ngIf="typeDeCarteEstActiver(type)" >
-                            <p class="center blue-text " style="cursor: pointer;" (click)="goToType(type)">
-                                <strong style="text-decoration: underline;" >Les cartes {{type.nom}}s : </strong>
-                                <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
-                            </p>
+                            <div style="cursor: pointer;">
+                                <strong class="center blue-text" style="text-decoration: underline;" >Les cartes {{type.nom}}s </strong>
+                                <p class="center blue-text  "  (click)="goToType(type)">
+                                    <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
+                                </p>
+                            </div>
                             <ul class="collection" *ngFor="let carte of getCartesParType(type)" style="cursor: pointer;" (click)="goTocarte(carte)" >
                                 <li class="collection-item">
-                                <a  >
-                                    {{carte.nom }}
+                                <div  >
                                     <img class="responsive-img" width="10%" [src]="carte.illustration"  [alt]="carte.nom" />
-                                </a>
+                                    <span class="blue-text center">
+                                        {{carte.nom }}
+                                    </span>
+                                    
+                                </div>
                                 </li>
                             </ul>
                         </div>
@@ -36,24 +41,29 @@
                         <div *ngIf="CampsEstActiver(camp)" style="cursor: pointer;"  (click)="goToCamp(camp)" >
                             <ul class="collection">
                                 <li class="collection-item">
-                                <a class="link">
-                                    Le camp des {{camp.nom.toLowerCase() }}
+                                <div class="blue-text center">
                                     <img class="responsive-img" width="20%" [src]="camp.illustration"  [alt]="camp.nom" />
-                                </a>
+                                    <span>
+                                        Le camp des {{camp.nom.toLowerCase() }}
+                                    </span>
+                                    
+                                </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                <h2>Les différents pouvoirs</h2>
+                <h2>Les différents types de pouvoirs</h2>
                 <div *ngFor="let pouvoir of getTypeDePouvoir()" style="cursor: pointer;" (click)="goToPouvoir(pouvoir)">
                     <div *ngIf="typeDePouvoirsEstActiver(pouvoir)">
                         <ul class="collection">
                             <li class="collection-item">
-                            <a  class="link"  >
-                                Le pouvoir de {{pouvoir.nom.toLowerCase() }}  
-                                <img class="responsive-img" width="20%" [src]="pouvoir.illustration"  [alt]="pouvoir.nom" />
-                            </a>
+                                <div class="blue-text center">
+                                    <img class="responsive-img" width="20%" [src]="pouvoir.illustration"  [alt]="pouvoir.nom" />
+                                    <span>
+                                        Le pouvoir de {{pouvoir.nom.toLowerCase()}}
+                                    </span>
+                                </div>
                             </li>
                         </ul>
                     </div>

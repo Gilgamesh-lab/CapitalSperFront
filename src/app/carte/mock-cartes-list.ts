@@ -16,6 +16,7 @@ export const CARTES: Carte[] = [
         description: "C’est le villageois de base du jeu, il ne possède aucun pouvoir spécial. " +
         "De ce fait, il peut porter des accusations et se mettre en danger sans pénaliser son camp.",
         typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -28,6 +29,7 @@ export const CARTES: Carte[] = [
         imageLore:  "wwLore.png",
         description: "C’est le loup garou de base du jeu.",
         typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -40,6 +42,7 @@ export const CARTES: Carte[] = [
         imageLore:  "vovoLore.png",
         description: "Chaque nuit, lorsque le meneur la réveille, elle a la capacité de voir clairement le rôle du joueur de son choix.",
         typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -58,6 +61,7 @@ export const CARTES: Carte[] = [
         "La sorcière est autorisée à utiliser sa potion de  VIE sur elle même si les loups garous avaient décider de la dévorer durant leur festin nocturne. " +
         "Si la sorcière a utilisé sa potion de  VIE , le meneur ne lui montreras pas la victime des loups garous les nuits suivantes.",
         typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -71,6 +75,7 @@ export const CARTES: Carte[] = [
         description: "Il n'a aucun pouvoir de son vivant. En revanche s’il vient à mourir, peut importe la manière, "+ 
         "la chasseur doit impérativement désigner un autre joueur qu’il va éliminer en lui tirant dessus avec la dernière cartouche de son fusil. ",
         typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -88,6 +93,7 @@ export const CARTES: Carte[] = [
         "Si les amoureux ne font pas partie du même camps, ils doivent éliminer tout les autres joueurs sinon leurs conditions de victoire ne changent, " +
         "ils gagnent avec leurs camps.",
         typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -101,6 +107,7 @@ export const CARTES: Carte[] = [
         description: "Le capitaine ou plus communément appelée maire est élue par vote à la majorité relative. " +
         "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur",
         typeDeCarte: TYPESDECARTES[1],
+        nomDuBatiment: null,
         estActiver: true
     },
     {
@@ -115,6 +122,7 @@ export const CARTES: Carte[] = [
         "S'il est éliminé, le Capitaine désigne son successeur uniquement parmi les Fermiers survivants. "+
         "Si le dernier Fermier est éliminé, il n'y a plus de Capitaine.",
         typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: 'Les Fermes',
         estActiver: true
     }
 ];
