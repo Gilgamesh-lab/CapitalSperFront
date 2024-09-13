@@ -13,6 +13,7 @@ import { typesDePouvoirs } from '../typesDePouvoirs';
 import { AppComponent } from '../../app.component';
 import { typesDeCartes } from '../typesDeCartes';
 import { CarteTypeColorPipe } from '../carte-type-color.pipe';
+import { CARTES } from '../mock-cartes-list';
 
 
 @Component({
@@ -34,12 +35,13 @@ export class DetailcarteComponent implements OnInit{
   ngOnInit(): void {
     const carteId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(carteId){
-      this.carteService.getcarteParId(carteId).subscribe((carte) =>{
-        this.carte = carte;
-        if(this.carte == undefined){
-          this.appComponent.goTo404();
-        }
-      });
+      //this.carteService.getcarteParId(carteId).subscribe((carte) =>{
+        //this.carte = carte;
+      this.carte = CARTES.find((carte) => carte.id == carteId);
+      if(this.carte == undefined){
+        this.appComponent.goTo404();
+      }
+      ;
       
     }
     else{

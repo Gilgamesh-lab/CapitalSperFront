@@ -9,6 +9,7 @@ import { SearchcarteComponent } from "../search-carte/search-carte.component";
 import { LoaderComponent } from '../loader/loader.component';
 import { AuthService } from '../../auth.service';
 import { BorderCardDirective } from '../border-card.directive';
+import { CARTES } from '../mock-cartes-list';
 
 @Component({
   selector: 'app-liste-carte',
@@ -26,7 +27,8 @@ export class ListecarteComponent implements OnInit {
   }
 
   ngOnInit() : void{
-    this.carteService.getcarteListe().subscribe(listecartes => this.ListeDecartes = listecartes);
+    //this.carteService.getcarteListe().subscribe(listecartes => this.ListeDecartes = listecartes);
+    this.ListeDecartes = CARTES;
   }
 
   goTocarte(carte: Carte){

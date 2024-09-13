@@ -43,8 +43,8 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         id: 5,
         nom: "Affaiblissement",
         illustration:  "malediction.webp",
-        description: "Le type de pouvoir affaiblissement désigne tout les pouvoirs qui rendent inuitilisable de manière temporairement ou définitevement " +
-        "le pouvoir d'un joueur. ou bien de l'empêche de voter",
+        description: "Le type de pouvoir affaiblissement désigne tout les pouvoirs qui rendent inuitilisable de manière temporairement ou définitivement " +
+        "le pouvoir d'un joueur ou bien de l'empêcher de voter",
         nomMembre: "ensorceleur",
         determinant: "d'"
     },

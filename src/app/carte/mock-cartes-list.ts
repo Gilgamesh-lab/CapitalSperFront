@@ -53,13 +53,12 @@ export const CARTES: Carte[] = [
         camps: CAMPS[0],
         typesPouvoir: [TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[0]],
         imageLore:  "sosoLore.png",
-        description: "Elle est réveillée par le meneur chaque nuit après les loups garous tant qu’elle au moins une potion. "+ 
-        "Le meneur lui montre alors la victime des loups garous. La sorcière dispose de deux potions : " + 
-        "la potion de  VIE  qui peut lui permet de ressusciter la victime des loups garous, et une potion de  MORT  qui lui permet d’éliminer un joueur. " +
-        "Elle peut utiliser chaque potion une seule fois dans toute la partie. Elle peut très bien ne pas utiliser ses potions pendant une nuit. " +
-        "Elle peut très bien n’utiliser qu’une seule potion durant la nuit, ou bien utiliser les deux la même nuit si elle le souhaite. " +
-        "La sorcière est autorisée à utiliser sa potion de  VIE sur elle même si les loups garous avaient décider de la dévorer durant leur festin nocturne. " +
-        "Si la sorcière a utilisé sa potion de  VIE , le meneur ne lui montreras pas la victime des loups garous les nuits suivantes.",
+        description: "Elle est réveillée par le meneur chaque nuit après les loups garous tant qu’elle a au moins une de ses deux potions. "+ 
+        "La potion de VIE qui peut lui permet de ressusciter la victime des loups garous y compris elle même, et la potion de MORT qui lui permet d’éliminer un joueur. " +
+        "Tant qu'elle a sa potion de vie, le meneur lui montre la victime des loups garous. "  +
+        "Elle peut utiliser chaque potion une seule fois dans toute la partie, hormis cela, elle n'a pas d'autre restriction sur l'utilisation de ses potions. " ,
+        
+
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -89,7 +88,7 @@ export const CARTES: Carte[] = [
         description: "Il est réveillé uniquement durant la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
         "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " +
         "Si l’un des deux amoureux est éliminé de la partie, le second meurt de chagrin avec lui immédiatement. " +
-        "Il est interdit pour un amoureux d’éliminer son aimé, ni même de voter contre lui, ni même d’argumenter contre lui. " +
+        "Il est interdit pour un amoureux d’éliminer son aimé, ni même de voter contre lui, ni de lui porter préjudice (même pour faire semblant !). " +
         "Si les amoureux ne font pas partie du même camps, ils doivent éliminer tout les autres joueurs sinon leurs conditions de victoire ne changent, " +
         "ils gagnent avec leurs camps.",
         typeDeCarte: TYPESDECARTES[0],
@@ -182,8 +181,8 @@ export const CARTES: Carte[] = [
         description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. Mais une fois dans la partie, s’il le désire à l’appel du meneur, " + 
         "après que les loups-garous se soit endormis, il lève la main. Cela signifie que la victime n’est pas dévorée, mais infecté. " + 
         "Ce qui comme effet de la transformé en loup-garous et plus précisément en l’infecté. " +
-        "L'infecté en plus d'être maintenant un loup-garou ne sera pas vue comme loup-garous par la voyante et il peut utiliser ses pouvoirs spéciaux (si il en avait) " +
-        "au service de sa nouvelle équipe",
+        "Malgré qu'il soit un loup-garou, l'Infecté ne sera pas vue comme loup-garous par la voyante et il peut utiliser ses pouvoirs spéciaux (si il en avait) " +
+        "au service de sa nouvelle équipe.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -197,7 +196,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "maireLore.png",
         description: "Le capitaine ou plus communément appelée maire est élue par vote à la majorité relative. " +
-        "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur",
+        "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur.",
         typeDeCarte: TYPESDECARTES[1],
         nomDuBatiment: null,
         estActiver: true
@@ -219,7 +218,7 @@ export const CARTES: Carte[] = [
     {
         id: 15,
         nom: "Les Fermiers",
-        illustration: "fer.jpg",
+        illustration: "fermiers.png",
         imageCarte:  "fermes.png",
         camps: null,
         typesPouvoir: [TYPESDEPOUVOIR[3]],
@@ -325,7 +324,7 @@ export const CARTES: Carte[] = [
         camps: null,
         typesPouvoir: [TYPESDEPOUVOIR[3]],
         imageLore:  "rebouteuxLore.png",
-        description: "N'importe quand durant la journée, le Rebouteux peut rendre à un joueur le pouvoir unique qu'il a déjà utilisé. " +
+        description: "N'importe quand durant la journée, le Rebouteux peut rendre à un joueur le pouvoir unique de son bâtiment qu'il a déjà utilisé. " +
         "Le meneur rend au joueur le jeton qui rétablit le pouvoir lié à son bâtiment (pour un nouvel usage unique).",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La masure",
