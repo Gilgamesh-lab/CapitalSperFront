@@ -155,6 +155,21 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
+    },
+    {
+        id: 11,
+        nom: "Les Deux Soeurs",
+        illustration: "Deux_soeurs.png",
+        imageCarte:  "les_deux_soeurs.png",
+        camps: CAMPS[0],
+        typesPouvoir: [TYPESDEPOUVOIR[0]],
+        imageLore:  "deux_soeursLore.png",
+        description: "Lorsqu’elles sont présentes dans le jeu, deux joueurs ont la même carte et sont donc les deux sœurs. "+
+        "La première nuit à l’appel du meneur, elles se réveillent ensemble et se reconnaissent. "+
+        "Contrairement aux amoureux, leurs destins ne sont pas liés, si l’une des deux meurt, la seconde ne meurt pas avec sa sœur. ",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true
     }
     /*
     {
