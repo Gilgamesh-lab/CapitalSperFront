@@ -288,5 +288,19 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'échoppe du Barbier",
         estActiver: true
+    },
+    {
+        id: 20,
+        nom: "Le Confesseur",
+        illustration: "pretre.png",
+        imageCarte:  "l_église.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[0]],
+        imageLore:  "confesseurLore.png",
+        description: "N'importe quand durant la journée, même après la désignation par vote du joueur éliminé, "+
+        "le Confesseur désigne un joueur qui a l'obligation immédiate de lui dire à l'écart et discrètement si il s'est réveillé durant la nuit précédente.",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "L'église",
+        estActiver: true
     }
 ];
