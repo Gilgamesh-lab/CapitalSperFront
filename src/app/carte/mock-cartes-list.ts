@@ -111,6 +111,21 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
+    },
+    {
+        id: 8,
+        nom: "Le Montreur d'Ours",
+        illustration: "Montreurs_d'ours.png",
+        imageCarte:  "montreurs_d_oursCarte.png",
+        camps: CAMPS[0],
+        typesPouvoir: [TYPESDEPOUVOIR[0]],
+        imageLore:  "montreurs_d_oursLore.png",
+        description: "Chaque matin juste après la révélation des éventuels victimes nocturnes, si au moins un loup garou est ou devient le voisin du montreur d'ours, "+
+        "alors le meneur grogne. Seule les voisins encore en vie sont pris en compte. Si le montreur d’ours est infecté, " +
+        "alors le meneur grogne tout les jours tant que le montreur d’ours n’est pas éliminé.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true
     }
     /*
     {
