@@ -222,7 +222,7 @@ export const CARTES: Carte[] = [
         illustration: "fer.jpg",
         imageCarte:  "fermes.png",
         camps: null,
-        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        typesPouvoir: [TYPESDEPOUVOIR[3]],
         imageLore:  "loreFermiers.png",
         description: "Dès le deuxième tour, les Fermiers débattent et votent pour désigner parmis eux le Capitaine. "+
         "S'il est éliminé, le Capitaine désigne son successeur uniquement parmi les Fermiers survivants. "+
@@ -272,6 +272,21 @@ export const CARTES: Carte[] = [
         "L'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La maison du Bailli",
+        estActiver: true
+    },
+    {
+        id: 19,
+        nom: "Le Barbier",
+        illustration: "barbier.png",
+        imageCarte:  "echoppe du barbier.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "barbierLore.png",
+        description: "N'importe quand durant la journée, le Barbier peut éliminer un joueur de son choix. " +
+        "Si le joueur éliminé n'est pas un Loup-Garou, il est aussitôt lynché par le village sinon il est félicité par le village et survit à son acte. "+
+        "Le Barbier ne peut pas éliminer un Vagabond.",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "L'échoppe du Barbier",
         estActiver: true
     }
 ];
