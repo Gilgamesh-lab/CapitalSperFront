@@ -258,5 +258,20 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "Le manoir",
         estActiver: true
+    },
+    {
+        id: 18,
+        nom: "Le Bailli",
+        illustration: "bailli.png",
+        imageCarte:  "maison_du_bailli.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[3]],
+        imageLore:  "bailliLore.png",
+        description: "Lorsqu'un bâtiment se libère, le Bailli peut l'attribuer au Vagabond de son choix. " +
+        "Ce Vagabond rend son jeton Baluchon et récupère le jeton associé au bâtiment s'il a déjà été utilisé. " +
+        "L'élimination du Bailli entraîne la fin de la distribution des logements.",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "La maison du Bailli",
+        estActiver: true
     }
 ];
