@@ -141,6 +141,20 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
+    },
+    {
+        id: 10,
+        nom: "Le Pyromane",
+        illustration: "Pyromane.png",
+        imageCarte:  "pyromaneCarte.png",
+        camps: CAMPS[0],
+        typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[4]],
+        imageLore:  "pyromaneLore.png",
+        description: "À l'appel de son rôle, une seule fois dans la partie, il peut mettre le feu à un bâtiment ce qui aura pour effet de le détruire définitivement. "+
+        "Si le propriétaire du bâtiment est la victime des loups-garous alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true
     }
     /*
     {

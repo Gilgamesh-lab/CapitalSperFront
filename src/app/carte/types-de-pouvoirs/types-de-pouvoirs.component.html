@@ -1,6 +1,6 @@
 <div *ngIf="typesDePouvoirs" class="row">
     <div class="col s12 m8 offset-m2" >
-    <h2 class="header center">Le pouvoir de {{ typesDePouvoirs.nom.toLowerCase() }}</h2>
+    <h2 class="header center">Le pouvoir {{typesDePouvoirs.determinant}}{{typesDePouvoirs.nom.toLowerCase()}}</h2>
     <div style="text-align:center">
         <img class="responsive-img center" [src]="typesDePouvoirs.illustration"  [alt]="typesDePouvoirs.nom" />
     </div>
@@ -16,7 +16,7 @@
             <tbody >
               <tr>
                 <td >Nom du pouvoir :</td>
-                <td  class="left" ><strong > Pouvoir de {{typesDePouvoirs.nom.toLowerCase()}}</strong></td>
+                <td  class="left" ><strong > Pouvoir {{typesDePouvoirs.determinant}}{{typesDePouvoirs.nom.toLowerCase()}}</strong></td>
               </tr>
               <tr >
                 <td >Nom des utilisateurs de ce pouvoir :</td>
