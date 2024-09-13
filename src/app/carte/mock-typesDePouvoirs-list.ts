@@ -45,6 +45,14 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         description: "",
         nomMembre: "exécuteurs",
         determinant: "d'"
+    },
+    {
+        id: 6,
+        nom: "Immunité",
+        illustration:  "",
+        description: "",
+        nomMembre: "exécuteurs",
+        determinant: "d'"
     }
     
 ];

@@ -187,10 +187,9 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
-    }
-    /*
+    },
     {
-        id: 7,
+        id: 13,
         nom: "Le Capitaine",
         illustration: "maire.png",
         imageCarte:  "maireCarte.png",
@@ -204,6 +203,20 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
+        id: 14,
+        nom: "Les Vagabonds",
+        illustration: "vagabond.png",
+        imageCarte:  "vagabondCarte.png",
+        camps: null,
+        typesPouvoir: null,
+        imageLore:  "vagabondLore.png",
+        description: "Vous êtes un vagabonds et n'avez donc pas de bâtiments mais vous êtes immunisés aux pouvoirs de l'Institutrice, du Barbier, du Corbeau et du Pyromane. " +
+        "De plus le Bailli peut vous proposer un bâtiment que vous pouvez refuser. Attention, l'élimination du Bailli entraîne la fin de la distribution des logements.",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: null,
+        estActiver: true
+    }
+    /*{
         id: 8,
         nom: "Les Fermiers",
         illustration: "fer.jpg",

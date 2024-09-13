@@ -30,7 +30,7 @@
                   </strong>
                 </td>
               </tr>
-              <tr *ngIf="carte.typeDeCarte.id == 3">
+              <tr *ngIf="carte.typeDeCarte.id == 3 && carte.nomDuBatiment != null">
                 <td style="display: inline;">Nom du bâtiment :</td>
                 <td  style="text-align:center;">
                   <strong>
@@ -55,7 +55,7 @@
                 </td>
                 <td style="text-align:center">
                   <p *ngIf='carte.typesPouvoir == null'>
-                    Ce personnage n'a aucun pouvoir
+                    Cette carte n'a aucun pouvoir
                   </p>
                   <span (click)="goToPouvoir(type)" style="cursor: pointer;" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe }}">
                     {{ type.nom }}
