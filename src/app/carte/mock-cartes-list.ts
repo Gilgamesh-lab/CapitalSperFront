@@ -27,7 +27,7 @@ export const CARTES: Carte[] = [
         camps: CAMPS[1],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "wwLore.png",
-        description: "C’est le loup garou de base du jeu.",
+        description: "C’est le loup garou de base du jeu. Chaque nuit à l'appel du meneur, ils se réveillent pour dévorer un villageois.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -40,7 +40,7 @@ export const CARTES: Carte[] = [
         camps: CAMPS[0],
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "vovoLore.png",
-        description: "Chaque nuit, lorsque le meneur la réveille, elle a la capacité de voir clairement le rôle du joueur de son choix.",
+        description: "Chaque nuit à l'appel du meneur, elle a la capacité de voir clairement le rôle du joueur de son choix.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -73,7 +73,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "chasseurLore.png",
         description: "Il n'a aucun pouvoir de son vivant. En revanche s’il vient à mourir, peut importe la manière, "+ 
-        "la chasseur doit impérativement désigner un autre joueur qu’il va éliminer en lui tirant dessus avec la dernière cartouche de son fusil. ",
+        "le chasseur doit impérativement désigner un autre joueur qu’il va éliminer en lui tirant dessus avec la dernière cartouche de son fusil. ",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -96,6 +96,23 @@ export const CARTES: Carte[] = [
         nomDuBatiment: null,
         estActiver: true
     },
+    {
+        id: 7,
+        nom: "Le Salvateur",
+        illustration: "Salvateur.png",
+        imageCarte:  "salvateurCarte.png",
+        camps: CAMPS[0],
+        typesPouvoir: [TYPESDEPOUVOIR[1]],
+        imageLore:  "salvateurLore.png",
+        description: "Chaque nuit, le meneur le réveille avant les loups et lui demande de choisir une personne qui sera protégée contre la morsure des loups garous, " +
+        "qui eux ne sauront pas que cette personne est protégée, et donc au petit matin la personne protégée sera vivante même si elle a été attaqué par les loups garous. " +
+        "Le salvateur a le droit de se protéger lui-même. Il n’a pas le droit de protéger la même personne deux nuits de suite. " +
+        "S’il est amoureux, le salvateur n’est pas obligé de protéger son amoureux.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true
+    }
+    /*
     {
         id: 7,
         nom: "Le Capitaine",
@@ -124,5 +141,5 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: 'Les Fermes',
         estActiver: true
-    }
+    }*/
 ];

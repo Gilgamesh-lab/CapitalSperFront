@@ -15,14 +15,14 @@
                     
                     <div *ngFor="let type of getTypeDeCarte()">
                         <div *ngIf="typeDeCarteEstActiver(type)" >
-                            <div (click)="goToType(type)" style="cursor: pointer;" >
-                                <strong class="center blue-text" style="text-decoration: underline;" >Les cartes {{type.nom}}s : </strong>
+                            <div>
+                                <strong (click)="goToType(type)" class="center blue-text" style="text-decoration: underline;cursor: pointer;" >Les cartes {{type.nom}}s : </strong>
                             </div>
                             <br>
                             <ul class="collection" *ngFor="let carte of getCartesParType(type)" style="cursor: pointer;" (click)="goTocarte(carte)" >
                                 <li class="collection-item">
                                 <div  >
-                                    <img class="responsive-img" width="10%" [src]="carte.illustration"  [alt]="carte.nom" />
+                                    <img class="responsive-img" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
                                     <span class="blue-text center">
                                         {{carte.nom }}
                                     </span>
