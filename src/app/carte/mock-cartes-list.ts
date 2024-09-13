@@ -208,7 +208,7 @@ export const CARTES: Carte[] = [
         illustration: "vagabond.png",
         imageCarte:  "vagabondCarte.png",
         camps: null,
-        typesPouvoir: null,
+        typesPouvoir: [TYPESDEPOUVOIR[5]],
         imageLore:  "vagabondLore.png",
         description: "Vous êtes un vagabonds et n'avez donc pas de bâtiments mais vous êtes immunisés aux pouvoirs de l'Institutrice, du Barbier, du Corbeau et du Pyromane. " +
         "De plus le Bailli peut vous proposer un bâtiment que vous pouvez refuser. Attention, l'élimination du Bailli entraîne la fin de la distribution des logements.",
@@ -243,6 +243,20 @@ export const CARTES: Carte[] = [
         "Elle ne vote jamais. L'Institutrice ne peut empêcher aucun Vagabond de voter.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'ecole",
+        estActiver: true
+    },
+    {
+        id: 17,
+        nom: "Le Châtelain",
+        illustration: "noble.png",
+        imageCarte:  "manoir.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[1]],
+        imageLore:  "chatelainLore.png",
+        description: "Après n'importe quel vote, le Châtelain peut, sur demande de la future victime, gracier un joueur désigné par le vote du village. " +
+        "Ce joueur ne sera alors pas éliminé et ne révèle donc pas sa carte Personnage. Un Châtelain peut évidemment se gracier lui même...",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "Le manoir",
         estActiver: true
     }
 ];
