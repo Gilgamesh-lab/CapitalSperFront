@@ -302,5 +302,19 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'église",
         estActiver: true
+    },
+    {
+        id: 21,
+        nom: "Le Boulanger",
+        illustration: "boulanger.png",
+        imageCarte:  "boulangerie.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[3]],
+        imageLore:  "boulangerLore.png",
+        description: "Chaque jour, juste avant le vote du village, "+ 
+        "le boulanger peut augmenter de 2 la voix d'un autre joueur de son choix mais en contrepartie il ne peut pas voter durant ce vote.",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "La boulangerie",
+        estActiver: true
     }
 ];
