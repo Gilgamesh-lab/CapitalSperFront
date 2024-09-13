@@ -170,6 +170,23 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
+    },
+    {
+        id: 12,
+        nom: "L'Infect Père des Loups",
+        illustration: "Infect_pere_des_loups.png",
+        imageCarte:  "Infect_pere_des_loupsCarte.png",
+        camps: CAMPS[1],
+        typesPouvoir: [TYPESDEPOUVOIR[1],TYPESDEPOUVOIR[2]],
+        imageLore:  "Infect_pere_des_loupsLore.png",
+        description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. Mais une fois dans la partie, s’il le désire à l’appel du meneur, " + 
+        "après que les loups-garous se soit endormis, il lève la main. Cela signifie que la victime n’est pas dévorée, mais infecté. " + 
+        "Ce qui comme effet de la transformé en loup-garous et plus précisément en l’infecté. " +
+        "L'infecté en plus d'être maintenant un loup-garou ne sera pas vue comme loup-garous par la voyante et il peut utiliser ses pouvoirs spéciaux (si il en avait) " +
+        "au service de sa nouvelle équipe",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true
     }
     /*
     {
