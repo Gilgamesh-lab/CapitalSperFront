@@ -126,6 +126,21 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
+    },
+    {
+        id: 9,
+        nom: "Le Corbeau",
+        illustration: "Corbeau.png",
+        imageCarte:  "corbeauCarte.png",
+        camps: CAMPS[0],
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "corbeauLore.png",
+        description: "Chaque nuit, le corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup garou. "+
+        "Le joueur médis, aura automatiquement deux votes contre lui lors du vote de la prochaine phase de jour. "+
+        "Le corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true
     }
     /*
     {
