@@ -33,25 +33,27 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 4,
         nom: "Renforcement",
-        illustration:  "",
-        description: "",
+        illustration:  "renforcement.jpeg",
+        description: "Le type de pouvoir renforcement désigne tout les pouvoirs qui permettent d'acccorder des cartes fonctions et/ou bâtiment à un autre joueur "+ 
+        "ou d'augmenter son nombre de voix lors d'un vote.",
         nomMembre: "supports",
         determinant: "de "
     },
     {
         id: 5,
         nom: "Affaiblissement",
-        illustration:  "",
-        description: "",
-        nomMembre: "exécuteurs",
+        illustration:  "malediction.webp",
+        description: "Le type de pouvoir affaiblissement désigne tout les pouvoirs qui rendent inuitilisable de manière temporairement ou définitevement " +
+        "le pouvoir d'un joueur. ou bien de l'empêche de voter",
+        nomMembre: "ensorceleur",
         determinant: "d'"
     },
     {
         id: 6,
         nom: "Immunité",
-        illustration:  "",
-        description: "",
-        nomMembre: "exécuteurs",
+        illustration:  "immuniter.jpeg",
+        description: "Le type de pouvoir immunité désigne tout les pouvoirs qui permettent d'être immuniser à un pouvoir spécial.",
+        nomMembre: "immunisé",
         determinant: "d'"
     }
     
