@@ -316,5 +316,19 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La boulangerie",
         estActiver: true
+    },
+    {
+        id: 22,
+        nom: "Le Rebouteux",
+        illustration: "rebouteux.png",
+        imageCarte:  "masure.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[3]],
+        imageLore:  "rebouteuxLore.png",
+        description: "N'importe quand durant la journée, le Rebouteux peut rendre à un joueur le pouvoir unique qu'il a déjà utilisé. " +
+        "Le meneur rend au joueur le jeton qui rétablit le pouvoir lié à son bâtiment (pour un nouvel usage unique).",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "La masure",
+        estActiver: true
     }
 ];
