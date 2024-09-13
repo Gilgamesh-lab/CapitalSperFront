@@ -215,9 +215,9 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: null,
         estActiver: true
-    }
-    /*{
-        id: 8,
+    },
+    {
+        id: 15,
         nom: "Les Fermiers",
         illustration: "fer.jpg",
         imageCarte:  "fermes.png",
@@ -230,5 +230,19 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: 'Les Fermes',
         estActiver: true
-    }*/
+    },
+    {
+        id: 16,
+        nom: "L'Institutrice",
+        illustration: "institutrice.png",
+        imageCarte:  "l_ecole.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[4]],
+        imageLore:  "institutriceLore.png",
+        description: "Chaque jour, juste avant le vote du village, l'Institutrice peut empêcher jusqu'à deux joueurs de voter durant ce tour.  "+ 
+        "Elle ne vote jamais. L'Institutrice ne peut empêcher aucun Vagabond de voter.",
+        typeDeCarte: TYPESDECARTES[2],
+        nomDuBatiment: "L'ecole",
+        estActiver: true
+    }
 ];
