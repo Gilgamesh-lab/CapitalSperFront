@@ -12,13 +12,22 @@ export class cartePouvoirColorPipe implements PipeTransform {
   
     switch (type) {
       case 1:
-        color = 'yellow lighten-1';
+        color = 'yellow accent-1';
         break;
       case 2:
         color = 'green lighten-1';
         break;
       case 3:
         color = 'red lighten-1';
+        break;
+      case 4:
+        color = 'orange lighten-1';
+        break;
+      case 5:
+        color = 'purple accent-4';
+        break;
+      case 6:
+        color = 'cyan accent-2';
         break;
       
       default:
