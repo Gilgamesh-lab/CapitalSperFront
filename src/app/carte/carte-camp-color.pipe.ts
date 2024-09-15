@@ -15,7 +15,7 @@ export class carteCampColorPipe implements PipeTransform {
         color = 'blue lighten-1';
         break;
       case 2:
-        color = 'red lighten-1';
+        color = 'red';
         break;
       default:
         color = 'grey';

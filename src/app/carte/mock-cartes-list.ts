@@ -51,7 +51,7 @@ export const CARTES: Carte[] = [
         illustration: "Sorciere.png",
         imageCarte:  "soso.jpg",
         camps: CAMPS[0],
-        typesPouvoir: [TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[0]],
+        typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2]],
         imageLore:  "sosoLore.png",
         description: "Elle est réveillée par le meneur chaque nuit après les loups garous tant qu’elle a au moins une de ses deux potions. "+ 
         "La potion de VIE qui peut lui permet de ressusciter la victime des loups garous y compris elle même, et la potion de MORT qui lui permet d’éliminer un joueur. " +
@@ -83,7 +83,7 @@ export const CARTES: Carte[] = [
         illustration: "Cupidon.png",
         imageCarte:  "cupidon.jpg",
         camps: CAMPS[0],
-        typesPouvoir: [TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[0]],
+        typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[2]],
         imageLore:  "cupidonLore.png",
         description: "Il est réveillé uniquement durant la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
         "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " +
