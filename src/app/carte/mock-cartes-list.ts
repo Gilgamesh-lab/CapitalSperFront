@@ -40,7 +40,7 @@ export const CARTES: Carte[] = [
         camps: CAMPS[0],
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "vovoLore.png",
-        description: "Chaque nuit à l'appel du meneur, elle a la capacité de voir clairement le rôle du joueur de son choix.",
+        description: "Chaque nuit à l'appel du meneur, elle a la capacité de voir clairement la carte d'un joueur de son choix.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -54,7 +54,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2]],
         imageLore:  "sosoLore.png",
         description: "Elle est réveillée par le meneur chaque nuit après les loups garous tant qu’elle a au moins une de ses deux potions. "+ 
-        "La potion de VIE qui peut lui permet de ressusciter la victime des loups garous y compris elle même, et la potion de MORT qui lui permet d’éliminer un joueur. " +
+        "La potion de vie qui peut lui permet de ressusciter la victime des loups garous y compris elle même, et la potion de mort qui lui permet d’éliminer un joueur. " +
         "Tant qu'elle a sa potion de vie, le meneur lui montre la victime des loups garous. "  +
         "Elle peut utiliser chaque potion une seule fois dans toute la partie, hormis cela, elle n'a pas d'autre restriction sur l'utilisation de ses potions. " ,
         
@@ -106,7 +106,7 @@ export const CARTES: Carte[] = [
         description: "Chaque nuit, le meneur le réveille avant les loups et lui demande de choisir une personne qui sera protégée contre la morsure des loups garous, " +
         "qui eux ne sauront pas que cette personne est protégée, et donc au petit matin la personne protégée sera vivante même si elle a été attaqué par les loups garous. " +
         "Le salvateur a le droit de se protéger lui-même. Il n’a pas le droit de protéger la même personne deux nuits de suite. " +
-        "S’il est amoureux, le salvateur n’est pas obligé de protéger son amoureux.",
+        "Si il est amoureux, le salvateur n’est pas obligé de protéger son amoureux.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -134,9 +134,10 @@ export const CARTES: Carte[] = [
         camps: CAMPS[0],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "corbeauLore.png",
-        description: "Chaque nuit, le corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup garou. "+
-        "Le joueur médis, aura automatiquement deux votes contre lui lors du vote de la prochaine phase de jour. "+
-        "Le corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur.",
+        description: "Chaque nuit, le Corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup garou. "+
+        "Le meneur dépose alors le marqueur «affiche anonyme» denavnt ce joueur, qui aura automatiquement deux voix de plus contre lui lors du vote de la prochaine phase de jour. "+
+        "Le Corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur. " + 
+        "Le Corbeau ne peut pas désigner un Vagabond",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -150,7 +151,8 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[4]],
         imageLore:  "pyromaneLore.png",
         description: "À l'appel de son rôle, une seule fois dans la partie, il peut mettre le feu à un bâtiment ce qui aura pour effet de le détruire définitivement. "+
-        "Si le propriétaire du bâtiment est la victime des loups-garous alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
+        "Le meneur posera alors le marqueur «feu» sur le bâtiment. Son ex-occupant n'est pas éliminé du jeu mais il devient un vagabond. " +
+        "Si le propriétaire du bâtiment est la victime des loups-garous cette nuit là, alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -277,7 +279,7 @@ export const CARTES: Carte[] = [
         id: 19,
         nom: "Le Barbier",
         illustration: "barbier.png",
-        imageCarte:  "echoppe du barbier.png",
+        imageCarte:  "echoppe_du_barbier.png",
         camps: null,
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "barbierLore.png",
@@ -297,7 +299,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "confesseurLore.png",
         description: "N'importe quand durant la journée, même après la désignation par vote du joueur éliminé, "+
-        "le Confesseur désigne un joueur qui a l'obligation immédiate de lui dire à l'écart et discrètement si il s'est réveillé durant la nuit précédente.",
+        "le Confesseur désigne un joueur qui a l'obligation immédiate de lui dire à l'écart et discrètement s'il s'est réveillé durant la nuit précédente.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'église",
         estActiver: true
