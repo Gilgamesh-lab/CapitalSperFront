@@ -12,10 +12,10 @@ export class CarteTypeColorPipe implements PipeTransform {
   
     switch (type) {
       case 1:
-        color = 'purple lighten-1';
+        color = 'deep-purple lighten-1';
         break;
       case 2:
-        color = 'yellow lighten-1';
+        color = 'yellow accent-2';
         break;
       case 3:
         color = 'brown lighten-1';
