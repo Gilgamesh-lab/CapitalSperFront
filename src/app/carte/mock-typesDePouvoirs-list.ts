@@ -43,8 +43,8 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         id: 5,
         nom: "Affaiblissement",
         illustration:  "malediction.webp",
-        description: "Le type de pouvoir affaiblissement désigne tout les pouvoirs qui rendent inuitilisable de manière temporairement ou définitivement " +
-        "le pouvoir d'un joueur ou bien de l'empêcher de voter",
+        description: "Le type de pouvoir affaiblissement désigne tout les pouvoirs qui rendent inutilisable de manière temporairement ou définitivement " +
+        "le pouvoir d'un joueur ou bien qui l'empêche de voter",
         nomMembre: "ensorceleurs",
         determinant: "d'"
     },
@@ -52,7 +52,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         id: 6,
         nom: "Immunité",
         illustration:  "immuniter.jpeg",
-        description: "Le type de pouvoir immunité désigne tout les pouvoirs qui permettent d'être immuniser à un pouvoir spécial.",
+        description: "Le type de pouvoir immunité désigne tout les pouvoirs qui permettent d'être immunisé à un pouvoir spécial.",
         nomMembre: "immunisés",
         determinant: "d'"
     }
