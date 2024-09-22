@@ -23,8 +23,8 @@ import { TypesDeCartesComponent } from './types-de-cartes/types-de-cartes.compon
 
 
 export const cartesRoutes: Routes = [
-  {path: 'edit/carte/:id', component: EditcarteComponent, canActivate: [authGuard]},
-  {path: 'cartes/add', component:  AddcarteComponent, canActivate: [authGuard]},
+  //{path: 'edit/carte/:id', component: EditcarteComponent, canActivate: [authGuard]},
+  //{path: 'cartes/add', component:  AddcarteComponent, canActivate: [authGuard]},
   {path: '', component: ListecarteComponent},
   {path: 'cartes/:id', component: DetailcarteComponent},
   {path: 'camps/:id', component: CampsComponent},

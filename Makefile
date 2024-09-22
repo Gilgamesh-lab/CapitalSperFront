@@ -21,5 +21,8 @@ deployFireBase:
 	git add .
 	git commit -am "Deploiement d'une nouvelle version sur FireBase"
 	git checkout develop
+
+off:
+	firebase hosting:disable --project capitalsper
 	
 	
