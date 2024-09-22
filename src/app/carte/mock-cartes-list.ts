@@ -106,7 +106,7 @@ export const CARTES: Carte[] = [
         description: "Chaque nuit, le meneur le réveille avant les loups et lui demande de choisir une personne qui sera protégée contre la morsure des loups garous, " +
         "qui eux ne sauront pas que cette personne est protégée, et donc au petit matin la personne protégée sera vivante même si elle a été attaqué par les loups garous. " +
         "Le salvateur a le droit de se protéger lui-même. Il n’a pas le droit de protéger la même personne deux nuits de suite. " +
-        "Si il est amoureux, le salvateur n’est pas obligé de protéger son amoureux.",
+        "S'il est amoureux, le salvateur n’est pas obligé de protéger son amoureux.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -135,9 +135,8 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "corbeauLore.png",
         description: "Chaque nuit, le Corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup garou. "+
-        "Le meneur dépose alors le marqueur «affiche anonyme» denavnt ce joueur, qui aura automatiquement deux voix de plus contre lui lors du vote de la prochaine phase de jour. "+
-        "Le Corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur. " + 
-        "Le Corbeau ne peut pas désigner un Vagabond",
+        "Le meneur dépose alors le marqueur «affiche anonyme» devant ce joueur, qui aura automatiquement deux voix de plus contre lui lors du vote de la prochaine phase de jour. "+
+        "Le Corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true
@@ -155,7 +154,7 @@ export const CARTES: Carte[] = [
         "Si le propriétaire du bâtiment est la victime des loups-garous cette nuit là, alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: false
     },
     {
         id: 11,
@@ -181,7 +180,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[1],TYPESDEPOUVOIR[2]],
         imageLore:  "Infect_pere_des_loupsLore.png",
         description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. Mais une fois dans la partie, s’il le désire à l’appel du meneur, " + 
-        "après que les loups-garous se soit endormis, il lève la main. Cela signifie que la victime n’est pas dévorée, mais infecté. " + 
+        "après que les loups-garous se soit endormis, il lève la main. Le meneur va alors toucher la tête de la victime, cela signifie que la victime n’est pas dévorée, mais infecté. " + 
         "Ce qui comme effet de la transformé en loup-garous et plus précisément en l’infecté. " +
         "Malgré qu'il soit un loup-garou, l'Infecté ne sera pas vue comme loup-garous par la voyante et il peut utiliser ses pouvoirs spéciaux (si il en avait) " +
         "au service de sa nouvelle équipe.",
@@ -215,7 +214,7 @@ export const CARTES: Carte[] = [
         "De plus le Bailli peut vous proposer un bâtiment que vous pouvez refuser. Attention, l'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: false
     },
     {
         id: 15,
@@ -230,7 +229,7 @@ export const CARTES: Carte[] = [
         "Si le dernier Fermier est éliminé, il n'y a plus de Capitaine.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: 'Les Fermes',
-        estActiver: true
+        estActiver: false
     },
     {
         id: 16,
@@ -244,7 +243,7 @@ export const CARTES: Carte[] = [
         "Elle ne vote jamais. L'Institutrice ne peut empêcher aucun Vagabond de voter.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'ecole",
-        estActiver: true
+        estActiver: false
     },
     {
         id: 17,
@@ -258,7 +257,7 @@ export const CARTES: Carte[] = [
         "Ce joueur ne sera alors pas éliminé et ne révèle donc pas sa carte Personnage. Un Châtelain peut évidemment se gracier lui même...",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "Le manoir",
-        estActiver: true
+        estActiver: false
     },
     {
         id: 18,
@@ -273,7 +272,7 @@ export const CARTES: Carte[] = [
         "L'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La maison du Bailli",
-        estActiver: true
+        estActiver: false
     },
     {
         id: 19,
@@ -288,7 +287,7 @@ export const CARTES: Carte[] = [
         "Le Barbier ne peut pas éliminer un Vagabond.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'échoppe du Barbier",
-        estActiver: true
+        estActiver: false
     },
     {
         id: 20,
@@ -302,7 +301,7 @@ export const CARTES: Carte[] = [
         "le Confesseur désigne un joueur qui a l'obligation immédiate de lui dire à l'écart et discrètement s'il s'est réveillé durant la nuit précédente.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'église",
-        estActiver: true
+        estActiver: false
     },
     {
         id: 21,
@@ -316,7 +315,7 @@ export const CARTES: Carte[] = [
         "le boulanger peut augmenter de 2 la voix d'un autre joueur de son choix mais en contrepartie il ne peut pas voter durant ce vote.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La boulangerie",
-        estActiver: true
+        estActiver: false
     },
     {
         id: 22,
@@ -330,6 +329,6 @@ export const CARTES: Carte[] = [
         "Le meneur rend au joueur le jeton qui rétablit le pouvoir lié à son bâtiment (pour un nouvel usage unique).",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La masure",
-        estActiver: true
+        estActiver: false
     }
 ];

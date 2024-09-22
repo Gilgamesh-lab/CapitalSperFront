@@ -8,7 +8,7 @@ import { PlanDuSiteComponent } from './plan-du-site/plan-du-site.component';
 export const routes: Routes = [
 
     {path: '',  redirectTo: '', pathMatch: 'full' },// renvoit à la racine
-    {path: 'login',  component: LoginComponent},
+    //{path: 'login',  component: LoginComponent},
     {path: 'pageNotFound',  component: PageNotFoundComponent},
     {path: 'regles', component: ReglesComponent},
     {path: 'plan-du-site', component: PlanDuSiteComponent},

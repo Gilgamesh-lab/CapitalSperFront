@@ -37,7 +37,7 @@ export class DetailcarteComponent implements OnInit{
     if(carteId){
       //this.carteService.getcarteParId(carteId).subscribe((carte) =>{
         //this.carte = carte;
-      this.carte = CARTES.find((carte) => carte.id == carteId);
+      this.carte = CARTES.find((carte) => carte.id == carteId && (carte.estActiver || this.authService.isLoggedIn));
       if(this.carte == undefined){
         this.appComponent.goTo404();
       }

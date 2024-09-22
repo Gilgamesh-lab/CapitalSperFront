@@ -48,7 +48,7 @@ export class PlanDuSiteComponent {
   }
 
   getCartesParType(typeCarte: typesDeCartes): Carte[]{
-    return CARTES.filter((carte) => carte.typeDeCarte.id == typeCarte.id);
+    return CARTES.filter((carte) => carte.typeDeCarte.id == typeCarte.id && (carte.estActiver || this.auth.isLoggedIn));
   }
 
   getTypeDeCarte(): typesDeCartes[]{

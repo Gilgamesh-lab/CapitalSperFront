@@ -28,7 +28,7 @@ export class ListecarteComponent implements OnInit {
 
   ngOnInit() : void{
     //this.carteService.getcarteListe().subscribe(listecartes => this.ListeDecartes = listecartes);
-    this.ListeDecartes = CARTES;
+    this.ListeDecartes = CARTES.filter((carte) => carte.estActiver || this.authService.isLoggedIn);
   }
 
   goTocarte(carte: Carte){
