@@ -154,7 +154,7 @@ export const CARTES: Carte[] = [
         "Si le propriétaire du bâtiment est la victime des loups-garous cette nuit là, alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: false
+        estActiver: true
     },
     {
         id: 11,
@@ -214,7 +214,7 @@ export const CARTES: Carte[] = [
         "De plus le Bailli peut vous proposer un bâtiment que vous pouvez refuser. Attention, l'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: null,
-        estActiver: false
+        estActiver: true
     },
     {
         id: 15,
@@ -229,7 +229,7 @@ export const CARTES: Carte[] = [
         "Si le dernier Fermier est éliminé, il n'y a plus de Capitaine.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: 'Les Fermes',
-        estActiver: false
+        estActiver: true
     },
     {
         id: 16,
@@ -243,7 +243,7 @@ export const CARTES: Carte[] = [
         "Elle ne vote jamais. L'Institutrice ne peut empêcher aucun Vagabond de voter.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'ecole",
-        estActiver: false
+        estActiver: true
     },
     {
         id: 17,
@@ -257,7 +257,7 @@ export const CARTES: Carte[] = [
         "Ce joueur ne sera alors pas éliminé et ne révèle donc pas sa carte Personnage. Un Châtelain peut évidemment se gracier lui même...",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "Le manoir",
-        estActiver: false
+        estActiver: true
     },
     {
         id: 18,
@@ -272,7 +272,7 @@ export const CARTES: Carte[] = [
         "L'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La maison du Bailli",
-        estActiver: false
+        estActiver: true
     },
     {
         id: 19,
@@ -287,7 +287,7 @@ export const CARTES: Carte[] = [
         "Le Barbier ne peut pas éliminer un Vagabond.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'échoppe du Barbier",
-        estActiver: false
+        estActiver: true
     },
     {
         id: 20,
@@ -301,7 +301,7 @@ export const CARTES: Carte[] = [
         "le Confesseur désigne un joueur qui a l'obligation immédiate de lui dire à l'écart et discrètement s'il s'est réveillé durant la nuit précédente.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'église",
-        estActiver: false
+        estActiver: true
     },
     {
         id: 21,
@@ -315,7 +315,7 @@ export const CARTES: Carte[] = [
         "le boulanger peut augmenter de 2 la voix d'un autre joueur de son choix mais en contrepartie il ne peut pas voter durant ce vote.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La boulangerie",
-        estActiver: false
+        estActiver: true
     },
     {
         id: 22,
@@ -329,6 +329,6 @@ export const CARTES: Carte[] = [
         "Le meneur rend au joueur le jeton qui rétablit le pouvoir lié à son bâtiment (pour un nouvel usage unique).",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La masure",
-        estActiver: false
+        estActiver: true
     }
 ];
