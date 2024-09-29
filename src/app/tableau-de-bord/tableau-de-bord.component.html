@@ -1,0 +1,36 @@
+<h1 class="center">Tableau de bord</h1>
+<div class="card horizontal">
+    <div class="card-stacked">
+        <div class="card-content switch center" >
+            <label >
+                Cacher tout
+                <input name="test"  type="checkbox" 
+                [checked]="true"
+                (change)="affichageGeneral($event)"
+                />
+                <span class="lever"></span>
+                Afficher tout
+            </label>
+            <div *ngFor="let carte of getCartes() " >
+                <div>
+                {{carte.nom}} 
+                <img class="responsive-img" width="10%" [src]="carte.illustration"  [alt]="carte.nom" />
+                <label>
+                    Off
+                    <input  type="checkbox" 
+                    [checked]="carte.estActiver"
+                    (change)="selectAffichage($event, carte)"
+                    />
+                    <span class="lever"></span>
+                    On
+                </label>
+                </div>
+                <br>
+            </div>
+            <div class="card-action">
+                <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+            </div>
+        </div>
+    </div>
+</div>
+  
