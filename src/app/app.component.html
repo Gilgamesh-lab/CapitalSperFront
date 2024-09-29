@@ -2,9 +2,9 @@
 <nav>
   <div class="nav-wrapper teal">
     
-    <!--<div (click)="goMenu()" >
-      <img rel="icon" type="image/x-icon" src="favicon.ico"  alt="image" class="  left middle circle responsive-img " style="cursor: pointer;" width="3%"/>
-    </div>-->
+    <div *ngIf="estConnecter()" (click)="goToTableauDeBord()" class="left" style="cursor: pointer;">
+      <i class=" inline-icon material-icons left" style="vertical-align: top;" >build</i>
+    </div>
 
     <div>
 
@@ -14,10 +14,9 @@
       </a>
     </div>
 
-    <!--
-      <div (click)="goMenuLogin()"  class="right" style="cursor: pointer;" >
-        <i class=" inline-icon material-icons left" style="vertical-align: top;" >account_circle</i>
-      </div>-->
+    <div (click)="goMenuLogin()"  class="right" style="cursor: pointer;" >
+      <i class=" inline-icon material-icons left" style="vertical-align: top;" >account_circle</i>
+    </div>
   </div>
 </nav>
 

@@ -27,8 +27,16 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+  goToTableauDeBord(){
+    this.router.navigate(['/tableau-de-bord']);
+  }
+
   goTo404(){
     this.router.navigate(['/pageNotFound']);
+  }
+
+  estConnecter(): boolean{
+    return this.auth.isLoggedIn;
   }
 
   goPlanDuSite(){
