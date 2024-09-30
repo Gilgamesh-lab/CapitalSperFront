@@ -6,16 +6,104 @@ import { CAMPS } from './mock-camps-list';
 import { Camp } from './camp';
 import { TYPESDEPOUVOIR } from './mock-typesDePouvoirs-list';
 import { typesDePouvoirs } from './typesDePouvoirs';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
+import { CARTES } from './mock-cartes-list';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
+  authDomain: "capitalsper.firebaseapp.com",
+  projectId: "capitalsper",
+  storageBucket: "capitalsper.appspot.com",
+  messagingSenderId: "155930427089",
+  appId: "1:155930427089:web:110cc98c345109a1460ff0",
+  measurementId: "G-GQK4HKL2XX"
+};
+
+const app = initializeApp(firebaseConfig);
+
+
+
+// Initialize Cloud Firestore and get a reference to the service
+  const db = getFirestore(app);
+
+  const querySnapshot = getDocs(collection(db, "Cartes"));
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class carteService {
 
-  
+  ngOnInit() : void{
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const querySnapshot = getDocs(collection(db, "Cartes"));
+    
+  }
   
   constructor(private http: HttpClient) { }
+
+  readUserData() {
+    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
+      console.log(`${doc.data()["id"]} => ${doc.data()["activer"]}`);
+    }));
+  }
+
+  getData(){
+    return querySnapshot;
+  }
+
+  getCarteExistanceParId(id: number): boolean {
+    let exist: boolean = false;
+    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
+      if( doc.data()["id"] == id ){
+        exist = true;
+      } ;
+    }));
+    return exist;
+  }
+
+  getActivationParId(id: number): boolean {
+    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
+      if( doc.data()["id"] == id ){
+        return doc.data()["activer"];
+      } ;
+    }));
+    return null;
+  }
+
+  async test(){
+    CARTES.forEach(async carte =>
+      { if (!this.getCarteExistanceParId(carte.id)) {
+          try {
+          const docRef =  await addDoc(collection(db, "Cartes"), {
+            id: carte.id,
+            activer: carte.estActiver,
+          });
+          console.log("Document written with ID: ", docRef);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }}}
+    )
+  }
+
+  async test2(){
+    CARTES.forEach(async carte =>
+      { if (!this.getCarteExistanceParId(carte.id)) {
+          try {
+          const docRef =  await addDoc(collection(db, "Cartes"), {
+            id: carte.id,
+            activer: carte.estActiver,
+          });
+          console.log("Document written with ID: ", docRef);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }}}
+    )
+  }
 
   
 

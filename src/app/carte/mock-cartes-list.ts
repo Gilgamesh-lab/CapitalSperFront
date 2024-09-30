@@ -154,7 +154,7 @@ export const CARTES: Carte[] = [
         "Si le propriétaire du bâtiment est la victime des loups-garous cette nuit là, alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: false
+        estActiver: true
     },
     {
         id: 11,
