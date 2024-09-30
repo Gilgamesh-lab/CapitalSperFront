@@ -52,48 +52,15 @@ export class ListecarteComponent implements OnInit {
   
 
   constructor(private router: Router, private carteService: carteService, private authService: AuthService){
-
-  }
-
-  ngOnInit() : void{
-    //this.carteService.getcarteListe().subscribe(listecartes => this.ListeDecartes = listecartes);
-    this.ListeDecartes = CARTES.filter((carte) => carte.estActiver || this.authService.isLoggedIn);
-    //this.readUserData();
-    //this.test();
     
   }
 
-  readUserData() {
-    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
-      console.log(`${doc.data()["id"]} => ${doc.data()["activer"]}`);
-    }));
-  }
-
-  getCarteExistanceParId(id: number) {
-    let exist: boolean = false;
-    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
-      if( doc.data()["id"] == id ){
-        exist =  true;
-      } ;
-    }));
-    return exist;
-  }
-
-  async test(){
-    CARTES.forEach(async carte =>
-      { if (!this.getCarteExistanceParId(carte.id)) {
-          try {
-          const docRef =  await addDoc(collection(db, "Cartes"), {
-            id: carte.id,
-            activer: carte.estActiver,
-          });
-          console.log("Document written with ID: ", docRef);
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }}}
-    )
+  async ngOnInit() : Promise<void>{
+    this.ListeDecartes = (await this.carteService.getCartes()).filter((carte) => carte.estActiver || this.authService.isLoggedIn);
     
-  }
+  }  
+
+  
 
   goTocarte(carte: Carte){
     this.router.navigate(['/cartes', carte.id])

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
+import { ListecarteComponent } from '../carte/liste-carte/liste-carte.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -58,7 +60,13 @@ export class TableauDeBordComponent {
     for (let carte of CARTES) {
       console.log(carte.id + " : " + carte.estActiver);
       const matchingDoc = (await querySnapshot).docs.find((doc) => doc.data()["id"] == carte.id);
-      carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
+      if (matchingDoc == undefined) {
+        this.creerEnregistrement(carte.id, carte.estActiver)
+      }
+      else{
+        carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
+      }
+      
       
     }
     return CARTES;
@@ -81,16 +89,16 @@ export class TableauDeBordComponent {
   }*/
   
 
-  async getActivationParId(id: number): Promise<boolean> {
-    let response = true;
+  async getIdDocument(id: number): Promise<String> {
+    let response;
     const querySnapshot = await getDocs(collection(db, "Cartes"));
     const matchingDoc = querySnapshot.docs.find((doc) => doc.data()["id"] == id);
 
    if (matchingDoc) {
-     response = matchingDoc.data()["activer"];  // Mettre à jour la réponse si trouvée
+     response = matchingDoc.ref.id;  // Mettre à jour la réponse si trouvée
    }
 
-  return response;  // Retourner la réponse (true/false)
+  return await response;  // Retourner la réponse (true/false)
   }
 
   
@@ -99,9 +107,47 @@ export class TableauDeBordComponent {
   affichageGeneral($event: Event) {
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
     CARTES.forEach(
-      carte => carte.estActiver = isChecked
-    );
+      carte => {carte.estActiver = isChecked
+      this.writeNewPost(carte.id, isChecked);
+    });
   }
+
+  reset(){
+    CARTES.forEach(async carte =>
+      { {
+          try {
+          const docRef =  await addDoc(collection(db, "Cartes"), {
+            id: carte.id,
+            activer: carte.estActiver,
+          });
+          console.log("Document written with ID: ", docRef);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }}}
+    )
+  }
+
+  async creerEnregistrement(id: number, activer: boolean){
+    try {
+      const docRef =  await addDoc(collection(db, "Cartes"), {
+        id: id,
+        activer: activer,
+      });
+      console.log("Document written with ID: ", docRef);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
+  
+
+  async writeNewPost(id: number, activation: boolean) {
+    let idDocument: string = (await this.getIdDocument(id)).toString( );
+    console.log(idDocument);
+    await deleteDoc(doc(db, "Cartes", idDocument));
+    this.creerEnregistrement(id, activation);
+    //this.listeCarte.ListeDecartes.find((carte) => carte.id = id).estActiver = activation;
+}
 
   
 
@@ -109,8 +155,9 @@ export class TableauDeBordComponent {
       const isChecked: boolean = ($event.target as HTMLInputElement).checked;
       carte.estActiver = !carte.estActiver;
       console.log(carte.estActiver);
-      //CARTES[carte.id -1] = carte;
+      CARTES[carte.id -1] = carte;
       this.carteService.updatecarte(carte);
+      this.writeNewPost(carte.id, carte.estActiver);
     }
 
   goMenu(){

@@ -9,6 +9,8 @@ import { typesDePouvoirs } from './typesDePouvoirs';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
 import { CARTES } from './mock-cartes-list';
+import { cartesRoutes } from './carte.module';
+import { ListecarteComponent } from './liste-carte/liste-carte.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -37,6 +39,8 @@ const app = initializeApp(firebaseConfig);
 
 export class carteService {
 
+  cartes: Carte[] = undefined;
+
   ngOnInit() : void{
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -46,14 +50,29 @@ export class carteService {
   
   constructor(private http: HttpClient) { }
 
-  readUserData() {
-    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
-      console.log(`${doc.data()["id"]} => ${doc.data()["activer"]}`);
-    }));
-  }
-
-  getData(){
-    return querySnapshot;
+  
+  async getCartes(): Promise<Carte[]>{
+    /*CARTES.forEach(async carte =>
+      { {
+          try {
+          const docRef =  await addDoc(collection(db, "Cartes"), {
+            id: carte.id,
+            activer: carte.estActiver,
+          });
+          console.log("Document written with ID: ", docRef);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }}}
+    )*/
+    console.log("ok" + CARTES.length);
+    for (let carte of CARTES) {
+      console.log(carte.id + " : " + carte.estActiver);
+      const matchingDoc = (await querySnapshot).docs.find((doc) => doc.data()["id"] == carte.id);
+      carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
+      
+      
+    }
+    return CARTES;
   }
 
   getCarteExistanceParId(id: number): boolean {
@@ -62,47 +81,8 @@ export class carteService {
       if( doc.data()["id"] == id ){
         exist = true;
       } ;
-    }));
+      }));
     return exist;
-  }
-
-  getActivationParId(id: number): boolean {
-    querySnapshot.then(querySnapshot => querySnapshot.forEach((doc) => {
-      if( doc.data()["id"] == id ){
-        return doc.data()["activer"];
-      } ;
-    }));
-    return null;
-  }
-
-  async test(){
-    CARTES.forEach(async carte =>
-      { if (!this.getCarteExistanceParId(carte.id)) {
-          try {
-          const docRef =  await addDoc(collection(db, "Cartes"), {
-            id: carte.id,
-            activer: carte.estActiver,
-          });
-          console.log("Document written with ID: ", docRef);
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }}}
-    )
-  }
-
-  async test2(){
-    CARTES.forEach(async carte =>
-      { if (!this.getCarteExistanceParId(carte.id)) {
-          try {
-          const docRef =  await addDoc(collection(db, "Cartes"), {
-            id: carte.id,
-            activer: carte.estActiver,
-          });
-          console.log("Document written with ID: ", docRef);
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }}}
-    )
   }
 
   
