@@ -4,14 +4,15 @@
         <div class="card-content switch center" >
             <label >
                 Cacher tout
-                <input name="test"  type="checkbox" 
+                <input type="checkbox" 
                 [checked]="true"
                 (change)="affichageGeneral($event)"
                 />
                 <span class="lever"></span>
                 Afficher tout
             </label>
-            <div *ngFor="let carte of getCartes() " >
+            <br>
+            <div *ngFor="let carte of cartes$ | async" >
                 <div>
                 {{carte.nom}} 
                 <img class="responsive-img" width="10%" [src]="carte.illustration"  [alt]="carte.nom" />
