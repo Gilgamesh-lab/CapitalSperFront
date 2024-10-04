@@ -234,7 +234,7 @@ export const CARTES: Carte[] = [
     {
         id: 16,
         nom: "L'Institutrice",
-        illustration: "institutrice.jpeg",
+        illustration: "institutrice.png",
         imageCarte:  "l_ecole.png",
         camps: null,
         typesPouvoir: [TYPESDEPOUVOIR[4]],

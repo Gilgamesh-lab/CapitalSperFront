@@ -24,5 +24,8 @@ deployFireBase:
 
 off:
 	firebase hosting:disable --project capitalsper
+
+startBdd:
+	firebase emulators:start
 	
 	
