@@ -156,7 +156,7 @@ export class TableauDeBordComponent {
       carte.estActiver = !carte.estActiver;
       console.log(carte.estActiver);
       CARTES[carte.id -1] = carte;
-      this.carteService.updatecarte(carte);
+      //this.carteService.updatecarte(carte);
       this.writeNewPost(carte.id, carte.estActiver);
     }
 
