@@ -25,21 +25,25 @@ export class TypesDeCartesComponent {
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if(this.carteService.cartes == undefined){
+      this.carteService.initCarte(await this.carteService.getCartes())
+    }
     const typesDeCartesId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDeCartesId){
       this.typesDeCartes = TYPESDECARTES[typesDeCartesId - 1];
-      if(this.typesDeCartes == undefined || !this.auth.isLoggedIn &&  CARTES.filter((carte) => carte.estActiver && carte.typeDeCarte.id == typesDeCartesId).length == 0){
+      if(this.typesDeCartes == undefined || !this.auth.isLoggedIn &&  this.carteService.cartes.filter((carte) => carte.estActiver && carte.typeDeCarte.id == typesDeCartesId).length == 0){
         this.appComponent.goTo404();
       }
     }
     else{
       this.appComponent.goTo404();
     }
+    
   }
 
   public getcartesQuiACeTypeDeCartes(typesDeCartes: typesDeCartes): Carte[]{
-    return CARTES.filter((carte) => carte.typeDeCarte.id == typesDeCartes.id && carte.estActiver);
+    return this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == typesDeCartes.id && carte.estActiver);
   }
 
   public goToPrevious(): void {

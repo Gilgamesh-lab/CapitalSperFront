@@ -26,7 +26,7 @@
                 <td style="display: inline;">Camp :</td>
                 <td  style="text-align:center;">
                   <strong>
-                    <span (click)="goToCamp(carte.camps)" style="cursor: pointer;" [ngClass]="carte.camps.id| carteCampColorPipe">{{carte.camps.nom}}</span>
+                    <span (click)="goToCamp(carte.camps)" style="cursor: pointer;" [ngClass]="carte.camps.id| carteCampColorPipe:true">{{carte.camps.nom}}</span>
                   </strong>
                 </td>
               </tr>

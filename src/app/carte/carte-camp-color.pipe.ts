@@ -6,13 +6,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class carteCampColorPipe implements PipeTransform {
 
-  transform(type: number): string {
+  transform(type: number, bouton: boolean): string {
   
     let color: string;
   
     switch (type) {
       case 1:
-        color = 'blue lighten-1';
+        color = 'blue';
         break;
       case 2:
         color = 'red';
@@ -21,8 +21,18 @@ export class carteCampColorPipe implements PipeTransform {
         color = 'grey';
         break;
     }
+
+    if(bouton){
+      color = "chip " + color
+    }
+    else{
+      color += "-text"
+    }
+    if(type == 1){
+      color += ' lighten-1'
+    }
   
-    return 'chip ' + color;
+    return color;
   
   }
 }

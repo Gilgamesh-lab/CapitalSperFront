@@ -56,8 +56,10 @@ export class ListecarteComponent implements OnInit {
   }
 
   async ngOnInit() : Promise<void>{
-    this.ListeDecartes = (await this.carteService.getCartes()).filter((carte) => carte.estActiver || this.authService.isLoggedIn);
-    
+    if(this.carteService.cartes == undefined){
+      this.carteService.initCarte(await this.carteService.getCartes())
+    }
+    this.ListeDecartes = this.carteService.cartes;
   }  
 
   

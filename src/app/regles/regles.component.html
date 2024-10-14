@@ -5,7 +5,8 @@
             <div class="card-content" >
                 <h2>C'est quoi ?</h2>
                 <p >
-                    Les loups-garous de Thiercelieux est un jeu à rôle, à objectif secret et d'ambiance opposant deux camps : <a href="camps/1" class="link"> les villageois</a>  et <a href="camps/2" class="link"> les loups-garous</a>. 
+                    Les loups-garous de Thiercelieux est un jeu à rôle, à objectif secret et d'ambiance opposant deux camps : 
+                    <span (click)="goCamps(1)"  class="blue-text"style="cursor: pointer;"> les villageois</span>  et <span (click)="goCamps(2)"  class="blue-text"style="cursor: pointer;"> les loups-garous</span>. 
                     Ainsi, le jour, tout semble parfaitement normal dans ce petit village reculé, mais la nuit, certains des villageois se transforment, sous la clarté de la lune,
                      en loups-garous, et s'en vont dévorer leurs camarades villageois. Chaque joueur possède un rôle secret dont il prend connaissance au début de la partie. 
                     La condition de victoire des villageois est d'éliminer tous les loups-garous, qui eux, pour gagner doivent éliminer tous les villageois.
@@ -13,11 +14,11 @@
                     </p>
 
                 <br>
-                <img src="vs.png" class="responsive-img" alt="image"  />
+                <img src="reglesDuJeu/vs.png" class="responsive-img" alt="image"  />
                 <br>
     
                 <h2>Tour de jeu</h2>
-                <img src="tourDeJeu.png" class="responsive-img" alt="image"  />
+                <img src="reglesDuJeu/tourDeJeu.png" class="responsive-img" alt="image"  />
                 <p>
                     Une partie se déroule avec une alternance entre une phase de nuit et une phase de jour. Au début de chaque nuit, le meneur demande à tous les joueurs de fermer les yeux.
                     Puis il demande aux personnages nocturnes de les rouvrir (de se réveiller) à tour de rôle pour utiliser leur pouvoir.
@@ -42,20 +43,20 @@
                 <h2>Mise en place</h2>
 
                 <p>
-                    Le meneur distribue à chaque joueur <a class="link" href="typesDeCartes/1" > une carte Personnage</a> 
-                    face cachée qui définit son camp et son but dans la partie. Chaque joueur regarde discrètement <a class="link" href="typesDeCartes/1" > sa carte Personnage</a>,
+                    Le meneur distribue à chaque joueur <span (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> une carte Personnage</span>
+                    face cachée qui définit son camp et son but dans la partie. Chaque joueur regarde discrètement <span (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> une carte Personnage</span>,
                     puis la pose face caché devant lui.
                     Vous êtes dorénavant, pour le meilleur et pour le pire, un habitant du village de Thiercelieux : un Locatercien.
                     La partie peut alors commencer...
                 </p>
-                <img src="cartePersonnageFaceCacher.jpg" class="responsive-img" alt="image"  />
+                <img src="reglesDuJeu/cartePersonnageFaceCacher.jpg" class="responsive-img" alt="image"  />
 
                 <br>
 
                 <h2>Variantes officiels</h2>
                     
                     <h3>Clair de Lune</h3>
-                    <img src="clairDeLune.jpg" class="responsive-img" alt="image"/>
+                    <img src="reglesDuJeu/clairDeLune.jpg" class="responsive-img" alt="image"/>
                     <p>
                         Dans un environnement obscur où l’on pourrait presque entendre le hurlement des loups, disposer devant chaque joueur une petite bougie allumée.
                         Dorénavant, chaque matin le meneur souffle la bougie posée devant la ou les victimes nocturnes. 
@@ -64,7 +65,7 @@
                     </p>
                 
                     <h3>Murs-murs</h3>
-                    <img src="tableau.png" class="responsive-img" alt="image"/>
+                    <img src="reglesDuJeu/tableau.png" class="responsive-img" alt="image"/>
                     <p>
                         Chaque habitant du 49 encore en vie inscrit une courte phrase de son choix sur un petit papier et le donne au meneur.
                         L’auteur de chaque graffiti doit rester anonyme, mais chacun est libre de son contenue : soupçons, avertissements, commentaire, dénonciations, compliments, déclaration d’amour… 
@@ -102,10 +103,9 @@
                     Lors de la phase de jour que le meneur juge opportune, le meneur lance l'élection <a class="link" href="cartes/13" > du Capitaine</a> . Après un bref discours des candidats, les habitants votent
                     pour leurs favoris. Celui qui recueille le plus de voix devient le Capitaine du village. En cas d'égalité on refait un tour de vote avec les ex aequo. Si ce deuxième tour ce termine sur
                     une égalité alors personne n'est élue et la phase d'élection se termine.
+                    <br>
                 </p>
-
-                <br>
-
+                
                 <p>
                     Il est strictement interdit de révéler <a href="typesDeCartes/1" class="link"> sa carte Personnage</a> à quiconque, mais tout peut-être dit !
                     Chacun a le droit de se faire passer pour un autre. Cette phrase est le coeur du jeu faites briller vos talent de tribun, bluffez ou dites la vérité,
@@ -114,11 +114,11 @@
 
                 <br>
                 <div style="display: inline-block;">
-                    <img src="meme1.webp" class="responsive-img" style="padding-right: 10px;padding-top: 10px;"  alt="image"  />
-                    <img src="meme2.jpeg" class="responsive-img" style="padding-right: 10px;padding-top: 10px;" alt="image"  />
-                    <img src="meme3.jpeg" class="responsive-img" style="padding-right: 10px;padding-top: 10px;" alt="image"  />
-                    <img src="meme4.webp" class="responsive-img" style="padding-right: 10px;max-width: 50%;padding-top: 10px;" alt="image"  />
-                    <img src="meme5.png" class="responsive-img" style="padding-right: 10px;padding-top: 10px;" alt="image"  />
+                    <img src="reglesDuJeu/meme1.webp" class="responsive-img" style="padding-right: 10px;padding-top: 10px;"  alt="image"  />
+                    <img src="reglesDuJeu/meme2.jpeg" class="responsive-img" style="padding-right: 10px;padding-top: 10px;" alt="image"  />
+                    <img src="reglesDuJeu/meme3.jpeg" class="responsive-img" style="padding-right: 10px;padding-top: 10px;" alt="image"  />
+                    <img src="reglesDuJeu/meme4.webp" class="responsive-img" style="padding-right: 10px;max-width: 50%;padding-top: 10px;" alt="image"  />
+                    <img src="reglesDuJeu/meme5.png" class="responsive-img" style="padding-right: 10px;padding-top: 10px;" alt="image"  />
                 </div>
                 
             </div>

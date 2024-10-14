@@ -78,7 +78,7 @@
                   [disabled]="!estCampValide(camp.nom)"
                   (change)="selectCamp($event, camp)"/>
                 <span [attr.for]="camp.nom">
-                  <div class="{{ camp.id| carteCampColorPipe }}">
+                  <div class="{{ camp.id| carteCampColorPipe:false }}">
                     {{ camp.nom }}
                   </div>
                 </span>
