@@ -5,14 +5,14 @@ export const CAMPS: Camp[] = [
         id: 1,
         nom: "Villageois",
         but: "Éliminer les loups-garous",
-        illustration:  "villageois.png",
+        illustration:  "camps/villageois.png",
         description: "La nuit la plupart des villageois dorment. Le jour ils se concertent pour essayer de trouver les loups-garous cachés parmis eux."
     },
     {
         id: 2,
         nom: "Loups-Garous",
         but: "Éliminer les autres habitants du village",
-        illustration:  "meute.webp",
+        illustration:  "camps/meute.webp",
         description: "Chaque nuit, les loups garous sont réveillés par le meneur afin" +
        " qu’il s’entendent pour choisir le villageois qu’ils vont dévorer. Les loups garous ne peuvent pas dévorer "+
         "l’un de leurs congénères durant la nuit, mais peuvent très bien voter contre lui lors du vote de la journée. " +

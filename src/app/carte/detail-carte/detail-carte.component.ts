@@ -32,21 +32,22 @@ export class DetailcarteComponent implements OnInit{
   
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if(this.carteService.cartes == undefined){
+      this.carteService.initCarte(await this.carteService.getCartes())
+    }
     const carteId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(carteId){
-      //this.carteService.getcarteParId(carteId).subscribe((carte) =>{
-        //this.carte = carte;
-      this.carte = CARTES.find((carte) => carte.id == carteId && (carte.estActiver || this.authService.isLoggedIn));
+      this.carte = this.carteService.cartes.find((carte) => carte.id == carteId && (carte.estActiver || this.authService.isLoggedIn));
       if(this.carte == undefined){
         this.appComponent.goTo404();
       }
-      ;
-      
     }
     else{
       this.appComponent.goTo404();
     }
+    
+    
     
 
   }

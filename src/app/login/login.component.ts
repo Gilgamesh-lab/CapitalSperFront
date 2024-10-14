@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { CommonModule  } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { carteService } from '../carte/carte.service';
+import { CARTES } from '../carte/mock-cartes-list';
   
 @Component({
   imports: [CommonModule, FormsModule],
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
     password: string;
     auth: AuthService;
   
-    constructor(private authService: AuthService, private router: Router) { }
+    constructor(private authService: AuthService, private router: Router, private carteService: carteService) { }
 
     ngOnInit(): void {
         this.auth = this.authService;
@@ -34,10 +36,8 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.name, this.password).subscribe((isLoggedIn: boolean) => {
             this.setMessage();
             if (this.authService.isLoggedIn) {
-                // Récupère l'URL de redirection depuis le service d'authentification
-                // Si aucune redirection n'a été définis, redirige l'utilisateur vers la liste des pokemons.
+                this.carteService.cartes = CARTES.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
                 let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
-                // Redirige l'utilisateur
                 this.router.navigate([redirect]);
             } else {
                 this.password = '';

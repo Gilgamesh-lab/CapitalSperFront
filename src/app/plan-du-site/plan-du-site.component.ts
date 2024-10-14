@@ -11,6 +11,7 @@ import { typesDePouvoirs } from '../carte/typesDePouvoirs';
 import { TYPESDEPOUVOIR } from '../carte/mock-typesDePouvoirs-list';
 import { AuthService } from '../auth.service';
 import { debounceTime } from 'rxjs';
+import { carteService } from '../carte/carte.service';
 
 @Component({
   selector: 'app-plan-du-site',
@@ -21,8 +22,15 @@ import { debounceTime } from 'rxjs';
 })
 export class PlanDuSiteComponent {
 
-  constructor(private router: Router, private auth:AuthService){
+  constructor(private router: Router, private auth:AuthService, private carteService: carteService){
 
+  }
+
+  async ngOnInit(): Promise<void> {
+    if(this.carteService.cartes == undefined){
+      this.carteService.initCarte(await this.carteService.getCartes())
+    }
+    
   }
 
   goMenu(){
@@ -42,12 +50,13 @@ export class PlanDuSiteComponent {
       return true;
     }
     else{
-      return CARTES.filter((carte) =>  carte.typeDeCarte.id == typesDeCartes.id &&   carte.estActiver) .length > 0;
+      return this.carteService.cartes.filter((carte) =>  carte.typeDeCarte.id == typesDeCartes.id &&   carte.estActiver) .length > 0;
     }
     
   }
 
   getCartesParType(typeCarte: typesDeCartes): Carte[]{
+    console.log(CARTES[0].estActiver);
     return CARTES.filter((carte) => carte.typeDeCarte.id == typeCarte.id && (carte.estActiver || this.auth.isLoggedIn));
   }
 

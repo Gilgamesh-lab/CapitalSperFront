@@ -6,7 +6,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 1,
         nom: "Voyance",
-        illustration:  "voyance.png",
+        illustration:  "pouvoirs/voyance.png",
         description: "Le type de pouvoir voyance désigne tout les pouvoirs qui permettent d'obtenir des informations sur un ou plusieurs joueurs." +
         " Leurs missions est donc de transmettre discrètement ces informations précieuses à leurs camps.",
         nomMembre: "enquêteurs",
@@ -15,7 +15,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 2,
         nom: "Vie",
-        illustration:  "vie.png",
+        illustration:  "pouvoirs/vie.png",
         description: "Le type de pouvoir vie désigne tout les pouvoirs qui permettent de sauver la vie d'un joueur peut importe la manière."
         + " Leurs missions est donc d'identifier et de protéger avec leurs pouvoirs les joueurs qui pourraient être important pour la victoire de leurs camps.",
         nomMembre: "protecteurs",
@@ -24,7 +24,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 3,
         nom: "Mort",
-        illustration:  "mort.png",
+        illustration:  "pouvoirs/mort.png",
         description: "Le type de pouvoir mort désigne tout les pouvoirs qui permettent d'éliminer un joueur que ce soit de manière direct ou indirecte."
         + " Leurs missions est donc d'identifier et éliminer les joueurs qui pourraient être une menace pour la victoire de leurs camps.",
         nomMembre: "exécuteurs",
@@ -33,7 +33,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 4,
         nom: "Renforcement",
-        illustration:  "renforcement.jpeg",
+        illustration:  "pouvoirs/renforcement.jpeg",
         description: "Le type de pouvoir renforcement désigne tout les pouvoirs qui permettent d'acccorder des cartes fonctions et/ou bâtiment à un autre joueur "+ 
         "ou d'augmenter son nombre de voix lors d'un vote.",
         nomMembre: "supports",
@@ -42,7 +42,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 5,
         nom: "Affaiblissement",
-        illustration:  "malediction.webp",
+        illustration:  "pouvoirs/malediction.webp",
         description: "Le type de pouvoir affaiblissement désigne tout les pouvoirs qui rendent inutilisable de manière temporairement ou définitivement " +
         "le pouvoir d'un joueur ou bien qui l'empêche de voter",
         nomMembre: "ensorceleurs",
@@ -51,7 +51,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
     {
         id: 6,
         nom: "Immunité",
-        illustration:  "immuniter.jpeg",
+        illustration:  "pouvoirs/immuniter.jpeg",
         description: "Le type de pouvoir immunité désigne tout les pouvoirs qui permettent d'être immunisé à un pouvoir spécial.",
         nomMembre: "immunisés",
         determinant: "d'"

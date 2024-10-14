@@ -25,7 +25,10 @@ export class TypesDePouvoirsComponent {
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if(this.carteService.cartes == undefined){
+      this.carteService.initCarte(await this.carteService.getCartes())
+    }
     const typesDePouvoirsId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDePouvoirsId){
       this.typesDePouvoirs = TYPESDEPOUVOIR[typesDePouvoirsId - 1];
@@ -36,10 +39,11 @@ export class TypesDePouvoirsComponent {
     else{
       this.appComponent.goTo404();
     }
+    
   }
 
   public getcartesQuiACeTypeDePouvoirs(typesDePouvoirs: typesDePouvoirs): Carte[]{
-    return CARTES.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs) && carte.estActiver);
+    return this.carteService.cartes.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs) && carte.estActiver);
   }
 
   public goToPrevious(): void {

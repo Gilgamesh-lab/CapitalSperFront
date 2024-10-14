@@ -24,22 +24,25 @@ export class CampsComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if(this.carteService.cartes == undefined){
+      this.carteService.initCarte(await this.carteService.getCartes());
+    }
     const campId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(campId){
       this.camp = this.carteService.getcarteCamp()[campId - 1];
-      console.log(this.auth.isLoggedIn);
-      if(this.camp == undefined || (!this.auth.isLoggedIn &&  (CARTES.filter((carte) => carte.estActiver && carte.camps != null && carte.camps.id == campId).length == 0 )) ){
+      if(this.camp == undefined || (this.carteService.cartes.filter((carte) =>carte.camps != null && carte.camps.id == campId && (carte.estActiver || this.auth.isLoggedIn))).length == 0){
         this.appComponent.goTo404();
       }
     }
     else{
       this.appComponent.goTo404();
     }
+    
   }
 
   public getcartesQuiACeCamp(camp: Camp): Carte[]{
-    return CARTES.filter((carte) => carte.camps != null && carte.camps.id == camp.id && carte.estActiver);
+    return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == camp.id && carte.estActiver);
   }
 
   public goToPrevious(): void {

@@ -22,8 +22,8 @@
                         <div>
                             <p>{{carte.nom}}</p>
                             <p>Carte {{carte.typeDeCarte.nom.toLowerCase()}}</p>
-                            <p *ngIf="carte.typeDeCarte.id == 1"> Camp : 
-                                <span  [ngClass]="carte.camps.id| carteCampColorPipe">
+                            <p *ngIf="carte.typeDeCarte.id == 1">  
+                                <span  [ngClass]="carte.camps.id | carteCampColorPipe:false ">
                                     {{carte.camps.nom}}
                                 </span> 
                             </p>

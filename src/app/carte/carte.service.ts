@@ -11,6 +11,7 @@ import { getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
 import { CARTES } from './mock-cartes-list';
 import { cartesRoutes } from './carte.module';
 import { ListecarteComponent } from './liste-carte/liste-carte.component';
+import { AuthService } from '../auth.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -48,7 +49,7 @@ export class carteService {
     
   }
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   
   async getCartes(): Promise<Carte[]>{
@@ -64,15 +65,17 @@ export class carteService {
           console.error("Error adding document: ", e);
         }}}
     )*/
-    console.log("ok" + CARTES.length);
     for (let carte of CARTES) {
-      console.log(carte.id + " : " + carte.estActiver);
       const matchingDoc = (await querySnapshot).docs.find((doc) => doc.data()["id"] == carte.id);
       carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
       
       
     }
     return CARTES;
+  }
+
+  initCarte(cartes: Carte[]){
+    this.cartes = cartes.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
   }
 
   getCarteExistanceParId(id: number): boolean {

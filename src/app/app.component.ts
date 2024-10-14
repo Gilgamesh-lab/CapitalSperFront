@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 import {carteCampColorPipe} from './carte/carte-camp-color.pipe';
 import { Router, RouterOutlet } from '@angular/router';
@@ -18,6 +18,7 @@ import { Carte } from './carte/carte';
 
 
 export class AppComponent {
+
 
   constructor(private router: Router, private auth: AuthService, private routerExtService: RouterExtService){
     
