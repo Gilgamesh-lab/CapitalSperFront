@@ -33,15 +33,19 @@ export class ReglesComponent {
     this.router.navigate(['/camps', id]);
   }
 
+  goCartes(id: number){
+    this.router.navigate(['/cartes', id]);
+  }
+
   goTypePersonnages(id: number){
     this.router.navigate(['/typesDeCartes', id]);
   }
 
   estBatimentActiver():boolean{
-    return this.auth.isLoggedIn || this.carteService.cartes.filter((carte) =>  carte.typeDeCarte.id == 3 && carte.estActiver).length > 0;
+    return this.auth.isLoggedIn || this.carteService.cartes.filter((carte) =>  carte.typeDeCarte.id == 3 ).length > 0;
   }
 
   estFonctionActiver():boolean{
-    return  this.auth.isLoggedIn || (this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == 2 && carte.estActiver).length > 0);
+    return  this.auth.isLoggedIn || (this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == 2 ).length > 0);
   }
 }

@@ -6,7 +6,7 @@
                 <h2>C'est quoi ?</h2>
                 <p >
                     Les loups-garous de Thiercelieux est un jeu à rôle, à objectif secret et d'ambiance opposant deux camps : 
-                    <span (click)="goCamps(1)"  class="blue-text"style="cursor: pointer;"> les villageois</span>  et <span (click)="goCamps(2)"  class="blue-text"style="cursor: pointer;"> les loups-garous</span>. 
+                    <a (click)="goCamps(1)"  class="blue-text"style="cursor: pointer;"> les villageois</a>  et <a (click)="goCamps(2)"  class="blue-text"style="cursor: pointer;"> les loups-garous</a>. 
                     Ainsi, le jour, tout semble parfaitement normal dans ce petit village reculé, mais la nuit, certains des villageois se transforment, sous la clarté de la lune,
                      en loups-garous, et s'en vont dévorer leurs camarades villageois. Chaque joueur possède un rôle secret dont il prend connaissance au début de la partie. 
                     La condition de victoire des villageois est d'éliminer tous les loups-garous, qui eux, pour gagner doivent éliminer tous les villageois.
@@ -43,8 +43,8 @@
                 <h2>Mise en place</h2>
 
                 <p>
-                    Le meneur distribue à chaque joueur <span (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> une carte Personnage</span>
-                    face cachée qui définit son camp et son but dans la partie. Chaque joueur regarde discrètement <span (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> une carte Personnage</span>,
+                    Le meneur distribue à chaque joueur <a (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> une carte Personnage</a>
+                    face cachée qui définit son camp et son but dans la partie. Chaque joueur regarde discrètement <a (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> une carte Personnage</a>,
                     puis la pose face caché devant lui.
                     Vous êtes dorénavant, pour le meilleur et pour le pire, un habitant du village de Thiercelieux : un Locatercien.
                     La partie peut alors commencer...
@@ -67,7 +67,7 @@
                     <h3>Murs-murs</h3>
                     <img src="reglesDuJeu/tableau.png" class="responsive-img" alt="image"/>
                     <p>
-                        Chaque habitant du 49 encore en vie inscrit une courte phrase de son choix sur un petit papier et le donne au meneur.
+                        Chaque habitant de Thiercelieux encore en vie inscrit une courte phrase de son choix sur un petit papier et le donne au meneur.
                         L’auteur de chaque graffiti doit rester anonyme, mais chacun est libre de son contenue : soupçons, avertissements, commentaire, dénonciations, compliments, déclaration d’amour… 
                         Lorsqu’il les a tous récupérés, le meneur lit tous ces graffitis après les avoir mélangés. 
                         Les habitants peuvent alors s’endormir l’esprit encore tout bouleversé par ces petis messages.
@@ -83,7 +83,7 @@
                     La personne recevant le plus de vote est éliminé,
 
                     <span *ngIf="estFonctionActiver()">
-                        en cas d'égalité c'est <a class="link" href="cartes/13" > le Capitaine</a>   qui la tranche.
+                        en cas d'égalité c'est <a (click)="goCartes(13)"  class="blue-text"style="cursor: pointer;"> le Capitaine</a>   qui la tranche.
                     </span>
 
                     <span *ngIf="!estFonctionActiver()">
@@ -100,14 +100,14 @@
                 <br>
 
                 <p *ngIf="estFonctionActiver()">
-                    Lors de la phase de jour que le meneur juge opportune, le meneur lance l'élection <a class="link" href="cartes/13" > du Capitaine</a> . Après un bref discours des candidats, les habitants votent
+                    Lors de la phase de jour que le meneur juge opportune, le meneur lance l'élection <a (click)="goCartes(13)"  class="blue-text"style="cursor: pointer;"> du Capitaine</a> . Après un bref discours des candidats, les habitants votent
                     pour leurs favoris. Celui qui recueille le plus de voix devient le Capitaine du village. En cas d'égalité on refait un tour de vote avec les ex aequo. Si ce deuxième tour ce termine sur
                     une égalité alors personne n'est élue et la phase d'élection se termine.
                     <br>
                 </p>
                 
                 <p>
-                    Il est strictement interdit de révéler <a href="typesDeCartes/1" class="link"> sa carte Personnage</a> à quiconque, mais tout peut-être dit !
+                    Il est strictement interdit de révéler <a (click)="goTypePersonnages(1)"  class="blue-text"style="cursor: pointer;"> sa carte Personnage</a> à quiconque, mais tout peut-être dit !
                     Chacun a le droit de se faire passer pour un autre. Cette phrase est le coeur du jeu faites briller vos talent de tribun, bluffez ou dites la vérité,
                     mais soyez toujours crédible.
                 </p>

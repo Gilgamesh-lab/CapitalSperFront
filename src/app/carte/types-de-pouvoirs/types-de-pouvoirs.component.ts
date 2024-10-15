@@ -21,7 +21,7 @@ export class TypesDePouvoirsComponent {
 
   typesDePouvoirs: typesDePouvoirs|undefined;
 
-  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent, private auth: AuthService){
+  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent){
 
   }
 
@@ -32,7 +32,7 @@ export class TypesDePouvoirsComponent {
     const typesDePouvoirsId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDePouvoirsId){
       this.typesDePouvoirs = TYPESDEPOUVOIR[typesDePouvoirsId - 1];
-      if(this.typesDePouvoirs == undefined || !this.auth.isLoggedIn &&  this.getcartesQuiACeTypeDePouvoirs(this.typesDePouvoirs).length == 0 ){
+      if(this.typesDePouvoirs == undefined ||  this.getcartesQuiACeTypeDePouvoirs(this.typesDePouvoirs).length == 0 ){
         this.appComponent.goTo404();
       }
     }
@@ -43,7 +43,7 @@ export class TypesDePouvoirsComponent {
   }
 
   public getcartesQuiACeTypeDePouvoirs(typesDePouvoirs: typesDePouvoirs): Carte[]{
-    return this.carteService.cartes.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs) && carte.estActiver);
+    return this.carteService.cartes.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs) );
   }
 
   public goToPrevious(): void {
