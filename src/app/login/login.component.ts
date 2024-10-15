@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     // Déconnecte l'utilisateur
     logout() {
         this.authService.logout();
+        this.carteService.cartes = CARTES.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
         this.setMessage();
         let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
         this.router.navigate([redirect]);
