@@ -9,8 +9,6 @@ import { typesDePouvoirs } from './typesDePouvoirs';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
 import { CARTES } from './mock-cartes-list';
-import { cartesRoutes } from './carte.module';
-import { ListecarteComponent } from './liste-carte/liste-carte.component';
 import { AuthService } from '../auth.service';
 
 const firebaseConfig = {

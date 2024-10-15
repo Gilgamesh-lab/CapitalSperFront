@@ -21,7 +21,7 @@ export class TypesDeCartesComponent {
 
   typesDeCartes: typesDeCartes|undefined;
 
-  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent, private auth: AuthService){
+  constructor(private route: ActivatedRoute, private carteService: carteService, private appComponent: AppComponent){
 
   }
 
@@ -32,7 +32,7 @@ export class TypesDeCartesComponent {
     const typesDeCartesId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(typesDeCartesId){
       this.typesDeCartes = TYPESDECARTES[typesDeCartesId - 1];
-      if(this.typesDeCartes == undefined || !this.auth.isLoggedIn &&  this.carteService.cartes.filter((carte) => carte.estActiver && carte.typeDeCarte.id == typesDeCartesId).length == 0){
+      if(this.typesDeCartes == undefined || this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == typesDeCartesId).length == 0){
         this.appComponent.goTo404();
       }
     }
@@ -43,7 +43,7 @@ export class TypesDeCartesComponent {
   }
 
   public getcartesQuiACeTypeDeCartes(typesDeCartes: typesDeCartes): Carte[]{
-    return this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == typesDeCartes.id && carte.estActiver);
+    return this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == typesDeCartes.id );
   }
 
   public goToPrevious(): void {
