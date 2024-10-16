@@ -8,7 +8,7 @@
                         (keyup)="search(searchBox.value)"
                         placeholder="Rechercher une carte"> 
                     <div class="collection" style="cursor: pointer;">
-                        <a *ngFor="let carte of cartes$ | async" 
+                        <a *ngFor="let carte of cartes | async" 
                         (click)="goToDetail(carte)"
                         class="collection-item"><!-- async = subcribe-->
                             <img class="responsive-img" [src]="carte.illustration"  style="height: 100%;width: 10%;" [alt]="carte.nom" >

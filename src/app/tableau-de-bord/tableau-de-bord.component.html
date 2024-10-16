@@ -12,7 +12,7 @@
                 Afficher tout
             </label>
             <br>
-            <div *ngFor="let carte of cartes$ | async" >
+            <div *ngFor="let carte of cartes" >
                 <div>
                 {{carte.nom}} 
                 <img class="responsive-img" width="10%" [src]="carte.illustration"  [alt]="carte.nom" />

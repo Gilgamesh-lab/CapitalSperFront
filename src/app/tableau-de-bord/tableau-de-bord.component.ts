@@ -44,33 +44,29 @@ const app = initializeApp(firebaseConfig);
 
 export class TableauDeBordComponent {
 
-  cartes$: Promise<Carte[]>;
+  cartes: Carte[];
 
-  ngOnInit() {
-    this.cartes$ = this.getCartes(); // Appeler une seule fois dans le cycle de vie
+  async ngOnInit() {
+    this.cartes = CARTES;
+    
   }
 
   constructor(private authService: AuthService, private router: Router, private carteService: carteService) { }
 
-  
-
-
-   async getCartes() :Promise<Carte[]>{
-    console.log("ok" + CARTES.length);
-    for (let carte of CARTES) {
-      console.log(carte.id + " : " + carte.estActiver);
-      const matchingDoc = (await querySnapshot).docs.find((doc) => doc.data()["id"] == carte.id);
-      if (matchingDoc == undefined) {
-        this.creerEnregistrement(carte.id, carte.estActiver)
+    /*async getCartes(){
+      for (let carte of CARTES) {
+        const matchingDoc = (await querySnapshot).docs.find((doc) => doc.data()["id"] == carte.id);
+        if (matchingDoc == undefined) {
+          this.creerEnregistrement(carte.id, carte.estActiver)
+        }
+        else{
+          carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
+        }
+        
+        
       }
-      else{
-        carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
-      }
-      
-      
-    }
-    return CARTES;
-  }
+    
+  }*/
 
   /*async getCartes(): Promise<Carte[]> {
     console.log("Nombre de cartes dans CARTES: " + CARTES.length);
@@ -112,7 +108,7 @@ export class TableauDeBordComponent {
     });
   }
 
-  reset(){
+  /*async reset(){
     CARTES.forEach(async carte =>
       { {
           try {
@@ -125,7 +121,8 @@ export class TableauDeBordComponent {
           console.error("Error adding document: ", e);
         }}}
     )
-  }
+    this.carteService.initCarte(await this.carteService.getCartes())
+  }*/
 
   async creerEnregistrement(id: number, activer: boolean){
     try {
@@ -133,9 +130,8 @@ export class TableauDeBordComponent {
         id: id,
         activer: activer,
       });
-      console.log("Document written with ID: ", docRef);
     } catch (e) {
-      console.error("Error adding document: ", e);
+      console.error("Erreur lors de l'ajout d'un document: ", e);
     }
   }
 
@@ -143,21 +139,19 @@ export class TableauDeBordComponent {
 
   async writeNewPost(id: number, activation: boolean) {
     let idDocument: string = (await this.getIdDocument(id)).toString( );
-    console.log(idDocument);
     await deleteDoc(doc(db, "Cartes", idDocument));
     this.creerEnregistrement(id, activation);
-    //this.listeCarte.ListeDecartes.find((carte) => carte.id = id).estActiver = activation;
 }
 
   
 
-  selectAffichage($event: Event, carte: Carte){
+  async selectAffichage($event: Event, carte: Carte){
       const isChecked: boolean = ($event.target as HTMLInputElement).checked;
       carte.estActiver = !carte.estActiver;
-      console.log(carte.estActiver);
-      CARTES[carte.id -1] = carte;
-      //this.carteService.updatecarte(carte);
       this.writeNewPost(carte.id, carte.estActiver);
+      CARTES[carte.id -1].estActiver = carte.estActiver;
+      this.cartes[carte.id -1].estActiver = carte.estActiver;
+      this.carteService.cartes[carte.id -1].estActiver = carte.estActiver;
     }
 
   goMenu(){
