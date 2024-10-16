@@ -16,8 +16,8 @@ export class AuthService {
   login(name: string, password: string): Observable<boolean>{
     const isLoggedIn = (name == 'Lively' && password == 'CapitalSpecial');
 
-    return of(isLoggedIn).pipe(delay(1000),
-    tap(isLoggedIn => this.isLoggedIn = isLoggedIn));
+    return of(isLoggedIn).pipe(
+    tap(isLoggedIn => this.isLoggedIn = isLoggedIn));//delay(1000),
   }
 
   logout(){

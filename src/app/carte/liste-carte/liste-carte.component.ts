@@ -15,6 +15,7 @@ import { initializeApp } from "firebase/app";
 import { Firestore, getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
 import { getDatabase, ref, child, get } from "firebase/database";
 import { map } from 'rxjs';
+import { InMemoryDataService } from '../../in-memory-data.service';
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://support.google.com/firebase/answer/7015592
@@ -51,7 +52,7 @@ export class ListecarteComponent implements OnInit {
   
   
 
-  constructor(private router: Router, private carteService: carteService, private authService: AuthService){
+  constructor(private router: Router, private carteService: carteService, private authService: AuthService, private bdd: InMemoryDataService){
     
   }
 
@@ -60,6 +61,7 @@ export class ListecarteComponent implements OnInit {
       this.carteService.initCarte(await this.carteService.getCartes())
     }
     this.ListeDecartes = this.carteService.cartes;
+    this.bdd.createDb();
   }  
 
   

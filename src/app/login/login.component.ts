@@ -5,6 +5,7 @@ import { CommonModule  } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { carteService } from '../carte/carte.service';
 import { CARTES } from '../carte/mock-cartes-list';
+import { InMemoryDataService } from '../in-memory-data.service';
   
 @Component({
   imports: [CommonModule, FormsModule],
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     password: string;
     auth: AuthService;
   
-    constructor(private authService: AuthService, private router: Router, private carteService: carteService) { }
+    constructor(private authService: AuthService, private router: Router, private carteService: carteService, private bdd: InMemoryDataService) { }
 
     ngOnInit(): void {
         this.auth = this.authService;

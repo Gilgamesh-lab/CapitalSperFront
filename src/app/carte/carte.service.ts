@@ -39,11 +39,13 @@ const app = initializeApp(firebaseConfig);
 export class carteService {
 
   cartes: Carte[] = undefined;
+  premiereInstanceTableauDeBord: boolean;
 
   ngOnInit() : void{
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const querySnapshot = getDocs(collection(db, "Cartes"));
+    this.premiereInstanceTableauDeBord = true;
     
   }
   
