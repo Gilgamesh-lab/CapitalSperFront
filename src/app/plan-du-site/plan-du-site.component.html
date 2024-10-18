@@ -1,5 +1,5 @@
 <h1 class="center"> Plan du site</h1>
-<div class="col s12 m7">
+<div *ngIf="this.carteService.cartes" class="col s12 m7">
     <div class="card horizontal">
         <div class="card-stacked">
             <div class="card-content center" >
@@ -7,31 +7,38 @@
                     <strong (click)="goRegles()" style="text-decoration: underline;cursor: pointer;">
                         Les règles du jeu
                     </strong>
-                    
                 </p>
 
 
                 <h2 >Les différentes cartes</h2>
-                    
-                    <div *ngFor="let type of getTypeDeCarte()">
-                        <div *ngIf="typeDeCarteEstActiver(type)" >
-                            <div>
-                                <strong (click)="goToType(type)" class="center blue-text" style="text-decoration: underline;cursor: pointer;" >Les cartes {{type.nom}}s : </strong>
-                            </div>
-                            <br>
-                            <ul class="collection" *ngFor="let carte of getCartesParType(type)" style="cursor: pointer;" (click)="goTocarte(carte)" >
-                                <li class="collection-item">
+                    <div>
+                        <ul class="collection" *ngFor="let carte of getCartes()" style="cursor: pointer;" (click)="goTocarte(carte)" >
+                            <li class="collection-item">
                                 <div  >
                                     <img class="responsive-img" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
                                     <span class="blue-text center">
                                         {{carte.nom }}
                                     </span>
-                                    
                                 </div>
-                                </li>
-                            </ul>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
+
+                    <h2>Les différents types de cartes</h2>
+                        <div *ngFor="let type of getTypeDeCarte()">
+                            <div *ngIf="typeDeCarteEstActiver(type)" style="cursor: pointer;"  (click)="goToType(type)" >
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <div class="blue-text center">
+                                            <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
+                                            <span>
+                                                Les cartes {{type.nom.toLowerCase() }}s
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     
                 
                 <h2>Les différents camps</h2>
@@ -39,13 +46,12 @@
                         <div *ngIf="CampsEstActiver(camp)" style="cursor: pointer;"  (click)="goToCamp(camp)" >
                             <ul class="collection">
                                 <li class="collection-item">
-                                <div class="blue-text center">
-                                    <img class="responsive-img" width="20%" [src]="camp.illustration"  [alt]="camp.nom" />
-                                    <span>
-                                        Le camp des {{camp.nom.toLowerCase() }}
-                                    </span>
-                                    
-                                </div>
+                                    <div class="blue-text center">
+                                        <img class="responsive-img" width="20%" [src]="camp.illustration"  [alt]="camp.nom" />
+                                        <span>
+                                            Le camp des {{camp.nom.toLowerCase() }}
+                                        </span>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -74,4 +80,7 @@
         </div>
     </div>
 </div>
+<h3 *ngIf='!this.carteService.cartes' class="center">
+    <app-loader></app-loader> 
+</h3>
 
