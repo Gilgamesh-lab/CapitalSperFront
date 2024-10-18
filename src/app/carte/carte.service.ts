@@ -139,7 +139,6 @@ export class carteService {
     }
 
     return this.http.get<Carte[]>(`api/cartes/?nom=${mot}`).pipe(
-      tap((response) => this.log(response)),
       catchError((error) => this.handleErreur(error, []))
     )
   }

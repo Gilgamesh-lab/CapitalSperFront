@@ -10,19 +10,21 @@ import { Camp } from '../carte/camp';
 import { typesDePouvoirs } from '../carte/typesDePouvoirs';
 import { TYPESDEPOUVOIR } from '../carte/mock-typesDePouvoirs-list';
 import { AuthService } from '../auth.service';
-import { debounceTime } from 'rxjs';
+import { debounceTime, delay } from 'rxjs';
 import { carteService } from '../carte/carte.service';
+import { waitForAsync } from '@angular/core/testing';
+import { LoaderComponent } from '../carte/loader/loader.component';
 
 @Component({
   selector: 'app-plan-du-site',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LoaderComponent],
   templateUrl: './plan-du-site.component.html',
   styleUrl: './plan-du-site.component.css'
 })
 export class PlanDuSiteComponent {
 
-  constructor(private router: Router, private auth:AuthService, private carteService: carteService){
+  constructor(private router: Router, private auth:AuthService, public carteService: carteService){
 
   }
 
@@ -50,14 +52,13 @@ export class PlanDuSiteComponent {
       return true;
     }
     else{
-      return this.carteService.cartes.filter((carte) =>  carte.typeDeCarte.id == typesDeCartes.id &&   carte.estActiver) .length > 0;
+      return this.carteService.cartes.filter((carte) =>  carte.typeDeCarte.id == typesDeCartes.id) .length > 0;
     }
     
   }
 
-  getCartesParType(typeCarte: typesDeCartes): Carte[]{
-    console.log(CARTES[0].estActiver);
-    return CARTES.filter((carte) => carte.typeDeCarte.id == typeCarte.id && (carte.estActiver || this.auth.isLoggedIn));
+  getCartes(): Carte[]{
+    return this.carteService.cartes.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
   }
 
   getTypeDeCarte(): typesDeCartes[]{
@@ -77,7 +78,7 @@ export class PlanDuSiteComponent {
       return true;
     }
     else{
-      return CARTES.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs) && carte.estActiver).length > 0;
+      return this.carteService.cartes.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs)).length > 0;
     }
   }
 
@@ -86,7 +87,7 @@ export class PlanDuSiteComponent {
       return true;
     }
     else{
-      return CARTES.filter((carte) => carte.camps != null && carte.camps.id == camp.id && carte.estActiver).length > 0;
+      return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == camp.id).length > 0;
     }
   }
 
