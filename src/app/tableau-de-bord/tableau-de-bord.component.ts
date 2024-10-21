@@ -155,9 +155,9 @@ export class TableauDeBordComponent {
       const isChecked: boolean = ($event.target as HTMLInputElement).checked;
       carte.estActiver = !carte.estActiver;
       this.writeNewPost(carte.id, carte.estActiver);
-      CARTES.find((carte2) => carte2.id = carte.id).estActiver = carte.estActiver;
-      this.cartes.find((carte2) => carte2.id = carte.id).estActiver = carte.estActiver;
-      this.carteService.cartes.find((carte2) => carte2.id = carte.id).estActiver = carte.estActiver;
+      CARTES.find((carte2) => carte2.id == carte.id).estActiver = carte.estActiver;
+      this.cartes.find((carte2) => carte2.id == carte.id).estActiver = carte.estActiver;
+      this.carteService.cartes.find((carte2) => carte2.id == carte.id).estActiver = carte.estActiver;
     }//[carte.id -1]
 
   goMenu(){
