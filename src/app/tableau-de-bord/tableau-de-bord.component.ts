@@ -48,7 +48,7 @@ export class TableauDeBordComponent {
 
   async ngOnInit() {
     this.cartes = CARTES;
-    
+    this.init();
   }
 
   constructor(private authService: AuthService, private router: Router, private carteService: carteService) { }
@@ -108,21 +108,27 @@ export class TableauDeBordComponent {
     });
   }
 
-  /*async reset(){
+  async init(){
+    const querySnapshot = await getDocs(collection(db, "Cartes"));
     CARTES.forEach(async carte =>
       { {
-          try {
-          const docRef =  await addDoc(collection(db, "Cartes"), {
-            id: carte.id,
-            activer: carte.estActiver,
-          });
-          console.log("Document written with ID: ", docRef);
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }}}
+        const matchingDoc = querySnapshot.docs.find((doc) => doc.data()["id"] == carte.id);
+
+          if(!matchingDoc){// Si pas encore trouvé en base de données
+            try {
+              const docRef =  await addDoc(collection(db, "Cartes"), {
+                id: carte.id,
+                activer: carte.estActiver,
+              });
+              console.log("Document written with ID: ", docRef);
+            } catch (e) {
+              console.error("Error adding document: ", e);
+            }
+          }
+          }}
     )
-    this.carteService.initCarte(await this.carteService.getCartes())
-  }*/
+    //this.carteService.initCarte(await this.carteService.getCartes())
+  }
 
   async creerEnregistrement(id: number, activer: boolean){
     try {
@@ -149,10 +155,10 @@ export class TableauDeBordComponent {
       const isChecked: boolean = ($event.target as HTMLInputElement).checked;
       carte.estActiver = !carte.estActiver;
       this.writeNewPost(carte.id, carte.estActiver);
-      CARTES[carte.id -1].estActiver = carte.estActiver;
-      this.cartes[carte.id -1].estActiver = carte.estActiver;
-      this.carteService.cartes[carte.id -1].estActiver = carte.estActiver;
-    }
+      CARTES.find((carte2) => carte2.id = carte.id).estActiver = carte.estActiver;
+      this.cartes.find((carte2) => carte2.id = carte.id).estActiver = carte.estActiver;
+      this.carteService.cartes.find((carte2) => carte2.id = carte.id).estActiver = carte.estActiver;
+    }//[carte.id -1]
 
   goMenu(){
     this.router.navigate(['/']);
