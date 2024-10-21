@@ -52,6 +52,20 @@ export class ReglesComponent {
     return this.carteService.cartes.find((carte) => carte.id == id);
   }
 
+  getCartes(): Carte[]{
+    return this.carteService.cartes.filter((carte) => carte.periodiciter != null && (carte.estActiver || this.auth.isLoggedIn )).sort((carte1,carte2) => {
+      if (carte1.id > carte2.id) {
+          return 1;
+      }
+  
+      if (carte1.id < carte2.id) {
+          return -1;
+      }
+  
+      return 0;
+  });
+  }
+
   goCamps(id: number){
     this.router.navigate(['/camps', id]);
   }
