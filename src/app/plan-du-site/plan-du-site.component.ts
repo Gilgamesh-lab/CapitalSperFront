@@ -58,7 +58,7 @@ export class PlanDuSiteComponent {
   }
 
   getCartes(): Carte[]{
-    return this.carteService.cartes.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
+    return this.carteService.cartes;
   }
 
   getTypeDeCarte(): typesDeCartes[]{
