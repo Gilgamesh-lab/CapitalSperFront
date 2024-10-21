@@ -18,6 +18,7 @@ export class Carte {
   estActiver: boolean;
   typeDeCarte: typesDeCartes;
   nomDuBatiment: string;
+  periodiciter: Boolean; // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
 
   constructor(
     camps: Camp = CAMPS[0],
@@ -29,7 +30,8 @@ export class Carte {
     estActiver: boolean = true,
     imageLore: string = 'Entrer une image',
     typeDeCarte: typesDeCartes = TYPESDECARTES[0],
-    nomDuBatiment: string = 'Vagabond'
+    nomDuBatiment: string = 'Vagabond',
+    periodiciter: Boolean = null
   ){
 
     this.camps = camps;
@@ -42,5 +44,6 @@ export class Carte {
     this.imageLore = imageLore;
     this.typeDeCarte = typeDeCarte;
     this.nomDuBatiment = nomDuBatiment;
+    this.periodiciter = periodiciter;
   }
 }
