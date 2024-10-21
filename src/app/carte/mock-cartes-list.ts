@@ -6,7 +6,7 @@ import { TYPESDECARTES } from './mock-typesDeCartes-list';
 
 export const CARTES: Carte[] = [
     {
-        id: 1,
+        id: 21,
         nom: "Les Simples Villageois",
         illustration: "illustration/Simple-villageois.png",
         imageCarte:  "carte/sv.jpg",
@@ -20,7 +20,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 2,
+        id: 15,
         nom: "Les Simples Loups-Garous",
         illustration: "illustration/Loup-garou.png",
         imageCarte:  "carte/ww.jpg",
@@ -33,7 +33,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 3,
+        id: 4,
         nom: "La Voyante",
         illustration: "illustration/Voyante.png",
         imageCarte:  "carte/vovo.jpg",
@@ -46,7 +46,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 4,
+        id: 19,
         nom: "La Sorcière",
         illustration: "illustration/Sorciere.png",
         imageCarte:  "carte/soso.jpg",
@@ -64,7 +64,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 5,
+        id: 22,
         nom: "Le Chasseur",
         illustration: "illustration/Chasseur.png",
         imageCarte:  "carte/chasseur.jpg",
@@ -78,7 +78,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 6,
+        id: 3,
         nom: "Cupidon",
         illustration: "illustration/Cupidon.png",
         imageCarte:  "carte/cupidon.jpg",
@@ -96,7 +96,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 7,
+        id: 14,
         nom: "Le Salvateur",
         illustration: "illustration/Salvateur.png",
         imageCarte:  "carte/salvateurCarte.png",
@@ -112,7 +112,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 8,
+        id: 11,
         nom: "Le Montreur d'Ours",
         illustration: "illustration/Montreurs_d'ours.png",
         imageCarte:  "carte/montreurs_d_oursCarte.png",
@@ -127,7 +127,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 9,
+        id: 12,
         nom: "Le Corbeau",
         illustration: "illustration/Corbeau.png",
         imageCarte:  "carte/corbeauCarte.png",
@@ -142,7 +142,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 10,
+        id: 13,
         nom: "Le Pyromane",
         illustration: "illustration/Pyromane.png",
         imageCarte:  "carte/pyromaneCarte.png",
@@ -157,7 +157,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 11,
+        id: 8,
         nom: "Les Deux Soeurs",
         illustration: "illustration/Deux_soeurs.png",
         imageCarte:  "carte/les_deux_soeurs.png",
@@ -172,7 +172,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 12,
+        id: 17,
         nom: "L'Infect Père des Loups",
         illustration: "illustration/Infect_pere_des_loups.png",
         imageCarte:  "carte/Infect_pere_des_loupsCarte.png",
@@ -189,7 +189,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 13,
+        id: 39,
         nom: "Le Capitaine",
         illustration: "illustration/maire.png",
         imageCarte:  "carte/maireCarte.png",
@@ -203,7 +203,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 14,
+        id: 40,
         nom: "Les Vagabonds",
         illustration: "illustration/vagabond.png",
         imageCarte:  "carte/vagabondCarte.png",
@@ -217,7 +217,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 15,
+        id: 41,
         nom: "Les Fermiers",
         illustration: "illustration/fermiers.png",
         imageCarte:  "carte/fermes.png",
@@ -232,7 +232,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 16,
+        id: 42,
         nom: "L'Institutrice",
         illustration: "illustration/institutrice.png",
         imageCarte:  "carte/l_ecole.png",
@@ -246,7 +246,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 17,
+        id: 43,
         nom: "Le Châtelain",
         illustration: "illustration/noble.png",
         imageCarte:  "carte/manoir.png",
@@ -260,7 +260,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 18,
+        id: 44,
         nom: "Le Bailli",
         illustration: "illustration/bailli.png",
         imageCarte:  "carte/maison_du_bailli.png",
@@ -275,7 +275,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 19,
+        id: 45,
         nom: "Le Barbier",
         illustration: "illustration/barbier.png",
         imageCarte:  "carte/echoppe_du_barbier.png",
@@ -290,7 +290,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 20,
+        id: 46,
         nom: "Le Confesseur",
         illustration: "illustration/pretre.png",
         imageCarte:  "carte/l_église.png",
@@ -304,7 +304,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 21,
+        id: 47,
         nom: "Le Boulanger",
         illustration: "illustration/boulanger.png",
         imageCarte:  "carte/boulangerie.png",
@@ -318,7 +318,7 @@ export const CARTES: Carte[] = [
         estActiver: true
     },
     {
-        id: 22,
+        id: 48,
         nom: "Le Rebouteux",
         illustration: "illustration/rebouteux.png",
         imageCarte:  "carte/masure.png",

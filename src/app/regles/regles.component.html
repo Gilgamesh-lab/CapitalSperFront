@@ -44,18 +44,7 @@
                 <h5>Personnages appelés la première nuit dans l'ordre d'appel : </h5>
 
                     <ul class="collection">
-                        <li (click)="goCartes(6)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(6)" > <!-- Cupidon-->
-                            <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(6).illustration"  [alt]="getCarte(6).nom" />
-                                <span class="blue-text center">
-                                    {{getCarteNom(6)}}
-                                </span>
-                            </div>
-                        </li>
-                        <li class="collection-item" *ngIf="estActiver(6)">
-                            Les Amoureux (Voir la carte personnage Cupidon)
-                        </li>
-                        <li (click)="goCartes(3)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(3)"> <!-- La Voyante-->
+                        <li (click)="goCartes(3)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(3)" > <!-- Cupidon-->
                             <div  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(3).illustration"  [alt]="getCarte(3).nom" />
                                 <span class="blue-text center">
@@ -63,15 +52,18 @@
                                 </span>
                             </div>
                         </li>
-                        <li (click)="goCartes(11)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(11)"> <!-- Les Deux Soeurs-->
+                        <li class="collection-item" *ngIf="estActiver(3)">
+                            Les Amoureux (Voir la carte personnage Cupidon)
+                        </li>
+                        <li (click)="goCartes(4)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(4)"> <!-- La Voyante-->
                             <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(11).illustration"  [alt]="getCarte(11).nom" />
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(4).illustration"  [alt]="getCarte(4).nom" />
                                 <span class="blue-text center">
-                                    {{getCarteNom(11)}}
+                                    {{getCarteNom(4)}}
                                 </span>
                             </div>
                         </li>
-                        <li (click)="goCartes(8)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(8)"> <!-- Le Montreur d'Ours--> 
+                        <li (click)="goCartes(8)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(8)"> <!-- Les Deux Soeurs-->
                             <div  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(8).illustration"  [alt]="getCarte(8).nom" />
                                 <span class="blue-text center">
@@ -79,41 +71,15 @@
                                 </span>
                             </div>
                         </li>
-                        <li (click)="goCartes(9)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(9)"> <!-- Le Corbeau-->  
+                        <li (click)="goCartes(11)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(11)"> <!-- Le Montreur d'Ours--> 
                             <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(9).illustration"  [alt]="getCarte(9).nom" />
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(11).illustration"  [alt]="getCarte(11).nom" />
                                 <span class="blue-text center">
-                                    {{getCarteNom(9)}}
+                                    {{getCarteNom(11)}}
                                 </span>
                             </div>
                         </li>
-                        <li (click)="goCartes(10)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(10)">  <!-- Le Pyromane-->  
-                            <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(10).illustration"  [alt]="getCarte(10).nom" />
-                                <span class="blue-text center">
-                                    {{getCarteNom(10)}}
-                                </span>
-                            </div>
-                        </li>
-
-                        <li (click)="goCartes(7)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(7)">   <!-- Le Salvateur-->  
-                            <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(7).illustration"  [alt]="getCarte(7).nom" />
-                                <span class="blue-text center">
-                                    {{getCarteNom(7)}}
-                                </span>
-                            </div>
-                        </li>
-                        <li (click)="goCamps(2)" class="collection-item" style="cursor: pointer;" *ngIf="campActiver(2)">
-                            <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCarte(2).nom" />
-                                <span class="blue-text center">
-                                    Les {{getCamps(2).nom}}
-                                </span>
-                            </div>
-                            
-                        </li>
-                        <li (click)="goCartes(12)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(12)">  <!-- L'Infect Père des Loups-->   
+                        <li (click)="goCartes(12)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(12)"> <!-- Le Corbeau-->  
                             <div  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(12).illustration"  [alt]="getCarte(12).nom" />
                                 <span class="blue-text center">
@@ -121,11 +87,45 @@
                                 </span>
                             </div>
                         </li>
-                        <li (click)="goCartes(4)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(4)"> <!-- La Sorcière--> 
+                        <li (click)="goCartes(13)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(13)">  <!-- Le Pyromane-->  
                             <div  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(4).illustration"  [alt]="getCarte(4).nom" />
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(13).illustration"  [alt]="getCarte(13).nom" />
                                 <span class="blue-text center">
-                                    {{getCarteNom(4)}}
+                                    {{getCarteNom(13)}}
+                                </span>
+                            </div>
+                        </li>
+
+                        <li (click)="goCartes(14)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(14)">   <!-- Le Salvateur-->  
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(14).illustration"  [alt]="getCarte(14).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(14)}}
+                                </span>
+                            </div>
+                        </li>
+                        <li (click)="goCamps(2)" class="collection-item" style="cursor: pointer;" *ngIf="campActiver(2)">
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
+                                <span class="blue-text center">
+                                    Les {{getCamps(2).nom}}
+                                </span>
+                            </div>
+                            
+                        </li>
+                        <li (click)="goCartes(17)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(17)">  <!-- L'Infect Père des Loups-->   
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(17).illustration"  [alt]="getCarte(17).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(17)}}
+                                </span>
+                            </div>
+                        </li>
+                        <li (click)="goCartes(19)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(19)"> <!-- La Sorcière--> 
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(19).illustration"  [alt]="getCarte(19).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(19)}}
                                 </span>
                             </div>
                         </li>
@@ -135,68 +135,72 @@
                     <br>
                
                     <h5>Personnages appelés chaque nuit tant qu'ils ont leurs pouvoirs dans l'ordre d'appel : </h5>
-    
-                        <ul class="collection">
-                            <li (click)="goCartes(3)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(3)"> <!-- La Voyante-->
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(3).illustration"  [alt]="getCarte(3).nom" />
-                                    <span class="blue-text center">
-                                        {{getCarteNom(3)}}
-                                    </span>
-                                </div>
-                            </li>
-                            <li (click)="goCartes(9)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(9)"> <!-- Le Corbeau-->  
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(9).illustration"  [alt]="getCarte(9).nom" />
-                                    <span class="blue-text center">
-                                        {{getCarteNom(9)}}
-                                    </span>
-                                </div>
-                            </li>
-                            <li (click)="goCartes(10)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(10)">  <!-- Le Pyromane-->  
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(10).illustration"  [alt]="getCarte(10).nom" />
-                                    <span class="blue-text center">
-                                        {{getCarteNom(10)}}
-                                    </span>
-                                </div>
-                            </li>
-    
-                            <li (click)="goCartes(7)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(7)">   <!-- Le Salvateur-->  
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(7).illustration"  [alt]="getCarte(7).nom" />
-                                    <span class="blue-text center">
-                                        {{getCarteNom(7)}}
-                                    </span>
-                                </div>
-                            </li>
-                            <li (click)="goCamps(2)" class="collection-item" style="cursor: pointer;" *ngIf="campActiver(2)"> <!-- Les Loups Garous-->
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCarte(2).nom" />
-                                    <span class="blue-text center">
-                                        Les {{getCamps(2).nom}}
-                                    </span>
-                                </div>
-                                
-                            </li>
-                            <li (click)="goCartes(12)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(12)">  <!-- L'Infect Père des Loups-->   
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(12).illustration"  [alt]="getCarte(12).nom" />
-                                    <span class="blue-text center">
-                                        {{getCarteNom(12)}}
-                                    </span>
-                                </div>
-                            </li>
-                            <li (click)="goCartes(4)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(4)"> <!-- La Sorcière--> 
-                                <div  >
-                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(4).illustration"  [alt]="getCarte(4).nom" />
-                                    <span class="blue-text center">
-                                        {{getCarteNom(4)}}
-                                    </span>
-                                </div>
-                            </li>
+
+                    <ul class="collection">
+                        
+                        <li (click)="goCartes(4)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(4)"> <!-- La Voyante-->
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(4).illustration"  [alt]="getCarte(4).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(4)}}
+                                </span>
+                            </div>
+                        </li>
+                        
+                        <li (click)="goCartes(12)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(12)"> <!-- Le Corbeau-->  
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(12).illustration"  [alt]="getCarte(12).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(12)}}
+                                </span>
+                            </div>
+                        </li>
+                        <li (click)="goCartes(13)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(13)">  <!-- Le Pyromane-->  
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(13).illustration"  [alt]="getCarte(13).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(13)}}
+                                </span>
+                            </div>
+                        </li>
+
+                        <li (click)="goCartes(14)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(14)">   <!-- Le Salvateur-->  
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(14).illustration"  [alt]="getCarte(14).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(14)}}
+                                </span>
+                            </div>
+                        </li>
+                        <li (click)="goCamps(2)" class="collection-item" style="cursor: pointer;" *ngIf="campActiver(2)">
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
+                                <span class="blue-text center">
+                                    Les {{getCamps(2).nom}}
+                                </span>
+                            </div>
                             
-                        </ul>
+                        </li>
+                        <li (click)="goCartes(17)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(17)">  <!-- L'Infect Père des Loups-->   
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(17).illustration"  [alt]="getCarte(17).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(17)}}
+                                </span>
+                            </div>
+                        </li>
+                        <li (click)="goCartes(19)" class="collection-item" style="cursor: pointer;" *ngIf="estActiver(19)"> <!-- La Sorcière--> 
+                            <div  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="getCarte(19).illustration"  [alt]="getCarte(19).nom" />
+                                <span class="blue-text center">
+                                    {{getCarteNom(19)}}
+                                </span>
+                            </div>
+                        </li>
+                        
+                    </ul>
+    
+                        
                 
 
                 <br>
