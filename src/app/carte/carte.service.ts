@@ -67,7 +67,10 @@ export class carteService {
     )*/
     for (let carte of CARTES) {
       const matchingDoc = (await querySnapshot).docs.find((doc) => doc.data()["id"] == carte.id);
-      carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
+      if(matchingDoc){
+        carte.estActiver = matchingDoc.data()["activer"];  // Attendre que l'état soit récupéré
+      }
+      
       
       
     }
