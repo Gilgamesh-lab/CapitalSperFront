@@ -54,16 +54,11 @@
               </tr>
               <tr>
                 <td  style="width: 5%;display: inline;">
-                  <span *ngIf="carte.typesPouvoir == null  || (carte.typesPouvoir != null && carte.typesPouvoir.length < 2) ">
-                    Type du pouvoir :
-                  </span>
-                  <span *ngIf="carte.typesPouvoir != null && carte.typesPouvoir.length >= 2">
-                    Types des pouvoirs :
-                  </span>
+                  Type du pouvoir :
                 </td>
                 <td style="text-align:center">
                   <p *ngIf='carte.typesPouvoir == null'>
-                    Cette carte n'a aucun pouvoir
+                    Cette carte n'a pas de pouvoir 
                   </p>
                   <span (click)="goToPouvoir(type)" style="cursor: pointer;" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe }}">
                     {{ type.nom }}
