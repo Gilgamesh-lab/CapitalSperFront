@@ -89,11 +89,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[2]],
         imageLore:  "lore/cupidonLore.png",
         description: "Il est réveillé uniquement durant la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
-        "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " +
-        "Si l’un des deux amoureux est éliminé de la partie, le second meurt de chagrin avec lui immédiatement. " +
-        "Il est interdit pour un amoureux d’éliminer son aimé, ni même de voter contre lui, ni de lui porter préjudice (même pour faire semblant !). " +
-        "Si les amoureux ne font pas partie du même camps, ils doivent éliminer tout les autres joueurs sinon leurs conditions de victoire ne changent, " +
-        "ils gagnent avec leurs camps.",
+        "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
@@ -189,10 +185,7 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[1],TYPESDEPOUVOIR[2]],
         imageLore:  "lore/Infect_pere_des_loupsLore.png",
         description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. Mais une fois dans la partie, s’il le désire à l’appel du meneur, " + 
-        "après que les loups-garous se soit endormis, il lève la main. Le meneur va alors toucher la tête de la victime, cela signifie que la victime n’est pas dévorée, mais infecté. " + 
-        "Ce qui comme effet de la transformé en loup-garous et plus précisément en l’infecté. " +
-        "Malgré qu'il soit un loup-garou, l'Infecté ne sera pas vue comme loup-garous par la voyante et il peut utiliser ses pouvoirs spéciaux (si il en avait) " +
-        "au service de sa nouvelle équipe.",
+        "après que les loups-garous se soit endormis, il lève la main. Le meneur va alors toucher la tête de la victime, cela signifie que la victime n’est pas dévorée, mais infecté. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
