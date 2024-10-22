@@ -75,6 +75,10 @@ export class DetailcarteComponent implements OnInit{
     this.router.navigate(['/']);
   }
 
+  
+
+  
+
   goToStatut(idStatut: number){
     this.router.navigate(['/statut', idStatut]);
   }

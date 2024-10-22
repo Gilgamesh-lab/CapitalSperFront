@@ -46,7 +46,7 @@
                 <div *ngFor="let carte of getCartes()">
                     <ul  class="collection"  style="cursor: pointer;" (click)="goCartes(carte.id)" >
                         <li  class="collection-item" style="cursor: pointer;"> 
-                            <div *ngIf="carte.id == 15" >
+                            <div *ngIf="IsTourCampsLoups(carte.id)" >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}
@@ -70,7 +70,7 @@
                 <div *ngFor="let carte of getCartes()">
                     <ul *ngIf="carte.periodiciter == true" class="collection"  style="cursor: pointer;" (click)="goCartes(carte.id)" >
                         <li  class="collection-item" style="cursor: pointer;"> 
-                            <div *ngIf="carte.id == 15" >
+                            <div *ngIf="IsTourCampsLoups(carte.id)" >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}

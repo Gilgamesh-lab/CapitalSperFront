@@ -18,6 +18,7 @@ export class Carte {
   estActiver: boolean;
   typeDeCarte: typesDeCartes;
   nomDuBatiment: string;
+  idOrdreAppel: number
   periodiciter: Boolean; // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
 
   constructor(

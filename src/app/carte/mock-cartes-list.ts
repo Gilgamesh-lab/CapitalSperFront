@@ -4,7 +4,7 @@ import { Carte } from './carte';
 import { TYPESDECARTES } from './mock-typesDeCartes-list';
 
 
-export const CARTES: Carte[] = [
+export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'une carte
     {
         id: 21,
         nom: "Les Simples Villageois",
@@ -18,10 +18,11 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 15,
+        id: 15, // à garder en deuxième position ( voir regles.ts --> ordre d'appel)
         nom: "Les Simples Loups-Garous",
         illustration: "illustration/Loup-garou.png",
         imageCarte:  "carte/ww.jpg",
@@ -32,7 +33,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 15
     },
     {
         id: 4,
@@ -46,7 +48,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 4
     },
     {
         id: 19,
@@ -63,7 +66,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 19
     },
     {
         id: 22,
@@ -78,7 +82,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: 22
     },
     {
         id: 3,
@@ -93,7 +98,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: false
+        periodiciter: false,
+        idOrdreAppel: 3
     },
     {
         id: 14,
@@ -110,7 +116,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 14
     },
     {
         id: 11,
@@ -126,7 +133,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: false
+        periodiciter: false,
+        idOrdreAppel: 11
     },
     {
         id: 12,
@@ -142,7 +150,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 12
     },
     {
         id: 13,
@@ -158,7 +167,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 13
     },
     {
         id: 8,
@@ -174,7 +184,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: false
+        periodiciter: false,
+        idOrdreAppel: 8
     },
     {
         id: 17,
@@ -189,7 +200,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: true
+        periodiciter: true,
+        idOrdreAppel: 17
     },
     {
         id: 39,
@@ -204,7 +216,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[1],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 40,
@@ -219,7 +232,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: null,
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 41,
@@ -235,7 +249,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: 'Les Fermes',
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 42,
@@ -250,7 +265,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'ecole",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 43,
@@ -265,7 +281,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "Le manoir",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 44,
@@ -281,7 +298,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La maison du Bailli",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 45,
@@ -297,7 +315,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'échoppe du Barbier",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 46,
@@ -312,7 +331,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'église",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 47,
@@ -327,7 +347,8 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La boulangerie",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 48,
@@ -342,6 +363,7 @@ export const CARTES: Carte[] = [
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La masure",
         estActiver: true,
-        periodiciter: null
+        periodiciter: null,
+        idOrdreAppel: null
     }
 ];

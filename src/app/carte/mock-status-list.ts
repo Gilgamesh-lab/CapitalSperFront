@@ -3,7 +3,7 @@ import {Statut} from './statut'
 export const STATUT: Statut[] = [
 
     {
-        id: 1, // nom "id" obligatoire pour faire fonctionner InMemoryDataService
+        id: 1, 
         nom: "Les Amoureux",
         illustration: "",
         imageLore: "",
@@ -13,10 +13,10 @@ export const STATUT: Statut[] = [
         "ils gagnent avec leurs camps.",
         idCarteReferent: 3,
         extraDescription: "Ces deux personnes choisi par Cupidon deviennent alors ",
-        periodiciter: false // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
+        periodiciter: true // (si  false = ne se réveille pas,  si true = se réveille après sa carte personnage référent)
     },
     {
-        id: 2, // nom "id" obligatoire pour faire fonctionner InMemoryDataService
+        id: 2, 
         nom: "L'Infecté",
         illustration: "",
         imageLore: "",
@@ -24,7 +24,7 @@ export const STATUT: Statut[] = [
         "De plus il peut utiliser ses pouvoirs spéciaux (si il en avait) au service de sa nouvelle équipe.",
         idCarteReferent: 17,
         extraDescription: "Ce qui a comme effet de la transformé en loup-garous et plus précisément en  ",
-        periodiciter: null // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
+        periodiciter: false // (si  false = ne se réveille pas,  si true = se réveille après sa carte personnage référent)
     },
 
 

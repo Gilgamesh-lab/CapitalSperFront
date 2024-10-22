@@ -16,6 +16,7 @@ import { CAMPS } from '../carte/mock-camps-list';
   styleUrl: './regles.component.css'
 })
 export class ReglesComponent {
+  private campLg: boolean;
 
   constructor(private router: Router, private auth: AuthService, public carteService: carteService){
   
@@ -54,16 +55,20 @@ export class ReglesComponent {
 
   getCartes(): Carte[]{
     return this.carteService.cartes.filter((carte) => carte.periodiciter != null && (carte.estActiver || this.auth.isLoggedIn )).sort((carte1,carte2) => {
-      if (carte1.id > carte2.id) {
+      if (carte1.idOrdreAppel > carte2.idOrdreAppel) {
           return 1;
       }
   
-      if (carte1.id < carte2.id) {
+      if (carte1.idOrdreAppel < carte2.idOrdreAppel) {
           return -1;
       }
   
       return 0;
   });
+  }
+
+  IsTourCampsLoups(idCarte: number): boolean{
+    return Math.min.apply(null, this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == 2).map((carte) => carte.id)) == idCarte;
   }
 
   goCamps(id: number){
