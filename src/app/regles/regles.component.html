@@ -52,7 +52,7 @@
                                     Les {{getCamps(2).nom}}
                                 </span>
                             </div>
-                            <div *ngIf="carte.id != 15" (click)="goCartes(carte.id)"  >
+                            <div *ngIf="carte.id != 2" (click)="goCartes(carte.id)"  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
                                 <span class="blue-text center">
                                     {{carte.nom}}
@@ -60,13 +60,16 @@
                             </div>
                             
                         </li>
-                        <li *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" (click)="goToStatut(getStatut(carte.id).id)">
+                    </ul>
+                    <ul *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" class="collection"  style="cursor: pointer;">
+                        <li  (click)="goToStatut(getStatut(carte.id).id)">
                             <img class="responsive-img" style="max-width: 15%;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
                             <span class="blue-text center">
                                 {{getStatut(carte.id).nom}}
                             </span>
                         </li>
                     </ul>
+                    
                 </div>
                 
 
@@ -83,7 +86,7 @@
                                     Les {{getCamps(2).nom}}
                                 </span>
                             </div>
-                            <div *ngIf="carte.id != 15" (click)="goCartes(carte.id)"  >
+                            <div *ngIf="carte.id != 2" (click)="goCartes(carte.id)"  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
                                 <span class="blue-text center">
                                     {{carte.nom}}
