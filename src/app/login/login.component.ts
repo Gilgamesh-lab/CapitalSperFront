@@ -14,15 +14,14 @@ import { InMemoryDataService } from '../in-memory-data.service';
     standalone: true
 })
 export class LoginComponent implements OnInit {
-    message: string = 'Vous êtes déconnecté.';
+    message: string ;
     name: string;
     password: string;
-    auth: AuthService;
   
-    constructor(private authService: AuthService, private router: Router, private carteService: carteService, private bdd: InMemoryDataService) { }
+    constructor(public authService: AuthService, private router: Router, private carteService: carteService, private bdd: InMemoryDataService) { }
 
     ngOnInit(): void {
-        this.auth = this.authService;
+        this.setMessage();
       }
   
     // Informe l'utilisateur sur son authentfication.
@@ -37,10 +36,11 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.name, this.password).subscribe((isLoggedIn: boolean) => {
             this.setMessage();
             if (this.authService.isLoggedIn) {
-                this.carteService.cartes = CARTES.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
+                this.carteService.cartes = CARTES.filter((carte) => carte.estActiver || this.authService.isLoggedIn);
                 let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
                 this.router.navigate([redirect]);
             } else {
+                this.message = 'Identifiants incorrecte';
                 this.password = '';
             }
         });
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     // Déconnecte l'utilisateur
     logout() {
         this.authService.logout();
-        this.carteService.cartes = CARTES.filter((carte) => carte.estActiver || this.auth.isLoggedIn);
+        this.carteService.cartes = CARTES.filter((carte) => carte.estActiver || this.authService.isLoggedIn);
         this.setMessage();
         let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
         this.router.navigate([redirect]);

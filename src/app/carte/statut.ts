@@ -5,7 +5,7 @@ export class Statut {
     illustration: string;
     imageLore: string;
     description: string;
-    idCarteReferent // id carte qui a crée le statut
+    idCarteReferent: number; // id carte qui a crée le statut
     extraDescription: string;
     periodiciter: Boolean; // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
   
