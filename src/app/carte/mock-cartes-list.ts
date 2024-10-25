@@ -4,9 +4,9 @@ import { Carte } from './carte';
 import { TYPESDECARTES } from './mock-typesDeCartes-list';
 
 
-export const CARTES: Carte[] = [
+export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'une carte
     {
-        id: 21,
+        id: 1,
         nom: "Les Simples Villageois",
         illustration: "illustration/Simple-villageois.png",
         imageCarte:  "carte/sv.jpg",
@@ -17,10 +17,12 @@ export const CARTES: Carte[] = [
         "De ce fait, il peut porter des accusations et se mettre en danger sans pénaliser son camp.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 15,
+        id: 2, // à garder en deuxième position ( voir regles.ts --> ordre d'appel)
         nom: "Les Simples Loups-Garous",
         illustration: "illustration/Loup-garou.png",
         imageCarte:  "carte/ww.jpg",
@@ -30,10 +32,12 @@ export const CARTES: Carte[] = [
         description: "C’est le loup garou de base du jeu. Chaque nuit à l'appel du meneur, ils se réveillent pour dévorer un villageois.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 15
     },
     {
-        id: 4,
+        id: 3,
         nom: "La Voyante",
         illustration: "illustration/Voyante.png",
         imageCarte:  "carte/vovo.jpg",
@@ -43,10 +47,12 @@ export const CARTES: Carte[] = [
         description: "Chaque nuit à l'appel du meneur, elle a la capacité de voir clairement la carte d'un joueur de son choix.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 4
     },
     {
-        id: 19,
+        id: 4,
         nom: "La Sorcière",
         illustration: "illustration/Sorciere.png",
         imageCarte:  "carte/soso.jpg",
@@ -57,14 +63,14 @@ export const CARTES: Carte[] = [
         "La potion de vie qui peut lui permet de ressusciter la victime des loups garous y compris elle même, et la potion de mort qui lui permet d’éliminer un joueur. " +
         "Tant qu'elle a sa potion de vie, le meneur lui montre la victime des loups garous. "  +
         "Elle peut utiliser chaque potion une seule fois dans toute la partie, hormis cela, elle n'a pas d'autre restriction sur l'utilisation de ses potions. " ,
-        
-
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 19
     },
     {
-        id: 22,
+        id: 5,
         nom: "Le Chasseur",
         illustration: "illustration/Chasseur.png",
         imageCarte:  "carte/chasseur.jpg",
@@ -75,10 +81,12 @@ export const CARTES: Carte[] = [
         "le chasseur doit impérativement désigner un autre joueur qu’il va éliminer en lui tirant dessus avec la dernière cartouche de son fusil. ",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: 22
     },
     {
-        id: 3,
+        id: 6,
         nom: "Cupidon",
         illustration: "illustration/Cupidon.png",
         imageCarte:  "carte/cupidon.jpg",
@@ -86,17 +94,15 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[2]],
         imageLore:  "lore/cupidonLore.png",
         description: "Il est réveillé uniquement durant la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
-        "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " +
-        "Si l’un des deux amoureux est éliminé de la partie, le second meurt de chagrin avec lui immédiatement. " +
-        "Il est interdit pour un amoureux d’éliminer son aimé, ni même de voter contre lui, ni de lui porter préjudice (même pour faire semblant !). " +
-        "Si les amoureux ne font pas partie du même camps, ils doivent éliminer tout les autres joueurs sinon leurs conditions de victoire ne changent, " +
-        "ils gagnent avec leurs camps.",
+        "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: false,
+        idOrdreAppel: 3
     },
     {
-        id: 14,
+        id: 7,
         nom: "Le Salvateur",
         illustration: "illustration/Salvateur.png",
         imageCarte:  "carte/salvateurCarte.png",
@@ -109,10 +115,12 @@ export const CARTES: Carte[] = [
         "S'il est amoureux, le salvateur n’est pas obligé de protéger son amoureux.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 14
     },
     {
-        id: 11,
+        id: 8,
         nom: "Le Montreur d'Ours",
         illustration: "illustration/Montreurs_d'ours.png",
         imageCarte:  "carte/montreurs_d_oursCarte.png",
@@ -124,10 +132,12 @@ export const CARTES: Carte[] = [
         "alors le meneur grogne tout les jours tant que le montreur d’ours n’est pas éliminé.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: false,
+        idOrdreAppel: 11
     },
     {
-        id: 12,
+        id: 9,
         nom: "Le Corbeau",
         illustration: "illustration/Corbeau.png",
         imageCarte:  "carte/corbeauCarte.png",
@@ -139,10 +149,12 @@ export const CARTES: Carte[] = [
         "Le Corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 12
     },
     {
-        id: 13,
+        id: 10,
         nom: "Le Pyromane",
         illustration: "illustration/Pyromane.png",
         imageCarte:  "carte/pyromaneCarte.png",
@@ -154,10 +166,12 @@ export const CARTES: Carte[] = [
         "Si le propriétaire du bâtiment est la victime des loups-garous cette nuit là, alors celui-ci est épargné, de plus le premier loup-garou à droite de la victime est éliminé.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 13
     },
     {
-        id: 8,
+        id: 11,
         nom: "Les Deux Soeurs",
         illustration: "illustration/Deux_soeurs.png",
         imageCarte:  "carte/les_deux_soeurs.png",
@@ -169,10 +183,12 @@ export const CARTES: Carte[] = [
         "Contrairement aux amoureux, leurs destins ne sont pas liés, si l’une des deux meurt, la seconde ne meurt pas avec sa sœur. ",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: false,
+        idOrdreAppel: 8
     },
     {
-        id: 17,
+        id: 12,
         nom: "L'Infect Père des Loups",
         illustration: "illustration/Infect_pere_des_loups.png",
         imageCarte:  "carte/Infect_pere_des_loupsCarte.png",
@@ -180,16 +196,15 @@ export const CARTES: Carte[] = [
         typesPouvoir: [TYPESDEPOUVOIR[1],TYPESDEPOUVOIR[2]],
         imageLore:  "lore/Infect_pere_des_loupsLore.png",
         description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. Mais une fois dans la partie, s’il le désire à l’appel du meneur, " + 
-        "après que les loups-garous se soit endormis, il lève la main. Le meneur va alors toucher la tête de la victime, cela signifie que la victime n’est pas dévorée, mais infecté. " + 
-        "Ce qui comme effet de la transformé en loup-garous et plus précisément en l’infecté. " +
-        "Malgré qu'il soit un loup-garou, l'Infecté ne sera pas vue comme loup-garous par la voyante et il peut utiliser ses pouvoirs spéciaux (si il en avait) " +
-        "au service de sa nouvelle équipe.",
+        "après que les loups-garous se soit endormis, il lève la main. Le meneur va alors toucher la tête de la victime, cela signifie que la victime n’est pas dévorée, mais infecté. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 17
     },
     {
-        id: 39,
+        id: 13,
         nom: "Le Capitaine",
         illustration: "illustration/maire.png",
         imageCarte:  "carte/maireCarte.png",
@@ -200,10 +215,12 @@ export const CARTES: Carte[] = [
         "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur.",
         typeDeCarte: TYPESDECARTES[1],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 40,
+        id: 14,
         nom: "Les Vagabonds",
         illustration: "illustration/vagabond.png",
         imageCarte:  "carte/vagabondCarte.png",
@@ -214,10 +231,12 @@ export const CARTES: Carte[] = [
         "De plus le Bailli peut vous proposer un bâtiment que vous pouvez refuser. Attention, l'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: null,
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 41,
+        id: 15,
         nom: "Les Fermiers",
         illustration: "illustration/fermiers.png",
         imageCarte:  "carte/fermes.png",
@@ -229,10 +248,12 @@ export const CARTES: Carte[] = [
         "Si le dernier Fermier est éliminé, il n'y a plus de Capitaine.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: 'Les Fermes',
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 42,
+        id: 16,
         nom: "L'Institutrice",
         illustration: "illustration/institutrice.png",
         imageCarte:  "carte/l_ecole.png",
@@ -243,10 +264,12 @@ export const CARTES: Carte[] = [
         "Elle ne vote jamais. L'Institutrice ne peut empêcher aucun Vagabond de voter.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'ecole",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 43,
+        id: 17,
         nom: "Le Châtelain",
         illustration: "illustration/noble.png",
         imageCarte:  "carte/manoir.png",
@@ -257,10 +280,12 @@ export const CARTES: Carte[] = [
         "Ce joueur ne sera alors pas éliminé et ne révèle donc pas sa carte Personnage. Un Châtelain peut évidemment se gracier lui même...",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "Le manoir",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 44,
+        id: 18,
         nom: "Le Bailli",
         illustration: "illustration/bailli.png",
         imageCarte:  "carte/maison_du_bailli.png",
@@ -272,10 +297,12 @@ export const CARTES: Carte[] = [
         "L'élimination du Bailli entraîne la fin de la distribution des logements.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La maison du Bailli",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 45,
+        id: 19,
         nom: "Le Barbier",
         illustration: "illustration/barbier.png",
         imageCarte:  "carte/echoppe_du_barbier.png",
@@ -287,10 +314,12 @@ export const CARTES: Carte[] = [
         "Le Barbier ne peut pas éliminer un Vagabond.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'échoppe du Barbier",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 46,
+        id: 20,
         nom: "Le Confesseur",
         illustration: "illustration/pretre.png",
         imageCarte:  "carte/l_église.png",
@@ -301,10 +330,12 @@ export const CARTES: Carte[] = [
         "le Confesseur désigne un joueur qui a l'obligation immédiate de lui dire à l'écart et discrètement s'il s'est réveillé durant la nuit précédente.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "L'église",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 47,
+        id: 21,
         nom: "Le Boulanger",
         illustration: "illustration/boulanger.png",
         imageCarte:  "carte/boulangerie.png",
@@ -315,10 +346,12 @@ export const CARTES: Carte[] = [
         "le boulanger peut augmenter de 2 la voix d'un autre joueur de son choix mais en contrepartie il ne peut pas voter durant ce vote.",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La boulangerie",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
-        id: 48,
+        id: 22,
         nom: "Le Rebouteux",
         illustration: "illustration/rebouteux.png",
         imageCarte:  "carte/masure.png",
@@ -329,6 +362,8 @@ export const CARTES: Carte[] = [
         "Le meneur rend au joueur le jeton qui rétablit le pouvoir lié à son bâtiment (pour un nouvel usage unique).",
         typeDeCarte: TYPESDECARTES[2],
         nomDuBatiment: "La masure",
-        estActiver: true
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     }
 ];

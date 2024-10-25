@@ -13,7 +13,8 @@ import { typesDePouvoirs } from '../typesDePouvoirs';
 import { AppComponent } from '../../app.component';
 import { typesDeCartes } from '../typesDeCartes';
 import { CarteTypeColorPipe } from '../carte-type-color.pipe';
-import { CARTES } from '../mock-cartes-list';
+import { STATUT } from '../mock-status-list';
+import { Statut } from '../statut';
 
 
 @Component({
@@ -52,6 +53,19 @@ export class DetailcarteComponent implements OnInit{
 
   }
 
+  ifStatut(idCarte: number) {
+    if(STATUT.find((statut) => statut.idCarteReferent == idCarte )){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  getStatut(idCarte: number): Statut{
+    return STATUT.find((statut) => statut.idCarteReferent == idCarte );
+  }
+
   deletecarte(carte: Carte){
     this.carteService.supprimercarteParId(carte.id)
     .subscribe(() => this.goMenu());
@@ -59,6 +73,14 @@ export class DetailcarteComponent implements OnInit{
 
   goMenu(){
     this.router.navigate(['/']);
+  }
+
+  
+
+  
+
+  goToStatut(idStatut: number){
+    this.router.navigate(['/statut', idStatut]);
   }
 
   goToCamp(camp: Camp){

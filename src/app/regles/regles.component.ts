@@ -7,6 +7,8 @@ import { carteService } from '../carte/carte.service';
 import { LoaderComponent } from '../carte/loader/loader.component';
 import { Carte } from '../carte/carte';
 import { CAMPS } from '../carte/mock-camps-list';
+import { STATUT } from '../carte/mock-status-list';
+import { Statut } from '../carte/statut';
 
 @Component({
   selector: 'app-regles',
@@ -16,6 +18,7 @@ import { CAMPS } from '../carte/mock-camps-list';
   styleUrl: './regles.component.css'
 })
 export class ReglesComponent {
+  private campLg: boolean;
 
   constructor(private router: Router, private auth: AuthService, public carteService: carteService){
   
@@ -50,6 +53,41 @@ export class ReglesComponent {
 
   getCarte(id: number): Carte{
     return this.carteService.cartes.find((carte) => carte.id == id);
+  }
+
+  getCartes(): Carte[]{
+    return this.carteService.cartes.filter((carte) => carte.periodiciter != null && (carte.estActiver || this.auth.isLoggedIn )).sort((carte1,carte2) => {
+      if (carte1.idOrdreAppel > carte2.idOrdreAppel) {
+          return 1;
+      }
+  
+      if (carte1.idOrdreAppel < carte2.idOrdreAppel) {
+          return -1;
+      }
+  
+      return 0;
+  });
+  }
+
+  ifStatut(idCarte: number) {
+    if(STATUT.find((statut) => statut.idCarteReferent == idCarte )){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  getStatut(idCarte: number): Statut{
+    return STATUT.find((statut) => statut.idCarteReferent == idCarte );
+  }
+
+  goToStatut(idStatut: number){
+    this.router.navigate(['/statut', idStatut]);
+  }
+
+  IsTourCampsLoups(idCarte: number): boolean{
+    return Math.min.apply(null, this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == 2).map((carte) => carte.id)) == idCarte;
   }
 
   goCamps(id: number){

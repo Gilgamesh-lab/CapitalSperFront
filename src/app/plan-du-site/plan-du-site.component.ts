@@ -14,6 +14,9 @@ import { debounceTime, delay } from 'rxjs';
 import { carteService } from '../carte/carte.service';
 import { waitForAsync } from '@angular/core/testing';
 import { LoaderComponent } from '../carte/loader/loader.component';
+import { Statut } from '../carte/statut';
+import { STATUS } from 'angular-in-memory-web-api';
+import { STATUT } from '../carte/mock-status-list';
 
 @Component({
   selector: 'app-plan-du-site',
@@ -59,6 +62,14 @@ export class PlanDuSiteComponent {
 
   getCartes(): Carte[]{
     return this.carteService.cartes;
+  }
+
+  goToStatut(idStatut: number){
+    this.router.navigate(['/statut', idStatut]);
+  }
+
+  getStatuts(): Statut[]{
+    return STATUT.filter((statut) => this.carteService.cartes.find((carte) => carte.id == statut.idCarteReferent));
   }
 
   getTypeDeCarte(): typesDeCartes[]{

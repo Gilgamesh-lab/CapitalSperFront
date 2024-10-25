@@ -76,7 +76,14 @@
               <tr >
                 <td style="display: inline;" >Description :</td>
                 <td style="word-break: break-word;text-align:center;
-                white-space: normal;width: auto;"><em>{{ carte.description}}</em></td>
+                white-space: normal;width: auto;">
+                  <em>
+                    {{ carte.description}}
+                    <span *ngIf="ifStatut(carte.id)">
+                      {{getStatut(carte.id).extraDescription}}<span (click)="goToStatut(getStatut(carte.id).id)" class="blue-text" style="cursor: pointer;"> {{ getStatut(carte.id).nom }}</span>.
+                    </span>
+                  </em>
+                </td>
               </tr>
           </table>
         </div>

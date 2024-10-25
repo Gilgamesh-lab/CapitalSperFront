@@ -24,21 +24,37 @@
                         </ul>
                     </div>
 
-                    <h2>Les différents types de cartes</h2>
-                        <div *ngFor="let type of getTypeDeCarte()">
-                            <div *ngIf="typeDeCarteEstActiver(type)" style="cursor: pointer;"  (click)="goToType(type)" >
-                                <ul class="collection">
-                                    <li class="collection-item">
-                                        <div class="blue-text center">
-                                            <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
-                                            <span>
-                                                Les cartes {{type.nom.toLowerCase() }}s
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                <h2>Les différents types de cartes</h2>
+                    <div *ngFor="let type of getTypeDeCarte()">
+                        <div *ngIf="typeDeCarteEstActiver(type)" style="cursor: pointer;"  (click)="goToType(type)" >
+                            <ul class="collection">
+                                <li class="collection-item">
+                                    <div class="blue-text center">
+                                        <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
+                                        <span>
+                                            Les cartes {{type.nom.toLowerCase() }}s
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
+                
+                <h2 *ngIf="getStatuts().length > 0" >Les différents statuts</h2>
+                <div *ngFor="let statut of getStatuts()">
+                    <div  style="cursor: pointer;"  (click)="goToStatut(statut.id)" >
+                        <ul class="collection">
+                            <li class="collection-item">
+                                <div class="blue-text center">
+                                    <img class="responsive-img" width="20%" [src]="statut.illustration"  [alt]="statut.nom" />
+                                    <span>
+                                        {{statut.nom}}
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                     
                 
                 <h2>Les différents camps</h2>
