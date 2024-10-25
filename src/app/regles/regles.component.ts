@@ -7,6 +7,8 @@ import { carteService } from '../carte/carte.service';
 import { LoaderComponent } from '../carte/loader/loader.component';
 import { Carte } from '../carte/carte';
 import { CAMPS } from '../carte/mock-camps-list';
+import { STATUT } from '../carte/mock-status-list';
+import { Statut } from '../carte/statut';
 
 @Component({
   selector: 'app-regles',
@@ -65,6 +67,23 @@ export class ReglesComponent {
   
       return 0;
   });
+  }
+
+  ifStatut(idCarte: number) {
+    if(STATUT.find((statut) => statut.idCarteReferent == idCarte )){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  getStatut(idCarte: number): Statut{
+    return STATUT.find((statut) => statut.idCarteReferent == idCarte );
+  }
+
+  goToStatut(idStatut: number){
+    this.router.navigate(['/statut', idStatut]);
   }
 
   IsTourCampsLoups(idCarte: number): boolean{

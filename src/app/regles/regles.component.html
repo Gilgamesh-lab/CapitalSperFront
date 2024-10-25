@@ -44,20 +44,27 @@
                 <h5>Personnages appelés la première nuit dans l'ordre d'appel : </h5>
 
                 <div *ngFor="let carte of getCartes()">
-                    <ul  class="collection"  style="cursor: pointer;" (click)="goCartes(carte.id)" >
+                    <ul  class="collection"  style="cursor: pointer;" >
                         <li  class="collection-item" style="cursor: pointer;"> 
-                            <div *ngIf="IsTourCampsLoups(carte.id)" >
+                            <div *ngIf="IsTourCampsLoups(carte.id)" (click)="goCamps(2)" >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}
                                 </span>
                             </div>
-                            <div *ngIf="carte.id != 15" >
+                            <div *ngIf="carte.id != 15" (click)="goCartes(carte.id)"  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
                                 <span class="blue-text center">
                                     {{carte.nom}}
                                 </span>
                             </div>
+                            
+                        </li>
+                        <li *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" (click)="goToStatut(getStatut(carte.id).id)">
+                            <img class="responsive-img" style="max-width: 15%;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
+                            <span class="blue-text center">
+                                {{getStatut(carte.id).nom}}
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -68,20 +75,26 @@
                 <h5>Personnages appelés chaque nuit tant qu'ils ont leurs pouvoirs dans l'ordre d'appel : </h5>
 
                 <div *ngFor="let carte of getCartes()">
-                    <ul *ngIf="carte.periodiciter == true" class="collection"  style="cursor: pointer;" (click)="goCartes(carte.id)" >
+                    <ul *ngIf="carte.periodiciter == true" class="collection"  style="cursor: pointer;" >
                         <li  class="collection-item" style="cursor: pointer;"> 
-                            <div *ngIf="IsTourCampsLoups(carte.id)" >
+                            <div *ngIf="IsTourCampsLoups(carte.id)" (click)="goCamps(2)" >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}
                                 </span>
                             </div>
-                            <div *ngIf="carte.id != 15" >
+                            <div *ngIf="carte.id != 15" (click)="goCartes(carte.id)"  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
                                 <span class="blue-text center">
                                     {{carte.nom}}
                                 </span>
                             </div>
+                        </li>
+                        <li *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" (click)="goToStatut(getStatut(carte.id).id)">
+                            <img class="responsive-img" style="max-width: 15%;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
+                            <span class="blue-text center">
+                                {{getStatut(carte.id).nom}}
+                            </span>
                         </li>
                     </ul>
                 </div>
