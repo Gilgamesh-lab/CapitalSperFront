@@ -63,7 +63,7 @@
                     </ul>
                     <ul *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" class="collection"  style="cursor: pointer;">
                         <li class="collection-item"  (click)="goToStatut(getStatut(carte.id).id)">
-                            <img class="responsive-img" style="max-width: 10%;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
+                            <img class="responsive-img" style="width: 15%;height: auto;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
                             <span class="blue-text center">
                                 {{getStatut(carte.id).nom}}
                             </span>
