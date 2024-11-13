@@ -83,7 +83,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 22
+        idOrdreAppel: null
     },
     {
         id: 6,
@@ -100,6 +100,23 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         estActiver: true,
         periodiciter: false,
         idOrdreAppel: 3
+    },
+    {
+        id: 23,
+        nom: "La Petite Fille",
+        illustration: "illustration/Petite_Fille.png",
+        imageCarte:  "carte/petite_fille.jpg",
+        camps: CAMPS[0],
+        typesPouvoir: [TYPESDEPOUVOIR[0]],
+        imageLore:  "lore/petiteFilleLore.png",
+        description: "La Petite Fille peut, en entrouvant les yeux, espionner les Loups-Garous pendans leur réveil. Si elle se fait surprendre par un des Loups-Garous, " +
+        "elle pourra être dévorée immmédiatement (en silence), à la place de la victime désignée. La Petite Fille ne peut espionner que la nuit, durant le tour d'éveil des " + 
+        "Loups-Garous. Elle n'a pas le droit de se faire passer pour un Loup-Garou et d'ouvrir grand les yeux.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: null
     },
     {
         id: 7,
