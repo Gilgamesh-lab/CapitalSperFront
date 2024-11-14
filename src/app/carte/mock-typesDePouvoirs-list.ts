@@ -55,6 +55,14 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         description: "Le type de pouvoir immunité désigne tout les pouvoirs qui permettent d'être immunisé à un pouvoir spécial.",
         nomMembre: "immunisés",
         determinant: "d'"
+    },
+    {
+        id: 7,
+        nom: "Métamorphose",
+        illustration:  "pouvoirs/metamorphose.png",
+        description: "Le type de pouvoir métamorphose désigne tout les pouvoirs permettants de faire changer de camp ou de personnage au cours de la partie soi même ou autrui.",
+        nomMembre: "irréguliers",
+        determinant: "de "
     }
     
 ];
