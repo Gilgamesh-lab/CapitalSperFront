@@ -17,19 +17,29 @@ export class carteCampColorPipe implements PipeTransform {
       case 2:
         color = 'red';
         break;
+      case 3:
+          color = 'indigo';
+          break;
+      case 4:
+          color = 'orange';
+          break;
       default:
         color = 'grey';
         break;
     }
 
     if(bouton){
-      color = "chip " + color
+      color = "chip " + color;
     }
     else{
-      color += "-text"
+      color += "-text";
     }
     if(type == 1){
-      color += ' lighten-1'
+      color += ' lighten-1';
+    }
+
+    else if(type == 3 ){
+      color += ' lighten-5';
     }
   
     return color;

@@ -50,6 +50,14 @@
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}
+                                    
+                                </span>
+                                <span *ngIf="estActiver(23)">
+                                    (espionné par 
+                                    <span class="blue-text" (click)="goCartes(23)">
+                                        {{getCarteNom(23)}}
+                                    </span>
+                                    )
                                 </span>
                             </div>
                             <div *ngIf="carte.id != 2" (click)="goCartes(carte.id)"  >
@@ -84,6 +92,13 @@
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}
+                                </span>
+                                <span *ngIf="estActiver(23)">
+                                    (espionné par 
+                                    <span class="blue-text" (click)="goCartes(23)">
+                                        {{getCarteNom(23)}}
+                                    </span>
+                                    )
                                 </span>
                             </div>
                             <div *ngIf="carte.id != 2" (click)="goCartes(carte.id)"  >

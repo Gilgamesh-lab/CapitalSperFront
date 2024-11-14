@@ -29,6 +29,9 @@ export class cartePouvoirColorPipe implements PipeTransform {
       case 6:
         color = 'cyan accent-2';
         break;
+      case 7:
+        color = 'pink accent-2';
+        break;
       
       default:
         color = 'grey';
