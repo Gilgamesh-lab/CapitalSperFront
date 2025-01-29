@@ -7,12 +7,13 @@ import {carteService} from '../carte.service'
 import { AuthService } from '../../auth.service';
 import { CapitalSperComponent } from '../../capital-sper/capital-sper.component';
 import { CARTES } from '../mock-cartes-list';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-search-carte',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [ CommonModule, FormsModule ],
   templateUrl: './search-carte.component.html',
   styleUrl: './search-carte.component.css'
 })
@@ -41,7 +42,6 @@ export class SearchcarteComponent implements OnInit{
       pipe(map((arr =>
         arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) )))))
     );
-    this.search(this.mot);
 
   }
 
@@ -89,6 +89,7 @@ export class SearchcarteComponent implements OnInit{
       if(carte.id != CARTES[0].id && carte.id != CARTES[1].id){
         this.init();
       }
+      this.search("Cupidon");
       
       
     }

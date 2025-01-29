@@ -63,7 +63,7 @@ export class carteService {
   }
 
   resetCarteCapitalSper(){
-    this.carteCapitalSper = [];// pour les changements des pages
+    this.carteCapitalSper = [];// pour les changements de page
   }
 
   incrementerNb(carte: Carte): void {
@@ -75,13 +75,22 @@ export class carteService {
       this.cartesNb[carte.id] = 1; 
       
     }
-    console.log("ajout : " + (this.getCarteCapitalSper().filter(carte2 => carte.id == carte2.id).length == 0));
     if((this.getCarteCapitalSper().filter(carte2 => carte.id == carte2.id).length == 0)){
       
       this.carteCapitalSper.push(carte);
     }
     
     
+  }
+
+  dimunuerNb(carte: Carte): void {
+    this.cartesNb[carte.id] -= 1; 
+    if(this.cartesNb[carte.id] == 0){
+      const index = this.carteCapitalSper.indexOf(carte, 0);
+      if (index > -1) {
+        this.carteCapitalSper.splice(index, 1);
+      }
+    }
   }
 
   

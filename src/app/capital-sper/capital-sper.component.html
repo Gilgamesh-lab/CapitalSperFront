@@ -1,24 +1,23 @@
+
 <div class='container'>
-    <div   style="cursor: pointer;" >
-        <div    *ngFor="let carte of this.getCartes()" style="color: rgb(3, 155, 229);
-         ;display: inline-block;"
-        (click)="goToDetail(carte) " 
+        <div   *ngFor="let carte of this.getCartes()" style="color: rgb(3, 155, 229);
+         ;display: inline-block;cursor: pointer;" 
         ><!-- async = subcribe-->
-        <tbody class="container" >
-            <tr >
-              <td></td>
-              <td style="text-align:center">
-                <div  style="display: inline-block;">
-                    <div class="card-content">
-                        <span class="card-title center-align">{{carte.nom}}</span>
-                    </div>
-                    <img class="responsive-img" [src]="carte.illustration"  style="width: 50%;" [alt]="carte.nom" >
-                    <div class="card-action">
-                        <i *ngIf="this.getNb(carte.id) == 1" class=" inline-icon material-icons left"  > cancel</i>
-                        <i *ngIf="this.getNb(carte.id) > 1" class=" inline-icon material-icons left"  > - </i>
-                        <span class="  middle"  > {{this.getNb(carte.id)}}</span>
-                        <i *ngIf="carte.id == 1 || carte.id == 2" class=" inline-icon material-icons right"  >add</i>
-                    </div>
+            <tbody  >
+                <tr >
+                <td></td>
+                <td style="text-align:center">
+                    <div  style="display: inline-block;">
+                        <div class="card-content">
+                            <span class="card-title center-align">{{carte.nom}}</span>
+                        </div>
+                        <img class="responsive-img" [src]="carte.illustration"  style="width: 50%;" [alt]="carte.nom" >
+                        <div class="card-action">
+                            <i *ngIf="this.getNb(carte.id) == 1" class=" inline-icon material-icons left" (click)="this.diminuer(carte)" > cancel</i>
+                            <i *ngIf="this.getNb(carte.id) > 1" class=" inline-icon material-icons left" (click)="this.diminuer(carte)" > - </i>
+                            <span class="  middle"  > {{this.getNb(carte.id)}}</span>
+                            <i *ngIf="carte.id == 1 || carte.id == 2" class=" inline-icon material-icons right" (click)="this.incrementer(carte)" >add</i>
+                        </div>
                     
                         
                         
@@ -27,11 +26,19 @@
              </td>
             </tr>
         
-        </div>
+        
+        
+    </div>
+    <app-search-carte> </app-search-carte>
+    <div class="container">
+        
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
         
     </div>
     
-    <app-search-carte> </app-search-carte>
+   
     
 
 

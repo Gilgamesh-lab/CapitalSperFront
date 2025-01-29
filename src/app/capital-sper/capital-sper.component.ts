@@ -35,6 +35,15 @@ export class CapitalSperComponent {
     return this.carteService.getCarteCapitalSper();
   }
 
+  incrementer(carte: Carte){
+    this.carteService.incrementerNb(carte);
+  }
+
+  diminuer(carte: Carte){
+    this.carteService.dimunuerNb(carte);
+  }
+
+
   
 
   getNb(idCarte: number): number{
