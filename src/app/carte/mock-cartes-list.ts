@@ -29,7 +29,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         camps: CAMPS[1],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "lore/wwLore.png",
-        description: "C’est le loup garou de base du jeu. Chaque nuit à l'appel du meneur, ils se réveillent pour dévorer un villageois.",
+        description: "C’est le loup garou de base du jeu. Chaque nuit à l'appel du meneur, il se réveille et se concerte avec les autres loups garous pour dévorer un villageois.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
@@ -93,7 +93,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         camps: CAMPS[0],
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[6]],
         imageLore:  "lore/cupidonLore.png",
-        description: "Il est réveillé uniquement durant la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
+        description: "Il se réveille uniquement la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
         "Cupidon peut se désigner comme l’un des deux amoureux s’il le souhaite. " ,
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
@@ -124,12 +124,12 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         illustration: "illustration/Voleur.png",
         imageCarte:  "carte/voleur.png",
         camps: CAMPS[3],
-        typesPouvoir: [TYPESDEPOUVOIR[6]],
+        typesPouvoir: [TYPESDEPOUVOIR[6], TYPESDEPOUVOIR[0]],
         imageLore:  "lore/voleurLore.png",
         description: "Lorsque le Voleur est en jeu, deux cartes Simples Villageois suplémentaire sont rajouté en plus de celles déjà choisis. " +
         "Après la distribution, les deux cartes non distribués sont placées au centre de la table face cachée. La première nuit, le voleur prend connaissance de ces deux cartes " + 
         "et peut échanger sa carte contre l'une d'elles. Si ces cartes sont deux Loups-Garous, il est obligé d'échanger sa carte contre un des deux Loups-Garous. " + 
-        "Il jouera désormais ce personnage jusqu'à la fin de la partie.",
+        "Il jouera désormais ce personnage jusqu'à la fin de la partie. S'il ne choisit aucune des deux cartes, il est considéré comme étant un Simple Villageois.",
         typeDeCarte: TYPESDECARTES[0],
         nomDuBatiment: null,
         estActiver: true,
