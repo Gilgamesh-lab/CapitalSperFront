@@ -1,0 +1,38 @@
+<div class='container'>
+    <div   style="cursor: pointer;" >
+        <div    *ngFor="let carte of this.getCartes()" style="color: rgb(3, 155, 229);
+         ;display: inline-block;"
+        (click)="goToDetail(carte) " 
+        ><!-- async = subcribe-->
+        <tbody class="container" >
+            <tr >
+              <td></td>
+              <td style="text-align:center">
+                <div  style="display: inline-block;">
+                    <div class="card-content">
+                        <span class="card-title center-align">{{carte.nom}}</span>
+                    </div>
+                    <img class="responsive-img" [src]="carte.illustration"  style="width: 50%;" [alt]="carte.nom" >
+                    <div class="card-action">
+                        <i *ngIf="this.getNb(carte.id) == 1" class=" inline-icon material-icons left"  > cancel</i>
+                        <i *ngIf="this.getNb(carte.id) > 1" class=" inline-icon material-icons left"  > - </i>
+                        <span class="  middle"  > {{this.getNb(carte.id)}}</span>
+                        <i *ngIf="carte.id == 1 || carte.id == 2" class=" inline-icon material-icons right"  >add</i>
+                    </div>
+                    
+                        
+                        
+                    
+                </div>
+             </td>
+            </tr>
+        
+        </div>
+        
+    </div>
+    
+    <app-search-carte> </app-search-carte>
+    
+
+
+</div>

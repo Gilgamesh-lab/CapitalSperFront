@@ -40,16 +40,49 @@ export class carteService {
 
   cartes: Carte[] = undefined;
   premiereInstanceTableauDeBord: boolean;
+  cartesNb: { [id: number] : number; } = {};
+  carteCapitalSper: Carte[] = [];
 
-  ngOnInit() : void{
+  async ngOnInit() : Promise<void>{
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const querySnapshot = getDocs(collection(db, "Cartes"));
     this.premiereInstanceTableauDeBord = true;
+    (await this.getCartes()).forEach(carte => this.cartesNb[carte.id] = 0);
     
   }
   
   constructor(private http: HttpClient, private auth: AuthService) { }
+
+  async getCartesNb(): Promise<{ [id: number]: number; }>{
+    return this.cartesNb;
+  }
+
+  getCarteCapitalSper(): Carte[]{
+    return this.carteCapitalSper;
+  }
+
+  resetCarteCapitalSper(){
+    this.carteCapitalSper = [];// pour les changements des pages
+  }
+
+  incrementerNb(carte: Carte): void {
+    
+    if(carte.id == CARTES[0].id || carte.id == CARTES[1].id){
+      this.cartesNb[carte.id] += 1; 
+    }
+    else{
+      this.cartesNb[carte.id] = 1; 
+      
+    }
+    console.log("ajout : " + (this.getCarteCapitalSper().filter(carte2 => carte.id == carte2.id).length == 0));
+    if((this.getCarteCapitalSper().filter(carte2 => carte.id == carte2.id).length == 0)){
+      
+      this.carteCapitalSper.push(carte);
+    }
+    
+    
+  }
 
   
   async getCartes(): Promise<Carte[]>{

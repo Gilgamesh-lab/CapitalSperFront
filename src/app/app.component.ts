@@ -28,6 +28,10 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+  goToCapitalSper(){
+    this.router.navigate(['/capital-sper']);
+  }
+
   goToTableauDeBord(){
     this.router.navigate(['/tableau-de-bord']);
   }
