@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Carte } from './carte';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { Observable, catchError, firstValueFrom, of, take, tap } from 'rxjs';
 import { CAMPS } from './mock-camps-list';
 import { Camp } from './camp';
 import { TYPESDEPOUVOIR } from './mock-typesDePouvoirs-list';
@@ -9,7 +9,9 @@ import { typesDePouvoirs } from './typesDePouvoirs';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc  } from "firebase/firestore";
 import { CARTES } from './mock-cartes-list';
+import axios from 'axios';
 import { AuthService } from '../auth.service';
+import { UtilsService } from '../utils.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -42,6 +44,7 @@ export class carteService {
   premiereInstanceTableauDeBord: boolean;
   cartesNb: { [id: number] : number; } = {};
   carteCapitalSper: Carte[] = [];
+  tab: number[];
 
   async ngOnInit() : Promise<void>{
     const app = initializeApp(firebaseConfig);
@@ -52,11 +55,56 @@ export class carteService {
     
   }
   
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService,  private utilsService: UtilsService) { }
 
   async getCartesNb(): Promise<{ [id: number]: number; }>{
     return this.cartesNb;
   }
+
+
+ 
+
+  getObjet2(): void {
+    let url = `http://localhost:8080/api/getPersonnages`;
+    console.log('ok')
+    new Observable(observer => {
+      axios.get(url)
+        .then(response => {
+          observer.error("t"+response.data);
+          observer.complete();
+        })
+        .catch(error => {
+          observer.error(error);
+        });
+    });
+  }
+  
+
+  async getObjet (): Promise<void> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    var tab: number[];
+    let url: string = `http://localhost:8080/getPersonnages`;
+    this.tab = await firstValueFrom(this.http.get<number[]>(url, httpOptions).pipe(take(1)));
+
+    console.log("victoire : " + this.tab)
+    /*this.http.get(url, httpOptions).subscribe(
+      tap((response) => this.log("reponse : " + response)),
+      catchError((error) => this.handleErreur(error, null))
+    );*/
+    //this.http.get<number[]>(url).subscribe(val =>console.log("t"+val));
+    
+    }
+
+    getcarteParI(carteId: number): Observable<Carte|undefined>{
+      return this.http.get<Carte>(`api/cartes/${carteId}`).pipe(
+        tap((response) => this.log(response)),
+        catchError((error) => this.handleErreur(error, null))
+      );
+    }
 
   getCarteCapitalSper(): Carte[]{
     return this.carteCapitalSper;
@@ -183,13 +231,17 @@ export class carteService {
       return of([]);
     }
 
-    return this.http.get<Carte[]>(`api/cartes/?nom=${mot}`).pipe(
+    const resultats = this.cartes.filter(carte =>
+      carte.nom.toLowerCase().includes(mot.toLowerCase())
+    );
+
+    return of(resultats).pipe(
       catchError((error) => this.handleErreur(error, []))
-    )
+    );
   }
 
   private log(response: any){
-    console.table(response);
+    console.log(response);
   }
 
   private handleErreur(erreur: Error, erreurValeur: any){

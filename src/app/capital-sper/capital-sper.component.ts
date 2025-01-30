@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import {carteService} from '../carte/carte.service'
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
+import { Observable, retry } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { UtilsService } from '../utils.service';
 
 @Component({
   selector: 'app-capital-sper',
@@ -16,6 +19,8 @@ import { CommonModule } from '@angular/common';
 export class CapitalSperComponent {
   cartesNb: { [id: number] : number; } = {};
   nbPartie: number;
+  singleEvents$
+  
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService){
     this.cartesNb = this.carteService.cartesNb;
@@ -24,6 +29,8 @@ export class CapitalSperComponent {
 
   async ngOnInit(): Promise<void> {
     (await this.carteService.getCartes()).forEach(carte => this.cartesNb[carte.id] = 0);
+    this.carteService.getObjet();
+    
   }
 
   setNbPartie(){
@@ -35,6 +42,15 @@ export class CapitalSperComponent {
     
     
   }
+
+   getObjet (): void{
+    
+    //this.singleEvents$.subscribe(event => this.event = event);
+    /*let tab: number[];
+    this.singleEvents$.subscribe(event => this.event = event);
+    this.carteService.getObjet().subscribe(reponse => tab = reponse)*/
+    //return this.carteService.getObjet() ;
+    }
 
 
   goToDetail(carte: Carte){
