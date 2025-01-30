@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CapitalSperComponent {
   cartesNb: { [id: number] : number; } = {};
+  nbPartie: number;
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService){
     this.cartesNb = this.carteService.cartesNb;
@@ -23,6 +24,16 @@ export class CapitalSperComponent {
 
   async ngOnInit(): Promise<void> {
     (await this.carteService.getCartes()).forEach(carte => this.cartesNb[carte.id] = 0);
+  }
+
+  setNbPartie(){
+    this.nbPartie = +(<HTMLInputElement>document.getElementById("nbPartie")).value;
+    
+    if(this.nbPartie > 100){
+      (<HTMLInputElement>document.getElementById("nbPartie")).value = "100";
+    }
+    
+    
   }
 
 

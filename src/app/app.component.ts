@@ -7,9 +7,11 @@ import { carteFormComponent } from './carte/carte-form/carte-form.component';
 import { AuthService } from './auth.service';
 import { RouterExtService } from './carte/router-ext-service.service';
 import { Carte } from './carte/carte';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
-  imports: [CommonModule, carteCampColorPipe, RouterOutlet, FormsModule, carteFormComponent], // pour ngif et ngfor
+  imports: [CommonModule, RouterOutlet, FormsModule, HeaderComponent, FooterComponent], // pour ngif et ngfor
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true

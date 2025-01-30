@@ -89,7 +89,6 @@ export class SearchcarteComponent implements OnInit{
       if(carte.id != CARTES[0].id && carte.id != CARTES[1].id){
         this.init();
       }
-      this.search("Cupidon");
       
       
     }
