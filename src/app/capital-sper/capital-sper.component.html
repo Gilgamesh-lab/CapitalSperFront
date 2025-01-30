@@ -1,5 +1,5 @@
 
-<div class='container'>
+<div *ngIf="!this.lancer" class='container'>
         <div   *ngFor="let carte of this.getCartes()" style="color: rgb(3, 155, 229);
          ;display: inline-block;cursor: pointer;" 
         ><!-- async = subcribe-->
@@ -32,10 +32,10 @@
     <app-search-carte> </app-search-carte>
     <div class="container">
         <div class="input-field col s6" >
-            <label for="nbPartie"></label>
+            <label for="nbPartie" ></label>
             <input placeholder="Entrer le nombre de partie que vous voulez lancer entre 1 et 100 : " id="nbPartie" type="number" min="1"  max="100" (keyup)="setNbPartie()">
            </div>
-        <button class="btn waves-effect waves-light" name="action"  >Lancer une partie
+        <button class="btn waves-effect waves-light" name="action" (click)="this.simulation()"  >Lancer une simulation
             <i class="material-icons right">send</i>
         </button>
         
@@ -45,4 +45,31 @@
     
 
 
+</div>
+
+<div *ngIf="this.lancer && this.getPartie ">
+  <div  class="row">
+    <div class="col s12 m8 offset-m2">
+    <div class="card vertical hoverable" >
+      <div class="card-stacked" >
+        <div class="card-content" >
+          <table  style="width: 100%;
+          border-collapse: collapse;
+          table-layout: auto;" >
+            <tbody >
+                <pre style=" white-space: pre-wrap;">{{ this.getPartie() }}</pre>
+            </tbody>
+            </table> 
+        </div>
+        <div class="card-action">
+            <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+            <a (click)="retour()" style="cursor: pointer;">Retour</a>
+            <a (click)="relancer()" style="cursor: pointer;">Relancer</a>
+          </div>
+    </div>
+
+</div>
+
+<div *ngIf="this.lancer && !this.getPartie " >
+    <app-loader></app-loader>
 </div>

@@ -19,7 +19,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: 21
     },
     {
         id: 2, // à garder en deuxième position ( voir regles.ts --> ordre d'appel)
@@ -83,7 +83,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: 22
     },
     {
         id: 6,
@@ -252,7 +252,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: 98
     },
     {
         id: 14,

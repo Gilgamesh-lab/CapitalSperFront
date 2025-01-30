@@ -28,8 +28,9 @@ export class SearchcarteComponent implements OnInit{
     
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.isCapitalSper = this.router.url.includes('capital-sper');
+    let carte: number[] = await this.carteService.getObjet();
     this.cartes = this.searchTerms.pipe(
       //  {..."a"."ab"..."abz"."ab"....abc......}
       debounceTime(300), // pour éliminer des requêtes dont à pas besoin
@@ -40,12 +41,15 @@ export class SearchcarteComponent implements OnInit{
       // concatMap / mergeMap / SwitchMap
       switchMap((mot) => this.carteService.cherchercarte(mot)),
       pipe(map((arr =>
-        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) )))))
+        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (!this.isCapitalSper || carte.filter(id => id == r.idOrdreAppel).length != 0)  )  )  )))
     );
-
+    
+    
+    //&& ((await this.getObjet().then()).filter(id => id == carte.idOrdreAppel).length != 0)
   }
 
-  init(): void{
+  async init(): Promise<void>{
+    let carte: number[] = await this.carteService.getObjet();
     this.cartes =  this.searchTerms.pipe(
       //  {..."a"."ab"..."abz"."ab"....abc......}
       debounceTime(300), // pour éliminer des requêtes dont à pas besoin
@@ -56,7 +60,8 @@ export class SearchcarteComponent implements OnInit{
       // concatMap / mergeMap / SwitchMap
       switchMap((mot) => this.carteService.cherchercarte(mot)),
       pipe(map((arr =>
-        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0) )))))
+        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0) 
+      && carte.filter(id => id == r.idOrdreAppel).length != 0  ) ))))
     );
   }
 
