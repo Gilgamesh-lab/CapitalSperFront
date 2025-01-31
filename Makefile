@@ -17,7 +17,7 @@ deployFirebase:
 	git merge develop
 	ng build --configuration=production
 	git add .
-	git commit -am "Deploiement d'une nouvelle version sur FireBase"
+	git diff-index --quiet HEAD || git commit -am "Deploiement d'une nouvelle version sur FireBase" 
 	firebase login
 	firebase deploy
 	git checkout develop
