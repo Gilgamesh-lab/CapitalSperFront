@@ -90,6 +90,16 @@ export class carteService {
     
     }
 
+   /* retry({ count: 3, delay: (error, retryCount) => {
+      console.warn(`Tentative ${retryCount} après échec :`, error);
+      return of(null).pipe(delay(2000)); // ⏳ Délai de 2 sec SEULEMENT si erreur
+    }}),
+    catchError(error => {
+      console.error('Erreur API après plusieurs essais :', error);
+      return throwError(() => new Error('Impossible de récupérer les personnages'));
+    })
+  );*/
+
     async createPost(data: any): Promise<void> {
       interface ApiResponse {
         log: string; 
@@ -102,9 +112,11 @@ export class carteService {
         })
       };
       let url: string = `${this.utilsService.getEndPoint().apiUrl}/api/lancerUnePartie`;
-      this.http.post(url, data, httpOptions ).pipe(retry(3) ,
-      take(1),
-      delay(2000))
+      this.http.post(url, data, httpOptions ).pipe(retry({ count: 3, delay: (error, retryCount) => {
+        console.warn(`Tentative ${retryCount} après échec :`, error);
+        return of(null).pipe(delay(2000)); // ⏳ Délai de 2 sec SEULEMENT si erreur
+      }}) ,
+      take(1))
       .subscribe(
         (response: ApiResponse )=> {
           this.partie = response.log;

@@ -26,6 +26,7 @@ export class CapitalSperComponent {
   lancer: boolean;
   log: any = undefined;
   data: any;
+  tab: string;
   
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService, private app:AppComponent){
@@ -55,7 +56,7 @@ export class CapitalSperComponent {
   }
 
   getPartie(){
-    return this.carteService.partie;
+    this.tab =  this.carteService.partie;
   }
 
    getObjet (): void{
