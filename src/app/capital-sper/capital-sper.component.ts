@@ -40,6 +40,7 @@ export class CapitalSperComponent {
     (await this.carteService.getCartes()).forEach(carte => this.cartesNb[carte.id] = 0);
     this.carteService.getObjet();
     this.lancer = false;
+    this.carteService.partie = null;
     
   }
 

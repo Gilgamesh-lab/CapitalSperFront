@@ -41,7 +41,8 @@ export class SearchcarteComponent implements OnInit{
       // concatMap / mergeMap / SwitchMap
       switchMap((mot) => this.carteService.cherchercarte(mot)),
       pipe(map((arr =>
-        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (!this.isCapitalSper || carte.filter(id => id == r.idOrdreAppel).length != 0)  )  )  )))
+        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (!this.isCapitalSper || carte.filter(id => id == r.idOrdreAppel).length != 0)
+        && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0)  )  )  )))
     );
     
     

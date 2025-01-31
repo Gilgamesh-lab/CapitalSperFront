@@ -78,7 +78,8 @@ export class carteService {
       })
     };
     var tab: number[];
-    let url: string = `http://localhost:8080/api/getPersonnages`;
+    console.log(this.utilsService.getEndPoint());
+    let url: string = `${this.utilsService.getEndPoint()}/api/getPersonnages`;
     this.tab = await firstValueFrom(this.http.get<number[]>(url, httpOptions).pipe(take(1)));
     return this.tab
     
@@ -86,9 +87,7 @@ export class carteService {
 
     async createPost(data: any): Promise<void> {
       interface ApiResponse {
-        message: string;
-        status: string;
-        log: string; // '?' signifie que 'log' est optionnel
+        log: string; 
       }
 
       let responseData: string ;
@@ -97,7 +96,7 @@ export class carteService {
           'Content-Type': 'application/json', 
         })
       };
-      let url: string = `http://localhost:8080/api/lancerUnePartie`;
+      let url: string = `${this.utilsService.getEndPoint()}/api/lancerUnePartie`;
       this.http.post(url, data, httpOptions ).subscribe(
         (response: ApiResponse )=> {
           this.partie = response.log;
@@ -125,7 +124,7 @@ export class carteService {
 
   incrementerNb(carte: Carte): void {
     
-    if(carte.id == CARTES[0].id || carte.id == CARTES[1].id){
+    if(carte.id == 1 || carte.id == 2){
       this.cartesNb[carte.id] += 1; 
     }
     else{

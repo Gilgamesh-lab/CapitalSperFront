@@ -11,7 +11,7 @@ deployGit:
 	git push 
 	git checkout develop
 	
-deployFireBase:
+deployFirebase:
 	git push
 	git checkout master
 	git merge develop

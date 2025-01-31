@@ -18,12 +18,10 @@ export class UtilsService {
   */
   getEndPoint(): EndPoint {
     if (environment.production) {
-         console.log("prod");
       return {
         apiUrl: environment.apiUrl,
       }
     } else {
-              console.log("dev");
       return {
         apiUrl: environment.apiUrl,
       }
