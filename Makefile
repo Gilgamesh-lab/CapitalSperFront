@@ -1,7 +1,7 @@
 # Tâches
 
 deployGit:
-	git push
+	git push 
 	git checkout master
 	git merge develop
 	ng build --output-path docs --base-href CapitalSperFront
@@ -27,5 +27,10 @@ off:
 
 startBdd:
 	firebase emulators:start
+	
+run:
+	ng serve
+	
+
 	
 	
