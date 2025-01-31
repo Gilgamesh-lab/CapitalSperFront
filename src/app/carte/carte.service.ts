@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Carte } from './carte';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, firstValueFrom, of, take, tap } from 'rxjs';
+import { Observable, catchError, delay, firstValueFrom, of, retry, take, tap } from 'rxjs';
 import { CAMPS } from './mock-camps-list';
 import { Camp } from './camp';
 import { TYPESDEPOUVOIR } from './mock-typesDePouvoirs-list';
@@ -66,6 +66,9 @@ export class carteService {
   }
 
 
+
+
+  
   
 
 
@@ -78,9 +81,11 @@ export class carteService {
       })
     };
     var tab: number[];
-    console.log(this.utilsService.getEndPoint());
     let url: string = `${this.utilsService.getEndPoint().apiUrl}/api/getPersonnages`;
-    this.tab = await firstValueFrom(this.http.get<number[]>(url, httpOptions).pipe(take(1)));
+    this.tab = await firstValueFrom(this.http.get<number[]>(url, httpOptions)
+                                                            .pipe(retry(3) ,
+                                                            take(1),
+                                                            delay(2000)));
     return this.tab
     
     }
@@ -97,7 +102,10 @@ export class carteService {
         })
       };
       let url: string = `${this.utilsService.getEndPoint().apiUrl}/api/lancerUnePartie`;
-      this.http.post(url, data, httpOptions ).subscribe(
+      this.http.post(url, data, httpOptions ).pipe(retry(3) ,
+      take(1),
+      delay(2000))
+      .subscribe(
         (response: ApiResponse )=> {
           this.partie = response.log;
         },
