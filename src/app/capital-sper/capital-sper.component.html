@@ -47,11 +47,11 @@
 
 </div>
 
-<div *ngIf="this.lancer && !this.tab " >
+<div *ngIf="this.lancer && !this.getCartService().partie " >
     <app-loader></app-loader>
 </div>
 
-<div *ngIf="this.lancer && this.tab ">
+<div *ngIf="this.lancer && !this.getCartService().partie ">
   <div  class="row">
     <div class="col s12 m8 offset-m2">
     <div class="card vertical hoverable" >
@@ -61,7 +61,7 @@
           border-collapse: collapse;
           table-layout: auto;" >
             <tbody >
-                <pre style=" white-space: pre-wrap;">{{ this.getPartie() }}</pre>
+                <pre style=" white-space: pre-wrap;">{{ !this.getCartService().partie }}</pre>
             </tbody>
             </table> 
         </div>

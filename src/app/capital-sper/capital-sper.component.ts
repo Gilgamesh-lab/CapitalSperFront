@@ -55,8 +55,8 @@ export class CapitalSperComponent {
     
   }
 
-  getPartie(){
-    this.tab =  this.carteService.partie;
+  getCartService(){
+    return this.carteService;
   }
 
    getObjet (): void{
