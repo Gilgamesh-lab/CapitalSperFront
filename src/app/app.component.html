@@ -1,42 +1,15 @@
 
-<nav>
-  <div class="nav-wrapper teal">
+  <app-nav></app-nav>
     
-    <div *ngIf="estConnecter()" (click)="goToTableauDeBord()" class="left" style="cursor: pointer;">
-      <i class=" inline-icon material-icons left" style="vertical-align: top;" >build</i>
-    </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 
-    <div>
 
-    
-      <a (click)="goMenu()" class="brand-logo center" style="cursor: pointer;">
-        Livret 
-      </a>
-    </div>
+  <app-footer></app-footer>
 
-    <div (click)="goMenuLogin()"  class="right" style="cursor: pointer;" >
-      <i class=" inline-icon material-icons left" style="vertical-align: top;" >account_circle</i>
-    </div>
-  </div>
-</nav>
 
-<router-outlet></router-outlet>
 
-<footer class="page-footer teal" style="bottom:0;left:0;width:100%;">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <span (click)="goPlanDuSite()" class="grey-text text-lighten-4 center" style="cursor: pointer;">Plan du site</span>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-    © 2024 Fabrice AMEGADJEN 
-    <span class="grey-text text-lighten-4 right" href="#!">Livret des loups-garous de Thiercelieux</span>
-    </div>
-  </div>
-</footer>
  
 
 

@@ -19,4 +19,15 @@ export class InMemoryDataService implements InMemoryDbService{
     let cartes: Carte[] = CARTES;
     return { cartes };
   }
+
+  get(reqInfo: any) {
+    // 🚀 Si l'URL commence par "api", utiliser InMemory API
+    console.log("test : " + reqInfo.collectionName)
+    if (reqInfo.collectionName == 'cartes') {
+      return undefined; // Laisser l’API in-memory gérer ça
+    }
+
+    // 🔥 Sinon, laisser passer la requête vers Spring Boot
+    return null;
+  }
 }
