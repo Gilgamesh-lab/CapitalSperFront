@@ -23,6 +23,7 @@ export class SearchcarteComponent implements OnInit{
   cartes: Observable<Carte[]>;
   isCapitalSper: boolean;
   string; mot;
+  carteDisponible: number[];
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService){
     
@@ -30,7 +31,7 @@ export class SearchcarteComponent implements OnInit{
 
   async ngOnInit(): Promise<void> {
     this.isCapitalSper = this.router.url.includes('capital-sper');
-    let carte: number[] = await this.carteService.getObjet();
+    this.carteDisponible = await this.carteService.getObjet();
     this.cartes = this.searchTerms.pipe(
       //  {..."a"."ab"..."abz"."ab"....abc......}
       debounceTime(300), // pour éliminer des requêtes dont à pas besoin
@@ -41,7 +42,7 @@ export class SearchcarteComponent implements OnInit{
       // concatMap / mergeMap / SwitchMap
       switchMap((mot) => this.carteService.cherchercarte(mot)),
       pipe(map((arr =>
-        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (!this.isCapitalSper || carte.filter(id => id == r.idOrdreAppel).length != 0)
+        arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (!this.isCapitalSper || this.carteDisponible.filter(id => id == r.idOrdreAppel).length != 0)
         && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0)  )  )  )))
     );
     
@@ -50,7 +51,6 @@ export class SearchcarteComponent implements OnInit{
   }
 
   async init(): Promise<void>{
-    let carte: number[] = await this.carteService.getObjet();
     this.cartes =  this.searchTerms.pipe(
       //  {..."a"."ab"..."abz"."ab"....abc......}
       debounceTime(300), // pour éliminer des requêtes dont à pas besoin
@@ -62,7 +62,7 @@ export class SearchcarteComponent implements OnInit{
       switchMap((mot) => this.carteService.cherchercarte(mot)),
       pipe(map((arr =>
         arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0) 
-      && carte.filter(id => id == r.idOrdreAppel).length != 0  ) ))))
+      && this.carteDisponible.filter(id => id == r.idOrdreAppel).length != 0  ) ))))
     );
   }
 
