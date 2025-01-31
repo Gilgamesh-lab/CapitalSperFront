@@ -79,7 +79,7 @@ export class carteService {
     };
     var tab: number[];
     console.log(this.utilsService.getEndPoint());
-    let url: string = `${this.utilsService.getEndPoint()}/api/getPersonnages`;
+    let url: string = `${this.utilsService.getEndPoint().apiUrl}/api/getPersonnages`;
     this.tab = await firstValueFrom(this.http.get<number[]>(url, httpOptions).pipe(take(1)));
     return this.tab
     
@@ -96,7 +96,7 @@ export class carteService {
           'Content-Type': 'application/json', 
         })
       };
-      let url: string = `${this.utilsService.getEndPoint()}/api/lancerUnePartie`;
+      let url: string = `${this.utilsService.getEndPoint().apiUrl}/api/lancerUnePartie`;
       this.http.post(url, data, httpOptions ).subscribe(
         (response: ApiResponse )=> {
           this.partie = response.log;
