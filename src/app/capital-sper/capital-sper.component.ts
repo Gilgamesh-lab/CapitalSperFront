@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import {carteService} from '../carte/carte.service'
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
-import { Observable, retry } from 'rxjs';
+import { Observable, filter, retry } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { UtilsService } from '../utils.service';
 import { CARTES } from '../carte/mock-cartes-list';
 import { LoaderComponent } from '../carte/loader/loader.component';
 import { AppComponent } from '../app.component';
+import { Camp } from '../carte/camp';
 
 @Component({
   selector: 'app-capital-sper',
@@ -22,11 +23,11 @@ import { AppComponent } from '../app.component';
 export class CapitalSperComponent {
   cartesNb: { [id: number] : number; } = {};
   nbPartie: number;
-  singleEvents$
   lancer: boolean;
   log: any = undefined;
   data: any;
   tab: string;
+  messageDonneeIncorrecte: string;
   
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService, private app:AppComponent){
@@ -39,9 +40,13 @@ export class CapitalSperComponent {
       this.carteService.initCarte(await this.carteService.getCartes())
     }
     (await this.carteService.getCartes()).forEach(carte => this.cartesNb[carte.id] = 0);
-    this.carteService.getObjet();
+    if(this.carteService.tab == undefined){
+      this.carteService.getObjet();
+    }
+    
     this.lancer = false;
     this.carteService.partie = null;
+    this.carteService.erreur = false;
     
   }
 
@@ -86,27 +91,25 @@ export class CapitalSperComponent {
     this.carteService.dimunuerNb(carte);
   }
 
-  async simulation(){
+   simulation(){
     let carteCapitalSper: Carte[] = this.carteService.getCarteCapitalSper();
-    let cartesNb: { [id: number] : number; } = await this.carteService.getCartesNb();
 
-    let nbSimpleVillageois: number = cartesNb[1];
-    let nbLoupGarous: number = cartesNb[2];
     let aUnMaire: boolean = carteCapitalSper.filter(carte => carte.id == 13).length != 0;
     let nbPartie: number  = +(<HTMLInputElement>document.getElementById("nbPartie")).value;
     let listeId: number[] = carteCapitalSper.map(carte => carte.idOrdreAppel).filter(id => id != 98 && id != 15 && id != 21);
 
     this.data = {
-      nbSimpleVillageois : nbSimpleVillageois,
-      nbLoupGarou : nbLoupGarous,
+      nbSimpleVillageois : this.cartesNb[1],
+      nbLoupGarou : this.cartesNb[2],
       aUnMaire : aUnMaire,
       nbPartie : nbPartie,
       listeIdRolePersonnageSpecial : listeId
       
     }
-
-    this.carteService.createPost(this.data)
     this.lancer = true;
+    this.getCartService().partie = undefined;
+    this.carteService.createPost(this.data)
+    
 
   
 
@@ -117,6 +120,36 @@ export class CapitalSperComponent {
 
   }
 
+  public checkData(): boolean{
+
+    let listeId: number[] = this.carteService.getCarteCapitalSper().map(carte => carte.idOrdreAppel).filter(id => id != 98 && id != 15 && id != 21);
+
+    if(!(<HTMLInputElement>document.getElementById("nbPartie")).value){
+      return true;
+    }
+
+    else if(+(<HTMLInputElement>document.getElementById("nbPartie")).value > 100 || +(<HTMLInputElement>document.getElementById("nbPartie")).value <= 0 ){
+      return true;
+    }
+    
+    
+    else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length < 3){
+        return true;
+      }
+
+    else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length > 25){
+      return true;
+    }
+    
+    else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
+      return true;// Si ils font tous partit du même camps
+    }
+
+    return false;
+    
+      
+  }
+
   public retour(){
     this.lancer = false;
     this.carteService.partie = null;
@@ -124,6 +157,8 @@ export class CapitalSperComponent {
   }
 
   public relancer(){
+    this.lancer = true;
+    this.getCartService().partie = undefined;
     this.carteService.createPost(this.data);
     window.top.window.scrollTo(0,0);
   }

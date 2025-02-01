@@ -31,7 +31,10 @@ export class SearchcarteComponent implements OnInit{
 
   async ngOnInit(): Promise<void> {
     this.isCapitalSper = this.router.url.includes('capital-sper');
-    this.carteDisponible = await this.carteService.getObjet();
+    if(this.isCapitalSper){
+      this.carteDisponible = this.carteService.tab;
+    }
+    
     this.cartes = this.searchTerms.pipe(
       //  {..."a"."ab"..."abz"."ab"....abc......}
       debounceTime(300), // pour éliminer des requêtes dont à pas besoin

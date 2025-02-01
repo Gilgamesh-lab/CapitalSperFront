@@ -1,5 +1,10 @@
+<div *ngIf=" (this.lancer && !this.getCartService().partie) || (!this.lancer && !this.getCartService().tab && !this.getCartService().erreur) " class="center" >
+    <app-loader></app-loader>
+</div>
 
-<div *ngIf="!this.lancer" class='container'>
+
+
+<div *ngIf="!this.lancer && this.getCartService().tab" class='container'>
         <div   *ngFor="let carte of this.getCartes()" style="color: rgb(3, 155, 229);
          ;display: inline-block;cursor: pointer;" 
         ><!-- async = subcribe-->
@@ -35,7 +40,7 @@
             <label for="nbPartie" ></label>
             <input placeholder="Entrer le nombre de partie que vous voulez lancer entre 1 et 100 : " id="nbPartie" type="number" min="1"  max="100" (keyup)="setNbPartie()">
            </div>
-        <button class="btn waves-effect waves-light" name="action" (click)="this.simulation()"  >Lancer une simulation
+        <button class="btn waves-effect waves-light" name="action" [disabled]="checkData()" (click)="this.simulation()"  >Lancer une simulation
             <i class="material-icons right">send</i>
         </button>
         
@@ -47,11 +52,9 @@
 
 </div>
 
-<div *ngIf="this.lancer && !this.getCartService().partie " >
-    <app-loader></app-loader>
-</div>
 
-<div *ngIf="this.lancer && this.getCartService().partie ">
+
+<div *ngIf="(this.lancer || this.getCartService().erreur)&& this.getCartService().partie ">
   <div  class="row">
     <div class="col s12 m8 offset-m2">
     <div class="card vertical hoverable" >
@@ -65,10 +68,13 @@
             </tbody>
             </table> 
         </div>
+        <div *ngIf="this.getCartService().erreur" class="center">
+            <img src="erreur.png" class="responsive-img" style="width: 50%;"/>
+        </div>
         <div class="card-action">
             <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
-            <a (click)="retour()" style="cursor: pointer;">Retour</a>
-            <a (click)="relancer()" style="cursor: pointer;">Relancer</a>
+            <a *ngIf="!this.getCartService().erreur" (click)="retour()" style="cursor: pointer;">Retour</a>
+            <a *ngIf="!this.getCartService().erreur" (click)="relancer()" style="cursor: pointer;">Relancer</a>
           </div>
     </div>
 
