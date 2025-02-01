@@ -17,7 +17,7 @@ export class FooterComponent {
   }
 
   isFooterFixe(){
-    return (this.router.url.includes('capital-sper') && !this.carteService.partie  )|| this.router.url.includes('login');
+    return (this.router.url.includes('login'));
   }
 
 

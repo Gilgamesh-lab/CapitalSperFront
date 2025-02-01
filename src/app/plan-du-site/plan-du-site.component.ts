@@ -43,7 +43,11 @@ export class PlanDuSiteComponent {
   }
 
   goRegles(){
-    this.router.navigate(['regles']);
+    this.router.navigate(['/regles']);
+  }
+
+  goCapitalSper(){
+    this.router.navigate(['/capital-sper']);
   }
 
   goTocarte(carte: Carte){

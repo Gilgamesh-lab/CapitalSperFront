@@ -47,6 +47,7 @@ export class carteService {
   carteCapitalSper: Carte[] = [];
   tab: number[];
   partie: string;
+  erreur: boolean = false;
 
   async ngOnInit() : Promise<void>{
     const app = initializeApp(firebaseConfig);
@@ -54,6 +55,7 @@ export class carteService {
     const querySnapshot = getDocs(collection(db, "Cartes"));
     this.premiereInstanceTableauDeBord = true;
     (await this.getCartes()).forEach(carte => this.cartesNb[carte.id] == 0);
+    this.getObjet();
     
   }
 
@@ -61,7 +63,7 @@ export class carteService {
   
   constructor(private http: HttpClient, private auth: AuthService,  private utilsService: UtilsService, private router: Router) { }
 
-  async getCartesNb(): Promise<{ [id: number]: number; }>{
+  getCartesNb(): { [id: number]: number; }{
     return this.cartesNb;
   }
 
@@ -75,6 +77,18 @@ export class carteService {
   
 
   async getObjet (): Promise<number[]> {
+    interface ApiResponse {
+      log: string; 
+      erreur: string;
+      code: number;
+      liste: number[];
+    }
+
+    interface ResponseEntity {
+      status: number;
+      error: ApiResponse
+    }
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -82,27 +96,38 @@ export class carteService {
     };
     var tab: number[];
     let url: string = `${this.utilsService.getEndPoint().apiUrl}/api/getPersonnages`;
-    this.tab = await firstValueFrom(this.http.get<number[]>(url, httpOptions)
-                                                            .pipe(retry(3) ,
-                                                            take(1),
-                                                            delay(2000)));
+    this.http.get(url, httpOptions)
+    .pipe(retry({ count: 3, delay: (error, retryCount) => {
+      console.warn(`Tentative ${retryCount} après échec :`, error);
+      return of(null).pipe(delay(2000)); // ⏳ Délai de 2 sec SEULEMENT si erreur
+    }}  ) ,
+    take(1))
+    .subscribe(
+      (response: ApiResponse )=> {
+        this.erreur = false;
+        this.tab = response.liste;
+        
+        
+      },
+      (error : ResponseEntity) => {
+        this.erreur = true;
+        this.partie = this.partie = "Le service est malheureusement indisponible, veuillez réessayer ultérieurement";
+      }
+    );
     return this.tab
     
     }
 
-   /* retry({ count: 3, delay: (error, retryCount) => {
-      console.warn(`Tentative ${retryCount} après échec :`, error);
-      return of(null).pipe(delay(2000)); // ⏳ Délai de 2 sec SEULEMENT si erreur
-    }}),
-    catchError(error => {
-      console.error('Erreur API après plusieurs essais :', error);
-      return throwError(() => new Error('Impossible de récupérer les personnages'));
-    })
-  );*/
-
     async createPost(data: any): Promise<void> {
       interface ApiResponse {
         log: string; 
+        erreur: string;
+        code: number;
+      }
+
+      interface ResponseEntity {
+        status: number;
+        error: ApiResponse
       }
 
       let responseData: string ;
@@ -120,9 +145,19 @@ export class carteService {
       .subscribe(
         (response: ApiResponse )=> {
           this.partie = response.log;
+          
+          
         },
-        error => {
-          console.error('Erreur :', error);
+        (error : ResponseEntity) => {
+          if (error.status == 400){
+            this.partie = error.error.erreur;
+          }
+          else if (error.status == 500){
+            this.partie = error.error.erreur;
+          }
+          else{
+            this.partie = "Le service est malheureusement indisponible, veuillez réessayer ultérieurement";
+          }
         }
       );
     }
