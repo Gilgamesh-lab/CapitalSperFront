@@ -28,18 +28,22 @@ export class AppComponent {
 
   goMenu(){
     this.router.navigate(['/']);
+    window.top.window.scrollTo(0,0);
   }
 
   goToCapitalSper(){
     this.router.navigate(['/capital-sper']);
+    window.top.window.scrollTo(0,0);
   }
 
   goToTableauDeBord(){
     this.router.navigate(['/tableau-de-bord']);
+    window.top.window.scrollTo(0,0);
   }
 
   goTo404(){
     this.router.navigate(['/pageNotFound']);
+    window.top.window.scrollTo(0,0);
   }
 
   estConnecter(): boolean{
@@ -54,10 +58,12 @@ export class AppComponent {
   goMenuLogin(){
     this.auth.redirectUrl = this.router.url;
     this.router.navigate(['/login']);
+    window.top.window.scrollTo(0,0);
   }
 
   goTocarte(carte: Carte){
     this.router.navigate(['/cartes', carte.id])
+    window.top.window.scrollTo(0,0);
   }
 
   public goToPrevious(): void {

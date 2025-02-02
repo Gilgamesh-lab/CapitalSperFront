@@ -73,6 +73,7 @@ export class DetailcarteComponent implements OnInit{
 
   goMenu(){
     this.router.navigate(['/']);
+    window.top.window.scrollTo(0,0);
   }
 
   
@@ -81,18 +82,22 @@ export class DetailcarteComponent implements OnInit{
 
   goToStatut(idStatut: number){
     this.router.navigate(['/statut', idStatut]);
+    window.top.window.scrollTo(0,0);
   }
 
   goToCamp(camp: Camp){
     this.router.navigate(['/camps', camp.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   goToPouvoir(pouvoir: typesDePouvoirs){
     this.router.navigate(['/typesDePouvoirs', pouvoir.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   goToType(type: typesDeCartes){
     this.router.navigate(['/typesDeCartes', type.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   goToEdit(carte: Carte){
