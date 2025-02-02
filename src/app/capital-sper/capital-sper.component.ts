@@ -122,30 +122,38 @@ export class CapitalSperComponent {
 
   public checkData(): boolean{
 
-    let listeId: number[] = this.carteService.getCarteCapitalSper().map(carte => carte.idOrdreAppel).filter(id => id != 98 && id != 15 && id != 21);
+    if(!this.lancer && this.getCartService().tab){
+      let listeId: number[] = this.carteService.getCarteCapitalSper().map(carte => carte.idOrdreAppel).filter(id => id != 98 && id != 15 && id != 21);
 
-    if(!(<HTMLInputElement>document.getElementById("nbPartie")).value){
-      return true;
-    }
-
-    else if(+(<HTMLInputElement>document.getElementById("nbPartie")).value > 100 || +(<HTMLInputElement>document.getElementById("nbPartie")).value <= 0 ){
-      return true;
-    }
-    
-    
-    else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length < 3){
+      if(!(<HTMLInputElement>document.getElementById("nbPartie")).value){
         return true;
       }
 
-    else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length > 25){
-      return true;
-    }
-    
-    else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
-      return true;// Si ils font tous partit du même camps
+      else if(+(<HTMLInputElement>document.getElementById("nbPartie")).value > 100 || +(<HTMLInputElement>document.getElementById("nbPartie")).value <= 0 ){
+        return true;
+      }
+      
+      
+      else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length < 3){
+          return true;
+        }
+
+      else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length > 25){
+        return true;
+      }
+      
+      else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
+        return true;// Si ils font tous partit du même camps
+      }
+
+      return false;
     }
 
-    return false;
+    else{
+      return true;
+    }
+
+    
     
       
   }
