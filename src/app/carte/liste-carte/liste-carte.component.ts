@@ -60,6 +60,9 @@ export class ListecarteComponent implements OnInit {
     if(this.carteService.cartes == undefined){
       this.carteService.initCarte(await this.carteService.getCartes())
     }
+    if(this.carteService.tab == undefined){
+      this.carteService.getObjet();
+    }
     this.ListeDecartes = this.carteService.cartes;
     this.bdd.createDb();
   }  
@@ -68,6 +71,7 @@ export class ListecarteComponent implements OnInit {
 
   goTocarte(carte: Carte){
     this.router.navigate(['/cartes', carte.id])
+    window.top.window.scrollTo(0,0);
   }
 
   goToAdd(){
@@ -76,6 +80,7 @@ export class ListecarteComponent implements OnInit {
 
   goToRegles(){
     this.router.navigate(['/regles'])
+    window.top.window.scrollTo(0,0);
   }
 
 

@@ -55,10 +55,12 @@ export class StatutComponent implements OnInit{
 
   goMenu(){
     this.router.navigate(['/']);
+    window.top.window.scrollTo(0,0);
   }
 
   goTocarte(carte: Carte){
     this.router.navigate(['/cartes', carte.id])
+    window.top.window.scrollTo(0,0);
   }
 
 
