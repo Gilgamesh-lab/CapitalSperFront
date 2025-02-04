@@ -1,32 +1,15 @@
-<footer *ngIf="isFooterFixe()" class="page-footer teal" style="position:fixed;bottom:0;left:0;width:100%;" >
+<footer  class="page-footer teal" >
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <span (click)="goPlanDuSite()" class="grey-text text-lighten-4 center" style="cursor: pointer;">Plan du site</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <span (click)="goPlanDuSite()" class="grey-text text-lighten-4 center" style="cursor: pointer;">Plan du site</span>
-        </div>
-      </div>
+    © 2025 Fabrice AMEGADJEN 
+    <span class="grey-text text-lighten-4 right" href="#!">Livret des loups-garous de Thiercelieux</span>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      © 2025 Fabrice AMEGADJEN 
-      <span class="grey-text text-lighten-4 right" href="#!">Livret des loups-garous de Thiercelieux</span>
-      </div>
-    </div>
-  </footer>
-
-
-  <footer *ngIf="!isFooterFixe()" class="page-footer teal" >
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <span (click)="goPlanDuSite()" class="grey-text text-lighten-4 center" style="cursor: pointer;">Plan du site</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      © 2025 Fabrice AMEGADJEN 
-      <span class="grey-text text-lighten-4 right" href="#!">Livret des loups-garous de Thiercelieux</span>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
