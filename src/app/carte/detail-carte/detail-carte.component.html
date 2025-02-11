@@ -14,6 +14,7 @@
               <tr >
                 <td></td>
                 <td style="text-align:center">
+                    <i *ngIf="carte.bruitage"  class=" inline-icon material-icons left responsive-img" (click)="playAudio(carte.bruitage)" style="cursor: pointer;" > volume_up </i>
                     <img [src]="carte.illustration" class="responsive-img" style="width: 40%;padding-top: 20%;height: 100%;" [alt]="carte.nom" >
                     <img [src]="carte.imageLore" class="right responsive-img" style="width: 40%;height: 100%;" [alt]="carte.nom" >
                </td>
