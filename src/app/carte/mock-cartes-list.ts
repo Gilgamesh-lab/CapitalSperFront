@@ -189,7 +189,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         camps: CAMPS[0],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "lore/corbeauLore.png",
-        description: "Chaque nuit, le Corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup garou. "+
+        description: "Chaque nuit, le Corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup-garou. "+
         "Le meneur dépose alors le marqueur «affiche anonyme» devant ce joueur, qui aura automatiquement deux voix de plus contre lui lors du vote de la prochaine phase de jour. "+
         "Le Corbeau n’est pas obligé de médire quelqu’un, il peut refuser la proposition du meneur pour éviter d’handicaper un joueur. " ,
         typeDeCarte: TYPESDECARTES[0],
