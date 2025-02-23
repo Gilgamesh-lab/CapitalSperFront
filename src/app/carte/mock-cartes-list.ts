@@ -19,7 +19,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 21
+        idOrdreAppel: 21,
+        bruitage: "bruitages/simple_villageois.mp3",
     },
     {
         id: 2, // à garder en deuxième position ( voir regles.ts --> ordre d'appel)
@@ -34,7 +35,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: true,
-        idOrdreAppel: 15
+        idOrdreAppel: 15,
+        bruitage: "bruitages/simple_loup-garou.mp3",
     },
     {
         id: 3,
@@ -49,7 +51,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: true,
-        idOrdreAppel: 4
+        idOrdreAppel: 4,
+        bruitage: "bruitages/voyante.mp3",
     },
     {
         id: 4,
@@ -67,7 +70,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: true,
-        idOrdreAppel: 19
+        idOrdreAppel: 19,
+        bruitage: "bruitages/sorciere.mp3",
     },
     {
         id: 5,
@@ -83,7 +87,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 22
+        idOrdreAppel: 22,
+        bruitage: "bruitages/chasseur.mp3",
     },
     {
         id: 6,
@@ -99,7 +104,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: false,
-        idOrdreAppel: 3
+        idOrdreAppel: 3,
+        bruitage: "bruitages/Cupidon.mp3",
     },
     {
         id: 23,
@@ -116,7 +122,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: "bruitages/petite_fille.mp3",
     },
     {
         id: 24,
@@ -134,7 +141,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: false,
-        idOrdreAppel: 1
+        idOrdreAppel: 1,
+        bruitage: "bruitages/voleur.mp3",
     },
     {
         id: 7,
@@ -152,7 +160,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: true,
-        idOrdreAppel: 14
+        idOrdreAppel: 14,
+        bruitage: "bruitages/salvateur.mp3",
     },
     {
         id: 8,
@@ -169,7 +178,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: false,
-        idOrdreAppel: 11
+        idOrdreAppel: 11,
+        bruitage: "bruitages/montreurs_d_ours.wav",
     },
     {
         id: 9,
@@ -186,7 +196,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: true,
-        idOrdreAppel: 12
+        idOrdreAppel: 12,
+        bruitage: "bruitages/corbeau.mp3",
     },
     {
         id: 10,
@@ -203,7 +214,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: true,
-        idOrdreAppel: 13
+        idOrdreAppel: 13,
+        bruitage: null,
     },
     {
         id: 11,
@@ -220,7 +232,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: false,
-        idOrdreAppel: 8
+        idOrdreAppel: 8,
+        bruitage: null,
     },
     {
         id: 12,
@@ -236,7 +249,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: true,
-        idOrdreAppel: 17
+        idOrdreAppel: 17,
+        bruitage: null,
     },
     {
         id: 13,
@@ -252,7 +266,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 98
+        idOrdreAppel: 98,
+        bruitage: "bruitages/capitaine.mp3",
     },
     {
         id: 14,
@@ -268,7 +283,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 15,
@@ -285,7 +301,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: 'Les Fermes',
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 16,
@@ -301,7 +318,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "L'ecole",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 17,
@@ -317,7 +335,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "Le manoir",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 18,
@@ -334,7 +353,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "La maison du Bailli",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 19,
@@ -351,7 +371,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "L'échoppe du Barbier",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 20,
@@ -367,7 +388,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "L'église",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 21,
@@ -383,7 +405,8 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "La boulangerie",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     },
     {
         id: 22,
@@ -399,6 +422,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: "La masure",
         estActiver: false,
         periodiciter: null,
-        idOrdreAppel: null
+        idOrdreAppel: null,
+        bruitage: null,
     }
 ];

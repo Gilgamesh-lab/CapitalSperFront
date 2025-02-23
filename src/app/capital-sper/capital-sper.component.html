@@ -6,7 +6,7 @@
 
 <div *ngIf="!this.lancer && this.getCartService().tab" class='container'>
         <div   *ngFor="let carte of this.getCartes()" style="color: rgb(3, 155, 229);
-         ;display: inline-block;cursor: pointer;" 
+         ;display: inline-block;" 
         ><!-- async = subcribe-->
             <tbody  >
                 <tr >
@@ -18,10 +18,10 @@
                         </div>
                         <img class="responsive-img" [src]="carte.illustration"  style="width: 50%;" [alt]="carte.nom" >
                         <div class="card-action">
-                            <i *ngIf="this.getNb(carte.id) == 1" class=" inline-icon material-icons left" (click)="this.diminuer(carte)" > cancel</i>
-                            <i *ngIf="this.getNb(carte.id) > 1" class=" inline-icon material-icons left" (click)="this.diminuer(carte)" > - </i>
+                            <i *ngIf="this.getNb(carte.id) == 1" class=" inline-icon material-icons left" (click)="this.diminuer(carte)" style="cursor: pointer;"> cancel</i>
+                            <i *ngIf="this.getNb(carte.id) > 1" class=" inline-icon material-icons left" (click)="this.diminuer(carte)" style="cursor: pointer;" > - </i>
                             <span class="  middle"  > {{this.getNb(carte.id)}}</span>
-                            <i *ngIf="carte.id == 1 || carte.id == 2" class=" inline-icon material-icons right" (click)="this.incrementer(carte)" >add</i>
+                            <i *ngIf="carte.id == 1 || carte.id == 2" class=" inline-icon material-icons right" (click)="this.incrementer(carte)" style="cursor: pointer;" >add</i>
                         </div>
                     
                         

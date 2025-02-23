@@ -5,13 +5,8 @@ import { Router } from '@angular/router';
 import {carteService} from '../carte/carte.service'
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
-import { Observable, filter, retry } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { UtilsService } from '../utils.service';
-import { CARTES } from '../carte/mock-cartes-list';
 import { LoaderComponent } from '../carte/loader/loader.component';
 import { AppComponent } from '../app.component';
-import { Camp } from '../carte/camp';
 
 @Component({
   selector: 'app-capital-sper',
@@ -118,6 +113,11 @@ export class CapitalSperComponent {
   public goMenu(): void {
     this.app.goMenu();
 
+  }
+
+  goTocarte(carte: Carte){
+    this.router.navigate(['/cartes', carte.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   public checkData(): boolean{

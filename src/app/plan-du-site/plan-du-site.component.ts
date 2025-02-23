@@ -40,18 +40,22 @@ export class PlanDuSiteComponent {
 
   goMenu(){
     this.router.navigate(['/']);
+    window.top.window.scrollTo(0,0);
   }
 
   goRegles(){
     this.router.navigate(['/regles']);
+    window.top.window.scrollTo(0,0);
   }
 
   goCapitalSper(){
     this.router.navigate(['/capital-sper']);
+    window.top.window.scrollTo(0,0);
   }
 
   goTocarte(carte: Carte){
-    this.router.navigate(['/cartes', carte.id])
+    this.router.navigate(['/cartes', carte.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   public typeDeCarteEstActiver(typesDeCartes: typesDeCartes): boolean{
@@ -70,6 +74,7 @@ export class PlanDuSiteComponent {
 
   goToStatut(idStatut: number){
     this.router.navigate(['/statut', idStatut]);
+    window.top.window.scrollTo(0,0);
   }
 
   getStatuts(): Statut[]{
@@ -108,14 +113,17 @@ export class PlanDuSiteComponent {
 
   goToCamp(camp: Camp){
     this.router.navigate(['/camps', camp.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   goToPouvoir(pouvoir: typesDePouvoirs){
     this.router.navigate(['/typesDePouvoirs', pouvoir.id]);
+    window.top.window.scrollTo(0,0);
   }
 
   goToType(type: typesDeCartes){
     this.router.navigate(['/typesDeCartes', type.id]);
+    window.top.window.scrollTo(0,0);
   }
 
 
