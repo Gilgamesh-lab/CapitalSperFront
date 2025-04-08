@@ -120,38 +120,39 @@ export class CapitalSperComponent {
     window.top.window.scrollTo(0,0);
   }
 
-  public checkData(): boolean{
+  public checkData(): void{
 
     if(!this.lancer && this.getCartService().tab){
       let listeId: number[] = this.carteService.getCarteCapitalSper().map(carte => carte.idOrdreAppel).filter(id => id != 98 && id != 15 && id != 21);
 
       if(!(<HTMLInputElement>document.getElementById("nbPartie")).value){
-        return true;
+        this.messageDonneeIncorrecte = "Le nombre de partie doit être définit";
       }
 
       else if(+(<HTMLInputElement>document.getElementById("nbPartie")).value > 100 || +(<HTMLInputElement>document.getElementById("nbPartie")).value <= 0 ){
-        return true;
+        this.messageDonneeIncorrecte = "Le nombre de partie doit être un nombre entre 1 et 100";
       }
       
       
       else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length < 3){
-          return true;
+        this.messageDonneeIncorrecte = "La partie doit être composé d'au moins 3 personnages";
         }
 
       else if(this.cartesNb[1] + this.cartesNb[2] + listeId.length > 25){
-        return true;
+        this.messageDonneeIncorrecte = "La partie peut-être composé au maximun de 25 personnages";
       }
       
       else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
-        return true;// Si ils font tous partit du même camps
+        this.messageDonneeIncorrecte = "La partie doit être composé d'au moins 2 personnages de camps différents";
       }
 
-      return false;
+      else{
+        this.simulation();
+        this.messageDonneeIncorrecte = undefined;
+      }
     }
 
-    else{
-      return true;
-    }
+    
 
     
     
