@@ -143,7 +143,7 @@ export class CapitalSperComponent {
       }
       
       else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
-        this.messageDonneeIncorrecte = "La partie doit être composé d'au moins 2 personnages de camps différents";
+        this.messageDonneeIncorrecte = "La partie doit être composé d'au moins 1 personnage du camps des villageois et 1 personnage du camps des loups-garous";
       }
 
       else{
