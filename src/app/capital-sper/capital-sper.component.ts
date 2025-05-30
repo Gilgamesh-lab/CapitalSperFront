@@ -17,12 +17,13 @@ import { AppComponent } from '../app.component';
 })
 export class CapitalSperComponent {
   cartesNb: { [id: number] : number; } = {};
-  nbPartie: number;
+  nbPartie: number ;
   lancer: boolean;
   log: any = undefined;
   data: any;
   tab: string;
   messageDonneeIncorrecte: string;
+  modeAmbiance: boolean = false;
   
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService, private app:AppComponent){
@@ -48,11 +49,25 @@ export class CapitalSperComponent {
   setNbPartie(){
     this.nbPartie = +(<HTMLInputElement>document.getElementById("nbPartie")).value;
     
-    if(this.nbPartie > 100){
-      (<HTMLInputElement>document.getElementById("nbPartie")).value = "100";
+    
+  }
+
+  getNbpartie(): number{
+    if(this.nbPartie){
+      return this.nbPartie;
     }
-    
-    
+    else{
+      return undefined;
+    }
+  }
+
+  getModeAmbiance(): boolean{
+    if(this.modeAmbiance){
+      return this.modeAmbiance;
+    }
+    else{
+      return false;
+    }
   }
 
   getCartService(){
@@ -72,6 +87,10 @@ export class CapitalSperComponent {
   goToDetail(carte: Carte){
     const link = ['/cartes', carte.id];
     this.router.navigate(link);
+  }
+
+  selectModeAmbiance(): void{
+      this.modeAmbiance = !this.modeAmbiance;
   }
 
   getCartes(): Carte[]{
@@ -98,7 +117,8 @@ export class CapitalSperComponent {
       nbLoupGarou : this.cartesNb[2],
       aUnMaire : aUnMaire,
       nbPartie : nbPartie,
-      listeIdRolePersonnageSpecial : listeId
+      listeIdRolePersonnageSpecial : listeId,
+      modeAmbiance : this.modeAmbiance
       
     }
     this.lancer = true;
