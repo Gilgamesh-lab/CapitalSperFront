@@ -31,6 +31,8 @@ startBdd:
 run:
 	ng serve
 	
+deploy:
+	ssh -R mon-projet:80:localhost:4200 serveo.net
 
 	
 	
