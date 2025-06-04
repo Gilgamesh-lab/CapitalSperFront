@@ -43,3 +43,13 @@ Thumbs.db
 
 #firebase
 firebase-debug.log
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
