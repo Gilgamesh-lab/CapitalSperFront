@@ -16,9 +16,9 @@ deployFirebase:
 	git checkout master
 	git merge develop
 	ng build --configuration=production
+	git push
 	firebase login
 	firebase deploy
-	git push
 	git checkout develop
 
 off:
