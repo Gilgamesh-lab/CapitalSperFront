@@ -1,15 +1,21 @@
-<h1 class="center">Règles du jeu</h1>
+<h1 class="center">Les règles du jeu</h1>
 <div *ngIf="this.carteService.cartes" class="col s12 m7">
     <div class="card horizontal">
         <div class="card-stacked">
             <div class="card-content" >
                 <h2>C'est quoi ?</h2>
                 <p >
-                    Les loups-garous de Thiercelieux est un jeu à rôle, à objectif secret et d'ambiance inspiré de 
-                    <a href="https://www.eblong.com/zarf/werewolf.html" target="_blank">Werewolf</a> crée par 
-                    <a href="https://en.wikipedia.org/wiki/Andrew_Plotkin#Other_work" target="_blank">Andrew Plotkin</a> en 1997 une variante remplaçant les mafieux par des loups-garous dans le jeu 
+                    <a href="https://fr.wikipedia.org/wiki/Les_Loups-garous_de_Thiercelieux" target="_blank">Les loups-garous de Thiercelieux</a> est un jeu à rôle, à objectif secret 
+                    et d'ambiance crée en 2001 par 
+                    <a href="https://fr.wikipedia.org/wiki/Philippe_des_Palli%C3%A8res" target="_blank">Philippe des Pallières</a> et
+                    <a href="https://fr.wikipedia.org/wiki/Herv%C3%A9_Marly" target="_blank">Hervé Marly </a>
+                    inspiré de
+                    <a href="https://www.eblong.com/zarf/werewolf.html" target="_blank">Werewolf</a>. 
+                    Crée en 1997 par <a href="https://en.wikipedia.org/wiki/Andrew_Plotkin#Other_work" target="_blank">Andrew Plotkin</a>,
+                    <a href="https://www.eblong.com/zarf/werewolf.html" target="_blank">Werewolf</a> est une variante du jeu de société
                     <a href="https://fr.wikipedia.org/wiki/Mafia_(jeu)" target="_blank">Mafia</a> crée en 1986 par 
-                    <a href="https://web.archive.org/web/19990302082118/http://members.theglobe.com/mafia_rules/" target="_blank">Dimitry Davidoff</a>.
+                    <a href="https://web.archive.org/web/19990302082118/http://members.theglobe.com/mafia_rules/" target="_blank">Dimitry Davidoff</a>
+                    remplaçant les mafieux par des loups-garous et ajoutant des rôles spéciaux dans le jeu.
                     Les loups-garous de Thiercelieux fait s'opposer deux camps : 
                     <a (click)="goCamps(1)"  class="blue-text"style="cursor: pointer;"> les villageois</a>  et <a (click)="goCamps(2)"  class="blue-text"style="cursor: pointer;"> les loups-garous</a>. 
                     Ainsi, le jour, tout semble parfaitement normal dans ce petit village reculé, mais la nuit, certains des villageois se transforment, sous la clarté de la lune,
