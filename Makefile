@@ -18,8 +18,7 @@ deployFirebase:
 	ng build --configuration=production
 	firebase login
 	firebase deploy
-	git add .
-	git commit -am "Deploiement d'une nouvelle version sur FireBase"
+	git push
 	git checkout develop
 
 off:
