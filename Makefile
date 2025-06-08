@@ -19,6 +19,8 @@ deployFirebase:
 	git push
 	firebase login
 	firebase deploy
+	git add .
+	git commit -am "Deploiement d'une nouvelle version sur Github"
 	git checkout develop
 
 off:
