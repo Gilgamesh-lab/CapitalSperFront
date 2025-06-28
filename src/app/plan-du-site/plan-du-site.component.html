@@ -4,13 +4,13 @@
         <div class="card-stacked">
             <div class="card-content center" >
                 <p class="center blue-text ">
-                    <strong (click)="goRegles()" style="text-decoration: underline;cursor: pointer;">
+                    <strong (click)="goRegles()" class="surligner pointeur">
                         Les règles du jeu
                     </strong>
                 </p>
                 <br>
                 <p class="center blue-text ">
-                    <strong (click)="goCapitalSper()" style="text-decoration: underline;cursor: pointer;">
+                    <strong (click)="goCapitalSper()" class="surligner pointeur">
                         Simulation
                     </strong>
                 </p>
@@ -18,7 +18,7 @@
 
                 <h2 >Les différentes cartes</h2>
                     <div>
-                        <ul class="collection" *ngFor="let carte of getCartes()" style="cursor: pointer;" (click)="goTocarte(carte)" >
+                        <ul class="collection pointù" *ngFor="let carte of getCartes()" (click)="goTocarte(carte)" >
                             <li class="collection-item">
                                 <div  >
                                     <img class="responsive-img" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
@@ -32,7 +32,7 @@
 
                 <h2>Les différents types de cartes</h2>
                     <div *ngFor="let type of getTypeDeCarte()">
-                        <div *ngIf="typeDeCarteEstActiver(type)" style="cursor: pointer;"  (click)="goToType(type)" >
+                        <div class="pointeur" *ngIf="typeDeCarteEstActiver(type)" (click)="goToType(type)" >
                             <ul class="collection">
                                 <li class="collection-item">
                                     <div class="blue-text center">
@@ -48,7 +48,7 @@
                 
                 <h2 *ngIf="getStatuts().length > 0" >Les différents statuts</h2>
                 <div *ngFor="let statut of getStatuts()">
-                    <div  style="cursor: pointer;"  (click)="goToStatut(statut.id)" >
+                    <div  class="pointeur"  (click)="goToStatut(statut.id)" >
                         <ul class="collection">
                             <li class="collection-item">
                                 <div class="blue-text center">
@@ -65,7 +65,7 @@
                 
                 <h2>Les différents camps</h2>
                     <div *ngFor="let camp of getCamps()">
-                        <div *ngIf="CampsEstActiver(camp)" style="cursor: pointer;"  (click)="goToCamp(camp)" >
+                        <div *ngIf="CampsEstActiver(camp)" class="pointeur" (click)="goToCamp(camp)" >
                             <ul class="collection">
                                 <li class="collection-item">
                                     <div class="blue-text center">
@@ -80,7 +80,7 @@
                     </div>
 
                 <h2>Les différents types de pouvoirs</h2>
-                <div *ngFor="let pouvoir of getTypeDePouvoir()" style="cursor: pointer;" (click)="goToPouvoir(pouvoir)">
+                <div *ngFor="let pouvoir of getTypeDePouvoir()" class="pointeur" (click)="goToPouvoir(pouvoir)">
                     <div *ngIf="typeDePouvoirsEstActiver(pouvoir)">
                         <ul class="collection">
                             <li class="collection-item">
@@ -97,7 +97,7 @@
                 
             </div>
             <div class="card-action">
-                <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+                <a (click)="goMenu()" class="pointeur">Accueil</a>
             </div>
         </div>
     </div>

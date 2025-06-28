@@ -41,6 +41,10 @@ app-root {
   cursor: pointer;
 }
 
+.surligner {
+  text-decoration: underline;
+}
+
 
 
   
