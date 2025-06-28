@@ -3,23 +3,21 @@
     <nav class="navbar">
       <div class="nav-wrapper teal">
         
-        <div *ngIf="estConnecter()" (click)="goToTableauDeBord()" class="left" style="cursor: pointer;">
-          <i class=" inline-icon material-icons left" style="vertical-align: top;" >build</i>
+        <div *ngIf="estConnecter()" (click)="goToTableauDeBord()" class="left pointeur">
+          <i class=" inline-icon material-icons left align-top"  >build</i>
         </div>
-        <div *ngIf="!estConnecter()" (click)="goToCapitalSper()" class="left card-image" style="cursor: pointer;">
-          <img class=" left inline-icon responsive-img" src="favicon.ico" alt="image" width="25%" style="vertical-align: top;" />
+        <div *ngIf="!estConnecter()" (click)="goToCapitalSper()" class="left card-image pointeur">
+          <img class=" left inline-icon responsive-img align-top" src="favicon.ico" alt="simulation" width="25%"  />
         </div>
 
         <div>
-
-        
-          <a (click)="goMenu()" class="brand-logo center" style="cursor: pointer;">
+          <a (click)="goMenu()" class="brand-logo center pointeur">
             Livret 
           </a>
         </div>
 
-        <div (click)="goMenuLogin()"  class="right" style="cursor: pointer;" >
-          <i class=" inline-icon material-icons left" style="vertical-align: top;" >account_circle</i>
+        <div (click)="goMenuLogin()"  class="right pointeur">
+          <i class=" inline-icon material-icons left align-top" >account_circle</i>
         </div>
       </div>
     </nav>
