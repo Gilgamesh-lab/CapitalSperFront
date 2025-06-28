@@ -17,7 +17,7 @@
                     <a href="https://web.archive.org/web/19990302082118/http://members.theglobe.com/mafia_rules/" target="_blank">Dimitry Davidoff</a>
                     remplaçant les mafieux par des loups-garous et ajoutant des rôles spéciaux dans le jeu.
                     Les loups-garous de Thiercelieux fait s'opposer deux camps : 
-                    <a (click)="goCamps(1)"  class="blue-text pointeur"> les villageois</a>  et <a (click)="goCamps(2)"  class="blue-text pointeur"> les loups-garous</a>. 
+                    <a (click)="goCamps(1)"  class="lien"> les villageois</a>  et <a (click)="goCamps(2)"  class="lien"> les loups-garous</a>. 
                     Ainsi, le jour, tout semble parfaitement normal dans ce petit village reculé, mais la nuit, certains des villageois se transforment, sous la clarté de la lune,
                      en loups-garous, et s'en vont dévorer leurs camarades villageois. Chaque joueur possède un rôle secret dont il prend connaissance au début de la partie. 
                     La condition de victoire des villageois est d'éliminer tous les loups-garous, qui eux, pour gagner doivent éliminer tous les villageois.
@@ -133,8 +133,8 @@
                 <h2>Mise en place</h2>
 
                 <p>
-                    Le meneur distribue à chaque joueur <a (click)="goTypePersonnages(1)"  class="blue-text pointeur"> une carte Personnage</a>
-                    face cachée qui définit son camp et son but dans la partie. Chaque joueur regarde discrètement <a (click)="goTypePersonnages(1)"  class="blue-text pointeur"> une carte Personnage</a>,
+                    Le meneur distribue à chaque joueur <a (click)="goTypePersonnages(1)"  class="lien"> une carte Personnage</a>
+                    face cachée qui définit son camp et son but dans la partie. Chaque joueur regarde discrètement <a (click)="goTypePersonnages(1)"  class="lien"> une carte Personnage</a>,
                     puis la pose face caché devant lui.
                     Vous êtes dorénavant, pour le meilleur et pour le pire, un habitant du village de Thiercelieux : un Locatercien.
                     La partie peut alors commencer...
@@ -173,7 +173,7 @@
                     La personne recevant le plus de vote est éliminé,
 
                     <span *ngIf="estFonctionActiver()">
-                        en cas d'égalité c'est <a (click)="goCartes(13)"  class="blue-text pointeur"> le Capitaine</a>   qui la tranche.
+                        en cas d'égalité c'est <a (click)="goCartes(13)"  class="lien"> le Capitaine</a>   qui la tranche.
                     </span>
 
                     <span *ngIf="!estFonctionActiver()">
@@ -190,14 +190,14 @@
                 <br>
 
                 <p *ngIf="estFonctionActiver()">
-                    Lors de la phase de jour que le meneur juge opportune, le meneur lance l'élection <a (click)="goCartes(13)"  class="blue-text pointeur"> du Capitaine</a> . Après un bref discours des candidats, les habitants votent
+                    Lors de la phase de jour que le meneur juge opportune, le meneur lance l'élection <a (click)="goCartes(13)"  class="lien"> du Capitaine</a> . Après un bref discours des candidats, les habitants votent
                     pour leurs favoris. Celui qui recueille le plus de voix devient le Capitaine du village. En cas d'égalité on refait un tour de vote avec les ex aequo. Si ce deuxième tour ce termine sur
                     une égalité alors personne n'est élue et la phase d'élection se termine.
                     <br>
                 </p>
                 
                 <p>
-                    Il est strictement interdit de révéler <a (click)="goTypePersonnages(1)"  class="blue-text pointeur"> sa carte Personnage</a> à quiconque, mais tout peut-être dit !
+                    Il est strictement interdit de révéler <a (click)="goTypePersonnages(1)"  class="lien"> sa carte Personnage</a> à quiconque, mais tout peut-être dit !
                     Chacun a le droit de se faire passer pour un autre. Cette phrase est le coeur du jeu faites briller vos talent de tribun, bluffez ou dites la vérité,
                     mais soyez toujours crédible.
                 </p>
