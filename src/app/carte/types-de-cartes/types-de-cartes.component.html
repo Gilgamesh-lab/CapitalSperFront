@@ -1,15 +1,13 @@
 <div *ngIf="typesDeCartes" class="row">
     <div class="col s12 m8 offset-m2" >
     <h2 class="header center">Les cartes {{ typesDeCartes.nom.toLowerCase() }}s</h2>
-    <div style="text-align:center">
-        <img class="responsive-img center" [src]="typesDeCartes.illustration"  [alt]="typesDeCartes.nom" />
+    <div class="center">
+        <img class="responsive-img" [src]="typesDeCartes.illustration"  [alt]="typesDeCartes.nom" />
     </div>
     <div class="card vertical hoverable" >
       <div class="card-stacked"  >
         <div class="card-content" >
-          <table  style="width: 100%;
-          border-collapse: collapse;
-          table-layout: auto;" >
+          <table class="colonne" >
             <tbody >
               <tr>
                 <td >Nom du type de la carte :</td>
@@ -17,13 +15,11 @@
               </tr>
               <tr >
                 <td >Description :</td>
-                <td class="left" style="word-break: break-word;text-align:center;
-                white-space: normal;width: auto;"><em>{{ typesDeCartes.description}}</em></td>
+                <td class="left colonne" ><em>{{ typesDeCartes.description}}</em></td>
               </tr>
               <tr >
                 <td> Liste des cartes {{ typesDeCartes.nom.toLocaleLowerCase()}}s  :</td>
-                    <td class="center" (click)="goTocarte(carte)" *ngFor="let carte of getcartesQuiACeTypeDeCartes(typesDeCartes)" style="word-break: break-word;text-align:center;
-                    white-space: normal;width: auto; display: inline;cursor: pointer;">
+                    <td class="center colonne inline pointeur" (click)="goTocarte(carte)" *ngFor="let carte of getcartesQuiACeTypeDeCartes(typesDeCartes)">
                         <em >
                             <img class="responsive-img center" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
                             {{carte.nom}} 
@@ -32,8 +28,8 @@
               </tr>
           </table>  
         </div>
-        <div class="card-action">
-            <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+        <div class="card-action pointeur">
+            <a (click)="goMenu()">Accueil</a>
           
         </div>
       </div>

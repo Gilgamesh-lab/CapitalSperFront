@@ -15,7 +15,35 @@ app-root {
   flex-direction: column;
 }
 
+.colonne {
+  word-break: break-word;
+  text-align:center;
+  white-space: normal;
+  width: auto;
+}
 
+.pointeur{
+  cursor: pointer;
+}
+
+.tableau {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.inline {
+  display: inline;
+}
+
+.lien {
+  color: #2196F3;
+  cursor: pointer;
+}
+
+.surligner {
+  text-decoration: underline;
+}
 
 
 

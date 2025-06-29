@@ -8,11 +8,11 @@
                         #searchBox
                         (keyup)="search(searchBox.value)"
                         placeholder={{this.getMessage()}}> 
-                    <div class="collection" style="cursor: pointer;">
+                    <div class="collection pointeur">
                         <a *ngFor="let carte of cartes | async" 
                         (click)="action(carte)"
                         class="collection-item"><!-- async = subcribe-->
-                            <img class="responsive-img" [src]="carte.illustration"  style="height: 100%;width: 10%;" [alt]="carte.nom" >
+                            <img class="responsive-img taille-illustration" [src]="carte.illustration" [alt]="carte.nom" >
                             {{carte.nom}}
                         </a>
                     </div>
