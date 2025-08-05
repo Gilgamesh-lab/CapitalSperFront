@@ -86,8 +86,8 @@ export class ReglesComponent {
     this.router.navigate(['/statut', idStatut]);
   }
 
-  IsTourCampsLoups(idOrdreAppel: number): boolean{ // fonction pour déterminer quand se réveille le camps des loups garous (indépendamment su fait que les simple loup-garous soit en jeu ou pas)
-    return Math.min.apply(null, this.getCartes().filter((carte) => carte.camps != null && carte.camps.includes(CAMPS[1])).map((carte) => carte.idOrdreAppel)) == idOrdreAppel;
+  IsTourCampsLoups(id: number): boolean{ // fonction pour déterminer quand se réveille le camps des loups garous (indépendamment su fait que les simple loup-garous soit en jeu ou pas)
+    return Math.min.apply(null, this.getCartes().filter((carte) => carte.camps != null && carte.camps.includes(CAMPS[1])).map((carte) => carte.id)) == id;
   }
 
   goCamps(id: number){

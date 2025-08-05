@@ -57,7 +57,7 @@
                 <div *ngFor="let carte of getCartes()">
                     <ul  class="collection pointeur">
                         <li  class="collection-item"> 
-                            <div *ngIf="IsTourCampsLoups(carte.idOrdreAppel)" (click)="goCamps(2)" >
+                            <div *ngIf="IsTourCampsLoups(carte.id)" (click)="goCamps(2)" >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
                                 <span class="blue-text center">
                                     Les {{getCamps(2).nom}}
