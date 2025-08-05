@@ -31,7 +31,7 @@ export class CampsComponent implements OnInit {
     const campId: number|null = +this.route.snapshot.paramMap.get('id');// on récupère l'id
     if(campId){
       this.camp = this.carteService.getcarteCamp()[campId - 1];
-      if(this.camp == undefined || (this.carteService.cartes.filter((carte) =>carte.camps != null && carte.camps.id == campId )).length == 0){
+      if(this.camp == undefined || this.getcartesQuiACeCamp(this.camp).length == 0){
         this.appComponent.goTo404();
       }
     }
@@ -42,7 +42,7 @@ export class CampsComponent implements OnInit {
   }
 
   public getcartesQuiACeCamp(camp: Camp): Carte[]{
-    return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == camp.id );
+    return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.includes(camp));
   }
 
   public goToPrevious(): void {

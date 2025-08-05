@@ -44,7 +44,7 @@ export class ReglesComponent {
   }
 
   campActiver(idCamps: number): boolean{
-    return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == idCamps ).length != 0;
+    return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.includes(CAMPS[idCamps])).length != 0;
   }
 
   getCarteNom(id: number): String{
@@ -86,8 +86,8 @@ export class ReglesComponent {
     this.router.navigate(['/statut', idStatut]);
   }
 
-  IsTourCampsLoups(idCarte: number): boolean{
-    return Math.min.apply(null, this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == 2).map((carte) => carte.id)) == idCarte;
+  IsTourCampsLoups(idOrdreAppel: number): boolean{ // fonction pour déterminer quand se réveille le camps des loups garous (indépendamment su fait que les simple loup-garous soit en jeu ou pas)
+    return Math.min.apply(null, this.getCartes().filter((carte) => carte.camps != null && carte.camps.includes(CAMPS[1])).map((carte) => carte.idOrdreAppel)) == idOrdreAppel;
   }
 
   goCamps(id: number){

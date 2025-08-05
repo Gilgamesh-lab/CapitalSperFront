@@ -10,7 +10,7 @@ export class Statut {
     periodiciter: Boolean; // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
   
    /* constructor(
-      camps: Camp = CAMPS[0],
+      camps: Camp = [CAMPS[0]],
       name: string = 'Entrer un nom',
       illustration: string = 'Entrer une image',
       imageCarte: string = 'Entrer une image',

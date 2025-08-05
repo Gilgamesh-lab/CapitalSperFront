@@ -33,8 +33,8 @@ export class carteFormComponent implements OnInit {
     return this.carte.typesPouvoir.filter((pouvoir) => pouvoir.id == typeDePouvoir.id).length > 0;
   }
 
-  aCeCamp(camp: string) : boolean{
-    return this.carte.camps.nom == camp;
+  aCeCamp(camp: Camp) : boolean{
+    return this.carte.camps.includes(camp);
   }
 
   getCamps(): Camp[]{
@@ -85,7 +85,7 @@ export class carteFormComponent implements OnInit {
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
     if(isChecked){
       
-      this.carte.camps = camp;
+      this.carte.camps.includes(camp);
     }
   }
 

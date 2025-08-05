@@ -52,7 +52,7 @@
                   class="filled-in"
                   id="{{ camp.nom }}"
                   [value]="camp.nom"
-                  [checked]="aCeCamp(camp.nom)"
+                  [checked]="aCeCamp(camp)"
                   [disabled]="!estCampValide(camp.nom)"
                   (change)="selectCamp($event, camp)"/>
                 <span [attr.for]="camp.nom">

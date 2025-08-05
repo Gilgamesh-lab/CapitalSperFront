@@ -142,7 +142,7 @@ export class CapitalSperComponent {
         this.messageDonneeIncorrecte = "La partie peut-être composé au maximun de 25 personnages";
       }
       
-      else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
+      else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps[0].id != this.carteService.getCarteCapitalSper()[0].camps[0].id).length == 0 ){
         this.messageDonneeIncorrecte = "La partie doit être composé d'au moins 1 personnage du camps des villageois et 1 personnage du camps des loups-garous";
       }
 

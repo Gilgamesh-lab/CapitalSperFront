@@ -21,8 +21,8 @@
               <tr *ngIf="carte.typeDeCarte.id == 1">
                 <td class="inline">Camp :</td>
                 <td class="center">
-                  <strong>
-                    <span (click)="goToCamp(carte.camps)" class="pointeur" [ngClass]="carte.camps.id | carteCampColorPipe:true">{{carte.camps.nom}}</span>
+                  <strong *ngFor='let camp of carte.camps'>
+                    <span (click)="goToCamp(camp)" class="pointeur" [ngClass]="camp.id | carteCampColorPipe:true">{{camp.nom}}</span>
                   </strong>
                 </td>
               </tr>

@@ -23,8 +23,8 @@
                             <p>{{carte.nom}}</p>
                             <p>Carte {{carte.typeDeCarte.nom.toLowerCase()}}</p>
                             <p *ngIf="carte.typeDeCarte.id == 1">  
-                                <span  [ngClass]="carte.camps.id | carteCampColorPipe:false ">
-                                    {{carte.camps.nom}}
+                                <span  [ngClass]="carte.camps[0].id | carteCampColorPipe:false ">
+                                    {{carte.camps[0].nom}}
                                 </span> 
                             </p>
                         </div>

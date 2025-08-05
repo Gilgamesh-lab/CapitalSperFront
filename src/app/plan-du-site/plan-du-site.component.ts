@@ -107,7 +107,7 @@ export class PlanDuSiteComponent {
       return true;
     }
     else{
-      return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.id == camp.id).length > 0;
+      return this.carteService.cartes.filter((carte) => carte.camps != null && carte.camps.includes(camp)).length > 0;
     }
   }
 
