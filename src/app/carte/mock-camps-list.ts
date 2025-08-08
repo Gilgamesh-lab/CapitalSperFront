@@ -6,7 +6,8 @@ export const CAMPS: Camp[] = [
         nom: "Villageois",
         but: "Éliminer les loups-garous",
         illustration:  "camps/villageois.png",
-        description: "La nuit la plupart des villageois dorment. Le jour ils se concertent pour essayer de trouver les loups-garous cachés parmis eux."
+        description: "Attachés à la survie du village, les personnages suivants défendent son harmonie avec détermination. "+
+            "Devant les menaces, ils seront amenés à éliminer ceux qu'ils soupçonnent d'être trop dangereux, même si cela leur est douloureux."
     },
     {
         id: 2,
@@ -17,18 +18,16 @@ export const CAMPS: Camp[] = [
        " qu’il s’entendent pour choisir le villageois qu’ils vont dévorer. Les loups garous ne peuvent pas dévorer "+
         "l’un de leurs congénères durant la nuit, mais peuvent très bien voter contre lui lors du vote de la journée. " +
         "Si la nuit les loups garous ne se mettent pas d’accord unanimement pour le choix du villageois à dévorer, le festin est annulé par le meneur. " +
+        "Certains d'entre eux peuvent être ensuite appelé à tour de rôle pour utiliser leurs pouvoirs individuelles. " + 
         "Le jour ils se dissimulent parmis les villageois et essayent de faire condamner un innocent." 
     },
     {
         id: 3,
-        nom: "Loups-Garous",
-        but: "Éliminer les autres habitants du village",
-        illustration:  "camps/meute.webp",
-        description: "Chaque nuit, les loups garous sont réveillés par le meneur afin" +
-       " qu’il s’entendent pour choisir le villageois qu’ils vont dévorer. Les loups garous ne peuvent pas dévorer "+
-        "l’un de leurs congénères durant la nuit, mais peuvent très bien voter contre lui lors du vote de la journée. " +
-        "Si la nuit les loups garous ne se mettent pas d’accord unanimement pour le choix du villageois à dévorer, le festin est annulé par le meneur. " +
-        "Le jour ils se dissimulent parmis les villageois et essayent de faire condamner un innocent." 
+        nom: "Solitaires",
+        but: "Réaliser leurs propres objectifs, indépendamment de leurs camps",
+        illustration:  "camps/solitaires.jpg",
+        description: "Leurs passés pourraient sans doute nous expliquer pourquoi ils détestent autant les habitants de Thiercelieux. " + 
+            "Une certitude : ils font vraiment peur à tout le monde !" 
     },
     {
         id: 4,

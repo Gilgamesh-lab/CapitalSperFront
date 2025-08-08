@@ -10,7 +10,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Simples Villageois",
         illustration: "illustration/Simple-villageois.png",
         imageCarte:  "carte/sv.jpg",
-        camps: [CAMPS[2]],
+        camps: [CAMPS[0]],
         typesPouvoir: null,
         imageLore:  "lore/svLore.png",
         description: "C’est le villageois de base du jeu, il ne possède aucun pouvoir spécial. " +
@@ -274,7 +274,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Vagabonds",
         illustration: "illustration/vagabond.png",
         imageCarte:  "carte/vagabondCarte.png",
-        camps: null,
+        camps: [CAMPS[2]],
         typesPouvoir: [TYPESDEPOUVOIR[5]],
         imageLore:  "lore/vagabondLore.png",
         description: "Vous êtes un vagabonds et n'avez donc pas de bâtiments mais vous êtes immunisés aux pouvoirs de l'Institutrice, du Barbier, du Corbeau et du Pyromane. " +

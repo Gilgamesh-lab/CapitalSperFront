@@ -38,7 +38,7 @@ export class carteCampColorPipe implements PipeTransform {
       color += ' lighten-1';
     }
 
-    else if(type == 8 ){
+    else if(type == 3 ){
       color += ' darken-4';
     }
   
