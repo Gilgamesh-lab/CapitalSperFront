@@ -10,7 +10,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Simples Villageois",
         illustration: "illustration/Simple-villageois.png",
         imageCarte:  "carte/sv.jpg",
-        camps: [CAMPS[0]],
+        camps: [CAMPS[2]],
         typesPouvoir: null,
         imageLore:  "lore/svLore.png",
         description: "C’est le villageois de base du jeu, il ne possède aucun pouvoir spécial. " +
@@ -87,7 +87,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 22,
+        idOrdreAppel: 22, // pour la synchronisation avec le back
         bruitage: "bruitages/chasseur.mp3",
     },
     {
@@ -266,7 +266,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 98,
+        idOrdreAppel: 98, // pour la synchronisation avec le back
         bruitage: "bruitages/capitaine.mp3",
     },
     {

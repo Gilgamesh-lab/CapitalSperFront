@@ -22,9 +22,17 @@
                             <li class="collection-item">
                                 <div  >
                                     <img class="responsive-img" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
-                                    <span class="blue-text center">
-                                        {{carte.nom }}
+                                    <span *ngIf="carte.typeDeCarte.id == 1">
+                                        <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false ">
+                                            {{carte.nom }}
+                                        </span>
                                     </span>
+                                    <span *ngIf="carte.typeDeCarte.id != 1">
+                                        <span>
+                                            {{carte.nom }}
+                                        </span>
+                                    </span>
+                                    
                                 </div>
                             </li>
                         </ul>
@@ -35,9 +43,9 @@
                         <div class="pointeur" *ngIf="typeDeCarteEstActiver(type)" (click)="goToType(type)" >
                             <ul class="collection">
                                 <li class="collection-item">
-                                    <div class="blue-text center">
+                                    <div class="center">
                                         <img class="responsive-img" width="20%" [src]="type.illustration"  [alt]="type.nom" />
-                                        <span>
+                                        <span [ngClass]="type.id | carteTypeColor:false">
                                             Les cartes {{type.nom.toLowerCase() }}s
                                         </span>
                                     </div>
@@ -51,7 +59,7 @@
                     <div  class="pointeur"  (click)="goToStatut(statut.id)" >
                         <ul class="collection">
                             <li class="collection-item">
-                                <div class="blue-text center">
+                                <div class="center">
                                     <img class="responsive-img" width="20%" [src]="statut.illustration"  [alt]="statut.nom" />
                                     <span>
                                         {{statut.nom}}
@@ -68,9 +76,9 @@
                         <div *ngIf="CampsEstActiver(camp)" class="pointeur" (click)="goToCamp(camp)" >
                             <ul class="collection">
                                 <li class="collection-item">
-                                    <div class="blue-text center">
+                                    <div class="center">
                                         <img class="responsive-img" width="20%" [src]="camp.illustration"  [alt]="camp.nom" />
-                                        <span>
+                                        <span [ngClass]="camp.id | carteCampColorPipe:false ">
                                             Le camp des {{camp.nom.toLowerCase() }}
                                         </span>
                                     </div>
@@ -84,9 +92,9 @@
                     <div *ngIf="typeDePouvoirsEstActiver(pouvoir)">
                         <ul class="collection">
                             <li class="collection-item">
-                                <div class="blue-text center">
+                                <div class="center">
                                     <img class="responsive-img" width="20%" [src]="pouvoir.illustration"  [alt]="pouvoir.nom" />
-                                    <span>
+                                    <span [ngClass]="pouvoir.id | cartePouvoirColorPipe:false ">
                                         Le pouvoir {{pouvoir.determinant}}{{pouvoir.nom.toLowerCase()}}
                                     </span>
                                 </div>

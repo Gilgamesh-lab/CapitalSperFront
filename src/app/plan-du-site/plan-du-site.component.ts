@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carte } from '../carte/carte';
-import { CARTES } from '../carte/mock-cartes-list';
 import { typesDeCartes } from '../carte/typesDeCartes';
 import { TYPESDECARTES } from '../carte/mock-typesDeCartes-list';
 import { CAMPS } from '../carte/mock-camps-list';
@@ -12,16 +11,18 @@ import { TYPESDEPOUVOIR } from '../carte/mock-typesDePouvoirs-list';
 import { AuthService } from '../auth.service';
 import { debounceTime, delay } from 'rxjs';
 import { carteService } from '../carte/carte.service';
-import { waitForAsync } from '@angular/core/testing';
 import { LoaderComponent } from '../carte/loader/loader.component';
 import { Statut } from '../carte/statut';
-import { STATUS } from 'angular-in-memory-web-api';
 import { STATUT } from '../carte/mock-status-list';
+import { carteCampColorPipe } from "../carte/carte-camp-color.pipe";
+import { CarteTypeColorPipe } from '../carte/carte-type-color.pipe';
+import { cartePouvoirColorPipe } from "../carte/carte-pouvoir-color.pipe";
+
 
 @Component({
   selector: 'app-plan-du-site',
   standalone: true,
-  imports: [CommonModule, LoaderComponent],
+  imports: [CommonModule, LoaderComponent, carteCampColorPipe, CarteTypeColorPipe, cartePouvoirColorPipe],
   templateUrl: './plan-du-site.component.html',
   styleUrl: './plan-du-site.component.css'
 })
