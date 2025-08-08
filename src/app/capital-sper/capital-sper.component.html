@@ -41,16 +41,8 @@
             
             
             <label for="nbPartie" ></label>
-            <input [value]="this.getNbpartie()" placeholder="Entrer le nombre de partie que vous voulez lancer entre 1 et 100 : "  id="nbPartie" type="number" min="1"  max="100" (keyup)="setNbPartie()">
-            <form action="#">
-                <label>
-                    <input type="checkbox" [checked]="this.getModeAmbiance()" (change)="selectModeAmbiance()"/>
-                    <span class="blue-text" style="font-weight: bold;">Mode Ambiance</span>
-                  </label>
-            </form>
-        
-        </div>
-           
+            <input placeholder="Entrer le nombre de partie que vous voulez lancer entre 1 et 100 : " id="nbPartie" type="number" min="1"  max="100" [defaultValue]="this.nbPartie" (keyup)="setNbPartie()">
+           </div>
         <p *ngIf="this.messageDonneeIncorrecte" class="red-text" style="font-weight: bold;">
             {{this.messageDonneeIncorrecte}}
         </p>

@@ -49,21 +49,9 @@ export class CapitalSperComponent {
   setNbPartie(){
     this.nbPartie = +(<HTMLInputElement>document.getElementById("nbPartie")).value;
     
-    
-  }
-
-  getNbpartie(): number{
-    if(this.nbPartie){
-      return this.nbPartie;
-    }
-    else{
-      return undefined;
-    }
-  }
-
-  getModeAmbiance(): boolean{
-    if(this.modeAmbiance){
-      return this.modeAmbiance;
+    if(this.nbPartie > 100){
+      this.nbPartie = 100;
+      (<HTMLInputElement>document.getElementById("nbPartie")).value = "100";
     }
     else{
       return false;
