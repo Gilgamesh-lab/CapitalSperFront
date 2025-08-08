@@ -1,20 +1,10 @@
-.img {
-    width: auto;
-}
-@media (max-width: 480px) {
-    img {
-        width: 50%;
-    }
+.taille-illustration{
+    width: 40%;
+    padding-top: 20%;
+    height: 100%;
 }
 
-.responsive {
-    max-width: 100%;
-    height: auto;
-  }
-
-
-.tableCard {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
+.taille-image-lore{
+    width: 40%;
+    height: 100%;
 }

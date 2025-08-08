@@ -16,10 +16,11 @@ deployFirebase:
 	git checkout master
 	git merge develop
 	ng build --configuration=production
+	git push
 	firebase login
 	firebase deploy
 	git add .
-	git commit -am "Deploiement d'une nouvelle version sur FireBase"
+	git commit -am "Deploiement d'une nouvelle version sur Github"
 	git checkout develop
 
 off:
@@ -31,6 +32,8 @@ startBdd:
 run:
 	ng serve
 	
+deploy:
+	ssh -R mon-projet:80:localhost:4200 serveo.net
 
 	
 	

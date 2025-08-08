@@ -2,38 +2,31 @@
     <div class="col s12 m8 offset-m2">
     <h2 class="header center">{{ statut.nom }}</h2>
     <div class="card vertical hoverable" >
-      <!--<div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
-        <img [src]="carte.illustration" style="width: 20%;" [alt]="carte.name" >
-      </div>-->
       <div class="card-stacked" >
         <div class="card-content" >
-          <table  style="width: 100%;
-          border-collapse: collapse;
-          table-layout: auto;" >
+          <table class="tableau">
             <tbody >
-              <tr >
+              <tr>
                 <td></td>
-                <td style="text-align:center">
-                    <img [src]="statut.illustration" class="responsive-img" style="width: 40%;padding-top: 20%;height: 100%;" [alt]="statut.nom" >
-                    <img [src]="statut.imageLore" class="right responsive-img" style="width: 40%;height: 100%;" [alt]="statut.nom" >
+                <td class="center">
+                    <img [src]="statut.illustration" class="responsive-img taille-illustration"  [alt]="statut.nom" >
+                    <img [src]="statut.imageLore" class="right responsive-img taille-image-lore" [alt]="statut.nom" >
                </td>
               </tr>
               <tr>
-                <td style="display: inline;">Nom :</td>
-                <td style="text-align:center"><strong >{{ statut.nom }}</strong></td>
+                <td class="inline">Nom :</td>
+                <td class="center"><strong >{{ statut.nom }}</strong></td>
               </tr>
 
               <tr >
-                <td style="display: inline;" >Description :</td>
-                <td style="word-break: break-word;text-align:center;
-                white-space: normal;width: auto;">
+                <td class="inline" >Description :</td>
+                <td class="colonne">
                   {{statut.description}}
                 </td>
               </tr>
               <tr >
                 <td> Créateur du statut :</td>
-                    <td class="center" (click)="goTocarte(carte)"  style="word-break: break-word;text-align:center;
-                    white-space: normal;width: auto; display: inline;cursor: pointer;">
+                    <td class="center colonne-createur-statut" (click)="goTocarte(carte)">
                         <img class="responsive-img center" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
                         {{carte.nom}} 
                     </td>
@@ -41,7 +34,7 @@
           </table>
         </div>
         <div class="card-action">
-          <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
+          <a (click)="goMenu()" class="pointeur">Accueil</a>
         </div>
       </div>
     </div>

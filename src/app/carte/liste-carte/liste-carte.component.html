@@ -1,7 +1,7 @@
 
 <div class='container'>
-    <p class="center blue-text ">
-        <strong (click)="goToRegles()" style="text-decoration: underline;cursor: pointer;">
+    <p class="center blue-text">
+        <strong (click)="goToRegles()" class="surlignage">
             Les règles du jeu
         </strong>
         
@@ -10,29 +10,26 @@
     <div *ngIf='!ListeDecartes' class="center">
         <app-loader></app-loader> 
     </div>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+    <div class="row disposition-row" >
         
         <div *ngFor="let carte of ListeDecartes" class="col s12 m6 l6 xl4 card-container"  > <!--col m4 s12-->
-            <div (click)="goTocarte(carte)"  class="card horizontal" style="cursor: pointer;margin: 0;padding: 0;">
-                <div class="card-image" style="width: 40%; height: 100%;">
-                    <img [src]="carte.illustration" alt="image" style="padding-top: 20%;" />
+            <div (click)="goTocarte(carte)"  class="card horizontal alignement-illustration" >
+                <div class="card-image" class="taille-image">
+                    <img [src]="carte.illustration" [alt]="carte.nom" class="padding-image" />
                 </div>
-                <div class="card-stacked" style="display: inline-flex;width: 60%;"  >
-                    <div class="card-content" style="height: 100%;width: auto;" >
+                <div class="card-stacked disposition-stacked">
+                    <div class="card-content taille-content">
                         <div>
                             <p>{{carte.nom}}</p>
                             <p>Carte {{carte.typeDeCarte.nom.toLowerCase()}}</p>
                             <p *ngIf="carte.typeDeCarte.id == 1">  
-                                <span  [ngClass]="carte.camps.id | carteCampColorPipe:false ">
-                                    {{carte.camps.nom}}
+                                <span  [ngClass]="carte.camps[0].id | carteCampColorPipe:false ">
+                                    {{carte.camps[0].nom}}
                                 </span> 
                             </p>
                         </div>
-                        <div class="card-image" style="width: auto; /* S'assure que le conteneur occupe toute la largeur disponible */
-                        max-width: auto; /* Empêche l'image de dépasser la taille du conteneur */
-                        display: flex;
-                        justify-content: space-between;">
-                            <img class="responsive-img" [src]="carte.imageCarte" alt="image" />
+                        <div class="card-image disposition-carte" >
+                            <img class="responsive-img" [src]="carte.imageCarte" [alt]="carte.nom" />
                         </div>
                     </div>
                 </div>
@@ -48,22 +45,17 @@ Ordinateur (l) : entre 993px et 1200px
 Grand écran (xl) : plus de 1200px
 Si la largeur de ton navigateur est entre 600px et 992px, alors la classe m6 s'applique, ce qui correspond à deux cartes par ligne.
 
-2. Vérifier les classes CSS
-Assure-toi que tu utilises correctement les classes col s12 m6 l4. Cela signifie :
-
 s12 : Une carte occupe toute la largeur sur un petit écran (mobile).
 m6 : Deux cartes occupent la largeur sur un écran moyen (tablette).
 l4 : Trois cartes occupent la largeur sur un grand écran (ordinateur).-->
 
 <a *ngIf='estConnecter()'
     
-    class="btn-floating btn-large waves-effect waves-light red z-depth-3"
-    style="position: fixed; bottom: 25px; right: 25x;"
+    class="btn-floating btn-large waves-effect waves-light red z-depth-3 bouton-ajouter-position"
     (click)="goToAdd()"
     
    
     
 >
     +
-</a> <!--
-routerLink="/cartes/add"-->
+</a> 

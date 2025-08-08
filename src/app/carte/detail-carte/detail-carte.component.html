@@ -2,86 +2,80 @@
     <div class="col s12 m8 offset-m2">
     <h2 class="header center">{{ carte.nom }}</h2>
     <div class="card vertical hoverable" >
-      <!--<div class="card-image" style="display: flex;justify-content: center;vertical-align: middle;">
-        <img [src]="carte.illustration" style="width: 20%;" [alt]="carte.name" >
-      </div>-->
       <div class="card-stacked" >
         <div class="card-content" >
-          <table  style="width: 100%;
-          border-collapse: collapse;
-          table-layout: auto;" >
+          <table  class="tableau" >
             <tbody >
-              <tr >
+              <tr>
                 <td></td>
-                <td style="text-align:center">
-                    <i *ngIf="carte.bruitage"  class=" inline-icon material-icons left responsive-img" (click)="playAudio(carte.bruitage)" style="cursor: pointer;" > volume_up </i>
-                    <img [src]="carte.illustration" class="responsive-img" style="width: 40%;padding-top: 20%;height: 100%;" [alt]="carte.nom" >
-                    <img [src]="carte.imageLore" class="right responsive-img" style="width: 40%;height: 100%;" [alt]="carte.nom" >
+                <td class="center">
+                    <i *ngIf="carte.bruitage"  class=" inline-icon material-icons left responsive-img pointeur" (click)="playAudio(carte.bruitage)" > volume_up </i>
+                    <img [src]="carte.illustration" class="responsive-img taille-illustration"[alt]="carte.nom" >
+                    <img [src]="carte.imageLore" class="right responsive-img taille-image-lore" [alt]="carte.nom" >
                </td>
               </tr>
               <tr>
-                <td style="display: inline;">Nom :</td>
-                <td style="text-align:center"><strong >{{ carte.nom }}</strong></td>
+                <td class="inline">Nom :</td>
+                <td class="center"><strong >{{ carte.nom }}</strong></td>
               </tr>
               <tr *ngIf="carte.typeDeCarte.id == 1">
-                <td style="display: inline;">Camp :</td>
-                <td  style="text-align:center;">
-                  <strong>
-                    <span (click)="goToCamp(carte.camps)" style="cursor: pointer;" [ngClass]="carte.camps.id| carteCampColorPipe:true">{{carte.camps.nom}}</span>
+                <td class="inline">Camp :</td>
+                <td class="center">
+                  <strong *ngFor='let camp of carte.camps'>
+                    <span (click)="goToCamp(camp)" class="pointeur" [ngClass]="camp.id | carteCampColorPipe:true">{{camp.nom}}</span>
                   </strong>
                 </td>
               </tr>
               <tr *ngIf="carte.typeDeCarte.id == 3 && carte.nomDuBatiment != null">
-                <td style="display: inline;">Nom du bâtiment :</td>
-                <td  style="text-align:center;">
+                <td class="inline">Nom du bâtiment :</td>
+                <td class="center">
                   <strong>
                     {{carte.nomDuBatiment}}
                   </strong>
                 </td>
               </tr>
               <tr *ngIf="carte.typeDeCarte.id == 3 && carte.nomDuBatiment == null">
-                <td style="display: inline;">Nom du bâtiment :</td>
-                <td  style="text-align:center;">
+                <td class="inline">Nom du bâtiment :</td>
+                <td class="center">
                   <strong>
-                    Vous êtes un vagabond de ce fait vous n'avez de bâtiments où loger
+                    Vous êtes un vagabond de ce fait vous n'avez pas de bâtiment où loger
                   </strong>
                 </td>
               </tr>
               <tr>
-                <td style="display: inline;">Carte :</td>
-                <td style="text-align:center"><strong>
+                <td class="inline">Carte :</td>
+                <td class="center"><strong>
                     <img [src]="carte.imageCarte" style="width: 30%;" [alt]="carte.nom" />
                 </strong></td>
               </tr>
               <tr>
-                <td  style="width: 5%;display: inline;">
+                <td class="inline" style="width: 5%;">
                   Type du pouvoir :
                 </td>
-                <td style="text-align:center">
+                <td class="center">
                   <p *ngIf='carte.typesPouvoir == null'>
                     Cette carte n'a pas de pouvoir 
                   </p>
-                  <span (click)="goToPouvoir(type)" style="cursor: pointer;" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe }}">
+                  <span (click)="goToPouvoir(type)" class="pointeur" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe:true }}">
                     {{ type.nom }}
                   </span>
                 </td>
               </tr>
               <tr>
-                <td style="width: 5%;display: inline;">Type de la carte :</td>
-                <td style="text-align:center">
-                  <span (click)="goToType(carte.typeDeCarte)" style="cursor: pointer;"  class="{{ carte.typeDeCarte.id | carteTypeColor }}">
+                <td class="inline" style="width: 5%;">Type de la carte :</td>
+                <td class="center">
+                  <span (click)="goToType(carte.typeDeCarte)" class="pointeur"  class="{{ carte.typeDeCarte.id | carteTypeColor:true }}">
                     {{ carte.typeDeCarte.nom }}
                   </span>
                 </td>
               </tr>
               <tr >
-                <td style="display: inline;" >Description :</td>
-                <td style="word-break: break-word;text-align:center;
-                white-space: normal;width: auto;">
+                <td class="inline" >Description :</td>
+                <td class="colonne">
                   <em>
                     {{ carte.description}}
                     <span *ngIf="ifStatut(carte.id)">
-                      {{getStatut(carte.id).extraDescription}}<span (click)="goToStatut(getStatut(carte.id).id)" class="blue-text" style="cursor: pointer;"> {{ getStatut(carte.id).nom }}</span>.
+                      {{getStatut(carte.id).extraDescription}}<span (click)="goToStatut(getStatut(carte.id).id)" class="lien"> {{ getStatut(carte.id).nom }}</span>.
                     </span>
                   </em>
                 </td>
@@ -89,9 +83,9 @@
           </table>
         </div>
         <div class="card-action">
-          <a (click)="goMenu()" style="cursor: pointer;">Accueil</a>
-          <a *ngIf='estConnecter()' (click)="goToEdit(carte)" style="cursor: pointer;">Éditer</a>
-          <a *ngIf='estConnecter()' (click)="deletecarte(carte)" style="cursor: pointer;">Supprimer</a>
+          <a (click)="goMenu()" class="pointeur">Accueil</a>
+          <a *ngIf='estConnecter()' (click)="goToEdit(carte)" class="pointeur">Éditer</a>
+          <a *ngIf='estConnecter()' (click)="deletecarte(carte)" class="pointeur">Supprimer</a>
         </div>
       </div>
     </div>
