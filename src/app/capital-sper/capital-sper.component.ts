@@ -53,9 +53,6 @@ export class CapitalSperComponent {
       this.nbPartie = 100;
       (<HTMLInputElement>document.getElementById("nbPartie")).value = "100";
     }
-    else{
-      return false;
-    }
   }
 
   getCartService(){
