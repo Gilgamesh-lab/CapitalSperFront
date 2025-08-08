@@ -9,11 +9,12 @@ import { Carte } from '../carte/carte';
 import { CAMPS } from '../carte/mock-camps-list';
 import { STATUT } from '../carte/mock-status-list';
 import { Statut } from '../carte/statut';
+import { carteCampColorPipe } from "../carte/carte-camp-color.pipe";
 
 @Component({
   selector: 'app-regles',
   standalone: true,
-  imports: [CommonModule, LoaderComponent],
+  imports: [CommonModule, LoaderComponent, carteCampColorPipe],
   templateUrl: './regles.component.html',
   styleUrl: './regles.component.css'
 })
@@ -86,7 +87,7 @@ export class ReglesComponent {
     this.router.navigate(['/statut', idStatut]);
   }
 
-  IsTourCampsLoups(id: number): boolean{ // fonction pour déterminer quand se réveille le camps des loups garous (indépendamment su fait que les simple loup-garous soit en jeu ou pas)
+  IsTourCampsLoups(id: number): boolean{ // fonction pour déterminer quand se réveille le camps des loups garous (indépendamment du fait que les simple loup-garous soit en jeu ou pas)
     return Math.min.apply(null, this.getCartes().filter((carte) => carte.camps != null && carte.camps.includes(CAMPS[1])).map((carte) => carte.id)) == id;
   }
 
