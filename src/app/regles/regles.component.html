@@ -136,6 +136,9 @@
                                     <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
                                         {{carte.nom}}
                                     </span>
+                                    <span *ngIf="carte.id == 25">
+                                        (une nuit sur deux)
+                                    </span>
                                 </div>
                             <li>
                         </ul>
@@ -145,6 +148,9 @@
                                     <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
                                     <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
                                         {{carte.nom}}
+                                    </span>
+                                    <span *ngIf="carte.id == 25">
+                                        (une nuit sur deux)
                                     </span>
                                 </div>
                             <li>

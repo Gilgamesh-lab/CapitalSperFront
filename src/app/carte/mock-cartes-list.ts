@@ -145,6 +145,24 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         bruitage: "bruitages/voleur.mp3",
     },
     {
+        id: 25,
+        nom: "Le Loup-Garou Blanc",
+        illustration: "illustration/loup_garou_blanc.png",
+        imageCarte:  "carte/loup-garou-blanc.webp",
+        camps: [CAMPS[2], CAMPS[1]],
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "lore/lg_blanc-lore.png",
+        description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. " +
+        "Mais une nuit sur deux, à l'appel du meneur, il se réveille seul et peut éliminer un Loup-Garou. " + 
+        "Le but de ce personnage est de rester le seul survivant du village. Dans ce cas-là seulement il gagne la partie.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 16,
+        bruitage: "bruitages/loup-garou_blanc.mp3",
+    },
+    {
         id: 7,
         nom: "Le Salvateur",
         illustration: "illustration/Salvateur.png",
@@ -274,7 +292,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Vagabonds",
         illustration: "illustration/vagabond.png",
         imageCarte:  "carte/vagabondCarte.png",
-        camps: [CAMPS[2]],
+        camps: null,
         typesPouvoir: [TYPESDEPOUVOIR[5]],
         imageLore:  "lore/vagabondLore.png",
         description: "Vous êtes un vagabonds et n'avez donc pas de bâtiments mais vous êtes immunisés aux pouvoirs de l'Institutrice, du Barbier, du Corbeau et du Pyromane. " +
