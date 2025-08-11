@@ -10,7 +10,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Simples Villageois",
         illustration: "illustration/Simple-villageois.png",
         imageCarte:  "carte/sv.jpg",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: null,
         imageLore:  "lore/svLore.png",
         description: "C’est le villageois de base du jeu, il ne possède aucun pouvoir spécial. " +
@@ -27,7 +27,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Simples Loups-Garous",
         illustration: "illustration/Loup-garou.png",
         imageCarte:  "carte/ww.jpg",
-        camps: CAMPS[1],
+        camps: [CAMPS[1]],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "lore/wwLore.png",
         description: "C’est le loup garou de base du jeu. Chaque nuit à l'appel du meneur, il se réveille et se concerte avec les autres loups garous pour dévorer un villageois.",
@@ -43,7 +43,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "La Voyante",
         illustration: "illustration/Voyante.png",
         imageCarte:  "carte/vovo.jpg",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "lore/vovoLore.png",
         description: "Chaque nuit à l'appel du meneur, elle a la capacité de voir clairement la carte d'un joueur de son choix.",
@@ -59,7 +59,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "La Sorcière",
         illustration: "illustration/Sorciere.png",
         imageCarte:  "carte/soso.jpg",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2]],
         imageLore:  "lore/sosoLore.png",
         description: "Elle est réveillée par le meneur chaque nuit après les loups garous tant qu’elle a au moins une de ses deux potions. "+ 
@@ -78,7 +78,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Le Chasseur",
         illustration: "illustration/Chasseur.png",
         imageCarte:  "carte/chasseur.jpg",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "lore/chasseurLore.png",
         description: "Il n'a aucun pouvoir de son vivant. En revanche s’il vient à mourir, peut importe la manière, "+ 
@@ -87,7 +87,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 22,
+        idOrdreAppel: 22, // pour la synchronisation avec le back
         bruitage: "bruitages/chasseur.mp3",
     },
     {
@@ -95,7 +95,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Cupidon",
         illustration: "illustration/Cupidon.png",
         imageCarte:  "carte/cupidon.jpg",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[6]],
         imageLore:  "lore/cupidonLore.png",
         description: "Il se réveille uniquement la première nuit, où il va désigner deux personnes qui vont tomber amoureuse l’une de l’autre jusqu’à la fin de la partie. " +
@@ -112,7 +112,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "La Petite Fille",
         illustration: "illustration/Petite_Fille.png",
         imageCarte:  "carte/petite_fille.jpg",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "lore/petiteFilleLore.png",
         description: "La Petite Fille peut, en entrouvant les yeux, espionner les Loups-Garous pendans leur réveil. Si elle se fait surprendre par un des Loups-Garous, " +
@@ -130,7 +130,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Le Voleur",
         illustration: "illustration/Voleur.png",
         imageCarte:  "carte/voleur.png",
-        camps: CAMPS[3],
+        camps: [CAMPS[3]],
         typesPouvoir: [TYPESDEPOUVOIR[6], TYPESDEPOUVOIR[0]],
         imageLore:  "lore/voleurLore.png",
         description: "Lorsque le Voleur est en jeu, deux cartes Simples Villageois suplémentaire sont rajouté en plus de celles déjà choisis. " +
@@ -145,11 +145,29 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         bruitage: "bruitages/voleur.mp3",
     },
     {
+        id: 25,
+        nom: "Le Loup-Garou Blanc",
+        illustration: "illustration/loup_garou_blanc.png",
+        imageCarte:  "carte/loup-garou-blanc.webp",
+        camps: [CAMPS[2], CAMPS[1]],
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "lore/lg_blanc-lore.png",
+        description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. " +
+        "Mais une nuit sur deux, à l'appel du meneur, il se réveille seul et peut éliminer un Loup-Garou. " + 
+        "Le but de ce personnage est de rester le seul survivant du village. Dans ce cas-là seulement il gagne la partie.",
+        typeDeCarte: TYPESDECARTES[0],
+        nomDuBatiment: null,
+        estActiver: true,
+        periodiciter: true,
+        idOrdreAppel: 16,
+        bruitage: "bruitages/loup-garou_blanc.mp3",
+    },
+    {
         id: 7,
         nom: "Le Salvateur",
         illustration: "illustration/Salvateur.png",
         imageCarte:  "carte/salvateurCarte.png",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[1]],
         imageLore:  "lore/salvateurLore.png",
         description: "Chaque nuit, le meneur le réveille avant les loups et lui demande de choisir une personne qui sera protégée contre la morsure des loups garous, " +
@@ -168,7 +186,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Le Montreur d'Ours",
         illustration: "illustration/Montreurs_d'ours.png",
         imageCarte:  "carte/montreurs_d_oursCarte.png",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "lore/montreurs_d_oursLore.png",
         description: "Chaque matin juste après la révélation des éventuels victimes nocturnes, si au moins un loup garou est ou devient le voisin du montreur d'ours, "+
@@ -186,7 +204,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Le Corbeau",
         illustration: "illustration/Corbeau.png",
         imageCarte:  "carte/corbeauCarte.png",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[2]],
         imageLore:  "lore/corbeauLore.png",
         description: "Chaque nuit, le Corbeau est réveillé par le meneur, et il a la possibilité de faire circuler des rumeurs sur un joueur qu’il suspecte le plus d’être un loup-garou. "+
@@ -204,7 +222,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Le Pyromane",
         illustration: "illustration/Pyromane.png",
         imageCarte:  "carte/pyromaneCarte.png",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0], TYPESDEPOUVOIR[1], TYPESDEPOUVOIR[2], TYPESDEPOUVOIR[4]],
         imageLore:  "lore/pyromaneLore.png",
         description: "À l'appel de son rôle, une seule fois dans la partie, il peut mettre le feu à un bâtiment ce qui aura pour effet de le détruire définitivement. "+
@@ -222,7 +240,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "Les Deux Soeurs",
         illustration: "illustration/Deux_soeurs.png",
         imageCarte:  "carte/les_deux_soeurs.png",
-        camps: CAMPS[0],
+        camps: [CAMPS[0]],
         typesPouvoir: [TYPESDEPOUVOIR[0]],
         imageLore:  "lore/deux_soeursLore.png",
         description: "Lorsqu’elles sont présentes dans le jeu, deux joueurs ont la même carte et sont donc les deux sœurs. "+
@@ -240,7 +258,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nom: "L'Infect Père des Loups",
         illustration: "illustration/Infect_pere_des_loups.png",
         imageCarte:  "carte/Infect_pere_des_loupsCarte.png",
-        camps: CAMPS[1],
+        camps: [CAMPS[1]],
         typesPouvoir: [TYPESDEPOUVOIR[1],TYPESDEPOUVOIR[2],TYPESDEPOUVOIR[6]],
         imageLore:  "lore/Infect_pere_des_loupsLore.png",
         description: "Chaque nuit, il se réveille et dévore avec les autres Loups-Garous. Mais une fois dans la partie, s’il le désire à l’appel du meneur, " + 
@@ -266,7 +284,7 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         nomDuBatiment: null,
         estActiver: true,
         periodiciter: null,
-        idOrdreAppel: 98,
+        idOrdreAppel: 98, // pour la synchronisation avec le back
         bruitage: "bruitages/capitaine.mp3",
     },
     {

@@ -33,12 +33,15 @@
         
         
         
-    </div>
+    </div> <!--[disabled]="!estCampValide(camp.nom)" 
+        (change)="selectCamp($event, camp)"/>-->
     <app-search-carte> </app-search-carte>
     <div class="container" style="margin-bottom: 50px;" >
         <div class="input-field col s6" >
+            
+            
             <label for="nbPartie" ></label>
-            <input placeholder="Entrer le nombre de partie que vous voulez lancer entre 1 et 100 : " id="nbPartie" type="number" min="1"  max="100" (keyup)="setNbPartie()">
+            <input placeholder="Entrer le nombre de partie que vous voulez lancer entre 1 et 100 : " id="nbPartie" type="number" min="1"  max="100" [defaultValue]="this.nbPartie" (keyup)="setNbPartie()">
            </div>
         <p *ngIf="this.messageDonneeIncorrecte" class="red-text" style="font-weight: bold;">
             {{this.messageDonneeIncorrecte}}

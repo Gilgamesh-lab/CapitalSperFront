@@ -52,7 +52,7 @@
                   class="filled-in"
                   id="{{ camp.nom }}"
                   [value]="camp.nom"
-                  [checked]="aCeCamp(camp.nom)"
+                  [checked]="aCeCamp(camp)"
                   [disabled]="!estCampValide(camp.nom)"
                   (change)="selectCamp($event, camp)"/>
                 <span [attr.for]="camp.nom">
@@ -94,7 +94,7 @@
                   [disabled]="!estTypeDePouvoirValide(type)"
                   (change)="selectTypePouvoir($event, type)"/>
                 <span [attr.for]="type">
-                  <div class="{{ type.id| cartePouvoirColorPipe }}">
+                  <div class="{{ type.id| cartePouvoirColorPipe:true }}">
                     {{ type.nom }}
                   </div>
                 </span>

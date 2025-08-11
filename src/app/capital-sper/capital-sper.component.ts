@@ -17,12 +17,13 @@ import { AppComponent } from '../app.component';
 })
 export class CapitalSperComponent {
   cartesNb: { [id: number] : number; } = {};
-  nbPartie: number;
+  nbPartie: number ;
   lancer: boolean;
   log: any = undefined;
   data: any;
   tab: string;
   messageDonneeIncorrecte: string;
+  modeAmbiance: boolean = false;
   
 
   constructor(private router: Router, private carteService: carteService, private auth: AuthService, private app:AppComponent){
@@ -49,10 +50,9 @@ export class CapitalSperComponent {
     this.nbPartie = +(<HTMLInputElement>document.getElementById("nbPartie")).value;
     
     if(this.nbPartie > 100){
+      this.nbPartie = 100;
       (<HTMLInputElement>document.getElementById("nbPartie")).value = "100";
     }
-    
-    
   }
 
   getCartService(){
@@ -72,6 +72,10 @@ export class CapitalSperComponent {
   goToDetail(carte: Carte){
     const link = ['/cartes', carte.id];
     this.router.navigate(link);
+  }
+
+  selectModeAmbiance(): void{
+      this.modeAmbiance = !this.modeAmbiance;
   }
 
   getCartes(): Carte[]{
@@ -98,7 +102,8 @@ export class CapitalSperComponent {
       nbLoupGarou : this.cartesNb[2],
       aUnMaire : aUnMaire,
       nbPartie : nbPartie,
-      listeIdRolePersonnageSpecial : listeId
+      listeIdRolePersonnageSpecial : listeId,
+      modeAmbiance : this.modeAmbiance
       
     }
     this.lancer = true;
@@ -142,7 +147,7 @@ export class CapitalSperComponent {
         this.messageDonneeIncorrecte = "La partie peut-être composé au maximun de 25 personnages";
       }
       
-      else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps.id != this.carteService.getCarteCapitalSper()[0].camps.id).length == 0 ){
+      else if(this.carteService.getCarteCapitalSper().filter(carte => carte.camps != null &&  carte.camps[0].id != this.carteService.getCarteCapitalSper()[0].camps[0].id).length == 0 ){
         this.messageDonneeIncorrecte = "La partie doit être composé d'au moins 1 personnage du camps des villageois et 1 personnage du camps des loups-garous";
       }
 

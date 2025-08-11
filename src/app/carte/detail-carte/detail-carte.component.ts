@@ -76,9 +76,9 @@ export class DetailcarteComponent implements OnInit{
     window.top.window.scrollTo(0,0);
   }
 
-  playAudio(chemin: string){
+  playAudio(){
     let audio = new Audio();
-    audio.src = chemin;
+    audio.src = this.carte.bruitage;
     audio.load();
     audio.play();
   }

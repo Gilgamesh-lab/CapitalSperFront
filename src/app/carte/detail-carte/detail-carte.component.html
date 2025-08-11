@@ -9,7 +9,7 @@
               <tr>
                 <td></td>
                 <td class="center">
-                    <i *ngIf="carte.bruitage"  class=" inline-icon material-icons left responsive-img pointeur" (click)="playAudio(carte.bruitage)" > volume_up </i>
+                    <i *ngIf="carte.bruitage"  class=" inline-icon material-icons left responsive-img pointeur" (click)="playAudio()" > volume_up </i>
                     <img [src]="carte.illustration" class="responsive-img taille-illustration"[alt]="carte.nom" >
                     <img [src]="carte.imageLore" class="right responsive-img taille-image-lore" [alt]="carte.nom" >
                </td>
@@ -21,8 +21,8 @@
               <tr *ngIf="carte.typeDeCarte.id == 1">
                 <td class="inline">Camp :</td>
                 <td class="center">
-                  <strong>
-                    <span (click)="goToCamp(carte.camps)" class="pointeur" [ngClass]="carte.camps.id | carteCampColorPipe:true">{{carte.camps.nom}}</span>
+                  <strong *ngFor='let camp of carte.camps'>
+                    <span (click)="goToCamp(camp)" class="pointeur" [ngClass]="camp.id | carteCampColorPipe:true">{{camp.nom}}</span>
                   </strong>
                 </td>
               </tr>
@@ -38,7 +38,7 @@
                 <td class="inline">Nom du bâtiment :</td>
                 <td class="center">
                   <strong>
-                    Vous êtes un vagabond de ce fait vous n'avez de bâtiments où loger
+                    Vous êtes un vagabond de ce fait vous n'avez pas de bâtiment où loger
                   </strong>
                 </td>
               </tr>
@@ -56,7 +56,7 @@
                   <p *ngIf='carte.typesPouvoir == null'>
                     Cette carte n'a pas de pouvoir 
                   </p>
-                  <span (click)="goToPouvoir(type)" class="pointeur" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe }}">
+                  <span (click)="goToPouvoir(type)" class="pointeur" *ngFor='let type of carte.typesPouvoir' class="{{ type.id | cartePouvoirColorPipe:true }}">
                     {{ type.nom }}
                   </span>
                 </td>
@@ -64,7 +64,7 @@
               <tr>
                 <td class="inline" style="width: 5%;">Type de la carte :</td>
                 <td class="center">
-                  <span (click)="goToType(carte.typeDeCarte)" class="pointeur"  class="{{ carte.typeDeCarte.id | carteTypeColor }}">
+                  <span (click)="goToType(carte.typeDeCarte)" class="pointeur"  class="{{ carte.typeDeCarte.id | carteTypeColor:true }}">
                     {{ carte.typeDeCarte.nom }}
                   </span>
                 </td>

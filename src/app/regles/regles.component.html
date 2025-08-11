@@ -55,11 +55,11 @@
                 <h5>Personnages appelés la première nuit dans l'ordre d'appel : </h5>
 
                 <div *ngFor="let carte of getCartes()">
-                    <ul  class="collection pointeur">
+                    <ul *ngIf="IsTourCampsLoups(carte.id)" class="collection pointeur">
                         <li  class="collection-item"> 
-                            <div *ngIf="IsTourCampsLoups(carte.id)" (click)="goCamps(2)" >
+                            <div  (click)="goCamps(2)" >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
-                                <span class="blue-text center">
+                                <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
                                     Les {{getCamps(2).nom}}
                                     
                                 </span>
@@ -71,19 +71,32 @@
                                     )
                                 </span>
                             </div>
-                            <div *ngIf="carte.id != 2" (click)="goCartes(carte.id)"  >
+                        </li>
+                    </ul>
+                    <ul *ngIf="IsTourCampsLoups(carte.id) && carte.id != 2" class="collection pointeur">
+                        <li  class="collection-item"> 
+                            <div  (click)="goCartes(carte.id)"  >
                                 <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
-                                <span class="blue-text center">
+                                <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
                                     {{carte.nom}}
                                 </span>
                             </div>
-                            
-                        </li>
+                        <li>
+                    </ul>
+                    <ul *ngIf="!IsTourCampsLoups(carte.id) && carte.id != 2" class="collection pointeur">
+                        <li  class="collection-item"> 
+                            <div (click)="goCartes(carte.id)"  >
+                                <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
+                                <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
+                                    {{carte.nom}}
+                                </span>
+                            </div>
+                        <li>
                     </ul>
                     <ul *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" class="collection pointeur">
                         <li class="collection-item"  (click)="goToStatut(getStatut(carte.id).id)">
                             <img class="responsive-img" style="width: 15%;height: auto;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
-                            <span class="blue-text center">
+                            <span>
                                 {{getStatut(carte.id).nom}}
                             </span>
                         </li>
@@ -97,39 +110,61 @@
                 <h5>Personnages appelés chaque nuit tant qu'ils ont leurs pouvoirs dans l'ordre d'appel : </h5>
 
                 <div *ngFor="let carte of getCartes()">
-                    <ul *ngIf="carte.periodiciter == true" class="collection pointeur">
-                        <li  class="collection-item"> 
-                            <div *ngIf="IsTourCampsLoups(carte.id)" (click)="goCamps(2)" >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
-                                <span class="blue-text center">
-                                    Les {{getCamps(2).nom}}
-                                </span>
-                                <span *ngIf="estActiver(23)">
-                                    (espionné par 
-                                    <span class="blue-text" (click)="goCartes(23)">
-                                        {{getCarteNom(23)}}
+                    <div *ngIf="carte.periodiciter == true"> 
+                        <ul *ngIf="IsTourCampsLoups(carte.id)" class="collection pointeur">
+                            <li  class="collection-item"> 
+                                <div  (click)="goCamps(2)" >
+                                    <img class="responsive-img" style="max-width: 15%;" [src]="getCamps(2).illustration"  [alt]="getCamps(2).nom" />
+                                    <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
+                                        Les {{getCamps(2).nom}}
+                                        
                                     </span>
-                                    )
+                                    <span *ngIf="estActiver(23)">
+                                        (espionné par 
+                                        <span class="blue-text" (click)="goCartes(23)">
+                                            {{getCarteNom(23)}}
+                                        </span>
+                                        )
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul *ngIf="IsTourCampsLoups(carte.id) && carte.id != 2" class="collection pointeur">
+                            <li  class="collection-item"> 
+                                <div  (click)="goCartes(carte.id)"  >
+                                    <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
+                                    <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
+                                        {{carte.nom}}
+                                    </span>
+                                    <span *ngIf="carte.id == 25">
+                                        (une nuit sur deux)
+                                    </span>
+                                </div>
+                            <li>
+                        </ul>
+                        <ul *ngIf="!IsTourCampsLoups(carte.id) && carte.id != 2" class="collection pointeur">
+                            <li  class="collection-item"> 
+                                <div (click)="goCartes(carte.id)"  >
+                                    <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
+                                    <span [ngClass]="carte.camps[0].id | carteCampColorPipe:false">
+                                        {{carte.nom}}
+                                    </span>
+                                    <span *ngIf="carte.id == 25">
+                                        (une nuit sur deux)
+                                    </span>
+                                </div>
+                            <li>
+                        </ul>
+                        <ul *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" class="collection pointeur">
+                            <li class="collection-item"  (click)="goToStatut(getStatut(carte.id).id)">
+                                <img class="responsive-img" style="width: 15%;height: auto;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
+                                <span>
+                                    {{getStatut(carte.id).nom}}
                                 </span>
-                            </div>
-                            <div *ngIf="carte.id != 2" (click)="goCartes(carte.id)"  >
-                                <img class="responsive-img" style="max-width: 15%;" [src]="carte.illustration"  [alt]="carte.nom" />
-                                <span class="blue-text center">
-                                    {{carte.nom}}
-                                </span>
-                            </div>
-                        </li>
-                        <li *ngIf="ifStatut(carte.id) && getStatut(carte.id).periodiciter == true" (click)="goToStatut(getStatut(carte.id).id)">
-                            <img class="responsive-img" style="max-width: 15%;" [src]="getStatut(carte.id).illustration"  [alt]="getStatut(carte.id).nom" />
-                            <span class="blue-text center">
-                                {{getStatut(carte.id).nom}}
-                            </span>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>   
                 </div>
-                <br>
-                
-                <br>
                 <h2>Mise en place</h2>
 
                 <p>

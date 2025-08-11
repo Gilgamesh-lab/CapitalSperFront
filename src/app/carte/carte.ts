@@ -8,7 +8,7 @@ import { typesDePouvoirs } from "./typesDePouvoirs";
 export class Carte {
 
   id: number; // nom "id" obligatoire pour faire fonctionner InMemoryDataService
-  camps: Camp;
+  camps: Array<Camp>;
   nom: string;
   illustration: string;
   imageCarte: string;
@@ -23,7 +23,7 @@ export class Carte {
   periodiciter: Boolean; // (si  null = ne se réveille pas, si false = se réveille seulement la première nuit, si true = se réveille chaque nuit)
 
   constructor(
-    camps: Camp = CAMPS[0],
+    camps: Camp[] = [CAMPS[0]],
     name: string = 'Entrer un nom',
     illustration: string = 'Entrer une image',
     imageCarte: string = 'Entrer une image',

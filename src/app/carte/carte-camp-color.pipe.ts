@@ -18,7 +18,7 @@ export class carteCampColorPipe implements PipeTransform {
         color = 'red';
         break;
       case 3:
-          color = 'indigo';
+          color = '607d8b blue-grey';
           break;
       case 4:
           color = 'orange';
@@ -38,9 +38,7 @@ export class carteCampColorPipe implements PipeTransform {
       color += ' lighten-1';
     }
 
-    else if(type == 3 ){
-      color += ' lighten-5';
-    }
+    
   
     return color;
   
