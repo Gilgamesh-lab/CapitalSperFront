@@ -18,7 +18,7 @@
                 <td class="left colonne" ><em>{{ typesDeCartes.description}}</em></td>
               </tr>
               <tr >
-                <td> Liste des cartes {{ typesDeCartes.nom.toLocaleLowerCase()}}s  :</td>
+                <td style="width: 20%;"> Liste des cartes {{ typesDeCartes.nom.toLocaleLowerCase()}}s  :</td>
                     <td class="center colonne inline pointeur" (click)="goTocarte(carte)" *ngFor="let carte of getcartesQuiACeTypeDeCartes(typesDeCartes)">
                         <em >
                             <img class="responsive-img center" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />

@@ -23,7 +23,7 @@
                   <em>{{ typesDePouvoirs.description}}</em></td>
               </tr>
               <tr >
-                <td> Liste des {{ typesDePouvoirs.nomMembre}}  :</td>
+                <td style="width: 20%;"> Liste des {{ typesDePouvoirs.nomMembre}}  :</td>
                     <td class="center colonne inline pointeur" (click)="goTocarte(carte)" *ngFor="let carte of getcartesQuiACeTypeDePouvoirs(typesDePouvoirs)">
                         <em >
                             <img class="responsive-img center" width="15%" [src]="carte.illustration"  [alt]="carte.nom" />
