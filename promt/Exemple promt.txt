@@ -1,0 +1,22 @@
+{
+  "description": "Dessine un vieux chevalier à l'épée rouillée",
+  "style": "cartoon humoristique,  illustration numérique satirique, BD humoristique",
+  "ambiance": "serein, calme",
+  "niveau_detail": "Élevé",
+  "point_de_vue": "Gros plan sur le chevalier",
+  "format_image": "1024x1024",
+  "éléments_spécifiques": [
+    "Le chevalier porte un casque",
+    "le chevalier a les yeux fermés",
+    "Le chevalier tient son épée devant lui avec sa main droite"
+    "L'épée du chevalier est rouillé avec des bouts qui se sont enlevés",
+    "Le chevalier à une barbe blanche longue de plusieurs centimètres",
+    "Le chevalier porte une armure marron",
+    "Le chevalier est de face",
+    "Le personnage doit apparaitre en entier sur l'image"
+  ],
+  "éléments_à_exclure": [
+    "Présence d'autres personnes",
+    "Objets modernes"
+  ]
+}
