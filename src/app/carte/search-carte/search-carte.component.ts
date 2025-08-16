@@ -105,6 +105,11 @@ export class SearchcarteComponent implements OnInit{
     this.router.navigate(link);
   }
 
+  goToTypeDepouvoirDetail(concept: Concept){
+    const link = ['/typesDePouvoirs', concept.id];
+    this.router.navigate(link);
+  }
+
   action(concept: Concept): void{
     if( this.isCapitalSper && concept.typeDeConcept == 1){
       let carte: Carte = this.mappageConceptToCarte(concept);
@@ -123,6 +128,10 @@ export class SearchcarteComponent implements OnInit{
 
         case(2):
           this.goToCampDetail(concept);
+          break
+        
+        case(3):
+          this.goToTypeDepouvoirDetail(concept);
           break
           
       }

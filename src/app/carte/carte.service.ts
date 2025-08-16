@@ -295,7 +295,11 @@ export class carteService {
   }
 
   mappageCampToConcept(camp: Camp): Concept{
-    return new Concept(camp.id, "Les " + camp.nom, camp.illustration, 2, null, true);
+    return new Concept(camp.id, "Le camp des " + camp.nom, camp.illustration, 2, null, true);
+  }
+
+  mappageTypeDePouvoirToConcept(typeDePouvoir: typesDePouvoirs): Concept{
+    return new Concept(typeDePouvoir.id, "Le pouvoir " + typeDePouvoir.determinant + typeDePouvoir.nom.toLowerCase(), typeDePouvoir.illustration, 3, null, true);
   }
 
   cherchercarte(mot: string): Observable<Concept[]>{
@@ -307,6 +311,7 @@ export class carteService {
 
     if(!isCapitalSper){
       CAMPS.filter(camp => this.CampsEstActiver(camp)).map(camp => this.mappageCampToConcept(camp)).forEach(concept=> carteConcept.push(concept));
+      TYPESDEPOUVOIR.filter(typesDePouvoirs => this.typeDePouvoirsEstActiver(typesDePouvoirs)).map(typesDePouvoirs => this.mappageTypeDePouvoirToConcept(typesDePouvoirs)).forEach(concept=> carteConcept.push(concept));
     }
     
 
@@ -327,6 +332,15 @@ export class carteService {
     }
     else{
       return this.cartes.filter((carte) => carte.camps != null && carte.camps.includes(camp)).length > 0;
+    }
+  }
+
+  public typeDePouvoirsEstActiver(typesDePouvoirs: typesDePouvoirs): boolean{
+    if(this.auth.isLoggedIn ){
+      return true;
+    }
+    else{
+      return this.cartes.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs)).length > 0;
     }
   }
 
