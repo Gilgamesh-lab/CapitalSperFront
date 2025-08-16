@@ -14,6 +14,8 @@ import { AuthService } from '../auth.service';
 import { UtilsService } from '../utils.service';
 import { Router } from '@angular/router';
 import { Concept } from '../concept';
+import { typesDeCartes } from './typesDeCartes';
+import { TYPESDECARTES } from './mock-typesDeCartes-list';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -295,11 +297,15 @@ export class carteService {
   }
 
   mappageCampToConcept(camp: Camp): Concept{
-    return new Concept(camp.id, "Le camp des " + camp.nom, camp.illustration, 2, null, true);
+    return new Concept(camp.id, "Le camp des " + camp.nom.toLowerCase(), camp.illustration, 2, null, true);
   }
 
   mappageTypeDePouvoirToConcept(typeDePouvoir: typesDePouvoirs): Concept{
     return new Concept(typeDePouvoir.id, "Le pouvoir " + typeDePouvoir.determinant + typeDePouvoir.nom.toLowerCase(), typeDePouvoir.illustration, 3, null, true);
+  }
+
+  mappageTypeDecarteToConcept(typeDecarte: typesDeCartes): Concept{
+    return new Concept(typeDecarte.id, "Les cartes " + typeDecarte.nom.toLowerCase(), typeDecarte.illustration, 4, null, true);
   }
 
   cherchercarte(mot: string): Observable<Concept[]>{
@@ -312,6 +318,7 @@ export class carteService {
     if(!isCapitalSper){
       CAMPS.filter(camp => this.CampsEstActiver(camp)).map(camp => this.mappageCampToConcept(camp)).forEach(concept=> carteConcept.push(concept));
       TYPESDEPOUVOIR.filter(typesDePouvoirs => this.typeDePouvoirsEstActiver(typesDePouvoirs)).map(typesDePouvoirs => this.mappageTypeDePouvoirToConcept(typesDePouvoirs)).forEach(concept=> carteConcept.push(concept));
+      TYPESDECARTES.filter(typeDecarte => this.typeDeCarteEstActiver(typeDecarte)).map(typeDecarte => this.mappageTypeDecarteToConcept(typeDecarte)).forEach(concept=> carteConcept.push(concept));
     }
     
 
@@ -342,6 +349,16 @@ export class carteService {
     else{
       return this.cartes.filter((carte) => carte.typesPouvoir != null && carte.typesPouvoir.includes(typesDePouvoirs)).length > 0;
     }
+  }
+
+  public typeDeCarteEstActiver(typesDeCartes: typesDeCartes): boolean{
+    if(this.auth.isLoggedIn ){
+      return true;
+    }
+    else{
+      return this.cartes.filter((carte) =>  carte.typeDeCarte.id == typesDeCartes.id) .length > 0;
+    }
+    
   }
 
   private log(response: any){

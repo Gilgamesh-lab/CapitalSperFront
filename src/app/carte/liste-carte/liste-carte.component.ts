@@ -43,7 +43,7 @@ const app = initializeApp(firebaseConfig);
 @Component({
   selector: 'app-liste-carte',
   standalone: true,
-  imports: [AppComponent, CommonModule, carteCampColorPipe, SearchcarteComponent, LoaderComponent, BorderCardDirective],
+  imports: [CommonModule, carteCampColorPipe, SearchcarteComponent, LoaderComponent],
   templateUrl: './liste-carte.component.html',
   styleUrl: './liste-carte.component.css'
 })
