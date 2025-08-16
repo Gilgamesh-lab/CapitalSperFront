@@ -13,6 +13,7 @@ import axios from 'axios';
 import { AuthService } from '../auth.service';
 import { UtilsService } from '../utils.service';
 import { Router } from '@angular/router';
+import { Concept } from '../concept';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -289,19 +290,44 @@ export class carteService {
     )
   }
 
-  cherchercarte(mot: string): Observable<Carte[]>{
+  mappageCarteToConcept(carte: Carte): Concept{
+    return new Concept(carte.id, carte.nom, carte.illustration, 1, carte.idOrdreAppel, carte.estActiver);
+  }
+
+  mappageCampToConcept(camp: Camp): Concept{
+    return new Concept(camp.id, "Les " + camp.nom, camp.illustration, 1, null, true);
+  }
+
+  cherchercarte(mot: string): Observable<Concept[]>{
    let isCapitalSper: boolean = this.router.url.includes('capital-sper');
+   let carteConcept: Concept[] = this.cartes.map(carte => this.mappageCarteToConcept(carte));
     if(mot.length < 2){
       return of([]);
     }
 
-    const resultats = this.cartes.filter( carte =>
+    if(!isCapitalSper){
+      CAMPS.filter(camp => this.CampsEstActiver(camp)).map(camp => this.mappageCampToConcept(camp)).forEach(concept=> carteConcept.push(concept));
+    }
+    
+
+    const resultats = carteConcept.filter( carte =>
       carte.nom.toLowerCase().includes(mot.toLowerCase()   ) 
     ); // Promise.all(this.getObjet()).then(resultats => resultats.filter(id => id == carte.idOrdreAppel)   )
+    
+    
 
     return of(resultats).pipe(
       catchError((error) => this.handleErreur(error, []))
     );
+  }
+
+  public CampsEstActiver(camp: Camp): boolean{
+    if(this.auth.isLoggedIn ){
+      return true;
+    }
+    else{
+      return this.cartes.filter((carte) => carte.camps != null && carte.camps.includes(camp)).length > 0;
+    }
   }
 
   private log(response: any){

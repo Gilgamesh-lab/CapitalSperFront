@@ -65,6 +65,7 @@ export class ListecarteComponent implements OnInit {
     }
     this.ListeDecartes = this.carteService.cartes;
     this.bdd.createDb();
+    this.carteService.resetCarteCapitalSper();
   }  
 
   

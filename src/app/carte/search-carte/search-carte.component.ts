@@ -8,6 +8,8 @@ import { AuthService } from '../../auth.service';
 import { CapitalSperComponent } from '../../capital-sper/capital-sper.component';
 import { CARTES } from '../mock-cartes-list';
 import { FormsModule } from '@angular/forms';
+import { Concept } from '../../concept';
+import { typesDeCartes } from '../typesDeCartes';
 
 
 @Component({
@@ -20,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 export class SearchcarteComponent implements OnInit{
 
   searchTerms = new Subject<string>();// flux de données dans le temps de l'utilisateur lettre après lettre(= historique champs de recherche)
-  cartes: Observable<Carte[]>;
+  cartes: Observable<Concept[]>;
   isCapitalSper: boolean;
   string; mot;
   carteDisponible: number[];
@@ -42,16 +44,18 @@ export class SearchcarteComponent implements OnInit{
       distinctUntilChanged(),
       //  {...."ab"........abc......}
       //map((mot) => this.carteService.cherchercarte(mot));
-      // concatMap / mergeMap / SwitchMap
+      // concatMap / mergeMap / SwitchMap,
       switchMap((mot) => this.carteService.cherchercarte(mot)),
-      pipe(map((arr =>
+      pipe(map( (arr =>
         arr.filter( r => ((r.estActiver === true || this.auth.isLoggedIn) && (!this.isCapitalSper || this.carteDisponible.filter(id => id == r.idOrdreAppel).length != 0)
-        && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0)  )  )  )))
+        && (this.carteService.getCarteCapitalSper().filter(carte2 => r.id == carte2.id).length == 0)  )  ))))
     );
+ 
     
     
     //&& ((await this.getObjet().then()).filter(id => id == carte.idOrdreAppel).length != 0)
   }
+
 
   async init(): Promise<void>{
     this.cartes =  this.searchTerms.pipe(
@@ -82,18 +86,23 @@ export class SearchcarteComponent implements OnInit{
       return "Ajouter une carte"
     }
   }
+  
+  mappageConceptToCarte(concept: Concept): Carte{
+    return CARTES.find(carte => carte.id == concept.id);
+  }
 
   getCartes(): Carte[]{
     return this.carteService.cartes;
   }
 
-  goToDetail(carte: Carte){
-    const link = ['/cartes', carte.id];
+  goToDetail(concept: Concept){
+    const link = ['/cartes', concept.id];
     this.router.navigate(link);
   }
 
-  action(carte: Carte): void{
-    if( this.isCapitalSper){
+  action(concept: Concept): void{
+    if( this.isCapitalSper && concept.typeDeConcept == 1){
+      let carte: Carte = this.mappageConceptToCarte(concept);
       this.incrementerNb(carte);
       if(carte.id != CARTES[0].id && carte.id != CARTES[1].id){
         this.init();
@@ -102,7 +111,12 @@ export class SearchcarteComponent implements OnInit{
       
     }
     else{
-      this.goToDetail(carte);
+      switch(concept.typeDeConcept){
+        case(1):
+          this.goToDetail(concept);
+          
+      }
+      
     }
 
   }
