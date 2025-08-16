@@ -95,8 +95,13 @@ export class SearchcarteComponent implements OnInit{
     return this.carteService.cartes;
   }
 
-  goToDetail(concept: Concept){
+  goToCarteDetail(concept: Concept){
     const link = ['/cartes', concept.id];
+    this.router.navigate(link);
+  }
+
+  goToCampDetail(concept: Concept){
+    const link = ['/camps', concept.id];
     this.router.navigate(link);
   }
 
@@ -113,7 +118,12 @@ export class SearchcarteComponent implements OnInit{
     else{
       switch(concept.typeDeConcept){
         case(1):
-          this.goToDetail(concept);
+          this.goToCarteDetail(concept);
+          break
+
+        case(2):
+          this.goToCampDetail(concept);
+          break
           
       }
       

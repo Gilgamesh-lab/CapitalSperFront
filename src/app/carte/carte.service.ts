@@ -295,7 +295,7 @@ export class carteService {
   }
 
   mappageCampToConcept(camp: Camp): Concept{
-    return new Concept(camp.id, "Les " + camp.nom, camp.illustration, 1, null, true);
+    return new Concept(camp.id, "Les " + camp.nom, camp.illustration, 2, null, true);
   }
 
   cherchercarte(mot: string): Observable<Concept[]>{
