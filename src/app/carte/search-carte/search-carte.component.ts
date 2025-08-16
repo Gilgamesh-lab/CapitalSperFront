@@ -8,8 +8,9 @@ import { AuthService } from '../../auth.service';
 import { CapitalSperComponent } from '../../capital-sper/capital-sper.component';
 import { CARTES } from '../mock-cartes-list';
 import { FormsModule } from '@angular/forms';
-import { Concept } from '../../concept';
+
 import { typesDeCartes } from '../typesDeCartes';
+import { Page } from '../../page';
 
 
 @Component({
@@ -22,7 +23,7 @@ import { typesDeCartes } from '../typesDeCartes';
 export class SearchcarteComponent implements OnInit{
 
   searchTerms = new Subject<string>();// flux de données dans le temps de l'utilisateur lettre après lettre(= historique champs de recherche)
-  cartes: Observable<Concept[]>;
+  cartes: Observable<Page[]>;
   isCapitalSper: boolean;
   string; mot;
   carteDisponible: number[];
@@ -80,43 +81,44 @@ export class SearchcarteComponent implements OnInit{
 
   getMessage(): String{
     if(!this.isCapitalSper){
-      return "Rechercher une carte";
+      return "Rechercher une page";
     }
     else{
       return "Ajouter une carte"
     }
   }
   
-  mappageConceptToCarte(concept: Concept): Carte{
-    return CARTES.find(carte => carte.id == concept.id);
+  mappageConceptToCarte(page: Page): Carte{
+    return CARTES.find(carte => carte.id == page.id);
   }
 
   getCartes(): Carte[]{
     return this.carteService.cartes;
   }
 
-  goToCarteDetail(concept: Concept){
-    const link = ['/cartes', concept.id];
-    this.router.navigate(link);
+  goToCarteDetail(page: Page){
+    this.router.navigate(['/cartes', page.id]);
   }
 
-  goToCampDetail(concept: Concept){
-    const link = ['/camps', concept.id];
-    this.router.navigate(link);
+  goToCampDetail(page: Page){
+    this.router.navigate(['/camps', page.id]);
   }
 
-  goToTypeDepouvoirDetail(concept: Concept){
-    const link = ['/typesDePouvoirs', concept.id];
-    this.router.navigate(link);
+  goToTypeDepouvoirDetail(page: Page){
+    this.router.navigate(['/typesDePouvoirs', page.id]);
   }
 
-  goToTypeDeCarte(concept: Concept){
-    this.router.navigate(['/typesDeCartes', concept.id]);
+  goToTypeDeCarte(page: Page){
+    this.router.navigate(['/typesDeCartes', page.id]);
   }
 
-  action(concept: Concept): void{
-    if( this.isCapitalSper && concept.typeDeConcept == 1){
-      let carte: Carte = this.mappageConceptToCarte(concept);
+  goToStatut(page: Page){
+    this.router.navigate(['/statut', page.id]);
+  }
+
+  action(page: Page): void{
+    if( this.isCapitalSper && page.typeDeConcept == 1){
+      let carte: Carte = this.mappageConceptToCarte(page);
       this.incrementerNb(carte);
       if(carte.id != CARTES[0].id && carte.id != CARTES[1].id){
         this.init();
@@ -125,21 +127,25 @@ export class SearchcarteComponent implements OnInit{
       
     }
     else{
-      switch(concept.typeDeConcept){
+      switch(page.typeDeConcept){
         case(1):
-          this.goToCarteDetail(concept);
+          this.goToCarteDetail(page);
           break
 
         case(2):
-          this.goToCampDetail(concept);
+          this.goToCampDetail(page);
           break
         
         case(3):
-          this.goToTypeDepouvoirDetail(concept);
+          this.goToTypeDepouvoirDetail(page);
           break
 
         case(4):
-          this.goToTypeDeCarte(concept);
+          this.goToTypeDeCarte(page);
+          break
+
+        case(5):
+          this.goToStatut(page);
           break
           
       }

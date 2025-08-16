@@ -145,6 +145,23 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         bruitage: "bruitages/voleur.mp3",
     },
     {
+        id: 13,
+        nom: "Le Capitaine",
+        illustration: "illustration/maire.png",
+        imageCarte:  "carte/maireCarte.png",
+        camps: null,
+        typesPouvoir: [TYPESDEPOUVOIR[2]],
+        imageLore:  "lore/maireLore.png",
+        description: "Le capitaine ou plus communément appelée maire est élue par vote à la majorité relative. " +
+        "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur.",
+        typeDeCarte: TYPESDECARTES[1],
+        nomDuBatiment: null,
+        estActiver: true,
+        periodiciter: null,
+        idOrdreAppel: 98, // pour la synchronisation avec le back
+        bruitage: "bruitages/capitaine.mp3",
+    },
+    {
         id: 25,
         nom: "Le Loup-Garou Blanc",
         illustration: "illustration/loup_garou_blanc.png",
@@ -269,23 +286,6 @@ export const CARTES: Carte[] = [ // faire attention statut si chagement d'id d'u
         periodiciter: true,
         idOrdreAppel: 17,
         bruitage: null,
-    },
-    {
-        id: 13,
-        nom: "Le Capitaine",
-        illustration: "illustration/maire.png",
-        imageCarte:  "carte/maireCarte.png",
-        camps: null,
-        typesPouvoir: [TYPESDEPOUVOIR[2]],
-        imageLore:  "lore/maireLore.png",
-        description: "Le capitaine ou plus communément appelée maire est élue par vote à la majorité relative. " +
-        "Le capitaine possède 2 voix au lieu d’une, de plus c’est lui qui tranche en cas d’égalité. En cas de décès, dans son dernier souffle il désigne son successeur.",
-        typeDeCarte: TYPESDECARTES[1],
-        nomDuBatiment: null,
-        estActiver: true,
-        periodiciter: null,
-        idOrdreAppel: 98, // pour la synchronisation avec le back
-        bruitage: "bruitages/capitaine.mp3",
     },
     {
         id: 14,

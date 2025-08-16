@@ -1,8 +1,4 @@
-
-
-
-
-export class Concept {
+export class Page {
     id: number;
     nom: string;
     illustration: string;
@@ -15,7 +11,7 @@ export class Concept {
         id: number,
         name: string = 'Entrer un nom',
         illustration: string = 'Entrer une image',
-        typeDeConcept: number = 1, // 1 = cartes , 2 = camps, 3 = type de pouvoir et 4  type de carte
+        typeDeConcept: number = 1, // 1 = cartes , 2 = camps, 3 = type de pouvoir, 4 = type de carte et 5 = statut
         idOrdreAppel: number,
         estActiver: boolean
       ){

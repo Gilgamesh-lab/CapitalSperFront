@@ -13,9 +13,11 @@ import axios from 'axios';
 import { AuthService } from '../auth.service';
 import { UtilsService } from '../utils.service';
 import { Router } from '@angular/router';
-import { Concept } from '../concept';
 import { typesDeCartes } from './typesDeCartes';
 import { TYPESDECARTES } from './mock-typesDeCartes-list';
+import { Statut } from './statut';
+import { STATUT } from './mock-status-list';
+import { Page } from '../page';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7u45BBYDOQC_ivFSpoZnhK3zeUiyXBs",
@@ -292,37 +294,43 @@ export class carteService {
     )
   }
 
-  mappageCarteToConcept(carte: Carte): Concept{
-    return new Concept(carte.id, carte.nom, carte.illustration, 1, carte.idOrdreAppel, carte.estActiver);
+  mappageCarteToPage(carte: Carte): Page{
+    return new Page(carte.id, carte.nom, carte.illustration, 1, carte.idOrdreAppel, carte.estActiver);
   }
 
-  mappageCampToConcept(camp: Camp): Concept{
-    return new Concept(camp.id, "Le camp des " + camp.nom.toLowerCase(), camp.illustration, 2, null, true);
+  mappageCampToPage(camp: Camp): Page{
+    return new Page(camp.id, "Le camp des " + camp.nom.toLowerCase(), camp.illustration, 2, null, true);
   }
 
-  mappageTypeDePouvoirToConcept(typeDePouvoir: typesDePouvoirs): Concept{
-    return new Concept(typeDePouvoir.id, "Le pouvoir " + typeDePouvoir.determinant + typeDePouvoir.nom.toLowerCase(), typeDePouvoir.illustration, 3, null, true);
+  mappageTypeDePouvoirToPage(typeDePouvoir: typesDePouvoirs): Page{
+    return new Page(typeDePouvoir.id, "Le pouvoir " + typeDePouvoir.determinant + typeDePouvoir.nom.toLowerCase(), typeDePouvoir.illustration, 3, null, true);
   }
 
-  mappageTypeDecarteToConcept(typeDecarte: typesDeCartes): Concept{
-    return new Concept(typeDecarte.id, "Les cartes " + typeDecarte.nom.toLowerCase(), typeDecarte.illustration, 4, null, true);
+  mappageTypeDecarteToPage(typeDecarte: typesDeCartes): Page{
+    return new Page(typeDecarte.id, "Les cartes " + typeDecarte.nom.toLowerCase() + "s", typeDecarte.illustration, 4, null, true);
   }
 
-  cherchercarte(mot: string): Observable<Concept[]>{
+  mappageStatutToPage(statut: Statut): Page{
+    return new Page(statut.id, statut.nom, statut.illustration, 5, null, true);
+  }
+
+  cherchercarte(mot: string): Observable<Page[]>{
    let isCapitalSper: boolean = this.router.url.includes('capital-sper');
-   let carteConcept: Concept[] = this.cartes.map(carte => this.mappageCarteToConcept(carte));
+   let listePage: Page[] = this.cartes.map(carte => this.mappageCarteToPage(carte));
+
     if(mot.length < 2){
       return of([]);
     }
 
     if(!isCapitalSper){
-      CAMPS.filter(camp => this.CampsEstActiver(camp)).map(camp => this.mappageCampToConcept(camp)).forEach(concept=> carteConcept.push(concept));
-      TYPESDEPOUVOIR.filter(typesDePouvoirs => this.typeDePouvoirsEstActiver(typesDePouvoirs)).map(typesDePouvoirs => this.mappageTypeDePouvoirToConcept(typesDePouvoirs)).forEach(concept=> carteConcept.push(concept));
-      TYPESDECARTES.filter(typeDecarte => this.typeDeCarteEstActiver(typeDecarte)).map(typeDecarte => this.mappageTypeDecarteToConcept(typeDecarte)).forEach(concept=> carteConcept.push(concept));
+      CAMPS.filter(camp => this.CampsEstActiver(camp)).map(camp => this.mappageCampToPage(camp)).forEach(page=> listePage.push(page));
+      TYPESDEPOUVOIR.filter(typesDePouvoirs => this.typeDePouvoirsEstActiver(typesDePouvoirs)).map(typesDePouvoirs => this.mappageTypeDePouvoirToPage(typesDePouvoirs)).forEach(page=> listePage.push(page));
+      TYPESDECARTES.filter(typeDecarte => this.typeDeCarteEstActiver(typeDecarte)).map(typeDecarte => this.mappageTypeDecarteToPage(typeDecarte)).forEach(page=> listePage.push(page));
+      this.getStatuts().map(statut => this.mappageStatutToPage(statut)).forEach(page=> listePage.push(page));
     }
     
 
-    const resultats = carteConcept.filter( carte =>
+    const resultats = listePage.filter( carte =>
       carte.nom.toLowerCase().includes(mot.toLowerCase()   ) 
     ); // Promise.all(this.getObjet()).then(resultats => resultats.filter(id => id == carte.idOrdreAppel)   )
     
@@ -359,6 +367,10 @@ export class carteService {
       return this.cartes.filter((carte) =>  carte.typeDeCarte.id == typesDeCartes.id) .length > 0;
     }
     
+  }
+
+  getStatuts(): Statut[]{
+    return STATUT.filter((statut) => this.cartes.find((carte) => carte.id == statut.idCarteReferent));
   }
 
   private log(response: any){
