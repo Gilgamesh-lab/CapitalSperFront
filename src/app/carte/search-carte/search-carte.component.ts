@@ -59,6 +59,7 @@ export class SearchcarteComponent implements OnInit{
 
 
   async init(): Promise<void>{
+    this.isCapitalSper = this.router.url.includes('capital-sper');
     this.cartes =  this.searchTerms.pipe(
       //  {..."a"."ab"..."abz"."ab"....abc......}
       debounceTime(300), // pour éliminer des requêtes dont à pas besoin

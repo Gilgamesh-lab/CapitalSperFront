@@ -61,7 +61,7 @@ export const TYPESDEPOUVOIR: typesDePouvoirs[] = [
         nom: "Métamorphose",
         illustration:  "pouvoirs/metamorphose.png",
         description: "Le type de pouvoir métamorphose désigne tout les pouvoirs permettants de faire changer de camp ou de personnage au cours de la partie soi même ou autrui.",
-        nomMembre: "irréguliers",
+        nomMembre: "métamorphes",
         determinant: "de "
     }
     

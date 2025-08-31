@@ -334,7 +334,7 @@ export class carteService {
       carte.nom.toLowerCase().includes(mot.toLowerCase()   ) 
     ); // Promise.all(this.getObjet()).then(resultats => resultats.filter(id => id == carte.idOrdreAppel)   )
     
-    
+    //resultats.sort((a, b) => (a.nom > b.nom ? -1 : 1)); pertinent ?
 
     return of(resultats).pipe(
       catchError((error) => this.handleErreur(error, []))
