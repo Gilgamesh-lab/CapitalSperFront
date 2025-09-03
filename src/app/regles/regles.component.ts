@@ -10,6 +10,8 @@ import { CAMPS } from '../carte/mock-camps-list';
 import { STATUT } from '../carte/mock-status-list';
 import { Statut } from '../carte/statut';
 import { carteCampColorPipe } from "../carte/carte-camp-color.pipe";
+import { variante } from '../carte/variante';
+import { VARIANTES } from '../carte/mock-variantes-list';
 
 @Component({
   selector: 'app-regles',
@@ -109,5 +111,9 @@ export class ReglesComponent {
 
   estFonctionActiver():boolean{
     return  this.auth.isLoggedIn || (this.carteService.cartes.filter((carte) => carte.typeDeCarte.id == 2 ).length > 0);
+  }
+
+  getVariante():variante[]{
+    return VARIANTES.filter((variante) => variante.estActiver || this.auth.isLoggedIn );
   }
 }

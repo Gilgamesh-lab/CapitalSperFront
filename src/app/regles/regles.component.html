@@ -178,26 +178,14 @@
 
                 <br>
 
-                <h2>Variantes officiels</h2>
-                    
-                    <h3>Clair de Lune</h3>
-                    <img src="reglesDuJeu/clairDeLune.jpg" class="responsive-img" alt="image"/>
-                    <p>
-                        Dans un environnement obscur où l’on pourrait presque entendre le hurlement des loups, disposer devant chaque joueur une petite bougie allumée.
-                        Dorénavant, chaque matin le meneur souffle la bougie posée devant la ou les victimes nocturnes. 
-                        Et chaque soir, après le vote, la victime du village éteint sa propre bougie. 
-                        Il fera de plus en plus sombre dans le village, et les survivants seront alors les seuls bien visibles, tout prêts à être dévorés.
-                    </p>
-                
-                    <h3>Murs-murs</h3>
-                    <img src="reglesDuJeu/tableau.png" class="responsive-img" alt="image"/>
-                    <p>
-                        Chaque habitant de Thiercelieux encore en vie inscrit une courte phrase de son choix sur un petit papier et le donne au meneur.
-                        L’auteur de chaque graffiti doit rester anonyme, mais chacun est libre de son contenue : soupçons, avertissements, commentaire, dénonciations, compliments, déclaration d’amour… 
-                        Lorsqu’il les a tous récupérés, le meneur lit tous ces graffitis après les avoir mélangés. 
-                        Les habitants peuvent alors s’endormir l’esprit encore tout bouleversé par ces petis messages.
-                    </p>
-
+                <h2 *ngIf="getVariante().length > 0">Variantes officiels</h2>
+                    <span *ngFor=" let variante of getVariante()">
+                        <h3>{{variante.nom}}</h3>
+                        <img [src]="variante.illustration" class="responsive-img" [alt]="variante.nom"/>
+                        <p>
+                            {{variante.description}}
+                        </p>
+                    </span>
                 <h2>Déroulement du jeu</h2>
 
                 <p>
